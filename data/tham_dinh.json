@@ -1,0 +1,855 @@
+{
+  "_huong_dan": [
+    "Buoc 3 va Buoc 4 cua Triet_ly_dau_tu_FF5 do NGUOI lam, co quyen phu quyet.",
+    "Thieu ban ghi cho mot ma = 'chua tham dinh' = KHONG duoc mua. Day la co y:",
+    "neu mac dinh la 'dat' thi lop phu quyet khong ton tai.",
+    "",
+    "buoc3_tham_dinh — doanh nghiep -> nganh -> vi mo (Bang CL.2):",
+    "   dat  : tra loi duoc ca ba lop",
+    "   loai : bi phu quyet. BAT BUOC ghi ly_do — tai lieu yeu cau moi ma bi loai",
+    "          o buoc 3 deu duoc ghi vao so kem ly do cu the, de doi chieu ve sau",
+    "   chua : chua tham dinh",
+    "",
+    "buoc4_dinh_gia — gia hop ly + diem mua:",
+    "   dat  : gia hop ly, dang o vung cung co / gan MA trung han",
+    "   cho  : doanh nghiep dat nhung gia doi hoi moi gia dinh deu dung -> danh sach cho",
+    "   chua : chua dinh gia",
+    "",
+    "khuyen_nghi — ket luan tham dinh bang loi cua NGUOI, ghi nguyen van:",
+    "   'kha quan' | 'kem kha quan' | 'nam giu' | 'trung lap' | 'loai'.",
+    "   Day la truong goc; buoc3_tham_dinh/buoc4_dinh_gia la ban dich sang ma may doc.",
+    "   Quy uoc dich dang dung (chot 01/09/2026):",
+    "     kha quan     -> buoc3 dat; buoc4 dat neu gia < dinh gia",
+    "     kem kha quan -> buoc3 dat; buoc4 cho (gia da bang/vuot dinh gia co so,",
+    "                     chi con dat cuoc vao kich ban upside) -> KHONG mua moi",
+    "     nam giu      -> buoc3 dat; buoc4 dat -> GIU, KHONG giai ngan them",
+    "     trung lap    -> buoc3 dat; buoc4 chua (chua co dinh gia) -> khong mua",
+    "     loai         -> buoc3 loai, bat buoc co ly_do",
+    "",
+    "dinh_gia — don vi NGHIN DONG/CP (vi du 46.9 = 46.900d):",
+    "   co_so  : gia tri hop ly kich ban co so",
+    "   upside : gia tri hop ly kich ban thuan loi (neu co)",
+    "   Khi chi co MOT con so, ghi vao co_so tru khi nguoi noi ro do la upside.",
+    "",
+    "luan_diem — ghi lai LY DO MUA ngay tu dau. Ky ra soat sau doi chieu voi dung",
+    "   ban da ghi nay, khong duoc viet lai luan diem de tiep tuc nam giu.",
+    "   Voi 6 ma dang giu: day la LAN DAU ghi luan diem (chua tung ghi luc mua",
+    "   17-19/08) — ghi lai LY DO LUC MUA, khong phai ly do bay gio dang co lai/lo.",
+    "",
+    "luan_diem_con_nguyen — quy tac thoat so 4, chi dung cho ma DANG NAM GIU:",
+    "   true  : luan diem con nguyen ven -> giu",
+    "   false : luan diem da gay -> BAN toan bo trong ky ra soat nay",
+    "   khong ghi (null) : chua ra soat -> khong tu dong ban, nhung bao cao se",
+    "                      danh dau '[quy tac 4 chua ra soat]'",
+    "   Khong ap dung cho ma ung vien chua mua — de null va bo qua truong nay.",
+    "",
+    "_tham_khao — du lieu dinh luong da co san (gia, MA, ATR, RS, ngay chot du lieu),",
+    "   chi de doi chieu khi viet luan diem dinh tinh. KHONG phai ket luan tham dinh,",
+    "   va gia/MA co the da cu — kiem tra lai truoc ky soat 01/09 neu can.",
+    "   Xoa key nay khoi ban ghi sau khi da dien xong, khong bat buoc giu lai.",
+    "",
+    "Mau mot ban ghi day du:",
+    "   \"XYZ\": {",
+    "     \"buoc3_tham_dinh\": \"dat\",",
+    "     \"buoc4_dinh_gia\": \"dat\",",
+    "     \"khuyen_nghi\": \"kha quan\",",
+    "     \"dinh_gia\": { \"co_so\": 42.0, \"upside\": null },",
+    "     \"luan_diem\": \"vi sao mua, viet ngan gon, khong sua ve sau\",",
+    "     \"ly_do\": \"neu loai thi ghi ly do o day\",",
+    "     \"luan_diem_con_nguyen\": true,",
+    "     \"ngay\": \"2026-09-01\"",
+    "   }",
+    "",
+    "⚠️ 11/09/2026: TRUONG dinh_gia_qua_cao DA HET DUNG. Quy tac 5 doi thanh 'Ban theo",
+    "   cam quan thi truong cua quy' (xem QUY_TAC_5 trong lt_config.py); screener khong",
+    "   con doc truong nay. Huong dan cu ben duoi giu lai lam ban ghi lich su.",
+    "dinh_gia_qua_cao (them 07/09/2026) — dau hieu (b) cua QUY TAC THU NAM (BAN CU):",
+    "   true  : dinh gia da VUOT vung cao nhat vai nam gan nhat MA nang luc sinh",
+    "           loi khong doi tuong ung. Ghi kem ly_do.",
+    "   false : da xem xet va KHONG qua cao.",
+    "   thieu : KHONG danh gia duoc -> quy tac 5 khong chay cho ma nay. Day KHONG",
+    "           phai la 'khong qua cao'. lt_screener in dau '?'.",
+    "   Co y KHONG suy tu gia/co_so: co_so la GIA TRI HOP LY, khong phai 'vung dinh",
+    "   gia cao nhat'. Neu ban ghi true trong khi gia con duoi co_so, screener in",
+    "   [MAU THUAN] — da xay ra that ngay 07/09/2026 (ban VHM 77,70 / co_so 80,6)."
+  ],
+  "_trang_thai": "14/09/2026 (cap nhat lan 2 trong ngay): DA NHAP BA PHIEU THAM DINH BUOC 3 vao file — VHM va DHC (lap 13/09), MSB (lap 14/09). Cong voi STB (13/09) la BON PHIEU: MOT DAT (DHC 5/6), MOT CHO (MSB 3/6), HAI PHU QUYET (STB 1/6, VHM 3/6). [1] VHM: buoc3 doi 'dat' -> 'LOAI', khuyen_nghi 'nam giu' -> 'loai', buoc4 ha 'dat' -> 'cho'. Ba can cu DOC LAP: V3 bat (dong tien HD 3 nam = 18,1% LNST, nguong 50%), V4 bat (tai san ben lien quan 185.680 ty = 67,8% VCSH, nguong 30%), truc C = 0. HAI VIEC CHO NGUOI QUYET: (a) luan_diem_con_nguyen van NULL — dat false thi quy tac thoat 4 BAN TOAN BO 50 CP dang giu (tien le STB: 13/09 cham phieu -> 14/09 dat false -> ban); (b) ke hoach MUA LAI 50 CP @75.200 han 16/10 trong LENH_NGOAI_LUAT DA MAT CAN CU — ma bi phu quyet Buoc 3 khong duoc mua moi duoi bat ky gia nao — de xuat HUY ngay, khong doi 16/10. [2] DHC: GIU 'dat'/'kha quan', luan_diem_con_nguyen = TRUE. 5/6 diem, khong cong nao bat, V4 bang 0 DONG, chiu duoc mot lan ha diem. Da ghi ba luan diem (nhip C) va ba day bay (nhip D) — ma DUY NHAT trong bon phieu di het ca bon nhip. XUNG DOT CHO NGUOI CHOT: phieu dan gia muc tieu 51.000 trong khi co_so trong file la 42.000 (chenh 21,4%) — KHONG tu sua vi Buoc 4 la viec cua nguoi; gia 35.700-36.400 van duoi ca hai nen buoc4 giu 'dat'. [3] MSB: buoc3 GIU 'dat' (= KHONG BI PHU QUYET) nhung ket luan that la 'CHO'; khuyen_nghi ha 'kha quan' -> 'kem kha quan', buoc4 ha 'dat' -> 'cho' => KHONG MUA MOI. Day la phieu MONG NHAT: suc chiu ha diem = 0 (1+1+1); mot bac len o truc A ra 'Dat', mot bac xuong o truc A hoac C ra 'Phu quyet'. Hai duong xuong phu quyet deu la cach doc HOP LY: ap dung chuan truc C ma chinh bo phieu nay da dung cho VHM mot ngay truoc, hoac lay COE 15,00% ngu y tu P/B cuoi 2025. luan_diem_con_nguyen de NULL CO Y (phieu khong lam gay luan diem nhung cung khong xac nhan no con nguyen). MSB dang chiem 18,83% NAV DM2 — ty trong cao nhat — ma chua co phieu 'Dat' nao do. Sao luu truoc khi sua: data/tham_dinh_backup_20260914c.json. CON THIEU: (1) truong luan_diem van rong o BSR/GMD/LPB/HCM — phai tu viet, khong duoc suy ra tu khuyen_nghi; (2) luan_diem_con_nguyen chua ra soat cho MSB va BSR (VHM cho nguoi xac nhan false; DHC da dat true); (3) HCM 'trung lap' chua co dinh gia nen buoc4 van 'chua'; (4) HDB qua bo loc nhung CHUA tham dinh.",
+  "MSB": {
+    "buoc3_tham_dinh": "dat",
+    "buoc4_dinh_gia": "cho",
+    "khuyen_nghi": "kem kha quan",
+    "dinh_gia": {
+      "co_so": null,
+      "upside": 17.9,
+      "ghi_chu": "buoc3 = 'dat' o day CHI nghia la KHONG BI PHU QUYET. Ket luan that cua phieu 14/09/2026 la 'CHO' (3/6 diem, khong cong nao bat, khong truc nao bang 0). Tu vung cua file khong co gia tri 'cho' cho buoc3 nen dich thanh 'dat' + khuyen_nghi 'kem kha quan' -> buoc4 'cho' -> KHONG MUA MOI. Phieu KHONG ket luan phai ban; no ket luan rang CHUA CO PHIEU 'DAT' NAO DO CHO TY TRONG 18,83% NAV (cao nhat danh muc 2 tai 17/08/2026) — mot ma o vi tri nay khong nen la vi the lon nhat. | Ghi chu dinh gia cu: 17,90 la gia TRUOC chia co tuc CO PHIEU 100:20 (GDKHQ 28/08). Quy ve sau chia: 17,9/1,2 = 14,92. So voi gia 13,25 (28/08) -> upside ~12,6%."
+    },
+    "luan_diem": "GHI HOI TO 14/09/2026. LY DO MUA (17-19/08/2026): MSB qua bo loc MA200 + RS va giu suat cuoi bang xep hang top-40%, voi loi the co cau duoc goi ten la CASA 28,94% thuoc nhom cao nhat he thong va DANG DI LEN (26,54% -> 26,42% -> 28,94%), keo theo NIM 3,22% cao hon binh quan nganh 2,87% khoang 35 diem co ban, va CIR cai thien deu 41,39% (2022) -> 36,14% (2025). Do la luan diem 'ngan hang co nen tien gui re va bo may dang re di'. Phieu 14/09 KHONG bac luan diem nay — cac su kien van dung — nhung do duoc rang loi the do CHUA BAO VE DUOC BIEN: CASA phuc hoi trong 2025 ma NIM van roi 3,57% -> 3,22% trong dung nam do.",
+    "ly_do": "",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-14",
+    "_tham_khao": "Vi the DM2: 840 CP, gia von 13.333 (sau chia co tuc CP 100:20, GDKHQ 28/08; truoc do 700 CP @16.000 — tong von khong doi). TY TRONG 18,83% NAV DM2 tai 17/08/2026 — CAO NHAT trong bay ma, va phieu 14/09 ghi ro chua co phieu 'Dat' nao do cho ty trong do. MOI SO LIEU GIA DUOI DAY DA CHIA 1,2, doi chieu voi ban ghi cu phai nhan 1,2. Sang 28/08: 13.250 (+1,27% so tham chieu 13.083), lai/lo -0,63%. MA50 13.299, MA200 11.256, ATR% 2,44, RS12T +0,7 diem so VNINDEX — MONG NHAT trong 6 ma (nguong ban la -5). Ky soat 26/08 MSB giu suat cuoi bang xep hang voi 0,48 diem, hon HCM 0,47 — rat sat. Ghi chu cu: chot 26/08 15.350 = 12.792 sau chia; ngay 26/08 MSB -1,60% khi VNINDEX +1,67%.",
+    "buoc3_chi_tiet": {
+      "ngay_lap": "2026-09-14",
+      "het_han": "2026-12-13",
+      "nguoi_lap": "Phong Rui ro",
+      "so_nen": "BCTC hop nhat kiem toan 2021-2025 va BCTC hop nhat ban nien 2026 DA SOAT XET (D:\\Broker\\MSB), BCTN 2022-2025. BCKT FY2025 do EY ky 26/03/2026; bao cao soat xet 6T/2026 do KPMG ky 14/08/2026 (so 26-02-00149-26-2).",
+      "ket_qua": "CHO",
+      "loai_hinh_cong_dong_tien": "Ngan hang -> ap V3b (khong phai V3)",
+      "diem": {
+        "A_kinh_te_doanh_nghiep": 1,
+        "B_do_ben_loi_the": 1,
+        "C_quan_tri_phan_bo_von": 1,
+        "tong": 3,
+        "luat": "tong dung 3 -> CHO; khong truc nao = 0 (nen khong phu quyet vi truc); khong cong phu quyet nao bat"
+      },
+      "canh_bao_quan_trong_nhat": "DAY LA PHIEU MONG NHAT TRONG BON PHIEU. Mot bac diem o BAT KY truc nao cung doi ket luan: noi mot truc ra \"Dat\", ha mot truc xuong \"Phu quyet\". SUC CHIU HA DIEM = 0 (so sanh: DHC chiu duoc 1; VHM co 3 can cu doc lap). Phan kiem dinh do ben la phan QUAN TRONG NHAT cua phieu nay, KHONG PHAI phan cham diem.",
+      "diem_cang_nhat": "Trong MUOI TAM THANG tinh den 30/06/2026, tong tai san MSB TANG 37,7% con loi nhuan TRUOC DU PHONG DUNG YEN TUYET DOI: 8.988 ty (2024), 8.977 ty (2025), 8.920 ty (quy nam tu nua dau 2026). Co may van hanh khong lon them mot dong nao trong khi bang can doi phinh ra hon mot phan ba. Quy ve tai san binh quan, hieu suat roi 3,062% -> 2,102%, MAT 31,4% trong 18 thang. Dong thoi du phong lay di mot ty le ON DINH 21-23% loi nhuan truoc du phong suot ba ky. Ket luan sach: BIEN DONG LOI NHUAN MSB KHONG NAM O DONG DU PHONG, NO NAM O VAN HANH — chan doan TRAI NGUOC hoan toan voi STB, noi moi thu xay ra o dong du phong.",
+      "nam_cong_phu_quyet": {
+        "V1_mo_ta_cach_kiem_tien": "KHONG BAT — viet du 10 dong, va 96,3% tai san van mo ta duoc bang ngon ngu thuong. NHUNG BA KHOAN MUC cong lai 16.530 ty = 36,5% VCSH chi goi ten duoc bang thuat ngu hop dong cua chinh MSB (Thuyet minh 15.1.2): (a) phai thu mua han mien truy doi bo chung tu do Ngan hang phat hanh 2.382.577 -> 9.229.281 trieu (+287%, = 20,40% VCSH); (b) phai thu tu cac hop dong ban no cho doi tac 4.001.159 trieu — KHONG DOI MOT DONG NAO qua sau thang (8,84% VCSH); (c) dat coc thue van phong 3.309.949 -> 3.299.743 trieu (7,29% VCSH). Khong khoan nao neu doi tac, ky han, lai suat hay co so danh gia suy giam gia tri. Ba dong nay la bang chung cho TRUC C, va dong (a) la bang chung cho ca TRUC A.",
+        "V2_y_kien_kiem_toan": "KHONG BAT — SACH NHAT trong bon phieu. EY ky nam nam lien tiep FY2021-FY2025, deu chap nhan toan phan, FY2025 KHONG co doan \"Van de can nhan manh\". Chuyen sang KPMG tu 6T/2026 la DOI THEO LUAT (tran 5 nam cua TT 39/2011 Dieu 11 khoan 8), khong phai doi vi bat dong; doan \"Van de khac\" cua KPMG xac nhan kiem toan tien nhiem da dua y kien chap nhan toan phan cho ca FY2025 va 6T/2025. Sach hon STB (STB co doan nhan manh ve de an tai co cau suot nam nam). DO MONG PHAI GHI: khong cong bo phi kiem toan; KHONG tim thay trong BCTN 2025 nghi quyet hay tieu chi lua chon cong ty kiem toan, cung khong thay ve bieu quyet cua DHDCD — khac DHC (nghi quyet 20/NQ-HDQT co neu tieu chi). Nen \"khong co bang chung bat dong\" o day van phai doc la \"khong co kenh nao de bat dong lo ra\".",
+        "V3b_lai_phi_phai_thu": "KHONG BAT — cong doi DONG THOI ty le tang VA bao phu giam trong BA KY LIEN TIEP. Ty le noi bang: 1,897% -> 1,530% -> 2,503% -> 2,815% (GIAM o 2024 nen chi co hai lan tang lien tiep). Bao phu: 55,19% -> 64,09% -> 51,64% -> 51,55% (TANG o 2024 nen chi co hai lan giam lien tiep). Va o dung ky duy nhat hai chi so cung dong (2024), chung cung dong ve phia TOT. KHONG BE CONG de phan anh bang chung nang — bang chung duoc chuyen sang truc A va truc C, co giai thich.",
+        "V4_ben_lien_quan_tren_VCSH": "KHONG BAT — tang chat (chi phai thu va cho vay) 1,065% VCSH tai 30/06/2026, CACH NGUONG 30% khoang 28 LAN. Nhung TANG 3,2 LAN trong sau thang (0,337% -> 1,065%). Khong co tang rong de trinh bay vi thuyet minh khong co khoan gop von hop tac nao voi ben lien quan.",
+        "V5_xu_phat_cong_bo_pha_loang": "KHONG BAT — xem V5_chi_tiet."
+      },
+      "V3b_bang": [
+        {
+          "ky": "2023-12-31",
+          "lai_phi_phai_thu_trieu": 5065400,
+          "tren_tong_TS": "1,897%",
+          "no_xau_trieu": 4280829,
+          "ty_le_no_xau": "2,870%",
+          "du_phong_tong_trieu": 2362747,
+          "bao_phu": "55,19%",
+          "du_phong_cu_the_trieu": null,
+          "bao_phu_cu_the": null,
+          "so_ngay_lai_ton": null
+        },
+        {
+          "ky": "2024-12-31",
+          "lai_phi_phai_thu_trieu": 4897832,
+          "tren_tong_TS": "1,530% (GIAM)",
+          "no_xau_trieu": 4721241,
+          "ty_le_no_xau": "2,675%",
+          "du_phong_tong_trieu": 3026070,
+          "bao_phu": "64,09% (TANG)",
+          "du_phong_cu_the_trieu": 1724445,
+          "bao_phu_cu_the": "36,53%",
+          "so_ngay_lai_ton": 95.7
+        },
+        {
+          "ky": "2025-12-31",
+          "lai_phi_phai_thu_trieu": 10202761,
+          "tren_tong_TS": "2,503%",
+          "no_xau_trieu": 5520348,
+          "ty_le_no_xau": "2,690%",
+          "du_phong_tong_trieu": 2850595,
+          "bao_phu": "51,64%",
+          "du_phong_cu_the_trieu": 1335298,
+          "bao_phu_cu_the": "24,19%",
+          "so_ngay_lai_ton": 172.4
+        },
+        {
+          "ky": "2026-06-30",
+          "lai_phi_phai_thu_trieu": 12416173,
+          "tren_tong_TS": "2,815%",
+          "no_xau_trieu": 5826089,
+          "ty_le_no_xau": "2,528%",
+          "du_phong_tong_trieu": 3003191,
+          "bao_phu": "51,55%",
+          "du_phong_cu_the_trieu": 1303239,
+          "bao_phu_cu_the": "22,37%",
+          "so_ngay_lai_ton": 159.6
+        }
+      ],
+      "V3b_gioi_han_kiem_dinh": "Cong viet bang don vi QUY. Trong D:\\Broker\\MSB chi co BCTC nam va ban nien, KHONG co BCTC quy. Bon diem quan sat tren la tan suat nam va ban nien. Can BCTC quy I va III/2025 cung quy I/2026 moi kiem duoc dung nhu cong viet — va dang chu y la chuoi QUY CO THE cho ba lan tang lien tiep trong khoang 2025 ma chuoi nam che mat, vi TOAN BO muc tang cua 2025 (1,530% -> 2,503%) xay ra ben trong mot nam khong nhin thay phan bo.",
+      "V3b_cho_phai_cong_bang": [
+        "1. Do theo THU NHAP LAI thi chieu DAO: so ngay lai ton nhay 95,7 -> 172,4 ngay trong 2025 nhung roi GIAM xuong 159,6 ngay o nua dau 2026, vi thu nhap lai tang 40,5% trong khi lai phai thu chi tang 21,7%. Ty le tren tong tai san van tang CHI VI tai san tang cham hon (+8,2%). Hai thuoc do cho hai chieu, va khong chon thuoc thuan hon.",
+        "2. PHAN LON dong noi bang KHONG PHAI TIN DUNG: boc TM 15.2 tai 30/06/2026 — lai tin dung 8.103.328 (65,3%), lai trai phieu 2.575.987, lai phai sinh 984.187, lai tien gui 147.182, phi 605.489. Lai trai phieu don tich theo ky tra lai va thu dung han; danh muc trai phieu tang 48% trong 2025 nen phan don tich tang theo la duong nhien va LANH TINH. Rieng phan tin dung tren du no gop: 3,315% -> 3,517%.",
+        "3. No xau THUC TE da GIAM o ky moi nhat: 2,690% -> 2,528%, va MSB van xoa no that — 883.942 trieu dung du phong xu ly rui ro trong nua dau 2026 = 15,2% so du no xau."
+      ],
+      "V3b_cho_phai_ghi_VA_NO_NANG": [
+        "DU PHONG CU THE GIAM 24,4% (1.724.445 -> 1.303.239) trong khi NO XAU TANG 23,4% (4.721.241 -> 5.826.089), suot muoi tam thang. Bao phu rieng phan cu the roi 36,53% -> 22,37%. Tong du phong chi giu duoc muc vi du phong CHUNG — von la ty le may moc tren nhom 1-4 — tang theo tang truong du no, 1.301.625 -> 1.699.952.",
+        "CA NOI BANG LAN NGOAI BANG CUNG TANG. Lai cho vay chua thu duoc ngoai bang di 1.558.356 -> 1.757.243 (+12,8%). Theo cach doc cua quy trinh, noi bang GIAM trong khi ngoai bang TANG la dau hieu ngan hang dung ghi nhan lai, tuc than trong. O MSB CA HAI CUNG TANG, nen CACH DOC BAO VE DO KHONG CO.",
+        "TY LE NOI BANG TREN NGOAI BANG LA 4,61 LAN (8.103 ty lai tin dung noi bang so voi 1.757 ty ngoai bang). Con so tuong ung o STB la 0,20 lan. STB day lai ra ngoai bang gap nam lan phan giu lai lam tai san; MSB giu lai gap gan nam lan phan day ra. Day la diem doi lap ro nhat giua hai ngan hang, va no nghieng ve phia BAT LOI cho MSB.",
+        "Ngoai bang con 21.077 ty no da xu ly rui ro dang theo doi (7.497 ty goc va 13.549 ty lai) = 46,6% VCSH."
+      ],
+      "V4_chi_tiet": {
+        "tang_chat_chi_phai_thu_va_cho_vay": {
+          "31/12/2025": "143.158 trieu / VCSH 42.446.058 trieu = 0,337%",
+          "30/06/2026": "481.996 trieu / VCSH 45.246.509 trieu = 1,065%",
+          "nguong": "30% -> cach 28 lan -> KHONG BAT"
+        },
+        "ba_nhom_TM41": "(a) VNPT (co dong lon): tien gui KKH/CKH/lai phai tra — RONG LA NGUOI GUI TIEN 4.140 ty, KHONG phai nguoi di vay; co dong lon DUY NHAT duoc cong nhan lai la NGUON VON cua ngan hang, khong phai noi von chay ra. (b) CTCP ROX Asset va cong ty con (ben lien quan cua thanh vien HDQT): tien vay 303.085 / lai phai thu 38.937 tai 30/06/2026, tu KHONG tai 31/12/2025. (c) HDQT, Ban TGD, BKS va nguoi lien quan: cho vay 142.573 -> 139.198, phai thu khac 585 -> 776.",
+        "cho_phai_ghi_khoan_ROX_Asset": "Du no 303.085 xuat hien tu con so KHONG, va mang theo 38.937 lai phai thu = 12,8% du no goc. Thu nhap lai ghi nhan trong ky chi 10.857, tuc LAI PHAI THU BANG 3,6 LAN LAI THU DUOC TRONG KY, ham y khoang HAI MUOI MOT THANG lai chua thu. Cach doc lanh tinh: khoan vay co truoc, chi TU CACH ben lien quan la moi — khop voi viec ba Le Thi Lien, thanh vien HDQT MSB, la Chu tich HDQT CTCP ROX Asset. Cach doc bat loi: mot khoan vay ben lien quan khong thu duoc lai gan hai nam. Thuyet minh KHONG cho phep phan biet.",
+        "gioi_han_dinh_nghia_PHAN_QUAN_TRONG_NHAT_CUA_V4": [
+          "Pham vi \"ben lien quan\" theo VAS chi phu ban lanh dao va phap nhan cua ho. BA viec nam ngoai pham vi do:",
+          "(1) BA TRONG BAY thanh vien HDQT giu chuc tai cac phap nhan ROX (BCTN 2025 muc 3.1.2): ong Tran Xuan Quang, Pho Chu tich thuong truc, la Chu tich HDQT CTCP Tap doan ROX; ba Le Thi Lien la Chu tich HDQT CTCP ROX Asset; ong Ta Ngoc Da, THANH VIEN HDQT DOC LAP, la thanh vien HDQT CTCP ROX Living.",
+          "(2) Ong Tran Xuan Quang DA MIEN NHIEM tu 24/04/2026, nghia la CTCP Tap doan ROX roi khoi pham vi ben lien quan TRUOC ngay lap bang can doi 30/06/2026. Tai 31/12/2025, khi ong con la thanh vien HDQT, thuyet minh CUNG khong cong bo so du nao voi Tap doan ROX. Hoac thuc khong co, hoac khong duoc bat — khong ket luan duoc.",
+          "(3) Danh sach co dong nam tu 1% tai 01/06/2026 gom muoi mot phap nhan va quy, cong ~43% von, trong do BAY to chuc dung SAT DUOI moc 5%: Ricohomes 4,98%, Bai Dai 4,96%, Jasper Investment 4,87%, Truong Long 4,80%, Thuan Nam 1 4,01%, Thanh pho Cong nghe Xanh Ha Noi 3,91%, Sapphire Invest 3,17%. Chi VNPT (6,05%) la co dong lon. Khong phap nhan nao trong nhom nay la ben lien quan theo VAS tru khi gan voi mot thanh vien HDQT, nen quan he tin dung cua nhom — NEU CO — khong hien trong TM 41. KHONG CO BANG CHUNG nao cho thay nhom nay co du no tai MSB, VA KHONG SUY DOAN LA CO. Dieu ghi nhan duoc la: cau truc so huu khien phep do cua cong V4 KHONG NHIN TOI phan lon co dong to chuc cua chinh ngan hang."
+        ],
+        "ve_bao_lanh_chua_kiem_duoc": "Bao lanh khac 39.726.838 va cam ket L/C 17.679.038 tai 30/06/2026 KHONG duoc tach theo ben lien quan o bat ky ky nao."
+      },
+      "V5_chi_tiet": {
+        "ve_pha_loang": "KHONG PHAI PHA LOANG. Von dieu le di 15.275 (2021) -> 19.858 (2022) -> 20.000 (2023) -> 26.000 (2024) -> 31.200 (2025), ke hoach 37.440 trong 2026. Hai nam gan nhat tang 30% roi 20% — neu la pha loang that thi cong BAT. Phep kiem: (a) Nghi quyet DHDCD 33/NQ-DHDCD ngay 21/04/2025 tang von 26.000 -> 31.200 ty BANG PHAT HANH CO PHIEU DE TRA CO TUC tu loi nhuan chua phan phoi; (b) THANG DU VON CO PHAN DUNG YEN o 33.460 trieu dong qua CA 2023, 2024 va 2025 — khong mot dong tien moi nao vao; (c) co phieu quy bang 0; (d) ke hoach 2026 (to trinh 33/2026/TT-HDQT ngay 03/04/2026) cung la \"phat hanh co phieu tu nguon von chu so huu\". PHA LOANG THAT TRONG SAU NAM = 0. Day la bang chung TICH CUC cho truc C, khong phai bang chung nguoc.",
+        "ve_xu_phat": "KHONG BAT THEO CAU CHU — khong tim thay an phat CONG BO THONG TIN nao tu UBCKNN hay HOSE doi voi MSB trong 24 thang. Cai tim thay la loai khac: (1) KET LUAN THANH TRA cua Cuc Thanh tra, Giam sat ngan hang II, cong bo 26/12/2024 — \"phan loai no doi voi mot so khoan vay chua kip thoi\"; ghi nhan va theo doi hach toan gia tri tai san bao dam chua day du; tham dinh va quyet dinh cho vay mot so ho so chua dat yeu cau; kiem tra giam sat sau cho vay chua day du, kip thoi; mot so co dong phat sinh giao dich chuyen nhuong nhung thuc hien chua day du theo trinh tu thu tuc. Kem 5 giai phap khac phuc. Khong cong bo muc phat tien cap ngan hang, khong ca nhan lanh dao nao bi xu ly. (2) Quyet dinh 48/QD-XPHC ngay 10/04/2026, Thanh tra NHNN Khu vuc 5, voi MSB Thai Nguyen: phat 50 TRIEU DONG vi thu no khoan vay qua han khong dung quy dinh, kem cac ton tai ve chung tu muc dich su dung von va giam sat von vay. (3) MSB la don vi thu xep nhieu dot phat hanh trai phieu cho NH Hotels & Resorts, mot phap nhan lien quan he sinh thai ROX; UBCKNN xu phat NH HOTELS & RESORTS 152,5 trieu dong vi vi pham cong bo thong tin trai phieu (kem tinh tiet tang nang tai pham) — MSB KHONG bi xu phat trong vu nay. Khong an nao la xu phat cong bo thong tin doi voi MSB nen cong KHONG BAT; nhung ve \"phan loai no chua kip thoi\" danh vao DO TIN CAY CUA CHINH SO LIEU PHAN LOAI NO, nen bang chung do CHUYEN SANG TRUC C.",
+        "ve_lanh_dao_bi_xu_ly": "KHONG DAT NGUONG. Thang 4/2026 co BON thay doi cap cao: ong Tran Xuan Quang mien nhiem Pho Chu tich HDQT tu 24/04/2026; ong cung duoc cong bo tu nhiem thanh vien HDQT \"vi ly do ca nhan\" (cong bo 15/04/2026); hai Pho Tong giam doc mien nhiem, trong do ba Nguyen Huong Loan bi cham dut hop dong lao dong. Khong co ky luat chinh thuc, khoi to hay cach chuc nao duoc cong bo — chua du goi la \"lanh dao bi xu ly\", cong khong bat. Nhung BON thay doi trong MOT THANG khong co ly do neu ra la du kien cho TRUC C."
+      },
+      "chi_phi_von_chu_COE_phai_chot_truoc_khi_cham_truc_A": {
+        "cach_1_CAPM": "Rf 4,56% (TPCP 10N 21/08/2026) + beta 0,826 x MRP 8,13% = 11,28%",
+        "cach_2_ngu_y_tu_PB_31-12-2025": "P/B 0,911 (von hoa 38.688 / VCSH 42.446), ROE 14,20%, g 6-8% -> 14,81-15,00%",
+        "cach_3_ngu_y_tu_PB_17-08-2026": "P/B 1,110 (gia 16.100 x 3,12 ty cp / VCSH 45.247), ROE TTM 13,93%, g 6-8% -> 13,14-13,34%",
+        "dai_chinh_da_chon": "13,1-15,0%, moc trung tam ~13,3%. LY DO: (1) beta 0,826 den tu 29 QUAN SAT voi R2 0,456 — chinh ho so du an xep chat luong beta vao danh sach diem yeu, nen CAPM 11,28% la con so YEU NHAT trong ba; (2) phep do ngu y tu P/B dung chinh GIA THI TRUONG cua MSB, va no roi vao lan can 15,38% ma phieu STB da dung, nen bang so sanh bon phieu van nhat quan.",
+        "canh_bao": "PHAI NOI THANG: o COE 11,28% thi CA BA KY deu vuot va truc A dang 2 DIEM; o COE 15,00% thi HAI TRONG BA KY nam duoi va truc A dang 0 DIEM. TOAN BO khoang dao dong cua ket luan nam o tham so nay."
+      },
+      "truc_A_1_diem": {
+        "bang": [
+          {
+            "ky": "2024",
+            "ROE_tinh_duoc": "16,21%",
+            "ROE_MSB_cong_bo": "15,97%",
+            "NIM": "3,650%",
+            "LN_truoc_du_phong_trieu": 8988305,
+            "PPOP_tren_TS_binh_quan": "3,062%",
+            "du_phong_lay_di": "23,19%",
+            "LDR": "114,2%"
+          },
+          {
+            "ky": "2025",
+            "ROE_tinh_duoc": "14,20%",
+            "ROE_MSB_cong_bo": "14,04%",
+            "NIM": "3,151%",
+            "LN_truoc_du_phong_trieu": 8976791,
+            "PPOP_tren_TS_binh_quan": "2,467%",
+            "du_phong_lay_di": "21,37%",
+            "LDR": "104,3%"
+          },
+          {
+            "ky": "TTM den 30/06/2026",
+            "ROE_tinh_duoc": "13,93%",
+            "ROE_MSB_cong_bo": null,
+            "NIM": "3,120%",
+            "LN_truoc_du_phong_trieu": 8920456,
+            "PPOP_tren_TS_binh_quan": "2,102%",
+            "du_phong_lay_di": "23,26%",
+            "LDR": "112,6%"
+          }
+        ],
+        "doi_chieu": "ROE tinh duoc khop con so MSB cong bo trong khoang 0,2 diem phan tram o ca hai nam — bo so nen TU KHOP.",
+        "vi_sao_1_khong_phai_2": "O 2 diem doi ba ve, MSB truot HAI: (a) ROE KHONG VUOT ON DINH — 16,21% -> 14,20% -> 13,93%, GIAM DON DIEU, va dang hoi tu xuong dung vung 13,1-15,0% cua COE; o moc trung tam 13,3% thi ky moi nhat chi con cach 0,6 diem phan tram. (b) BIEN KHONG DUNG VUNG — NIM do MSB cong bo di 4,50% (2022) -> 3,98% -> 3,57% -> 3,22% (2025), BON KY GIAM LIEN TIEP, va nua dau 2026 tinh duoc 3,12%.",
+        "vi_sao_khong_phai_0": "O 0 diem co hai nhanh, MSB khong roi vao nhanh nao o cach doc chinh: (a) \"ROIC duoi chi phi von o phan lon ba nam gan nhat\" — o COE 13,3% thi CA BA KY deu TREN; chi o dau tren cua dai (15,0%) moi co hai trong ba ky nam duoi. (b) \"Bien gop suy giam lien tuc khong giai thich duoc\" — NIM giam CO GIAI THICH DUOC: NIM toan nganh di 3,26% -> 2,87%, va MSB o 3,22% van CAO HON binh quan nganh 35 diem co ban; chi phi lai nua dau 2026 tang 59,8% so cung ky trong khi thu nhap lai tang 40,5% — do la mat bang lai suat huy dong, khong phai hong hoc rieng cua MSB.",
+        "cau_truc_thu_nhap_dang_mong_di": "Nua dau 2026 thu nhap NGOAI LAI giam 50,4% so cung ky (1.705 -> 846 ty): lai thuan dich vu -40,2%, ngoai hoi -83,2%, mua ban chung khoan dau tu LO 136 ty. Ty trong thu nhap lai thuan trong tong thu nhap nhay tu 74,9% len 88,0%. Tong thu nhap chi tang 3,7%.",
+        "cho_phai_cong_bang": [
+          "CIR CAI THIEN THAT VA LIEN TUC: 41,39% (2022) -> 39,26% -> 36,75% -> 36,14% (2025) -> 36,7% (6T/2026). Bo may dang RE DI tuong doi, khong phai phinh ra.",
+          "FRANCHISE DANG MO RONG, KHONG CO LAI: nhan su 6.843 nguoi (+165 trong 2025); khach hang ca nhan 8 trieu (+~30%); khach hang to chuc hon 102 nghin (+10%); mang luoi giu nguyen 62 chi nhanh va 198 phong giao dich. So sanh: STB GIAM nhan su tu 18.659 xuong 13.078.",
+          "CHI TIEU DHDCD 2025 PHAN LON DAT: tong tai san 116% ke hoach, huy dong 112%, du no 98%, co tuc 100%. Chi LNTT dat 88% (7.058 so voi 8.000 ty) — truot, nhung khong truot xa."
+        ],
+        "cach_doc_rong_tay_nhat_va_ly_do_khong_chon": "Lay COE theo CAPM 11,28% thi ca ba ky vuot chi phi von voi bien 2,6-4,9 diem phan tram va truc A duoc 2 diem. KHONG chon vi beta 0,826 la uoc luong yeu nhat trong bo so, va vi no doi BO QUA viec chinh thi truong dinh gia MSB o P/B 0,911 vao cuoi 2025 — muc chi co nghia neu nguoi mua doi suat sinh loi CAO HON ROE."
+      },
+      "truc_B_1_diem": {
+        "loi_the_goi_ten_duoc": "CASA. Ty le tien gui khong ky han tren tong tien gui dat 28,94% cuoi 2025, so du gan 57 nghin ty, thuoc nhom CAO NHAT HE THONG. Va khac STB, no dang DI LEN: 26,54% (2023) -> 26,42% (2024) -> 28,94% (2025), sau khi roi tu 35,84% cua 2021. MSB mo moi 1,92 trieu tai khoan CASA trong 2025, gap hai lan nam truoc.",
+        "quy_doi_duoc_mot_phan": "NIM 3,22% so voi binh quan nganh 2,87% la 35 diem co ban loi the, va TRUY DUOC ve CASA. Cong voi CIR 36,14% giam 5,25 diem phan tram trong ba nam. Do la hai bien cu the, do duoc, co nguon.",
+        "vi_sao_van_1_khong_phai_2": "O 2 diem doi loi the quy doi duoc thanh \"muc ROIC ben vung\" hoac \"so nam tang truong vuot troi\". HAI viec chan lai: (1) LOI THE KHONG BAO VE DUOC BIEN — CASA phuc hoi tu 26,42% len 28,94% trong 2025, ma NIM VAN ROI tu 3,57% xuong 3,22% trong DUNG NAM DO. Neu nen CASA la loi the dang duoc boi dap thi no phai hien ra o bien. No khong hien ra. Khoang cach 35 diem co ban so voi nganh dang THU HEP chu khong mo rong. (2) CAU TRUC NGUON VON MAU THUAN VOI CHINH LUAN DIEM LOI THE — LDR tren tien gui khach hang la 112,6% tai 30/06/2026 (230.420 du no so voi 204.674 tien gui), va 114,2% cuoi 2024. MSB cho vay NHIEU HON so tien dan cu va doanh nghiep gui vao, bu bang 123.320 ty tien gui va vay lien ngan hang = 28,0% TONG TAI SAN. Mot nen tien gui ban le chat luong cao nhung QUA NHO cho so cho vay cua chinh no thi khong phai nen von ben; phan bien tang them nho CASA bi phan von lien ngan hang — von dat va nhay voi thanh khoan — AN LAI. So sanh: STB co LDR 98,2% va tu nuoi minh bang tien gui dan cu.",
+        "vi_sao_khong_phai_0": "O 0 diem danh cho \"khong goi ten duoc nguon loi the\" hoac \"thay doi cau truc nganh bat loi CHUA DO DUOC\". MSB goi ten duoc loi the, va thay doi nganh thi bat loi nhung DO DUOC: room tin dung chua bo, NIM nganh 3,26% -> 2,87%, bao phu no xau binh quan 27 ngan hang niem yet tut tu 83% xuong 79%, CPI bay thang dau 2026 da 4,39% sat tran 4,5% nen khong con du dia ha lai suat. Vi DO DUOC nen khong roi xuong 0.",
+        "cho_phai_cong_bang": "Cach doc rong tay cho 2 diem CO CO SO THAT: CASA 28,94% va dang tang, NIM cao hon nganh 35 diem co ban, CIR giam 5,25 diem phan tram trong ba nam, va tang truong khach hang ca nhan gan 30%. Nguoi cham 2 diem se noi loi the da quy doi xong. Cham 1 vi bien QUAN TRONG NHAT — NIM — dang di SAI CHIEU trong dung nam loi the duoc cai thien, va vi LDR tren 110% lam nen von khong du tu cach goi la loi the ben."
+      },
+      "truc_C_1_diem": {
+        "bang_chung_nguoc_xep_theo_suc_nang": [
+          "1. (HANG 1) CO QUAN QUAN LY KET LUAN VE SO LIEU PHAN LOAI NO. Ket luan thanh tra 26/12/2024: \"phan loai no doi voi mot so khoan vay chua kip thoi\", tai san bao dam ghi nhan chua day du. Day la hang bang chung NANG NHAT — khong phai nha dau tu nghi ngo ma la ben co TOAN BO ho so tin dung.",
+          "2. (HANG 2) MOT KHOAN MUC TRONG YEU KHONG CO THUYET MINH. \"Phai thu tu cac hop dong ban no cho doi tac\" 4.001.159 trieu, GIONG NHAU DEN TUNG DONG o ca hai ky, = 8,84% VCSH. Khong ten doi tac, khong ky han, khong dieu khoan thu hoi, khong phan tich suy giam gia tri. Mot khoan phai thu tu viec BAN NO XAU ma khong nhich mot dong nao qua sau thang la dang khoan muc nguoi doc KHONG CO CACH NAO TU DANH GIA.",
+          "3. (HANG 4, noi vao hang 1) DU PHONG CU THE DI NGUOC NO XAU. Du phong cu the giam 24,4% trong khi no xau tang 23,4% suot 18 thang; bao phu rieng phan cu the roi 36,53% -> 22,37%. Hai bang chung CUNG CO NHAU: co quan quan ly da noi phan loai no chua kip thoi, va phan du phong PHU THUOC VAO PHAN DOAN PHAN LOAI dang giam trong luc no xau tang.",
+          "4. TINH DOC LAP CUA THANH VIEN HDQT DOC LAP. Ong Ta Ngoc Da duoc ghi la \"thanh vien HDQT doc lap\" cua MSB, dong thoi la thanh vien HDQT CTCP ROX Living — phap nhan TU NO la co dong nam tren 1% von MSB (1,584% tai 01/06/2026). Mot thanh vien doc lap ngoi trong HDQT cua mot co dong thuoc he sinh thai cua Chu tich thi khong doc lap ve ban chat. Du kien do CHINH BCTN 2025 cua MSB cong bo.",
+          "5. SO HUU BAN LANH DAO RAT MONG. Chu tich Tran Anh Tuan nam 26.281.514 co phieu = 0,84%. Toan bo BAY thanh vien HDQT cong lai 28.980.981 co phieu = 0,929% von dieu le; MOT thanh vien nam 0 co phieu. Moc tot cua quy trinh la tren 5% cho mot ca nhan dieu hanh. So sanh: Chu tich STB 3,32%, TGD DHC 10,73%.",
+          "6. CAU TRUC CO DONG DUNG SAT DUOI NGUONG. Bay to chuc nam 3,17-4,98%, moi to chuc VUA DU DUOI moc 5% de khong thanh co dong lon; danh sach tu 1% cong ~43% von nhung chi VNPT duoc cong nhan la co dong lon. Chinh ket luan thanh tra 26/12/2024 cung neu \"mot so co dong phat sinh giao dich chuyen nhuong nhung thuc hien chua day du theo trinh tu thu tuc\".",
+          "7. BON THAY DOI CAP CAO TRONG MOT THANG (4/2026): mot Pho Chu tich HDQT mien nhiem, mot thanh vien HDQT tu nhiem \"vi ly do ca nhan\", hai Pho Tong giam doc mien nhiem trong do mot nguoi bi cham dut hop dong lao dong. Khong ly do nao duoc neu ngoai \"ca nhan\"."
+        ],
+        "bang_chung_tich_cuc_VA_NO_KHONG_IT": [
+          "Chi tieu DHDCD 2025 phan lon dat: tong tai san 116%, huy dong 112%, du no 98%, no xau dat ke hoach, co tuc 100%. Chi LNTT 88%.",
+          "Co tuc tra DEU hang nam bang co phieu, 20% cho 2025 va ke hoach 20% cho 2026, TOAN BO tu loi nhuan giu lai, thang du von co phan khong doi — co dong KHONG BI PHA LOANG mot dong nao trong sau nam. Khong phai co tuc tien mat, nhung cung khong phai rut von khoi co dong.",
+          "Ho so tang von 2025 duoc cong bo KY LUAT KHAC THUONG: BCTN liet ke MUOI van ban rieng biet theo trinh tu — nghi quyet HDQT 07/07/2025, cong van NHNN 6779/NHNN-QLGS 04/08/2025, cong van UBCKNN 4575/UBCK-QLCB 21/08/2025, nghi quyet ngay dang ky cuoi cung, xu ly co phieu le, bao cao ket qua, cong van UBCKNN 5518, van ban VSDC 13195, quyet dinh HOSE 907/QD-SGDHCM, quyet dinh NHNN 3436/QD-NHNN. Day la chat luong cong bo TREN TRUNG BINH cho giao dich do.",
+          "Y kien kiem toan SACH nam nam lien tiep, khong doan nhan manh nao, va viec doi sang KPMG la BAT BUOC THEO LUAT.",
+          "Chu tich HDQT nhan thu lao BANG 0 trong nua dau 2026 (TM 41). Toan bo thu lao HDQT 5.307 trieu, THAP HON luong mot Tong Giam doc (5.555 trieu).",
+          "Khong co phieu quy, khong giao dich co phieu quy.",
+          "Quan he cheo voi he sinh thai ROX duoc cong bo DICH DANH trong BCTN muc 3.1.2, neu ro tung thanh vien HDQT giu chuc gi tai phap nhan nao. Quan he nay KHONG BI CHE."
+        ],
+        "vi_sao_1_diem": "O 0 diem co hai nhanh: \"lich su khong giu cam ket voi co dong\" hoac \"phan bo von pha huy gia tri ma khong co giai trinh\". MSB khong roi vao nhanh nao — cam ket DHDCD phan lon dat va co tuc tra du; phan bo von thi DANG CHAT VAN (tai san tang 37,7% trong 18 thang ma LN truoc du phong dung yen, ROE roi 16,21% -> 13,93% ve sat chi phi von) nhung CO GIAI TRINH: NIM toan nganh nen tu 3,26% xuong 2,87%, va MSB van nam TREN binh quan nganh. O 2 diem doi du BA VE: phan bo von tao gia tri do duoc, ban lanh dao so huu dang ke, cong bo day du va kip thoi — MSB TRUOT CA BA (ROE giam ve sat COE, HDQT nam 0,929%, ba khoan muc 16.530 ty khong neu doi tac). Nen con lai 1 diem.",
+        "cho_phai_cong_bang_VA_NO_QUYET_DINH_PHIEU": "Phieu VHM trong bo nay da cham truc C BANG 0 voi lap luan: \"o 1 diem doi KHONG CO DAU HIEU XAU, va hai muc tren la dau hieu xau ro rang ve chat luong cong bo\". AP DUNG CHUAN DO cho MSB thi truc C bang 0, tong con 2, va ket luan thanh PHU QUYET. KHONG ap chuan do o day vi BA khac biet ve luong va ve chat: (1) VE LUONG: tai san ben lien quan cua VHM la 185.680 ty = 67,8% VCSH; ba khoan mo cua MSB la 16.530 ty = 36,5%. Va ben lien quan theo phep do cua chinh cong o MSB la 1,065% VCSH so voi 53,0% o VHM. (2) VE CHAT: khoan lon nhat cua MSB — 9.229 ty mua bo chung tu mien truy doi — CO LOI GIAI THICH KINH DOANH KHOP VOI MOT CON SO KHAC DUOC CONG BO: cam ket L/C tang tu 7.543 len 17.679 ty (+134%) trong cung sau thang. Nghiep vu forfaiting mo rong cung nhip voi thu tin dung la chuyen NHAT QUAN, khong phai khoan muc vo danh. Dat coc thue van phong 3.300 ty tren 261 diem giao dich la lon nhung co ban chat ro. Doi chieu: 91.066 ty VHM tam ung cho CA NHAN KHONG TEN de giai phong mat bang cho DU AN CHUA CO TEN, the chap bang co phieu cua chinh he sinh thai, KHONG CO khoan doi ung nao de kiem cheo. (3) VE BANG CHUNG TICH CUC: VHM chi co mua co phieu quy. MSB co cam ket DHDCD dat, co tuc tra deu sau nam khong pha loang, kiem toan sach nam nam khong doan nhan manh, va quan he he sinh thai duoc cong bo dich danh. Khoan DUY NHAT o MSB mang dung tinh chat \"khong co cach nao tu danh gia\" la 4.001 ty phai thu ban no dong bang — MOT khoan, bang 8,84% VCSH. MOT KHOAN KHONG LAM NEN MOT MAU HINH. NHUNG DAY LA PHAN DOAN, KHONG PHAI PHEP DO, va no la phan doan DAT NHAT TRONG PHIEU."
+      },
+      "kiem_dinh_do_ben": [
+        "Nhu tren (COE 13,3%; truc C = 1)                                      : A1 B1 C1 = 3 -> CHO",
+        "Ap chuan truc C cua phieu VHM (dau hieu xau ve cong bo -> khong du 1)  : A1 B1 C0 = 2 -> PHU QUYET (tong <= 2 VA co truc = 0)",
+        "Dung COE 15,00% ngu y tu P/B cuoi 2025 (2/3 ky duoi COE)              : A0 B1 C1 = 2 -> PHU QUYET",
+        "Noi truc yeu nhat — COE theo CAPM 11,28%, ca ba ky vuot                : A2 B1 C1 = 4 -> DAT",
+        "Noi hai truc — them truc B = 2 vi CASA, NIM tren nganh, CIR            : A2 B2 C1 = 5 -> DAT",
+        "Noi toi da                                                            : A2 B2 C2 = 6 -> DAT",
+        "KET LUAN NAY KHONG CHIU DUOC MOT LAN NOI HOAC HA DIEM NAO. Do la phat hien QUAN TRONG NHAT cua phieu, quan trong hon ban than chu \"Cho\". Mot bac LEN o truc A ra \"Dat\". Mot bac XUONG o truc A HOAC truc C ra \"Phu quyet\". KHONG CO VUNG DEM NAO.",
+        "Va hai duong xuong phu quyet KHONG phai gia thiet xa: cach doc thu hai chi doi ap DUNG CHUAN ma bo phieu nay DA DUNG CHO VHM MOT NGAY TRUOC; cach doc thu ba chi doi lay P/B cuoi 2025 thay vi P/B thang 8/2026 de suy chi phi von. Ca hai deu la cach doc HOP LY, khong phai cach doc thu dich.",
+        "Noi gon thanh mot cau: DE MSB RA \"DAT\" PHAI TIN RANG BETA 0,826 TU 29 QUAN SAT DANG TIN HON GIA THI TRUONG CUA CHINH CO PHIEU; DE MSB RA \"PHU QUYET\" CHI CAN CAN CHAT LUONG CONG BO THEO DUNG THU TU MA QUY TRINH DA VIET. CAN CAN NGHIENG VE PHIA DUOI."
+      ],
+      "he_qua_ty_trong": "Mot ma o vi tri nay KHONG NEN LA VI THE LON NHAT CUA DANH MUC. Tai 17/08/2026 MSB chiem 18,83% NAV danh muc 2 — ty trong CAO NHAT trong bay ma. Phieu KHONG ket luan phai ban; no ket luan rang CHUA CO PHIEU \"DAT\" NAO DO CHO TY TRONG DO. Day la viec can NGUOI quyet dinh, khong phai lenh tu dong.",
+      "mo_lai_truoc_han": [
+        "1. BCTC QUY III/2026 (du kien cuoi 10/2026) — TAI LIEU QUYET DINH, go duoc ca cong lan truc. Kiem BON so: (a) ty le lai va phi phai thu tren tong tai san co VUOT 2,815% khong — neu vuot thi chuoi co BA LAN TANG LIEN TIEP va V3b BAT, phieu chuyen thanh phu quyet VI CONG chu khong vi diem; (b) bao phu no xau co xuong duoi 51,55% khong; (c) DU PHONG CU THE co thoat khoi da giam tu 1.724.445 khong; (d) loi nhuan truoc du phong CHIN THANG co vuot 6.733 ty — muc can de pha chuoi ba ky dung yen. Dong thoi YEU CAU BCTC quy I va III/2025 cung quy I/2026 de kiem V3b dung tan suat quy nhu cong viet.",
+        "2. THUYET MINH BA KHOAN MUC 16.530 TY. Cu the: doi tac va dieu khoan thu hoi cua 4.001 ty phai thu ban no dong bang; doi tac, ky han va co so phan loai cua 9.229 ty mua bo chung tu mien truy doi; va DANH TINH BEN CHO THUE cua 3.300 ty dat coc thue van phong. Cau hoi thu ba PHAI HOI TAI DHDCD 2027, vi ba thanh vien HDQT giu chuc tai cac phap nhan ROX va mot trong so do la cong ty dau tu va cho thue tai san. Neu ba khoan nay duoc tach va neu doi tac thi truc C co duong LEN 2 va phieu ra \"Dat\". Neu khoan 4.001 ty VAN DUNG YEN o ky thu ba thi truc C co duong XUONG 0.",
+        "3. BCTC KIEM TOAN FY2026, QUY I/2027 — KY DAU CUA KPMG. Day la cong bo co gia tri thong tin CAO NHAT hien co. KPMG vao sau nam nam EY, tren so co 5.826 ty no xau voi bao phu cu the 22,37%, va mot ket luan thanh tra noi phan loai no chua kip thoi. Viec KPMG giu nguyen hay CAT LAI phan loai va muc trich lap cua EY tra loi TRUC TIEP cho bang chung hang 1 va hang 3 cua truc C. Kem theo: xem bao cao co doan \"Van de can nhan manh\" nao khong."
+      ],
+      "con_treo": [
+        "CHUA CO BCTC QUY nen V3b chua kiem duoc dung tan suat ba quy lien tiep nhu cong yeu cau. Bon diem quan sat la tan suat nam va ban nien. Toan bo muc tang cua 2025 (1,530% -> 2,503%) nam ben trong mot nam ma phan bo theo quy khong nhin thay duoc — day la khoang trong CO THE DOI KET LUAN cua V3b.",
+        "Ve \"bao lanh\" cua V4 chua kiem duoc. Bao lanh khac 39.726.838 va cam ket L/C 17.679.038 khong duoc tach theo ben lien quan o bat ky ky nao.",
+        "Chua giai thich duoc khoan 38.937 lai phai thu tren du no 303.085 voi ROX Asset. Lai phai thu bang 3,6 lan lai thu duoc trong ky. Hai cach doc — khoan vay cu moi thanh ben lien quan, hoac lai khong thu duoc gan hai nam — khong phan biet duoc tu thuyet minh.",
+        "Chua xac dinh duoc CTCP Tap doan ROX co so du tin dung nao tai MSB khong. Ong Tran Xuan Quang la Chu tich HDQT phap nhan nay va la Pho Chu tich HDQT MSB tai 31/12/2025, nen theo VAS do la ben lien quan, nhung TM 41 khong cong bo so du nao. Ong mien nhiem 24/04/2026, TRUOC ngay lap bang can doi 30/06/2026, nen tu cach ben lien quan da cham dut. Khong ket luan duoc la KHONG CO hay KHONG DUOC BAT.",
+        "Chua doi chieu duoc ty le no xau 1,82% ma DHDCD bao cao. BCTC hop nhat kiem toan cho no xau 5.520.348 tren du no 205.208.835 = 2,690% tai 31/12/2025. Con so 1,82% chi khop neu mau so gom ca cho vay lien ngan hang va trai phieu doanh nghiep. Chua tim duoc dinh nghia MSB dung, nen chua ket luan duoc day la chon mau so hay la pham vi khac. Phieu dung 2,690% vi do la phep do quy uoc.",
+        "Chua doc BCTN 2026 (chua phat hanh) nen so huu ban lanh dao va cau truc co dong lay tai 31/12/2025 va 01/06/2026, khong phai ngay lap phieu.",
+        "Beta 0,826 dung cho CAPM chi co 29 QUAN SAT, R2 0,456. Chinh ho so du an xep chat luong beta vao diem yeu so 5. Day la ly do khong lay CAPM lam moc chinh, nhung cung nghia la dai COE 13,1-15,0% dua phan lon vao P/B va gia dinh tang truong dai han g 6-8%, CHUA hoi quy.",
+        "BCTN 2025 co MOT LOI SO o chu thich (**) muc ke hoach: ghi \"tang von dieu le MSB len 32.100 ty dong\" trong khi toan bo phan con lai cua bao cao va quyet dinh NHNN 3436/QD-NHNN ghi 31.200 ty. Ro la loi dao chu so, khong trong yeu, ghi lai de du."
+      ],
+      "he_qua_quy_tac_4": "Phieu KHONG lam gay luan diem: khong cong nao bat, khong truc nao bang 0, va loi the CASA/NIM/CIR trong luan diem luc mua van dung ve mat su kien. Nhung phieu CUNG KHONG XAC NHAN luan diem con nguyen ven, vi bien quan trong nhat cua luan diem — NIM — dang di sai chieu trong dung nam loi the duoc cai thien. De luan_diem_con_nguyen = null (CHUA RA SOAT) thay vi tu dat true: quy tac 4 la viec cua NGUOI, va mot ket luan \"Cho\" khong chiu duoc mot lan ha diem nao thi khong phai can cu de tu dong khang dinh luan diem con nguyen."
+    }
+  },
+  "BSR": {
+    "buoc3_tham_dinh": "dat",
+    "buoc4_dinh_gia": "dat",
+    "khuyen_nghi": "kha quan",
+    "dinh_gia": {
+      "co_so": 30.0,
+      "upside": null,
+      "ghi_chu": "Gia 26,85 (26/08) -> upside +11,7%. XUNG DOT CAN XU LY: bang lenh luat sinh cho ky soat 01/09 de BAN toan bo BSR theo quy tac 3 (rot khoi top 40%), trong khi tham dinh dinh tinh la 'kha quan'. Luat va nguoi dang nguoc nhau — phai chot ai thang truoc khi dat lenh."
+    },
+    "luan_diem": "",
+    "ly_do": "",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-01",
+    "_tham_khao": "Dang giu 200 CP, gia von 27.000. Chot 26/08: 26.850 (-0,56%). Chot 19/08: MA50 25.451, MA200 23.959, ATR% 4,25, dem ATR 3,0. Bang lenh luat sinh cho ky soat 01/09 (chay 26/08): BAN toan bo — vi pham quy tac 3 (rot khoi top 40% ro da loc), khong thung MA200/RS12T."
+  },
+  "GMD": {
+    "buoc3_tham_dinh": "dat",
+    "buoc4_dinh_gia": "cho",
+    "khuyen_nghi": "kem kha quan",
+    "dinh_gia": {
+      "co_so": 78.4,
+      "upside": null,
+      "ghi_chu": "Gia 79,30 (26/08) da VUOT dinh gia 78,40 (-1,1%). Khong con bien an toan -> khong mua moi. Bang lenh luat sinh cung de BAN toan bo (quy tac 3) — luat va nguoi cung chieu."
+    },
+    "luan_diem": "",
+    "ly_do": "",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-01",
+    "_tham_khao": "Dang giu 100 CP, gia von 78.800. Chot 26/08: 79.300 (+0,63%). Chot 19/08: MA50 76.226, MA200 71.711, ATR% 2,56, dem ATR 4,5. Bang lenh luat sinh cho ky soat 01/09: BAN toan bo — chi vi pham quy tac 3 (rot khoi top 40%)."
+  },
+  "LPB": {
+    "buoc3_tham_dinh": "dat",
+    "buoc4_dinh_gia": "cho",
+    "khuyen_nghi": "kem kha quan",
+    "dinh_gia": {
+      "co_so": 46.9,
+      "upside": 52.7,
+      "ghi_chu": "Gia 49,60 (26/08) nam TREN dinh gia co so 46,90 (-5,4%) va duoi upside 52,70 (+6,3%) -> gia dang doi kich ban thuan loi phai dung. Khong mua moi. Bang lenh luat sinh de BAN toan bo (quy tac 3) — luat va nguoi cung chieu."
+    },
+    "luan_diem": "",
+    "ly_do": "",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-01",
+    "_tham_khao": "Dang giu 100 CP, gia von 50.800. Chot 26/08: 49.600 (-2,36%). Chot 19/08: MA50 51.907, MA200 47.286, ATR% 3,21, dem ATR 3,0. Gan nguong chan cung thao mat -25% nhat trong 6 ma (con cach 27,9% tinh theo MSB, LPB rieng con cach ~24,9% theo ghi chu 19/08). Bang lenh luat sinh cho ky soat 01/09: BAN toan bo — chi vi pham quy tac 3 (rot khoi top 40%)."
+  },
+  "STB": {
+    "buoc3_tham_dinh": "loai",
+    "buoc4_dinh_gia": "cho",
+    "khuyen_nghi": "loai",
+    "dinh_gia": {
+      "co_so": 59.5,
+      "upside": 111.0,
+      "ghi_chu": "Gia 74,60 (26/08) cao hon dinh gia co so 59,50 toi +25,4%; kich ban upside 111 la +48,8%. Bien do co_so->upside rong 1,87 lan = do bat dinh rat cao. Khong mua moi. CAN QUYET DINH: STB la 1 trong 3 ma con lai sau ky soat 01/09 theo luat, nhung tham dinh la 'kem kha quan' va gia da vuot xa kich ban co so -> luan_diem_con_nguyen con true hay da gay?"
+    },
+    "luan_diem": "GHI HOI TO 14/09/2026 — khong phai ban ghi lap tai thoi diem mua, va ghi ro nhu vay vi file nay cam viet lai luan diem. LY DO MUA (17-19/08/2026): quy mua STB dua tren THONG TIN SO BO tu bao cao phan tich cua cac cong ty chung khoan, CHUA tu tham dinh doc lap tu BCTC. Do la toan bo nen tang cua luan diem ban dau.",
+    "ly_do": "PHU QUYET BUOC 3 — phieu tham dinh 13/09/2026, het han 12/12/2026. Nam cong phu quyet DEU KHONG bat; phieu chet o DIEM: truc A 0 + truc B 1 + truc C 0 = 1/6, vua duoi tran 2 vua co truc bang 0 (thoa ca hai dieu kien phu quyet). TRUC A = 0: ROE 2025 10,34% va TTM den 30/06/2026 ~5,2% deu duoi COE 15,38% — hai trong ba ky do gan nhat duoi chi phi von. Nam duy nhat vuot la 2024 (20,03%) va no vuot nho chi phi tin dung 0,39% tren du no binh quan (so 1,95% cua 2025), dung nam ma NHNN ket luan trich lap du phong chua dung quy dinh — diem quan sat duy nhat chong lai muc 0 lai la diem quan sat da bi co quan quan ly dat dau hoi. TRUC C = 0: QD 1869 (cong bo 16-17/08/2025, phat 975 trieu, 6 vi pham, 28 kien nghi) ket luan PHAN LOAI TAI SAN CO va TRICH LAP DU PHONG chua dung quy dinh — ben co toan bo ho so tin dung noi rang so lieu dau vao sai, la dang bang chung nguoc nang nhat co the co cho mot truc cham chat luong cong bo. Cong them 3.789 ty 'dich vu khac' (21,7% tong thu nhap hoat dong 6T/2026, +2.408 ty YoY) khong co thuyet minh. TRUC B = 1: nen tien gui ban le 647.939 ty voi LDR 98,2% la loi the cau truc that, nhung CHUA quy doi duoc thanh bien co loi — CASA 18,9% (2022) -> 16,5%, chi phi von tren tai san sinh loi 3,81% (2024) -> 4,42%, NIM 2,81% da THAP HON binh quan nganh 2,87%, nhan su 18.659 -> 13.078. Thay doi cau truc nganh bat loi nhung do duoc nen khong roi xuong 0. DO BEN KET LUAN: doc rong tay nhat cho truc A (chi lay 3 nam tai chinh 2023-2025, vut bo ky soat xet moi nhat) van ra 2/6 = VAN PHU QUYET. Phai dong thoi bo qua ky soat xet moi nhat VA ket luan thanh tra VA cham truc B muc 2 (du CASA/NIM deu di xuong) moi ra duoc 'Dat'.",
+    "buoc3_chi_tiet": {
+      "ngay_lap": "2026-09-13",
+      "het_han": "2026-12-12",
+      "nguoi_lap": "Phong Rui ro",
+      "so_nen": "BCTC hop nhat da kiem toan 2021-2025 (in trong BCTN) + BCTC ban nien 2026 da soat xet (EY, 12/08/2026)",
+      "ket_qua": "PHU QUYET",
+      "diem": {
+        "A_kinh_te_doanh_nghiep": 0,
+        "B_do_ben_loi_the": 1,
+        "C_quan_tri_phan_bo_von": 0,
+        "tong": 1,
+        "luat": "tong <= 2 -> phu quyet; co truc = 0 -> phu quyet; thoa CA HAI"
+      },
+      "nam_cong_phu_quyet": {
+        "V1_mo_ta_cach_kiem_tien": "KHONG BAT — viet du 10 dong bang ngon ngu thuong. Cho khong viet duoc la dong 5 (thu phi): lai thuan dich vu 6T/2026 3.952 ty (+140%) nhung banca -60,5%, kieu hoi -22,8%; toan bo muc tang nam o 'dich vu khac' 1.381 -> 3.789 ty, khong thuyet minh. 2.408 ty chenh lech = 13,8% tong thu nhap hoat dong nua nam, khong quy duoc ve mot hoat dong co ten.",
+        "V2_y_kien_kiem_toan": "KHONG BAT — 2021-2025 chap nhan toan phan, co doan nhan manh TM 3.4 / 3(a) ve de an tai co cau; 6T/2026 ket luan soat xet khong ngoai tru. Luan chuyen EY -> KPMG (FY2024) -> EY (6T/2026) khop tran 5 nam cua TT 39/2011 Dieu 11 khoan 8, khong bat dong nao duoc cong bo. PASS MONG: khong cong bo phi kiem toan, khong cong bo ly do doi, DHDCD khong bieu quyet — 'khong co bang chung bat dong' o day nghia la khong co kenh de bat dong lo ra.",
+        "V3b_lai_phi_phai_thu": "KHONG BAT o ca ba cap ky — cong doi DONG THOI ty le tang VA bao phu giam; chua cap ky nao co ca hai. Giai doan bao phu sup manh nhat (68,4% -> 50,0%) lai la giai doan ty le lai phai thu GIAM, tuc STB dung ghi nhan lai chu khong tri hoan; lai ngoai bang 31.740 -> 29.940 -> 33.120 ty xac nhan huong nay.",
+        "V4_ben_lien_quan_tren_VCSH": "KHONG BAT — du no va phai thu voi ben lien quan 31/12/2025 149,4 ty / VCSH 59.870 ty = 0,249%, giam tu 7,54% cuoi 2024 (Bamboo Airways 3.919 ty da tat toan va het la ben lien quan tu 25/09/2025). Cach nguong 120 lan. GIOI HAN: pham vi 'ben lien quan' theo VAS chi phu ban lanh dao va phap nhan cua ho — khoan 12.037 ty nhom Tram Be va lo 32,5% nam ngoai dinh nghia nay; bao lanh voi ben lien quan khong duoc tach rieng.",
+        "V5_xu_phat_cong_bo_pha_loang": "KHONG BAT THEO CAU CHU — khong tim thay an phat cong bo thong tin nao tu UBCKNN/HOSE trong 24 thang; pha loang 6 nam = 0 (VDL 18.852 ty dung yen tu 2020 den 30/06/2026, SLCP binh quan gia quyen 2024 = 2025 = 1.885.215.716, khong co CP tiem nang gay pha loang). NHUNG cai STB dinh la loai khac va danh dung ly do cong ton tai: QD 1869 (16-17/08/2025, 975 trieu, 6 vi pham gom phan loai tai san co va trich lap du phong chua dung quy dinh, 28 kien nghi phai khac phuc truoc 31/12) va QD 159/QD-XPHC (24/10/2025, Thanh tra NHNN KV2, Sacombank Trung Tam). Khong ca nhan lanh dao nao bi ky luat/khoi to/cach chuc — 'kiem diem, rut kinh nghiem' la muc nhe nhat, CHUA du de goi la 'lanh dao bi xu ly'. Nen V5 khong bat; no khong giet o cong ma giet o truc C."
+      },
+      "V3b_bang": [
+        {
+          "ky": "2023-12-31",
+          "lai_phi_phai_thu_ty": 5687,
+          "tren_tong_TS": "0,843%",
+          "bao_phu_no_xau": "68,8%",
+          "no_xau": "2,28%",
+          "so_ngay_lai_ton": 37.1
+        },
+        {
+          "ky": "2024-12-31",
+          "lai_phi_phai_thu_ty": 5240,
+          "tren_tong_TS": "0,700%",
+          "bao_phu_no_xau": "68,4%",
+          "no_xau": "2,40%",
+          "so_ngay_lai_ton": 38.4
+        },
+        {
+          "ky": "2025-12-31",
+          "lai_phi_phai_thu_ty": 5669,
+          "tren_tong_TS": "0,618%",
+          "bao_phu_no_xau": "50,0%",
+          "no_xau": "6,41%",
+          "so_ngay_lai_ton": 36.0
+        },
+        {
+          "ky": "2026-06-30",
+          "lai_phi_phai_thu_ty": 6788,
+          "tren_tong_TS": "0,761%",
+          "bao_phu_no_xau": "56,7%",
+          "no_xau": "7,54%",
+          "so_ngay_lai_ton": 38.8
+        }
+      ],
+      "V3b_day_bay": "Quan sat moi nhat la LAN DAU ty le di sai huong: 0,618% -> 0,761% trong 6 thang, trong khi du no gop chi tang 1,5%. Neu quy III/2026 ty le nay con tang nua MA bao phu quay dau giam thi V3b BAT va phieu chuyen thanh phu quyet VI CONG chu khong phai vi diem.",
+      "ROE_vs_COE": {
+        "COE": "15,38%",
+        "2023": "18,30% (tren)",
+        "2024": "20,03% (tren)",
+        "2025": "10,34% (duoi)",
+        "TTM_30-06-2026": "~5,2% (duoi)",
+        "ghi_chu": "NIM suy giam 4 ky lien tiep 3,83 -> 3,68 -> 3,31 -> 2,81% NHUNG giai thich duoc (NIM nganh 3,26 -> 2,87%, CPI 7T 4,39% sat tran 4,5%, lai bi thoai thu) nen KHONG dung lam can cu cho diem 0 — can cu nam o ROE."
+      },
+      "truc_C_bang_chung": [
+        "1. Chat luong cong bo bi CHINH co quan quan ly phu nhan (QD 1869: phan loai tai san co + trich lap du phong chua dung quy dinh).",
+        "2. Mot dong doanh thu trong yeu khong co thuyet minh: 'dich vu khac' 3.789 ty = 21,7% tong thu nhap hoat dong 6T/2026, +2.408 ty YoY.",
+        "3. Cam ket voi co dong: chi tieu DHDCD 2026 no xau <4,5%, thuc te 30/06/2026 la 7,54% — can dua ~18.000 ty ra khoi nhom no xau trong 6 thang trong khi nua dau nam xu ly rui ro gan bang 0. Nam thu 11 lien tiep khong co tuc, 33.071 ty LNGL bi khoa. CONG BANG: chuoi 11 nam khong co tuc co rang buoc phap ly that tu de an tai co cau, nen KHONG dung lam bang chung chinh — bang chung chinh la muc 1 va 2.",
+        "So huu ban lanh dao: CT Duong Cong Minh 62.569.075 CP (3,32%); ca phan con lai cua HDQT/BKS/Ban dieu hanh cong lai <0,02%; 2 TV HDQT doc lap va Truong BKS deu nam 0 CP; PTGD Dao Nguyen Vu ban tu 52.331 xuong 31 CP trong 2025. Khong co co dong lon >5%; 66.614 co dong nho nam 100%."
+      ],
+      "kiem_dinh_do_ben": [
+        "Nhu tren                    : A0 B1 C0 = 1 -> phu quyet",
+        "Rong tay truc A (2023-2025) : A1 B1 C0 = 2 -> phu quyet (tong <= 2)",
+        "Rong tay ca A va C          : A1 B1 C1 = 3 -> cho",
+        "Rong tay toi da             : A1 B2 C1 = 4 -> dat",
+        "De ra 'Dat' phai DONG THOI: bo qua ky soat xet moi nhat o truc A, bo qua ket luan thanh tra o truc C, va cham truc B muc 2 du CASA va NIM deu dang di xuong. Khong cach doc hop ly nao dua STB toi 'Dat'."
+      ],
+      "mo_lai_truoc_han": [
+        "1. BCTC quy III/2026 (du kien cuoi 10/2026): ty le lai va phi phai thu/tong TS co tiep tuc vuot 0,761% khong; muc xu ly rui ro co thoat khoi 0 khong; no nhom 2 (16.827 ty = 2,65%, gap 3,6 lan cuoi 2025) chuyen nhom bao nhieu.",
+        "2. Thuyet minh cau phan 'dich vu khac': neu tach duoc 3.789 ty thanh cac hoat dong co ten VA giu tren 3.500 ty hai quy lien tiep thi truc C co duong len 1 va truc A co them nen thu nhap thuong xuyen.",
+        "3. BCTC kiem toan FY2026 (quy I/2027): EY quay lai sau 2 nam vang, tren so co 47.957 ty no xau. Viec EY giu nguyen hay cat lai phan loai cua KPMG la cong bo co gia tri thong tin cao nhat hien co."
+      ],
+      "con_treo": [
+        "Chua co BCTC quy de kiem V3b dung tan suat 3 quy lien tiep nhu cong yeu cau — 4 diem quan sat tren la tan suat ban nien.",
+        "Chua doc thuyet minh ben lien quan trong BCTC ban nien 2026; V4 kiem o 31/12/2025 va 31/12/2024 (khoang cach toi nguong 120 lan nen khong anh huong ket luan).",
+        "Bao lanh va cam ket ngoai bang voi ben lien quan khong duoc tach rieng o bat ky ky nao -> ve 'bao lanh' cua V4 chua kiem duoc."
+      ],
+      "he_qua_quy_tac_4_CHUA_THUC_HIEN": "sell_checklist() KHONG doc buoc3_tham_dinh. Ghi 'loai' o day KHONG tu dong sinh lenh ban cho 100 CP dang giu. De lop phu quyet co hieu luc that voi vi the nay phai dat luan_diem_con_nguyen = false -> quy tac thoat so 4 -> BAN TOAN BO 100%. Hien van de null: CHO NGUOI XAC NHAN (14/09/2026)."
+    },
+    "luan_diem_con_nguyen": false,
+    "ngay": "2026-09-14",
+    "_tham_khao": "Dang giu 100 CP, gia von 74.200. Chot 26/08: 74.600 (+0,54%). Chot 19/08: MA50 72.290, MA200 63.494, ATR% 2,52, dem ATR 7,0 — dem rong thu hai. Van con trong ro sau ky soat 01/09 theo bang lenh luat sinh ngay 26/08 (chi con MSB/STB/VHM).",
+    "luan_diem_gay_vi": "Khi tu thu thap du lieu de viet bao cao giua ky, quy phat hien nhung thong tin PHU QUYET chinh luan diem ban dau — tuc nen thong tin so bo luc mua khong dung vung truoc so lieu goc. Ket qua duoc cham thanh phieu tham dinh Buoc 3 ngay 13/09/2026: nam cong phu quyet deu khong bat nhung diem la 1/6 voi truc A = 0 (ROE 2025 10,34% va TTM 30/06/2026 ~5,2% deu duoi COE 15,38%) va truc C = 0 (QD 1869 ket luan phan loai tai san co va trich lap du phong chua dung quy dinh; 3.789 ty 'dich vu khac' = 21,7% tong thu nhap hoat dong 6T/2026 khong co thuyet minh). Chi tiet day du o buoc3_chi_tiet. Bai hoc ghi lai de ky sau doi chieu: luan diem xay tren bao cao phan tich ben thu ba, chua qua tham dinh doc lap, la luan diem chua tung duoc kiem — no khong 'gay' vao thang 9, no von da mong tu thang 8.",
+    "da_ban": {
+      "ngay": "2026-09-14",
+      "danh_muc": "DM2",
+      "khoi_luong": 100,
+      "gia": 76900,
+      "gia_von": 74200,
+      "thu_ve_gop": 7690000,
+      "phi_thue_0_25pct": 19225,
+      "thu_ve_rong": 7670775,
+      "lai_gop": 270000,
+      "lai_rong": 250775,
+      "lai_rong_pct": "+3,38%",
+      "can_cu": "QUY TAC THOAT SO 4 — luan diem doanh nghiep da gay (luan_diem_con_nguyen = false). BAN TOAN BO, dung theo luat: mot cau phu dinh la ban toan bo vi the.",
+      "trong_luat": true,
+      "ghi_chu": "KHONG ghi vao LENH_NGOAI_LUAT va KHONG ghi vao LENH_QUY_TAC_5 — day la lenh do he thong sinh ra, khong phai cam quan. Day cung la LAN DAU lop phu quyet Buoc 3 thuc su loai duoc mot ma DANG NAM GIU, tra loi cho canh bao 'mot lop phu quyet khong bao gio phu quyet thi tren thuc te khong ton tai'."
+    }
+  },
+  "VHM": {
+    "buoc3_tham_dinh": "loai",
+    "buoc4_dinh_gia": "cho",
+    "khuyen_nghi": "loai",
+    "dinh_gia": {
+      "co_so": 80.6,
+      "upside": null,
+      "ghi_chu": "co_so 80,6 GIU NGUYEN lam ban ghi lich su, NHUNG da het hieu luc dieu huong: Buoc 3 phu quyet 13/09/2026 nen khong con cau hoi gia. buoc4 ha tu 'dat' xuong 'cho' de khong ai doc duoc thanh tin hieu mua. HE QUA PHAI XU LY: ke hoach MUA LAI 50 CP @75.200 (han 16/10, ghi trong LENH_NGOAI_LUAT) da mat can cu — mot ma bi phu quyet o Buoc 3 thi khong duoc mua moi duoi bat ky gia nao. De xuat HUY ke hoach mua lai; can NGUOI xac nhan."
+    },
+    "luan_diem": "GHI HOI TO 14/09/2026 — khong phai ban ghi lap tai thoi diem mua. LY DO MUA (17-19/08/2026): VHM la doanh nghiep bat dong san co bien gop va ROE cao nhat san, quy dat lon, qua ca 4 quy tac thoat va dung hang 2/11 bang xep hang sau ky soat 01/09. Luan diem dua tren SUC MANH VAN HANH cua doanh nghiep — chua tung kiem 'tien di dau sau khi kiem duoc', tuc chua doc bang can doi va thuyet minh ben lien quan. Do la lo hong ma phieu 13/09 vach ra.",
+    "ly_do": "PHU QUYET BUOC 3 — phieu tham dinh 13/09/2026, het han 12/12/2026. Khac STB (chet vi DIEM), VHM chet vi CONG: ba can cu doc lap, chi can mot la du. (1) V3 BAT: dong tien hoat dong cong don 3 nam 2023-2025 la 20.306 ty tren LNST 111.940 ty = 18,1%, nguong cong la 50%. Cua thoat 'giai thich bang vong quay von luu dong' KHONG mo duoc: trong 219.950 ty phai thu ngan han cuoi 2025 chi 23.488 ty (10,7%) la phai thu KHACH HANG; khoan lon nhat la 91.066 ty 'tam ung tien giai phong mat bang' cho CA NHAN KHONG TEN, cho du an 'TIEM NANG' khong ten, the chap bang co phieu cua chinh cac cong ty trong tap doan. Do khong phai von luu dong — von luu dong quay ve khi ban giao. (2) V4 BAT DUT KHOAT, khong co vung xam: tai san voi ben lien quan 185.680 ty = 67,8% VCSH tai 30/06/2026 (nguong 30%). Moi cach tinh, moi moc thoi gian, moi co so trinh bay deu vuot tu 1,4 den 2,3 lan; va TANG lien tiep qua hai ky (co so A 48,0% -> 52,9%; co so B 42,9% -> 53,0%), nen ca hai ve 'vuot 30% VA khong giam qua hai ky' deu thoa. (3) TRUC C = 0: 6T/2026 chi 163.565 ty 'dau tu gop von vao don vi khac' — nhieu hon TOAN BO dong tien hoat dong 89.468 ty — tai tro bang 100.993 ty vay moi; dat coc 60.731 ty voi cong ty me Vingroup khong thuyet minh mua cai gi, gia bao nhieu, khi nao xong; no xau gia goc chi 345,9 ty tren ~346 nghin ty phai thu cac loai, tuc gan nhu khong trich lap gi cho cac khoan cho vay 12% KHONG TAI SAN DAM BAO voi VinBus/VinRobotics/VinSmart Future va phai thu thue tai chinh 22.869 ty voi VinFast. TONG BA TRUC 1+2+0 = 3/6. Ghi ro cho cong bang: co may van hanh cua VHM la TOT NHAT NGANH (truc B duoc 2 diem tuyet doi — bien gop 30,2% va ROE ~30,7% so voi 1,3-10,7% cua NVL/KDH/NLG/DXG/PDR/HDG), V2 la pass SACH NHAT trong ca bo phieu (EY, chap nhan toan phan, khong doan nhan manh), va VHM co mua lai ~247 trieu co phieu quy 2024. Van de cua VHM KHONG nam o cho no kinh doanh kem; no nam o cho TIEN DI DAU SAU KHI KIEM DUOC.",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-14",
+    "_tham_khao": "07/09/2026 — LENH NGOAI LUAT #1: 'Lenh chot lai mot phan theo yeu cau nguoi gop von'. Ban 50/100 CP @77.700, kem ke hoach MUA LAI o 75.200 (han 16/10, het han thi HUY, khong duoc nang gia). 'Quy tac 5' chi la nhan dan len sau, khong phai nguon goc quyet dinh — lenh nay khong thuoc bat ky quy tac nao trong bon. So chi tiet: lt_config.LENH_NGOAI_LUAT. Con 50 CP (lo le), gia von 69.000. Lai da thuc hien +435.000 gop / +425.287 rong. ⚠️ Bang chung nguoc cua chinh quy: 'ban de bao ve thanh qua' chinh la luat A, do tren 56.496 lenh mo phong 2018-2026 cho alpha AM ca hai che do (-0,235%/-0,692% moi lenh). Do la ly do EXIT['khong_co_muc_tieu_chot_lai'] = True. | Ghi chu dinh gia: co_so 80,6 > gia ban 77,70, tuc ban duoi gia tri hop ly 3,6% — khong lien quan toi quyet dinh vi day khong phai lenh theo quy tac 5, nhung van la mot doi chieu dang luu. | Lich su: chot 04/09 75.200 (+8,99%); chot 26/08 73.600; 19/08 MA50 72.190, MA200 62.448, ATR% 4,30. Hang 2/11 bang xep hang, qua ca 4 quy tac thoat sau ky soat 01/09.",
+    "buoc3_chi_tiet": {
+      "ngay_lap": "2026-09-13",
+      "het_han": "2026-12-12",
+      "nguoi_lap": "Phong Rui ro",
+      "so_nen": "BCTC hop nhat kiem toan 2023, 2024, 2025 (EY) va BCTC hop nhat Quy II/2026 (D:\\Broker\\VHM). LUU Y: BCTC Q2/2026 la bao cao TU LAP, KHONG soat xet — moi so 30/06/2026 chua qua kiem toan vien doc lap.",
+      "ket_qua": "PHU QUYET",
+      "loai_hinh_cong_dong_tien": "Bat dong san -> ap V3 (khong phai V3b)",
+      "diem": {
+        "A_kinh_te_doanh_nghiep": 1,
+        "B_do_ben_loi_the": 2,
+        "C_quan_tri_phan_bo_von": 0,
+        "tong": 3,
+        "luat": "tong 3 KHONG tu no phu quyet, nhung truc C = 0 -> phu quyet; cong V3 va V4 deu bat -> phu quyet. Ba can cu DOC LAP, chi can mot la du."
+      },
+      "nam_cong_phu_quyet": {
+        "V1_mo_ta_cach_kiem_tien": "KHONG BAT — viet du 10 dong cho HOAT DONG KINH DOANH bang ngon ngu thuong (mua/giai phong dat vung ven -> tu lam ha tang ca khu -> ban khi chua xay xong, thu ~70% truoc ban giao -> ghi doanh thu khi ban giao, tre 1-3 nam; 6T/2026 ban 148.104 ty va ghi nhan 134.205 ty). NHUNG PHAN LON BANG CAN DOI thi khong: ~190 nghin ty tai san — \"tam ung giai phong mat bang\", \"hop dong hop tac dau tu va kinh doanh\", \"dat coc cho muc dich dau tu\" — chi mo ta duoc bang von tu cua chinh doanh nghiep. Cong khong bat theo cau chu, nhung day la bang chung cho truc C.",
+        "V2_y_kien_kiem_toan": "KHONG BAT — SACH NHAT trong ca bo phieu. EY kiem toan ca FY2024 va FY2025, y kien chap nhan toan phan, KHONG co doan \"Van de can nhan manh\". Khong doi kiem toan vien. BCKT FY2025 ky 23/03/2026 boi Phung Manh Phu va Pham Viet Anh.",
+        "V3_dong_tien_hoat_dong": "BAT — 3 nam tai chinh tron ven gan nhat (2023-2025): dong tien HD cong don 20.306 ty / LNST cong don 111.940 ty = 18,1%, nguong 50%. Cua thoat khong mo duoc (xem V3_chi_tiet).",
+        "V4_ben_lien_quan_tren_VCSH": "BAT DUT KHOAT — 185.680 ty = 67,8% VCSH tai 30/06/2026, nguong 30%. Vuot 1,4-2,3 lan o MOI co so trinh bay va MOI moc thoi gian, va TANG lien tiep qua hai ky. Ca hai ve cua cong deu thoa.",
+        "V5_xu_phat_cong_bo_pha_loang": "KHONG BAT — khong tim thay an phat cong bo thong tin nao tu UBCKNN hay HOSE trong 24 thang. Von gop chu so huu dung yen 41.074 ty tu 31/12/2024 den 30/06/2026. So CP binh quan gia quyen GIAM tu 4.328,1 xuong 4.107,4 trieu (mua co phieu quy 2024). Co tuc co phieu 1:1 nam 2026 la chia thuong tu loi nhuan giu lai, ty le so huu moi co dong khong doi, khong huy dong von moi — KHONG phai pha loang."
+      },
+      "V3_chi_tiet": {
+        "bang": [
+          {
+            "ky": "2023",
+            "dong_tien_HD_ty": 1517,
+            "LNTT_ty": 43310,
+            "LNST_ty": 33533
+          },
+          {
+            "ky": "2024",
+            "dong_tien_HD_ty": -22400,
+            "LNTT_ty": 40848,
+            "LNST_ty": 35073
+          },
+          {
+            "ky": "2025",
+            "dong_tien_HD_ty": 41189,
+            "LNTT_ty": 52810,
+            "LNST_ty": 43335
+          },
+          {
+            "ky": "6T/2026",
+            "dong_tien_HD_ty": 89468,
+            "LNTT_ty": 63567,
+            "LNST_ty": 52092
+          }
+        ],
+        "cua_so_3_nam_tai_chinh_2023_2025": "20.306 / 111.940 = 18,1% -> BAT (nguong 50%)",
+        "cua_thoat_von_luu_dong": "Co che thi KHOP: 3 nam phai thu +161.625 ty, ton kho +70.575 ty, phai tra +201.104 ty, rong hut 31.096 ty. NHUNG cac khoan phai thu do KHONG phai von luu dong. Cuoi 2025, trong 219.950 ty phai thu ngan han chi 23.488 ty (10,7%) la phai thu khach hang; khoan lon nhat la 91.066 ty tam ung giai phong mat bang = 11,6% tong tai san. Thuyet minh 9: tam ung cho CAC CA NHAN de giai phong mat bang cho cac du an bat dong san TIEM NANG, tai san dam bao la co phieu cua mot so cong ty trong cung Tap doan do cac ben lien quan chiu su kiem soat chung nam giu. Khong ten doi tac, khong ten du an, khong ky han, khong lai suat. Von luu dong la tien ket giua luc xay va luc ban giao va no QUAY VE khi ban giao; day khong phai the. CUA THOAT KHONG MO DUOC.",
+        "cho_phai_cong_bang": "Neu lay BA KY BAO CAO gan nhat (2024, 2025, 6T/2026) thay vi ba nam tai chinh: 108.258 / 130.499 = 83,0% -> CONG KHONG BAT. Day la khac biet lon va phai noi ro. Nhung buc tranh khong doi: dong tien HD 6T/2026 89.468 ty den chu yeu tu \"tang cac khoan phai tra 200.129 ty\", trong do nguoi mua tra tien truoc tu BEN LIEN QUAN tang 17.818 -> 39.983 ty (Vinpearl 22.950, Vingroup 16.507) va phai tra Vingroup tu thu chi ho tang 6.792 -> 39.171 ty. Cung ky dong tien dau tu AM 154.051 ty, rieng \"tien chi dau tu gop von vao don vi khac\" AM 163.565 ty — lon hon toan bo dong tien hoat dong — tai tro bang 100.993 ty vay moi. Tien vao tu trong tap doan roi di ra cung ve phia tap doan. VA DU V3 KHONG BAT thi V4 van bat va truc C van 0 -> ket luan khong doi."
+      },
+      "V4_chi_tiet": {
+        "co_so_A_TM37_BCTC_2025": {
+          "31/12/2024": {
+            "tong_ty": 105949,
+            "VCSH_ty": 220744,
+            "tren_VCSH": "48,0%"
+          },
+          "31/12/2025": {
+            "tong_ty": 131736,
+            "VCSH_ty": 249217,
+            "tren_VCSH": "52,9%"
+          },
+          "cau_phan_2025_ty": {
+            "phai_thu_ngan_han_khach_hang": 4334,
+            "tra_truoc_nguoi_ban_ngan_han": 92,
+            "phai_thu_ngan_han_khac": 2025,
+            "phai_thu_dai_han_khac": 64685,
+            "tai_san_ngan_han_khac_dat_coc": 1059,
+            "tai_san_dai_han_khac_dat_coc": 53402,
+            "cho_vay": 6139
+          }
+        },
+        "co_so_B_TM32_BCTC_Q2_2026": {
+          "31/12/2025": {
+            "phai_thu_va_cho_vay_ty": 106877,
+            "gop_von_hop_tac_ty": 30854,
+            "tong_ty": 137731,
+            "VCSH_ty": 249217,
+            "tren_VCSH_gom_gop_von": "55,3%",
+            "tren_VCSH_chi_phai_thu_cho_vay": "42,9%"
+          },
+          "30/06/2026": {
+            "phai_thu_va_cho_vay_ty": 145154,
+            "gop_von_hop_tac_ty": 40526,
+            "tong_ty": 185680,
+            "VCSH_ty": 274005,
+            "tren_VCSH_gom_gop_von": "67,8%",
+            "tren_VCSH_chi_phai_thu_cho_vay": "53,0%"
+          }
+        },
+        "nguong_30pct_VCSH_ty": {
+          "2024": 66223,
+          "2025": 74765,
+          "6T/2026": 82202
+        },
+        "ba_khoan_lon_nhat_30-06-2026": [
+          "Dat coc cho muc dich dau tu voi Tap doan Vingroup: 60.731 ty (tu 28.202 ty cuoi 2025). Khong thuyet minh du an, gia, hay thoi diem hoan tat.",
+          "Phai thu tu hop dong cho thue tai chinh voi VinFast: 22.869 ty (tu 20.646 ty).",
+          "Gop von hop tac dau tu voi Vingroup: 21.994 ty, cong Vinpearl 10.653 ty MOI phat sinh trong ky."
+        ],
+        "cho_vay_dai_han": "9.631 ty lai suat 12% cho VinAcademy, Vincom bao ve, VinSmart Future, VinBus va VinRobotics — TAT CA khong tai san dam bao.",
+        "ve_bao_lanh_chua_kiem_duoc": "Thuyet minh 26 chi mo ta DINH TINH: khoan vay cua VHM duoc dam bao bang co phieu VHM do Vingroup nam giu va bang cam ket bao lanh thanh toan cua Vingroup; nguoc lai VHM co \"cam ket bao lanh\" cho nghia vu cua cac cong ty con va cong ty trong tap doan. KHONG co con so tong o bat ky cho nao. Cong da bat o ve phai thu va cho vay nen khong doi ket luan, nhung day la mot khoang trong cong bo phai ghi."
+      },
+      "truc_A_1_diem": "ROIC khong duoi chi phi von: 2025 NOPAT ~52.560 ty tren von dau tu 395.540 ty (no vay 146.323 + VCSH 249.217) = ~13,3% so voi WACC 12,1-12,4%. Xap xi, hoi vuot -> khong roi xuong o 0 diem. Bien gop 30,2% co suy giam nhung GIAI THICH DUOC bang dich chuyen co cau san pham sang ban buon va dia ban bien thap hon, nen nhanh \"bien gop suy giam khong giai thich duoc\" cung khong ap dung. KHONG len duoc 2 diem vi o 2 doi ro \"dong tien hoat dong theo sat loi nhuan\" — 3 nam 2023-2025 dong tien bang 18,1% loi nhuan, khong cach doc nao goi do la theo sat.",
+      "truc_B_2_diem": "TRUC MANH NHAT CUA VHM, cham toi da. Loi the goi ten duoc va quy doi duoc thanh bien cu the: quy dat quy mo lon o vanh dai do thi, nang luc lam ha tang ca khu, va he sinh thai truong hoc/benh vien/ban le/giao thong cho phep ban MOT KHU DO THI chu khong ban mot can ho. Do duoc bang ROE suy ra ~30,7% (VHM) so voi NVL 8,7% / KDH 9,4% / NLG 4,9% / DXG 1,3% / PDR 4,8% / HDG 10,7%; P/B 2,31 so voi 0,65-1,11 cua nhom. Cau truc nganh doi theo huong CO LOI: bo ba luat dat dai/nha o/kinh doanh BDS buoc chu dau tu nop tien dat som va du — chi doanh nghiep von lon lam duoc; chu ky 2022-2024 day phan lon doi thu ve gan diem hoa von con VHM giu nguyen bien. CHO NGHI NGO PHAI GHI: mot phan doanh thu va bien den tu nhan thau xay dung cho cac cong ty TRONG TAP DOAN, gia cac hop dong do khong duoc thi truong kiem chung; nguoi mua tra tien truoc tu ben lien quan theo hop dong xay dung da len 39.983 ty tai 30/06/2026. Tach rieng ra thi bien mang ban le that co the thap hon so cong bo, nhung thuyet minh khong cho phep tach.",
+      "truc_C_0_diem_bang_chung": [
+        "1. PHAN BO VON: 6T/2026 chi 163.565 ty \"dau tu gop von vao don vi khac\" — nhieu hon TOAN BO dong tien hoat dong 89.468 ty — tai tro bang 100.993 ty vay moi. Tong tai san voi ben lien quan len 185.680 ty = 67,8% VCSH va 16,7% tong tai san.",
+        "2. CHAT LUONG CONG BO (a): dat coc 60.731 ty voi cong ty me Vingroup — khong thuyet minh nao cho biet mua cai gi, gia bao nhieu, khi nao xong.",
+        "3. CHAT LUONG CONG BO (b): 91.066 ty tam ung cho CA NHAN de giai phong mat bang cho du an TIEM NANG, the chap bang co phieu cua cac cong ty trong tap doan do ben lien quan nam giu. Day la khoan muc LON THU HAI tren bang can doi sau hang ton kho. Khong ten nguoi nhan, khong ten du an, khong ky han.",
+        "4. TRICH LAP: Thuyet minh 10 ghi no xau gia goc 345,9 ty tren tong phai thu cac loai ~346 NGHIN ty. Tuc gan nhu khong trich lap gi cho cac khoan cho vay 12% khong tai san dam bao voi VinBus/VinRobotics/VinSmart Future, va cho phai thu thue tai chinh 22.869 ty voi VinFast. Khong co phan tich suy giam gia tri nao cho nguoi doc danh gia.",
+        "5. So huu ban lanh dao: ong Pham Nhat Vuong la thanh vien HDQT va nhan thu lao BANG 0; quyen kiem soat di qua Vingroup chu khong qua so huu truc tiep tai VHM. Tong thu lao HDQT 19.887 trieu dong. Thuyet minh 37 KHONG cong bo so co phan do tung thanh vien ban lanh dao nam giu.",
+        "CHO PHAI CONG BANG: VHM co bang chung TICH CUC ve tra von cho co dong — 2024 mua lai ~247 trieu co phieu quy, lam SLCP binh quan gia quyen giam 4.328,1 -> 4.107,4 trieu. Do la phan bo von tao gia tri cho co dong con lai va duoc ghi nhan. Nhung o 1 diem doi \"KHONG CO DAU HIEU XAU\", va cac muc 2-4 tren la dau hieu xau ro rang ve chat luong cong bo -> khong du dieu kien cho 1 diem."
+      ],
+      "kiem_dinh_do_ben": [
+        "Nhu tren                                   : V3 bat + V4 bat + C=0  -> PHU QUYET",
+        "Neu V3 KHONG bat (lay cua so 2024-6T/2026) : V4 van bat, C van 0    -> PHU QUYET",
+        "Neu truc C dang 1 diem nho mua CP quy      : tong 4 nhung V3+V4 bat -> PHU QUYET",
+        "Neu gop von hop tac khong tinh vao V4      : ty le van 53,0%        -> PHU QUYET",
+        "Neu CA BA dieu tren cung luc               : V4 van 53,0% = 1,8 lan nguong -> PHU QUYET",
+        "De V4 KHONG bat, tai san voi ben lien quan phai xuong duoi 82.202 ty, tuc GIAM HON 100 NGHIN TY so voi muc hien tai. Khong co cach doc hop ly nao dua VHM toi \"Dat\", va cung khong co cach nao dua toi \"Cho\"."
+      ],
+      "mo_lai_truoc_han": [
+        "1. BCTC quy III/2026 (cuoi 10/2026). Kiem HAI so: tong tai san voi ben lien quan co tiep tuc vuot 185.680 ty khong, va khoan dat coc 60.731 ty voi Vingroup da chuyen thanh tai san gi chua. Neu dat coc do chuyen thanh quy dat CO TEN DU AN va GIA MUA thi V4 co duong giam va truc C co duong len 1.",
+        "2. Thuyet minh khoan 91.066 ty tam ung giai phong mat bang. Neu thu hoi duoc, hoac chuyen thanh hang ton kho voi ten du an cu the, thi CA V3 LAN TRUC C doi.",
+        "3. BCTC kiem toan FY2026 (quy I/2027). Xem EY co giu nguyen y kien khong co doan nhan manh sau khi tai san ben lien quan tang them gan 48 nghin ty trong sau thang, va co dua ra phan tich suy giam gia tri cho cac khoan cho vay 12% khong tai san dam bao khong."
+      ],
+      "con_treo": [
+        "Ve \"bao lanh\" cua V4 chua luong hoa duoc — khong thuyet minh nao cho con so tong, chi co mo ta dinh tinh o Thuyet minh 26.",
+        "BCTC Quy II/2026 la bao cao TU LAP, KHONG soat xet. Moi con so 30/06/2026 trong phieu chua qua kiem toan vien doc lap.",
+        "Thuyet minh 37 (BCTC 2025) va Thuyet minh 32 (BCTC Q2/2026) phan loai KHAC NHAU cho cung mot khoan muc, nen chi so sanh duoc trong tung co so, khong so cheo. Phieu da tach rieng hai co so A va B.",
+        "Chua doi chieu ROIC voi du lieu quy; so ROIC 13,3% la uoc luong tu so nam 2025."
+      ],
+      "he_qua_quy_tac_4_CHUA_THUC_HIEN": "sell_checklist() KHONG doc buoc3_tham_dinh. Ghi \"loai\" o day KHONG tu dong sinh lenh ban cho 50 CP (lo le) dang giu o DM2, gia von 69.000. De lop phu quyet co hieu luc that voi vi the nay phai dat luan_diem_con_nguyen = false -> quy tac thoat so 4 -> BAN TOAN BO 50 CP. Hien van de null: CHO NGUOI XAC NHAN (14/09/2026). Tien le STB (13/09 cham phieu -> 14/09 dat false -> ban toan bo) la khuon mau ap duoc thang cho truong hop nay: ca hai deu la luan diem xay tren thong tin chua tu tham dinh.",
+      "he_qua_thu_hai_ke_hoach_mua_lai": "LENH_NGOAI_LUAT #1 con treo ke hoach MUA LAI 50 CP @75.200 han 16/10/2026. Mot ma bi phu quyet o Buoc 3 KHONG duoc mua moi duoi bat ky gia nao — ke hoach mua lai nay da mat can cu. De xuat HUY, khong doi den 16/10 moi het han. Can NGUOI xac nhan."
+    }
+  },
+  "VIC": {
+    "buoc3_tham_dinh": "loai",
+    "buoc4_dinh_gia": "chua",
+    "khuyen_nghi": "loai",
+    "dinh_gia": {
+      "co_so": null,
+      "upside": null
+    },
+    "luan_diem": "",
+    "ly_do": "Loai khoi danh muc do van de co ban (nguoi tham dinh phu quyet o buoc 3, ngay 01/09/2026). Phu quyet dinh tinh thang moi tin hieu ky thuat, ke ca 7/7 checklist ngay 25/08.",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-01",
+    "_tham_khao": "Ung vien DM2, chua mua — luan_diem_con_nguyen khong ap dung o DM2. Dat 7/7 checklist ky thuat 25/08 nhung DA BI LOAI o buoc 3. DANG GIU 100 CP o DM1 (gia von 198.000-203.000 theo ke_hoach 17-18/08) — CAN QUYET DINH RIENG: quyet dinh loai nay co ap cho ca DM1 khong (neu co thi phai ban vi the DM1). Tranh cai TRAN_TRUNG_LAP 26/08 ve lo VIC ~23tr gio thanh moot voi DM2."
+  },
+  "VPI": {
+    "buoc3_tham_dinh": "loai",
+    "buoc4_dinh_gia": "chua",
+    "khuyen_nghi": "loai",
+    "dinh_gia": {
+      "co_so": null,
+      "upside": null
+    },
+    "luan_diem": "",
+    "ly_do": "Loai khoi danh muc do van de co ban (nguoi tham dinh phu quyet o buoc 3, ngay 01/09/2026). Thang tin hieu ky thuat 7/7 checklist ngay 25/08.",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-01",
+    "_tham_khao": "Ung vien, chua mua. Dat 7/7 checklist ngay 25/08. Du lieu 19/08 (luc dinh mua 100 CP nhung khong khop): gia 62.700, MA200 58.852, MA50 61.962, RS12T +6,7 diem, ATR% 2,76, thanh khoan 127,2 ty. Da bi loai o buoc 3 — khong can cap nhat gia nua."
+  },
+  "HCM": {
+    "buoc3_tham_dinh": "dat",
+    "buoc4_dinh_gia": "chua",
+    "khuyen_nghi": "trung lap",
+    "dinh_gia": {
+      "co_so": null,
+      "upside": null,
+      "ghi_chu": "Chua co dinh gia -> buoc 4 van 'chua' -> KHONG duoc mua. 'Trung lap' = khong bi phu quyet o buoc 3 nhung cung chua co luan diem mua."
+    },
+    "luan_diem": "",
+    "ly_do": "",
+    "luan_diem_con_nguyen": null,
+    "ngay": "2026-09-01",
+    "_tham_khao": "Ung vien, chua mua. Dat 7/7 checklist ky thuat ngay 25/08 (12/112 ma qua loc), nhung trong bang xep hang top-40% chay 26/08 (11/112 ma qua loc) HCM bi loai voi 0,47 diem, sat nut voi MSB (0,48) giu duoc cho cuoi cung — nguong 40% dang rat mong."
+  },
+  "DHC": {
+    "buoc3_tham_dinh": "dat",
+    "buoc4_dinh_gia": "dat",
+    "khuyen_nghi": "kha quan",
+    "dinh_gia": {
+      "co_so": 42.0,
+      "upside": null,
+      "ghi_chu": "XUNG DOT DINH GIA CAN NGUOI CHOT: phieu tham dinh 13/09/2026 dan bao cao dinh gia rieng cho GIA MUC TIEU 51.000 d so voi thi gia 35.700 d ngay 05/09/2026, trong khi co_so trong file nay la 42.000 (ghi 01/09). Chenh 21,4%. KHONG tu sua co_so — Buoc 4 la viec cua NGUOI. Du lay con so nao thi gia 35.700-36.400 van DUOI ca hai, nen buoc4 GIU 'dat'; dieu kien ha xuong 'cho' la gia >= co_so dang hieu luc. Phieu nhac ro: 'DAT nghia la DUOC PHEP MUA, khong nghia la mua o gia nao cung duoc' — phieu Buoc 3 la phep sang CHAT LUONG DOANH NGHIEP, cau hoi gia nam o bao cao dinh gia rieng. | Ghi chu cu 03/09/2026 (giua phien): Mua 200 CP @36.600, gia giua phien 36.400. MA200 32.422, MA50 33.513, ATR 2,73%, thanh khoan TB20 14,9 ty/phien — THAP NHAT ro (nguong loc 10 ty), RS12T skip21 +11,9%, hang 8/10, thu_hang 0,78."
+    },
+    "luan_diem": "BA LUAN DIEM — phieu 13/09/2026, nhip C. Chi viet duoc vi nhip B DAT; day la ma DUY NHAT trong bon phieu di het quy trinh. (1) CU SOC PHONG KHE LA CU SOC CUNG VA DA CHUYEN THANH BIEN LOI NHUAN, khong dung o tin tuc: ~200 co so dong cua tu dau 2025 rut ~2 trieu tan/nam = 22-26% nang luc nganh, thieu hut 601.000 tan trong 7 thang dau 2026. Gia ban giay cua DHC di tu ~9.002 d/kg (Q2/2025) len 10.442 d/kg (Q2/2026), +16%. Co che: DHC song bang CHENH LECH gia, gia OCC ton kho dung o 4.800 d/kg trong khi gia ban tang 1.440 d/kg, nen gan nhu toan bo muc tang roi thang xuong bien — bien gop 11,8% (2024) -> 24,2% (6T/2026). Noi vao dinh gia: bien gop 23,5% cua 2026F la GIA DINH TRUNG TAM cua toan bo mo hinh. (2) DHC CHUYEN LOI NHUAN THANH TIEN TOT HON MOI MA TRONG NHOM SO SANH, VA DIEU DO DA DUOC KIEM O DAY CHU KY CHU KHONG PHAI O DINH: dong tien HD cong don 2023-2025 = 144,2% LNST cong don; nam te nhat 2024 khi bien gop roi xuong 11,8% dong tien van 656,2 ty = 2,7 lan LNST 242,2 ty; no rong AM 339 ty tai 30/06/2026. Co che: vong quay ngan vi mua va ban deu giao ngay, khau hao 111,1 ty/nam chay tren day chuyen DA TRA XONG, va khong mot dong phai thu ben lien quan nao phai cho thu. Noi vao dinh gia: day la thu cho phep tai tro 1.814 ty con lai cua Giao Long 3 MA KHONG CAN TANG VON — tuc khong pha loang nguoi dang cam co phieu. (3) UU DAI THUE HET HAN LA BUOC NHAY CHI PHI VINH VIEN phai neo vao MOI nam du phong, khong phai bien dong mot lan: uu dai giam 50% cua Giao Long giai doan 2 het hieu luc 31/12/2025; thue suat hieu dung di tu 14,0% (2025) len 19,5% (6T/2026), chi phi thue hien hanh +193,7% so cung ky. Tren nen LNTT 457 ty cua 2025, moi 5,5 diem thue ~ 25 ty LNST moi nam. Noi vao dinh gia: mo hinh da neo 19,5% tu 2026 tro di; ai con dung 14% lich su se thoi LNST 2027F len ~8%.",
+    "ly_do": "",
+    "luan_diem_con_nguyen": true,
+    "ngay": "2026-09-14",
+    "_tham_khao": "Dang giu 200 CP DM2, gia von 36.600 (mua 03/09/2026). Phieu 13/09 xac nhan luan diem CON NGUYEN o muc manh nhat trong bon phieu — day la ma DUY NHAT dat 'Dat' va la ma DUY NHAT di het ca bon nhip (A-B-C-D). Von hoa 3.793 ty = 0,63% von hoa VHM; QUY TRINH NAY KHONG THUONG CHO QUY MO. Ghi chu cu: dat 7/7 checklist ky thuat 25/08.",
+    "buoc3_chi_tiet": {
+      "ngay_lap": "2026-09-13",
+      "het_han": "2026-12-12",
+      "nguoi_lap": "Phong Rui ro",
+      "so_nen": "BCTC hop nhat kiem toan 2021-2025 (EY) va BCTC ban nien 2026 DA SOAT XET (D:\\Broker\\DHC), doi chieu voi mo_hinh/dhc_data.py",
+      "ket_qua": "DAT",
+      "loai_hinh_cong_dong_tien": "San xuat -> ap V3 (khong phai V3b)",
+      "diem": {
+        "A_kinh_te_doanh_nghiep": 2,
+        "B_do_ben_loi_the": 1,
+        "C_quan_tri_phan_bo_von": 2,
+        "tong": 5,
+        "luat": "tong >= 4 OK; khong truc nao = 0 OK; khong cong phu quyet nao bat OK -> DAT"
+      },
+      "nam_cong_phu_quyet": {
+        "V1_mo_ta_cach_kiem_tien": "KHONG BAT — viet du 10 dong va KHONG MUON MOT CUM TU NAO cua DHC. Toan bo bang can doi cung mo ta duoc bang ngon ngu thuong: hang ton kho la giay vun va giay thanh pham, phai thu la tien cac nha may dong goi no, TSCD la hai day chuyen, xay dung do dang la day chuyen thu ba.",
+        "V2_y_kien_kiem_toan": "KHONG BAT — EY, chap nhan toan phan, KHONG co doan \"Van de can nhan manh\". Ky 27/03/2026 boi Nguyen Ho Khanh Tan va Ly Hong My. HDQT chon EY bang nghi quyet 20/NQ-HDQT ngay 27/06/2025, CO NEU TIEU CHI LUA CHON trong BCTN. Ban TGD ghi ro \"hoan toan dong y va khong co giai trinh gi them\". (Doi chieu: o MSB khong co kenh nao de bat dong lo ra.)",
+        "V3_dong_tien_hoat_dong": "KHONG BAT, CACH NGUONG RAT XA — cong don 2023-2025: 1.362,2 / 944,6 = 144,2% (nguong 50%). Cua so 2024-2025-6T/2026 = 140,6%. KHONG cua so nao trong bay ky roi xuong duoi 50%.",
+        "V4_ben_lien_quan_tren_VCSH": "KHONG BAT, BANG 0 — 0 dong tai 31/12/2025 (1,78% tai 31/12/2024). Nguong 30% VCSH la 663 ty (2025). Khong co doan nao trong toan bo 42 trang BCTC nhac toi bao lanh; khong nghia vu bao lanh ngoai bang nao duoc cong bo.",
+        "V5_xu_phat_cong_bo_pha_loang": "KHONG BAT — khong tim thay an phat cong bo thong tin nao tu UBCKNN hay HOSE. Hai dot tang co phieu deu la TRA CO TUC BANG CO PHIEU: 16.098.158 cp (27/05/2025, nghi quyet 15 va 19/NQ-HDQT, tra co tuc 2024) va 9.658.414 cp (22/07/2026, tra co tuc 2025). Khong huy dong von moi, khong co dong moi, ty le so huu moi co dong khong doi."
+      },
+      "V3_bang": [
+        {
+          "ky": "2020",
+          "dong_tien_HD_ty": 474.6,
+          "LNST_ty": 391.9,
+          "ty_le": "121,1%",
+          "bien_gop": "19,0%"
+        },
+        {
+          "ky": "2021",
+          "dong_tien_HD_ty": 317.3,
+          "LNST_ty": 481.3,
+          "ty_le": "65,9%",
+          "bien_gop": "16,2%"
+        },
+        {
+          "ky": "2022",
+          "dong_tien_HD_ty": 303.8,
+          "LNST_ty": 379.5,
+          "ty_le": "80,1%",
+          "bien_gop": "15,5%"
+        },
+        {
+          "ky": "2023",
+          "dong_tien_HD_ty": 241.2,
+          "LNST_ty": 309.3,
+          "ty_le": "78,0%",
+          "bien_gop": "15,5%"
+        },
+        {
+          "ky": "2024",
+          "dong_tien_HD_ty": 656.2,
+          "LNST_ty": 242.2,
+          "ty_le": "270,9%",
+          "bien_gop": "11,8%"
+        },
+        {
+          "ky": "2025",
+          "dong_tien_HD_ty": 464.8,
+          "LNST_ty": 393.1,
+          "ty_le": "118,2%",
+          "bien_gop": "16,2%"
+        },
+        {
+          "ky": "6T/2026",
+          "dong_tien_HD_ty": 215.7,
+          "LNST_ty": 315.2,
+          "ty_le": "68,5%",
+          "bien_gop": "24,2%"
+        }
+      ],
+      "V3_phep_kiem_dang_gia_nhat": "Nam 2024: bien gop roi xuong 11,8% — thap nhat 7 nam — MA dong tien hoat dong van 656,2 ty, gap 2,7 lan LNST. Do la dau hieu doanh nghiep co vong quay von luu dong THAT va khau hao lon tren tai san da tra xong, chu khong phai doanh nghiep ghi nhan loi nhuan truoc roi doi tien.",
+      "V4_bang": {
+        "31/12/2024": {
+          "phai_thu_ngan_han_khac_gop_von_Tan_Cang_Giao_Long_ty": 2.6,
+          "tra_truoc_nguoi_ban_Nang_luong_Thanh_Cong_ty": 33.04,
+          "cho_vay_ben_lien_quan_ty": 0,
+          "tong_ty": 35.64,
+          "tren_VCSH": "1,78%",
+          "nguong_30pct_ty": 601
+        },
+        "31/12/2025": {
+          "phai_thu_ngan_han_khac_gop_von_Tan_Cang_Giao_Long_ty": 0,
+          "tra_truoc_nguoi_ban_Nang_luong_Thanh_Cong_ty": 0,
+          "cho_vay_ben_lien_quan_ty": 0,
+          "tong_ty": 0.0,
+          "tren_VCSH": "0,00%",
+          "nguong_30pct_ty": 663
+        },
+        "ghi_chu": "Toan bo Thuyet minh 31 gom BA ben lien quan: Tan Cang Giao Long (cong ty lien ket, dich vu cang va kho bai), Thep An Binh va Dich vu Nang luong Thanh Cong (hai cong ty lien quan den thanh vien HDQT). Chieu nguoc lai DHC NO ben lien quan 45,45 ty tien mua hoi, dien va dich vu cang — no PHAI TRA, khong phai phai thu, nen khong tinh vao cong. SO SANH CHO DUNG CO: VHM o cung phep do la 67,8% VCSH; DHC bang 0."
+      },
+      "truc_A_2_diem": {
+        "bang_ROIC": [
+          {
+            "ky": "2023",
+            "ROIC": "15,3%",
+            "WACC": "12,30%",
+            "ket_qua": "vuot",
+            "bien_gop": "15,5%"
+          },
+          {
+            "ky": "2024",
+            "ROIC": "14,0%",
+            "WACC": "12,30%",
+            "ket_qua": "vuot",
+            "bien_gop": "11,8%"
+          },
+          {
+            "ky": "2025",
+            "ROIC": "21,6%",
+            "WACC": "12,30%",
+            "ket_qua": "vuot",
+            "bien_gop": "16,2%"
+          },
+          {
+            "ky": "6T/2026 quy nam",
+            "ROIC": "31,1%",
+            "WACC": "12,30%",
+            "ket_qua": "vuot",
+            "bien_gop": "24,2%"
+          }
+        ],
+        "cong_thuc": "ROIC = (LNTT + lai vay) x (1 - thue suat hieu dung) / (VCSH + no vay - tien va dau tu ngan han)",
+        "ba_dieu_kien_cua_o_2_diem": "(a) ROIC vuot chi phi von ON DINH: vuot ca bon ky, KE CA 2024 la day chu ky gia giay te nhat mot thap ky, khi no van o 14,0% so voi WACC 12,30% — day moi la phep kiem that, khong phai muc 31% cua nua dau 2026. (b) Dong tien HD theo sat loi nhuan: 144,2% cong don 3 nam, khong ky nao duoi 65%. (c) Bien dung vung qua it nhat mot nhip chu ky: bien gop di 19,0% -> 11,8% -> 24,2% trong sau nam; dao dong manh nhung KHONG KY NAO AM va da phuc hoi hoan toan. Voi doanh nghiep song bang chenh lech gia hang hoa, song sot qua day voi bien duong va ROIC tren chi phi von la dinh nghia cua dung vung.",
+        "cho_phai_ghi": "Bien 24,2% cua nua dau 2026 la DINH CHU KY, khong phai mat bang. Chinh mo hinh cua nhom du phong bien ve 17,4% vao 2028. Diem 2 nay cham cho LICH SU DA KIEM DUOC, khong cham cho muc hien tai."
+      },
+      "truc_B_1_diem": "Loi the goi ten duoc bang MOT CON SO: suat dau tu Giao Long 3 la 5,77 trieu dong moi tan cong suat, thap hon mat bang doi thu ~57%. Cong vi tri trong KCN Giao Long voi cong ty lien ket lam cang ngay canh, va mot cong ty con lam thung carton thanh pham an phan gia tri gia tang phia sau. Do la loi the CHI PHI that. NHUNG khong quy doi duoc thanh SUC MANH DINH GIA BAN, ma truc B cham ca ve do: ma tran do nhay cua chinh nhom cho thay moi 4% thay doi gia ban lam LNST 2028 doi ~134 ty = 27% chinh con so do. Doanh nghiep co loi nhuan dich chuyen 27% theo mot bien dong gia 4% la doanh nghiep NHAN GIA, khong phai doanh nghiep DAT GIA. Cau truc nganh co HAI LUC NGUOC NHAU va ca hai deu do duoc nen khong roi xuong 0: (thuan loi) ~200 co so tai Phong Khe dong cua tu dau 2025 vi chuan moi truong, rut ~2 trieu tan/nam = 22-26% nang luc, thieu hut 601.000 tan trong 7 thang dau 2026, cau vuot cung chin thang lien tiep, gia ban di tu ~9.000 len 10.500-10.700 d/kg; (bat loi phia truoc) Lee & Man, Nine Dragons va Cheng Loong DA DANG KY 4,6 TRIEU TAN cong suat tai Viet Nam — gap hon hai lan phan nang luc vua bi rut ra — tu nhung tap doan co bang can doi gap hang chuc lan DHC (von hoa DHC 3.793 ty). Mot loi the chi phi trong nganh hang hoa, doi mat voi 4,6 trieu tan cong suat moi da dang ky, khong phai loi the BEN VUNG do duoc. Do la 1 diem, khong phai 2.",
+      "truc_C_2_diem": {
+        "so_huu_ban_lanh_dao": "Ong Le Ba Phuong, Pho Chu tich HDQT kiem Tong Giam doc, nam 10.361.709 co phieu = 10,73% von dieu le — CAO NHAT trong ca bon phieu (STB 3,32%, MSB 0,84%, VHM khong cong bo). Tong so huu noi bo ~17,9%. Co cau co dong 30/03/2026: bon co dong lon nam 40,51%, trong do hai to chuc Thuy Si la KWE Beteiligungen AG 15,36% va Helvetische Bank AG 6,47%; khong co dong Nha nuoc; khong co phieu quy; 4.663 co dong khac nam 59,49%.",
+        "lich_su_cam_ket": "Co tuc TIEN MAT 1.000 d/cp cho ca 2024 va 2025, tam ung 1.000 d cho 2026, ke hoach 2.000 d. Da chi 80,49 ty (2024) va 177,08 ty (2025). Tra co tuc tien mat XUYEN QUA dung nam 2024 la nam bien gop xuong day 11,8%. Them hai dot co phieu thuong.",
+        "chat_luong_cong_bo": "Thuyet minh chi phi theo yeu to khop dung tong gia von + chi phi ban hang + chi phi quan ly; mo hinh dung tu thuyet minh nay TAI LAP nua dau 2026 o 1.635,9 ty so voi 1.635,8 ty thuc te — lech 0,008%. San luong nhan gia ban tai lap dung doanh thu quy II/2026. Thuyet minh ben lien quan ngan, neu DICH DANH tung doi tac, tung loai giao dich, tung so du hai ky. Day la bo bao cao ma cac con so TU KHOP voi nhau khi kiem cheo.",
+        "phan_bo_von_tao_gia_tri": "Bang can doi 30/06/2026: NO RONG AM 339 ty (tien nhieu hon no vay). Khong mot dong phai thu ben lien quan. Khong nghia vu bao lanh. Du an Giao Long 3 co NPV +317 ty va IRR 13,6% so voi WACC du an 11,5%, o suat dau tu thap hon doi thu 57%.",
+        "diem_bao_luu_VA_NO_KHONG_NHO": "DHC mua hoi va dien tu CTCP Dich vu Nang luong Thanh Cong — cong ty LIEN QUAN den mot thanh vien HDQT — voi gia tri 375,6 ty trong nam 2025 (242,7 ty mua hoi + 132,9 ty mua dien) = 12,3% gia von. KHONG co cong bo nao ve co so dinh gia, ve viec co dau thau hay khong, hay ve so sanh voi gia thi truong. Neu khoan nay bi tinh cao hon gia thi truong 10% thi moi nam ~37,6 ty roi khoi co dong nho = 9,6% LNST. Van cham 2 vi giao dich duoc cong bo day du, dich danh, co so hai ky, va ba ve con lai cua o 2 diem deu thoa ro rang. NHUNG day la cho ma mot nguoi cham khac hoan toan co the ha xuong 1 — bang kiem dinh do ben tinh ca kha nang do."
+      },
+      "kiem_dinh_do_ben": [
+        "Nhu tren                                  : A2 B1 C2 = 5 -> DAT",
+        "Ha truc C vi giao dich mua hoi va dien    : A2 B1 C1 = 4 -> DAT",
+        "Ha truc A vi bien gop dao dong 11,8-24,2% : A1 B1 C2 = 4 -> DAT",
+        "Ha CA HAI                                 : A1 B1 C1 = 3 -> CHO",
+        "Ket luan CHIU DUOC MOT lan ha diem nhung KHONG chiu duoc hai. Muon xuong \"Cho\" phai DONG THOI cho rang ROIC vuot chi phi von bon ky lien tiep la chua du, VA giao dich mua hoi voi ben lien quan du nang de triet tieu ca so huu 10,73% cua TGD lan lich su co tuc tien mat. KHONG co cach doc nao dua DHC xuong \"Phu quyet\", vi dieu do doi mot truc bang 0 hoac mot cong bat, ma khong cong nao gan nguong."
+      ],
+      "day_bay_nhip_D": [
+        {
+          "chi_so": "Bien loi nhuan gop quy",
+          "nguong": "DUOI 18%",
+          "nguon_kiem_tra": "BCTC quy, muc loi nhuan gop tren doanh thu thuan",
+          "ngay_het_han": "BCTC Q3/2026, cuoi 10/2026",
+          "gay_gi": "Gay LUAN DIEM 1"
+        },
+        {
+          "chi_so": "Gia OCC nhap khau, hoac gia ban giay trong nuoc",
+          "nguong": "TREN 200 USD/tan, hoac DUOI 9.800 d/kg hai thang lien tiep",
+          "nguon_kiem_tra": "Ban tin gia nganh giay",
+          "ngay_het_han": "Ra hang thang, chot lai 12/12/2026",
+          "gay_gi": "Gay LUAN DIEM 1 va phan lon gia tri mo hinh"
+        },
+        {
+          "chi_so": "Tong von dau tu Giao Long 3",
+          "nguong": "TREN 2.500 ty, hoac van hanh thuong mai lui qua 2028",
+          "nguon_kiem_tra": "Xay dung co ban do dang va tra truoc nguoi ban tren BCTC quy (195,5 ty va 240,5 ty tai 30/06/2026)",
+          "ngay_het_han": "BCTC Q4/2026",
+          "gay_gi": "Gay gia dinh ve phan bo von o truc C va TOAN BO business case"
+        }
+      ],
+      "ghi_chu_day_bay": "Cham nguong nghia la LUAN DIEM GAY, khong phai \"can theo doi them\".",
+      "con_treo": [
+        "Chua co co so dinh gia cho khoan mua hoi va dien 375,6 ty tu ben lien quan. Day la khoang trong cong bo LON NHAT va la diem DUY NHAT co the ha truc C. Can hoi tai DHDCD hoac doi chieu voi don gia hoi cong nghiep cung khu vuc.",
+        "ROIC trong phieu tinh tu so NAM, chua doi chieu theo quy. Con so 31,1% cua nua dau 2026 la QUY NAM tu sau thang nen phong dai muc ben vung.",
+        "Beta 0,98 dung trong WACC 12,30% la uoc luong tu beta khong don bay nganh, CHUA hoi quy tren gia thuc te. Moi 0,1 beta ~0,81 diem phan tram chi phi von chu, du doi ranh gioi \"ROIC vuot chi phi von\" o nam 2024 (ROIC 14,0% so voi WACC 12,30%) neu beta that cao hon nhieu.",
+        "Cong suat thiet ke thuc cua Giao Long 1 va 2 CHUA THONG NHAT: nguon nganh ghi chay tren 120% thiet ke, tinh tu san luong cong bo ra ~108% tren 280.000 tan. Anh huong toi mau so cua suat dau tu dung o truc B."
+      ]
+    }
+  }
+}

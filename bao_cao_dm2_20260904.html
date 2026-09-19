@@ -1,0 +1,614 @@
+<title>Danh mục 2 · 04/09/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Be+Vietnam+Pro:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --bg:#EEF0EC; --surface:#FBFCFA; --surface-2:#F3F5F1;
+  --ink:#161C18; --ink-2:#3A443E; --muted:#5B6660; --faint:#8B948E;
+  --line:#D2D8D2; --line-soft:#E2E7E1;
+  --up:#167A46; --down:#BF3A2E; --ref:#8A6B14; --cap:#7A4FA6;
+  --s-index:#1667C4; --s-stock:#B5761E;
+  --shadow:0 1px 2px rgba(22,28,24,.06), 0 8px 24px -18px rgba(22,28,24,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#101310; --surface:#191D18; --surface-2:#1F2420;
+    --ink:#E3E8E1; --ink-2:#C3CBC2; --muted:#97A199; --faint:#6E7873;
+    --line:#2C322C; --line-soft:#242923;
+    --up:#46BE79; --down:#E3695D; --ref:#D6A63C; --cap:#A87FD1;
+    --s-index:#4E96DE; --s-stock:#BC8636;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#101310; --surface:#191D18; --surface-2:#1F2420;
+  --ink:#E3E8E1; --ink-2:#C3CBC2; --muted:#97A199; --faint:#6E7873;
+  --line:#2C322C; --line-soft:#242923;
+  --up:#46BE79; --down:#E3695D; --ref:#D6A63C; --cap:#A87FD1;
+  --s-index:#4E96DE; --s-stock:#BC8636;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 28px -20px rgba(0,0,0,.9);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Be Vietnam Pro",-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+  font-weight:400; font-size:15px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px; margin:0 auto; padding:36px 24px 88px}
+@media (max-width:640px){ .wrap{padding:24px 16px 64px} }
+
+h1,h2,h3{font-family:"Source Serif 4",Georgia,"Times New Roman",serif; text-wrap:balance; margin:0}
+h1{font-size:clamp(30px,5vw,44px); font-weight:600; line-height:1.1; letter-spacing:-.015em}
+h2{font-size:clamp(21px,3vw,27px); font-weight:600; line-height:1.2; letter-spacing:-.01em}
+h3{font-size:16.5px; font-weight:600; line-height:1.3}
+p{margin:0}
+.prose{max-width:66ch}
+.prose p + p{margin-top:.72em}
+strong{font-weight:600; color:var(--ink)}
+a{color:var(--s-index)}
+code,.mono{font-family:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums}
+
+.eyebrow{
+  font-size:11px; font-weight:600; letter-spacing:.14em; text-transform:uppercase;
+  color:var(--faint); font-family:"IBM Plex Mono",monospace;
+}
+
+/* ---------- masthead ---------- */
+.masthead{
+  display:flex; flex-direction:column; gap:18px;
+  padding-bottom:26px; border-bottom:2px solid var(--ink); margin-bottom:30px;
+}
+.masthead .top{display:flex; flex-wrap:wrap; gap:14px 28px; align-items:baseline; justify-content:space-between}
+.masthead .sub{color:var(--muted); font-size:14.5px; max-width:62ch}
+
+.figs{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:3px; overflow:hidden}
+@media (max-width:720px){ .figs{grid-template-columns:repeat(2,1fr)} }
+.fig{background:var(--surface); padding:14px 16px 15px; display:flex; flex-direction:column; gap:3px}
+.fig .k{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); font-family:"IBM Plex Mono",monospace}
+.fig .v{font-family:"IBM Plex Mono",monospace; font-size:22px; font-weight:600; line-height:1.15; letter-spacing:-.02em; font-variant-numeric:tabular-nums}
+.fig .n{font-size:12.5px; color:var(--muted); line-height:1.4}
+.pos{color:var(--up)} .neg{color:var(--down)}
+
+/* ---------- sections ---------- */
+section{margin-top:52px}
+.shead{display:flex; flex-wrap:wrap; align-items:baseline; gap:8px 16px; margin-bottom:6px}
+.shead .vintage{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; color:var(--faint);
+  border:1px solid var(--line); border-radius:999px; padding:2px 9px; white-space:nowrap;
+}
+.lede{color:var(--muted); font-size:15px; margin-top:8px; margin-bottom:22px; max-width:68ch}
+
+/* ---------- panels ---------- */
+.panel{background:var(--surface); border:1px solid var(--line); border-radius:4px; box-shadow:var(--shadow)}
+.panel .ptitle{padding:13px 18px; border-bottom:1px solid var(--line-soft); display:flex; justify-content:space-between; align-items:baseline; gap:12px; flex-wrap:wrap}
+.panel .pbody{padding:18px}
+
+/* ---------- chart ---------- */
+.chart-wrap{overflow-x:auto}
+svg.chart{display:block; width:100%; min-width:560px; height:auto}
+.legend{display:flex; gap:20px; flex-wrap:wrap; align-items:center; font-size:13px; color:var(--ink-2)}
+.swatch{display:inline-block; width:11px; height:11px; border-radius:2px; margin-right:7px; vertical-align:-1px}
+
+/* ---------- tables ---------- */
+.tscroll{overflow-x:auto; -webkit-overflow-scrolling:touch}
+table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:560px}
+th,td{text-align:right; padding:8px 10px; border-bottom:1px solid var(--line-soft); white-space:nowrap}
+th{
+  font-size:10.5px; letter-spacing:.09em; text-transform:uppercase; color:var(--faint);
+  font-family:"IBM Plex Mono",monospace; font-weight:500; border-bottom:1px solid var(--line);
+  position:sticky; top:0; background:var(--surface);
+}
+td:first-child,th:first-child{text-align:left}
+td.l,th.l{text-align:left}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.sum td{border-top:1px solid var(--line); font-weight:600; background:var(--surface-2)}
+td.num{font-family:"IBM Plex Mono",monospace; font-variant-numeric:tabular-nums}
+td.tick{font-weight:600}
+.ma{font-family:"IBM Plex Mono",monospace; font-weight:600; letter-spacing:.02em}
+tr.held td:first-child::before{content:"●"; color:var(--s-index); font-size:9px; margin-right:7px; vertical-align:2px}
+tr.keep{background:color-mix(in srgb, var(--s-index) 6%, transparent)}
+
+.pill{display:inline-block; font-family:"IBM Plex Mono",monospace; font-size:10.5px; font-weight:600;
+  letter-spacing:.05em; padding:2px 7px; border-radius:3px; border:1px solid; white-space:nowrap}
+.pill.ok{color:var(--up); border-color:color-mix(in srgb,var(--up) 40%,transparent); background:color-mix(in srgb,var(--up) 9%,transparent)}
+.pill.no{color:var(--down); border-color:color-mix(in srgb,var(--down) 40%,transparent); background:color-mix(in srgb,var(--down) 9%,transparent)}
+.pill.wait{color:var(--ref); border-color:color-mix(in srgb,var(--ref) 40%,transparent); background:color-mix(in srgb,var(--ref) 10%,transparent)}
+.pill.cap{color:var(--cap); border-color:color-mix(in srgb,var(--cap) 40%,transparent); background:color-mix(in srgb,var(--cap) 9%,transparent)}
+
+/* ---------- breadth meters ---------- */
+.meters{display:grid; grid-template-columns:repeat(3,1fr); gap:20px}
+@media (max-width:720px){ .meters{grid-template-columns:1fr} }
+.meter .mlab{display:flex; justify-content:space-between; align-items:baseline; gap:10px; margin-bottom:7px}
+.meter .mname{font-size:13px; color:var(--ink-2)}
+.meter .mval{font-family:"IBM Plex Mono",monospace; font-size:15px; font-weight:600}
+.track{height:7px; border-radius:999px; background:var(--line); overflow:hidden}
+.track i{display:block; height:100%; background:var(--s-stock); border-radius:999px}
+.meter .mnote{font-size:12px; color:var(--faint); margin-top:6px}
+
+/* ---------- gates ---------- */
+.gates{display:grid; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden}
+.grow{display:grid; grid-template-columns:96px repeat(3,1fr) 128px; gap:1px; background:var(--line)}
+@media (max-width:820px){ .grow{grid-template-columns:80px repeat(3,1fr); } .grow .verdict{grid-column:1 / -1} }
+.gcell{background:var(--surface); padding:11px 13px; display:flex; flex-direction:column; gap:3px; justify-content:center}
+.ghead .gcell{background:var(--surface-2); padding-top:9px; padding-bottom:9px}
+.ghead .gcell span{font-size:10.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--faint); font-family:"IBM Plex Mono",monospace}
+.gcell .gv{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--muted)}
+.verdict{font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600}
+
+/* ---------- callouts ---------- */
+.note{
+  border-left:3px solid var(--ref); background:var(--surface);
+  padding:15px 18px; border-radius:0 4px 4px 0; border-top:1px solid var(--line-soft);
+  border-right:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft);
+}
+.note.fix{border-left-color:var(--s-index)}
+.note.warn{border-left-color:var(--down)}
+.note h3{margin-bottom:6px}
+.note p{font-size:14px; color:var(--ink-2); max-width:70ch}
+.note p + p{margin-top:.6em}
+.stack{display:flex; flex-direction:column; gap:16px}
+
+/* ---------- recommendations ---------- */
+.recs{display:flex; flex-direction:column; gap:1px; background:var(--line); border:1px solid var(--line); border-radius:4px; overflow:hidden}
+.rec{background:var(--surface); padding:18px 20px; display:grid; grid-template-columns:auto 1fr; gap:4px 16px; align-items:baseline}
+@media (max-width:640px){ .rec{grid-template-columns:1fr} }
+.rec .tag{
+  font-family:"IBM Plex Mono",monospace; font-size:11px; font-weight:600; letter-spacing:.08em;
+  text-transform:uppercase; padding:3px 9px; border-radius:3px; white-space:nowrap; align-self:start;
+}
+.tag.do{background:color-mix(in srgb,var(--up) 13%,transparent); color:var(--up)}
+.tag.hold{background:color-mix(in srgb,var(--s-index) 13%,transparent); color:var(--s-index)}
+.tag.ask{background:color-mix(in srgb,var(--ref) 15%,transparent); color:var(--ref)}
+.tag.dont{background:color-mix(in srgb,var(--down) 12%,transparent); color:var(--down)}
+.rec h3{margin-bottom:4px}
+.rec .why{font-size:14px; color:var(--ink-2); max-width:66ch}
+.rec .why + .why{margin-top:.55em}
+.rec .body{grid-column:2}
+@media (max-width:640px){ .rec .body{grid-column:1} }
+
+/* ---------- todo ---------- */
+ol.todo{list-style:none; padding:0; margin:0; counter-reset:t; display:flex; flex-direction:column; gap:14px}
+ol.todo li{display:grid; grid-template-columns:26px 1fr; gap:14px; align-items:start}
+ol.todo li::before{
+  counter-increment:t; content:counter(t);
+  font-family:"IBM Plex Mono",monospace; font-size:12px; font-weight:600; color:var(--faint);
+  border:1px solid var(--line); border-radius:50%; width:26px; height:26px;
+  display:flex; align-items:center; justify-content:center; margin-top:1px;
+}
+ol.todo .tt{font-weight:600; font-size:14.5px}
+ol.todo .td{font-size:13.5px; color:var(--muted); max-width:64ch}
+
+.foot{margin-top:56px; padding-top:20px; border-top:1px solid var(--line); font-size:12.5px; color:var(--faint); max-width:70ch}
+.foot p + p{margin-top:.5em}
+
+:focus-visible{outline:2px solid var(--s-index); outline-offset:2px; border-radius:2px}
+@media (prefers-reduced-motion:reduce){ *{animation:none!important; transition:none!important} }
+
+/* chart text tokens */
+.c-axis{fill:var(--faint); font-family:"IBM Plex Mono",monospace; font-size:11px}
+.c-group{fill:var(--ink-2); font-family:"Be Vietnam Pro",sans-serif; font-size:12.5px; font-weight:500}
+.c-val{fill:var(--ink-2); font-family:"IBM Plex Mono",monospace; font-size:11.5px; font-weight:600; font-variant-numeric:tabular-nums}
+.c-grid{stroke:var(--line-soft); stroke-width:1}
+.c-zero{stroke:var(--line); stroke-width:1.5}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="top">
+    <div>
+      <div class="eyebrow">Sổ phiên · Danh mục 2 · cuộc thi 60 triệu</div>
+      <h1>Thứ Sáu 04/09/2026</h1>
+    </div>
+    <div class="eyebrow" style="text-align:right">Đóng cửa HOSE<br>Quét 113 mã · 0 lỗi · 0 trùng</div>
+  </div>
+  <p class="sub">Chỉ số bật +1,39% lên mức cao nhất kể từ tháng 5, trong khi cổ phiếu trung vị <em>giảm</em> 0,14%. Danh mục không có lệnh nào phải đặt — kỳ soát tiếp theo vẫn là 01/10.</p>
+
+  <div class="figs">
+    <div class="fig">
+      <div class="k">VNINDEX</div>
+      <div class="v">1.853,08</div>
+      <div class="n"><span class="pos">+1,39%</span> phiên · <span class="pos">+3,44%</span> tuần</div>
+    </div>
+    <div class="fig">
+      <div class="k">NAV danh mục 2</div>
+      <div class="v">59.964.965</div>
+      <div class="n"><span class="neg">−0,06%</span> so vốn gốc 60,0tr</div>
+    </div>
+    <div class="fig">
+      <div class="k">Tiền mặt</div>
+      <div class="v">35,3%</div>
+      <div class="n">21,18tr · 5 mã nắm giữ</div>
+    </div>
+    <div class="fig">
+      <div class="k">Qua bộ lọc cứng</div>
+      <div class="v">11<span style="color:var(--faint); font-size:15px">/112</span></div>
+      <div class="n">không đổi so 28/08</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ THỊ TRƯỜNG ============================ -->
+<section>
+  <div class="shead">
+    <h2>Chỉ số đi lên bằng vài mã, không phải bằng thị trường</h2>
+    <span class="vintage">dữ liệu đóng cửa 04/09</span>
+  </div>
+  <p class="lede">Bốn khung thời gian, cùng một câu chuyện: khoảng cách giữa chỉ số và cổ phiếu trung vị nới rộng dần theo độ dài kỳ đo. Trong 12 tháng, chỉ số +10,78% còn cổ phiếu trung vị −16,12% — chênh <strong>26,9 điểm phần trăm</strong>.</p>
+
+  <div class="panel">
+    <div class="ptitle">
+      <h3>VNINDEX so với cổ phiếu trung vị (112 mã HOSE)</h3>
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--s-index)"></span>VNINDEX</span>
+        <span><span class="swatch" style="background:var(--s-stock)"></span>Trung vị 112 mã</span>
+      </div>
+    </div>
+    <div class="pbody">
+      <div class="chart-wrap">
+        <svg class="chart" viewBox="0 0 720 296" role="img" aria-label="Biểu đồ cột so sánh lợi suất VNINDEX với cổ phiếu trung vị trên bốn khung thời gian: 1 phiên, 1 tuần, 1 tháng và 12 tháng.">
+          <!-- gridlines -->
+          <line class="c-grid" x1="52" y1="34.7" x2="704" y2="34.7"/>
+          <line class="c-grid" x1="52" y1="71.3" x2="704" y2="71.3"/>
+          <line class="c-grid" x1="52" y1="144.7" x2="704" y2="144.7"/>
+          <line class="c-grid" x1="52" y1="181.3" x2="704" y2="181.3"/>
+          <line class="c-grid" x1="52" y1="218" x2="704" y2="218"/>
+          <text class="c-axis" x="46" y="38.2" text-anchor="end">+10%</text>
+          <text class="c-axis" x="46" y="74.8" text-anchor="end">+5%</text>
+          <text class="c-axis" x="46" y="111.5" text-anchor="end">0</text>
+          <text class="c-axis" x="46" y="148.2" text-anchor="end">−5%</text>
+          <text class="c-axis" x="46" y="184.8" text-anchor="end">−10%</text>
+          <text class="c-axis" x="46" y="221.5" text-anchor="end">−15%</text>
+
+          <!-- 1 phiên -->
+          <path d="M93 108 L93 101.8 Q93 97.8 97 97.8 L135 97.8 Q139 97.8 139 101.8 L139 108 Z" fill="var(--s-index)"/>
+          <rect x="141" y="108" width="46" height="1.6" fill="var(--s-stock)"/>
+          <text class="c-val" x="116" y="91.5" text-anchor="middle">+1,39</text>
+          <text class="c-val" x="164" y="123" text-anchor="middle">−0,14</text>
+
+          <!-- 1 tuần -->
+          <path d="M253 108 L253 86.8 Q253 82.8 257 82.8 L295 82.8 Q299 82.8 299 86.8 L299 108 Z" fill="var(--s-index)"/>
+          <path d="M301 108 L301 109.2 Q301 113.2 305 113.2 L343 113.2 Q347 113.2 347 109.2 L347 108 Z" fill="var(--s-stock)"/>
+          <text class="c-val" x="276" y="76.5" text-anchor="middle">+3,44</text>
+          <text class="c-val" x="324" y="126.5" text-anchor="middle">−0,71</text>
+
+          <!-- 1 tháng -->
+          <path d="M413 108 L413 74.5 Q413 70.5 417 70.5 L455 70.5 Q459 70.5 459 74.5 L459 108 Z" fill="var(--s-index)"/>
+          <path d="M461 108 L461 100.9 Q461 96.9 465 96.9 L503 96.9 Q507 96.9 507 100.9 L507 108 Z" fill="var(--s-stock)"/>
+          <text class="c-val" x="436" y="64.2" text-anchor="middle">+5,12</text>
+          <text class="c-val" x="484" y="90.6" text-anchor="middle">+1,52</text>
+
+          <!-- 12 tháng -->
+          <path d="M573 108 L573 32.9 Q573 28.9 577 28.9 L615 28.9 Q619 28.9 619 32.9 L619 108 Z" fill="var(--s-index)"/>
+          <path d="M621 108 L621 222.2 Q621 226.2 625 226.2 L663 226.2 Q667 226.2 667 222.2 L667 108 Z" fill="var(--s-stock)"/>
+          <text class="c-val" x="596" y="22.6" text-anchor="middle">+10,78</text>
+          <text class="c-val" x="644" y="239.5" text-anchor="middle">−16,12</text>
+
+          <!-- zero baseline -->
+          <line class="c-zero" x1="52" y1="108" x2="704" y2="108"/>
+
+          <!-- group labels -->
+          <text class="c-group" x="140" y="264" text-anchor="middle">1 phiên</text>
+          <text class="c-group" x="300" y="264" text-anchor="middle">1 tuần</text>
+          <text class="c-group" x="460" y="264" text-anchor="middle">1 tháng</text>
+          <text class="c-group" x="620" y="264" text-anchor="middle">12 tháng</text>
+          <text class="c-axis" x="378" y="286" text-anchor="middle">lợi suất giá, %</text>
+        </svg>
+      </div>
+
+      <div class="tscroll" style="margin-top:20px">
+        <table>
+          <thead>
+            <tr>
+              <th class="l">Khung</th><th>VNINDEX</th><th>Trung vị 112 mã</th><th>Chênh</th><th>Số mã thắng chỉ số</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td class="l">1 phiên</td><td class="num pos">+1,39%</td><td class="num neg">−0,14%</td><td class="num">1,53 đpt</td><td class="num">11 / 112</td></tr>
+            <tr><td class="l">1 tuần</td><td class="num pos">+3,44%</td><td class="num neg">−0,71%</td><td class="num">4,15 đpt</td><td class="num">12 / 112</td></tr>
+            <tr><td class="l">1 tháng</td><td class="num pos">+5,12%</td><td class="num pos">+1,52%</td><td class="num">3,60 đpt</td><td class="num">28 / 112</td></tr>
+            <tr><td class="l">12 tháng</td><td class="num pos">+10,78%</td><td class="num neg">−16,12%</td><td class="num">26,90 đpt</td><td class="num">14 / 112</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:20px">
+    <div class="ptitle"><h3>Độ rộng: bao nhiêu cổ phiếu thực sự đang trong xu hướng tăng</h3></div>
+    <div class="pbody">
+      <div class="meters">
+        <div class="meter">
+          <div class="mlab"><span class="mname">Giá trên MA200</span><span class="mval">25 / 112</span></div>
+          <div class="track"><i style="width:22.3%"></i></div>
+          <div class="mnote">22% — giảm từ 27 mã hôm 28/08</div>
+        </div>
+        <div class="meter">
+          <div class="mlab"><span class="mname">MA50 &gt; MA200</span><span class="mval">20 / 112</span></div>
+          <div class="track"><i style="width:17.9%"></i></div>
+          <div class="mnote">18% — không đổi so 28/08</div>
+        </div>
+        <div class="meter">
+          <div class="mlab"><span class="mname">Thắng chỉ số 12 tháng</span><span class="mval">14 / 112</span></div>
+          <div class="track"><i style="width:12.5%"></i></div>
+          <div class="mnote">12,5% — bỏ VIC ra, trung vị 12T vẫn −16,17%</div>
+        </div>
+      </div>
+
+      <div class="tscroll" style="margin-top:24px">
+        <table>
+          <thead><tr><th class="l">Tăng mạnh nhất phiên</th><th>Phiên</th><th>Tuần</th><th class="l">Ngành</th><th class="l">Giảm mạnh nhất</th><th>Phiên</th><th>Tuần</th></tr></thead>
+          <tbody>
+            <tr><td class="l"><span class="ma">DGC</span></td><td class="num pos">+4,90%</td><td class="num pos">+4,78%</td><td class="l">Hoá chất</td><td class="l"><span class="ma">SSB</span></td><td class="num neg">−4,38%</td><td class="num pos">+10,09%</td></tr>
+            <tr><td class="l"><span class="ma">HDG</span></td><td class="num pos">+4,79%</td><td class="num pos">+5,42%</td><td class="l">Bất động sản</td><td class="l"><span class="ma">VSC</span></td><td class="num neg">−3,47%</td><td class="num neg">−7,02%</td></tr>
+            <tr><td class="l"><span class="ma">VIC</span></td><td class="num pos">+4,74%</td><td class="num pos">+16,15%</td><td class="l">Bất động sản</td><td class="l"><span class="ma">OCB</span></td><td class="num neg">−3,21%</td><td class="num neg">−3,65%</td></tr>
+            <tr><td class="l"><span class="ma">NLG</span></td><td class="num pos">+4,47%</td><td class="num pos">+7,08%</td><td class="l">Bất động sản</td><td class="l"><span class="ma">DPM</span></td><td class="num neg">−2,15%</td><td class="num pos">+3,17%</td></tr>
+            <tr class="held"><td class="l"><span class="ma">STB</span></td><td class="num pos">+3,76%</td><td class="num pos">+4,18%</td><td class="l">Ngân hàng</td><td class="l"><span class="ma">DGW</span></td><td class="num neg">−2,08%</td><td class="num neg">−5,32%</td></tr>
+            <tr class="held"><td class="l"><span class="ma">VHM</span></td><td class="num pos">+2,45%</td><td class="num pos">+2,17%</td><td class="l">Bất động sản</td><td class="l"><span class="ma">CII</span></td><td class="num neg">−2,06%</td><td class="num neg">−2,40%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12.5px; color:var(--faint); margin-top:12px">● = mã đang nắm giữ. Cả tuần: 35 mã tăng / 71 mã giảm, trong khi chỉ số +3,44%. VIC một mình chiếm 8,8% tổng thanh khoản 112 mã (1.390 tỷ/phiên, gấp đôi mã đứng thứ hai).</p>
+    </div>
+  </div>
+
+  <div class="note warn" style="margin-top:20px">
+    <h3>Đính chính: chỉ số KHÔNG ở đỉnh lịch sử</h3>
+    <p>Sổ ghi ngày 29/08 gọi mức 1.832,12 là “đỉnh lịch sử”. Kiểm lại 300 bar: <strong>đỉnh đóng cửa là 1.927,94 ngày 18/05/2026</strong>. Từ đó chỉ số giảm −13,46% xuống đáy 1.668,53 ngày 22/07, rồi hồi +11,06% trong 29 phiên. Mức 1.853,08 hôm nay vẫn <strong>thấp hơn đỉnh 3,88%</strong>.</p>
+    <p>Điều này đổi hẳn cách đọc bối cảnh: đây là <em>nhịp hồi sau sụt giảm</em>, không phải thị trường phá đỉnh. Nó cũng giải thích vì sao MA50 (1.786) và MA200 (1.784) gần như chồng nhau, và vì sao chỉ 22% cổ phiếu lấy lại được MA200 — phần lớn thị trường chưa hồi cùng chỉ số.</p>
+  </div>
+</section>
+
+<!-- ============================ DANH MỤC ============================ -->
+<section>
+  <div class="shead">
+    <h2>Danh mục 2</h2>
+    <span class="vintage">định giá theo đóng cửa 04/09</span>
+  </div>
+  <p class="lede">Sau hai lệnh bán ngày 03/09, danh mục còn 5 mã. Lãi chưa thực hiện +546.280 đ; lỗ đã thực hiện luỹ kế −472.447 đ. NAV gần đúng bằng vốn gốc.</p>
+
+  <div class="panel">
+    <div class="ptitle"><h3>Vị thế mở</h3><span class="eyebrow">Đơn vị: VND</span></div>
+    <div class="pbody" style="padding:0">
+      <div class="tscroll">
+        <table>
+          <thead><tr><th class="l">Mã</th><th>KL</th><th>Giá vốn</th><th>04/09</th><th>Giá trị</th><th>Lãi/lỗ</th><th>%</th><th>% NAV</th><th class="l">Ngành</th></tr></thead>
+          <tbody>
+            <tr><td class="l"><span class="ma">MSB</span></td><td class="num">840</td><td class="num">13.333</td><td class="num">13.150</td><td class="num">11.046.000</td><td class="num neg">−153.720</td><td class="num neg">−1,37%</td><td class="num">18,4%</td><td class="l">Ngân hàng</td></tr>
+            <tr><td class="l"><span class="ma">STB</span></td><td class="num">100</td><td class="num">74.200</td><td class="num">77.300</td><td class="num">7.730.000</td><td class="num pos">+310.000</td><td class="num pos">+4,18%</td><td class="num">12,9%</td><td class="l">Ngân hàng</td></tr>
+            <tr><td class="l"><span class="ma">VHM</span></td><td class="num">100</td><td class="num">69.000</td><td class="num">75.200</td><td class="num">7.520.000</td><td class="num pos">+620.000</td><td class="num pos">+8,99%</td><td class="num">12,5%</td><td class="l">Bất động sản</td></tr>
+            <tr><td class="l"><span class="ma">DHC</span></td><td class="num">200</td><td class="num">36.600</td><td class="num">35.700</td><td class="num">7.140.000</td><td class="num neg">−180.000</td><td class="num neg">−2,46%</td><td class="num">11,9%</td><td class="l">Giấy</td></tr>
+            <tr><td class="l"><span class="ma">BSR</span></td><td class="num">200</td><td class="num">27.000</td><td class="num">26.750</td><td class="num">5.350.000</td><td class="num neg">−50.000</td><td class="num neg">−0,93%</td><td class="num">8,9%</td><td class="l">Dầu khí</td></tr>
+            <tr class="sum"><td class="l">Cổ phiếu</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">38.786.000</td><td class="num pos">+546.280</td><td class="num pos">+1,43%</td><td class="num">64,7%</td><td class="l">4 ngành</td></tr>
+            <tr class="sum"><td class="l">Tiền mặt</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">21.178.965</td><td class="num">—</td><td class="num">—</td><td class="num">35,3%</td><td class="l">—</td></tr>
+            <tr class="sum"><td class="l">NAV</td><td class="num">—</td><td class="num">—</td><td class="num">—</td><td class="num">59.964.965</td><td class="num neg">−35.035</td><td class="num neg">−0,06%</td><td class="num">100%</td><td class="l">so vốn gốc</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:20px">
+    <div class="ptitle"><h3>So với chỉ số và với chặn cứng</h3></div>
+    <div class="pbody">
+      <div class="tscroll">
+        <table style="min-width:480px">
+          <thead><tr><th class="l">Mốc</th><th>Chỉ số</th><th>Danh mục 2</th><th>Chênh</th></tr></thead>
+          <tbody>
+            <tr><td class="l">Từ 14/08 (1.729,08)</td><td class="num pos">+7,17%</td><td class="num neg">−0,06%</td><td class="num neg">−7,23 đpt</td></tr>
+            <tr><td class="l">Từ 28/08 (1.832,12)</td><td class="num pos">+1,14%</td><td class="num neg">−0,32%</td><td class="num neg">−1,46 đpt</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:13.5px; color:var(--ink-2); margin-top:16px; max-width:68ch">Rổ cổ phiếu +1,43% trên giá vốn, tức phần chọn mã không phải là chỗ hỏng nặng nhất — <strong>tiền mặt 26–35% suốt kỳ mới là nguồn chính của khoảng cách 7,23 điểm</strong>, cộng lỗ đã thực hiện từ bốn lệnh bán theo luật.</p>
+      <div class="tscroll" style="margin-top:18px">
+        <table style="min-width:520px">
+          <thead><tr><th class="l">Chặn cứng −25%</th><th>Giá 04/09</th><th>Ngưỡng cắt</th><th>Còn cách</th></tr></thead>
+          <tbody>
+            <tr><td class="l"><span class="ma">DHC</span></td><td class="num">35.700</td><td class="num">27.450</td><td class="num">30,1%</td></tr>
+            <tr><td class="l"><span class="ma">MSB</span></td><td class="num">13.150</td><td class="num">10.000</td><td class="num">31,5%</td></tr>
+            <tr><td class="l"><span class="ma">BSR</span></td><td class="num">26.750</td><td class="num">20.250</td><td class="num">32,1%</td></tr>
+            <tr><td class="l"><span class="ma">STB</span></td><td class="num">77.300</td><td class="num">55.650</td><td class="num">38,9%</td></tr>
+            <tr><td class="l"><span class="ma">VHM</span></td><td class="num">75.200</td><td class="num">51.750</td><td class="num">45,3%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p style="font-size:12.5px; color:var(--faint); margin-top:12px">Không mã nào ở gần chặn cứng. Ngân hàng 31,3% NAV (trần 40%), bất động sản 12,5%, giấy 11,9%, dầu khí 8,9% — không ngành nào chạm trần.</p>
+    </div>
+  </div>
+
+  <div class="note fix" style="margin-top:20px">
+    <h3>Đã sửa một sai lệch sổ sách</h3>
+    <p><code>lt_config.py</code> vẫn ghi GMD và LPB trong danh sách nắm giữ với chú thích “hai lệnh bán chưa khớp”, và tiền mặt 8.495.752 đ — tức trạng thái <em>trước</em> khi hai lệnh khớp chiều 03/09. Hai file sao lưu mà sổ ghi chép nói đã tạo (<code>*_20260903b</code>) không tồn tại; bản cập nhật đó chưa từng được ghi.</p>
+    <p>Đã gỡ GMD + LPB và đặt tiền mặt <strong>21.178.965 đ</strong> (8.495.752 + 12.683.213 tiền bán ròng sau phí bán 0,25%). Sao lưu trước khi sửa ở <code>data/lt_config_backup_20260904.py</code>. Nếu khối lượng khớp khác 100 CP mỗi mã, hãy báo lại để sửa — mọi bảng lệnh về sau sinh ra từ file này.</p>
+  </div>
+</section>
+
+<!-- ============================ BỘ LỌC ============================ -->
+<section>
+  <div class="shead">
+    <h2>Rổ đã lọc và xếp hạng</h2>
+    <span class="vintage">luật chốt 17/08 · dữ liệu 04/09</span>
+  </div>
+  <p class="lede">Vẫn đúng 11/112 mã qua bộ lọc cứng, y như 28/08. Rổ 11 mã nghĩa là “top 40%” chỉ còn <strong>5 suất</strong> — trong khi Danh mục 2 được cấu hình 8 ô. Đây là lý do cấu trúc khiến tiền mặt cao, không phải một quyết định canh thị trường.</p>
+
+  <div class="panel">
+    <div class="ptitle">
+      <h3>11 mã qua bộ lọc</h3>
+      <span class="eyebrow">nền xanh = trong top 40% · ● = đang giữ</span>
+    </div>
+    <div class="pbody" style="padding:0">
+      <div class="tscroll">
+        <table>
+          <thead><tr><th>#</th><th class="l">Mã</th><th>Giá</th><th>Điểm</th><th>RS 12T</th><th>RS 6T</th><th>RS 3T</th><th>R²</th><th>ATR%</th><th>Tỷ/phiên</th><th class="l">Thẩm định</th><th class="l">Ngành</th></tr></thead>
+          <tbody>
+            <tr class="keep"><td class="num">1</td><td class="l"><span class="ma">VIC</span></td><td class="num">256.100</td><td class="num">0,97</td><td class="num pos">+209,0%</td><td class="num pos">+62,7%</td><td class="num pos">+26,7%</td><td class="num">0,57</td><td class="num">4,16</td><td class="num">1.390,0</td><td class="l"><span class="pill no">B3 loại</span></td><td class="l">Bất động sản</td></tr>
+            <tr class="keep held"><td class="num">2</td><td class="l"><span class="ma">VHM</span></td><td class="num">75.200</td><td class="num">0,66</td><td class="num pos">+36,1%</td><td class="num pos">+59,0%</td><td class="num neg">−0,9%</td><td class="num">0,39</td><td class="num">3,16</td><td class="num">647,7</td><td class="l"><span class="pill ok">mua được</span></td><td class="l">Bất động sản</td></tr>
+            <tr class="keep held"><td class="num">3</td><td class="l"><span class="ma">STB</span></td><td class="num">77.300</td><td class="num">0,64</td><td class="num pos">+23,2%</td><td class="num pos">+14,0%</td><td class="num pos">+8,6%</td><td class="num">0,64</td><td class="num">2,51</td><td class="num">351,6</td><td class="l"><span class="pill wait">B4 chờ</span></td><td class="l">Ngân hàng</td></tr>
+            <tr class="keep"><td class="num">4</td><td class="l"><span class="ma">VPI</span></td><td class="num">68.900</td><td class="num">0,60</td><td class="num pos">+11,7%</td><td class="num pos">+18,5%</td><td class="num pos">+12,9%</td><td class="num">0,73</td><td class="num">2,64</td><td class="num">146,0</td><td class="l"><span class="pill no">B3 loại</span></td><td class="l">Bất động sản</td></tr>
+            <tr class="keep held"><td class="num">5</td><td class="l"><span class="ma">MSB</span></td><td class="num">13.150</td><td class="num">0,48</td><td class="num pos">+3,2%</td><td class="num pos">+33,5%</td><td class="num pos">+7,3%</td><td class="num">0,87</td><td class="num">2,49</td><td class="num">336,5</td><td class="l"><span class="pill ok">mua được</span></td><td class="l">Ngân hàng</td></tr>
+            <tr class="held"><td class="num">6</td><td class="l"><span class="ma">DHC</span></td><td class="num">35.700</td><td class="num">0,44</td><td class="num pos">+17,8%</td><td class="num pos">+2,7%</td><td class="num pos">+8,2%</td><td class="num">0,15</td><td class="num">2,83</td><td class="num">15,0</td><td class="l"><span class="pill ok">mua được</span></td><td class="l">Giấy</td></tr>
+            <tr><td class="num">7</td><td class="l"><span class="ma">LPB</span></td><td class="num">49.000</td><td class="num">0,43</td><td class="num pos">+15,6%</td><td class="num pos">+11,8%</td><td class="num pos">+4,3%</td><td class="num">0,38</td><td class="num">3,31</td><td class="num">222,2</td><td class="l"><span class="pill wait">B4 chờ</span></td><td class="l">Ngân hàng</td></tr>
+            <tr class="held"><td class="num">8</td><td class="l"><span class="ma">BSR</span></td><td class="num">26.750</td><td class="num">0,37</td><td class="num pos">+50,0%</td><td class="num neg">−31,2%</td><td class="num neg">−8,6%</td><td class="num neg">−0,24</td><td class="num">3,34</td><td class="num">261,2</td><td class="l"><span class="pill ok">mua được</span></td><td class="l">Dầu khí</td></tr>
+            <tr><td class="num">9</td><td class="l"><span class="ma">PVD</span></td><td class="num">19.200</td><td class="num">0,37</td><td class="num pos">+35,8%</td><td class="num neg">−30,7%</td><td class="num pos">+3,0%</td><td class="num neg">−0,37</td><td class="num">2,98</td><td class="num">154,6</td><td class="l"><span class="pill wait">chưa thẩm định</span></td><td class="l">Dầu khí</td></tr>
+            <tr><td class="num">10</td><td class="l"><span class="ma">BAF</span></td><td class="num">32.550</td><td class="num">0,34</td><td class="num pos">+1,3%</td><td class="num pos">+3,2%</td><td class="num pos">+11,9%</td><td class="num">0,53</td><td class="num">1,65</td><td class="num">95,3</td><td class="l"><span class="pill wait">chưa thẩm định</span></td><td class="l">Chăn nuôi</td></tr>
+            <tr><td class="num">11</td><td class="l"><span class="ma">GMD</span></td><td class="num">77.400</td><td class="num">0,20</td><td class="num pos">+11,4%</td><td class="num neg">−3,9%</td><td class="num pos">+0,5%</td><td class="num">0,04</td><td class="num">2,03</td><td class="num">167,8</td><td class="l"><span class="pill wait">B4 chờ</span></td><td class="l">Cảng biển</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="stack" style="margin-top:20px">
+    <div class="note">
+      <h3>BAF là mã mới vào rổ; hai lệnh bán hôm 03/09 vẫn hợp lý</h3>
+      <p>BAF (hạng 10) là mã duy nhất mới qua bộ lọc so với 28/08 — vẫn <strong>chưa có kết luận thẩm định</strong>, nên chưa được phép mua. GMD sau khi bán đã tụt xuống <strong>hạng chót 11/11</strong>; LPB ở hạng 7 — cả hai vẫn ngoài top 40%, tức quyết định bán 03/09 vẫn đúng theo luật khi nhìn lại bằng dữ liệu mới.</p>
+    </div>
+    <div class="note">
+      <h3>VIC đứng đầu bảng nhưng danh mục 2 không thể mua — kể cả nếu duyệt</h3>
+      <p>VIC hạng 1 với điểm 0,97 và là gần như toàn bộ mức tăng của chỉ số (+278% trong 12 tháng). Nhưng một lô tối thiểu 100 CP ở giá 256.100 = <strong>25,61tr = 42,7% NAV</strong>, trong khi trần một mã của Danh mục 2 là 20% NAV = 11,99tr. <span class="pill cap">vượt trần 2,1 lần</span></p>
+      <p>Nói cách khác, tranh luận “có nên mua VIC không” là tranh luận rỗng ở quy mô 60 triệu: thị giá đã tự loại nó. Lớp phủ quyết B3 đánh “loại” chỉ là hàng rào thứ hai.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ SỨC KHOẺ ============================ -->
+<section>
+  <div class="shead">
+    <h2>Năm mã đang giữ, soi theo ba điều kiện giữ tiếp</h2>
+    <span class="vintage">mô phỏng — kỳ soát thật là 01/10</span>
+  </div>
+  <p class="lede">Không mã nào thủng MA200 hay thủng ngưỡng RS. Chỗ duy nhất bị vi phạm là quy tắc thứ ba — thứ hạng tương đối — và nó chỉ chạm hai mã.</p>
+
+  <div class="gates">
+    <div class="grow ghead">
+      <div class="gcell"><span>Mã</span></div>
+      <div class="gcell"><span>Giá &gt; 0,97 × MA200</span></div>
+      <div class="gcell"><span>RS 12T &gt; −5%</span></div>
+      <div class="gcell"><span>Trong top 40% rổ đã lọc</span></div>
+      <div class="gcell verdict"><span>Luật nói</span></div>
+    </div>
+    <div class="grow">
+      <div class="gcell"><span class="ma">VHM</span><span class="gv">hạng 2/11</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+18,3% đệm</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+36,1%</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">thứ hạng 0,10</span></div>
+      <div class="gcell verdict" style="color:var(--up)">GIỮ</div>
+    </div>
+    <div class="grow">
+      <div class="gcell"><span class="ma">STB</span><span class="gv">hạng 3/11</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+19,8% đệm</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+23,2%</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">thứ hạng 0,20</span></div>
+      <div class="gcell verdict" style="color:var(--up)">GIỮ</div>
+    </div>
+    <div class="grow">
+      <div class="gcell"><span class="ma">MSB</span><span class="gv">hạng 5/11</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+16,5% đệm</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+3,2%</span></div>
+      <div class="gcell"><span class="pill ok">đạt sát biên</span><span class="gv">thứ hạng 0,40 — đúng ngưỡng</span></div>
+      <div class="gcell verdict" style="color:var(--up)">GIỮ</div>
+    </div>
+    <div class="grow">
+      <div class="gcell"><span class="ma">DHC</span><span class="gv">hạng 6/11</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+10,0% đệm</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+17,8%</span></div>
+      <div class="gcell"><span class="pill no">rớt</span><span class="gv">thứ hạng 0,50</span></div>
+      <div class="gcell verdict" style="color:var(--ref)">BÁN → mua lại → bù trừ</div>
+    </div>
+    <div class="grow">
+      <div class="gcell"><span class="ma">BSR</span><span class="gv">hạng 8/11</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+9,5% đệm</span></div>
+      <div class="gcell"><span class="pill ok">đạt</span><span class="gv">+50,0%</span></div>
+      <div class="gcell"><span class="pill no">rớt</span><span class="gv">thứ hạng 0,70</span></div>
+      <div class="gcell verdict" style="color:var(--ref)">BÁN → mua lại → bù trừ</div>
+    </div>
+  </div>
+
+  <div class="note fix" style="margin-top:20px">
+    <h3>Chạy thử bảng lệnh trên dữ liệu hôm nay: không có lệnh nào</h3>
+    <p>DHC và BSR rớt top 40% nên quy tắc thoát đòi bán, nhưng cả hai vẫn nằm trong danh sách được phép giải ngân nên bảng xếp hạng đòi mua lại đúng số lượng đó. Cơ chế bù trừ (sửa ngày 02/09) triệt tiêu cả hai chiều và <strong>tránh 49.960 đ phí rửa</strong>. Kết quả: danh mục không đổi, tiền mặt không đổi.</p>
+    <p>Quy tắc thoát thứ tư — “luận điểm doanh nghiệp còn nguyên” — <strong>vẫn chưa từng được rà soát cho mã nào</strong>; screener in “[quy tắc 4 chưa rà soát]” trên mọi dòng. Đây là lỗ hổng đã treo từ đầu, không phải phát sinh hôm nay.</p>
+  </div>
+</section>
+
+<!-- ============================ CHIẾN LƯỢC ============================ -->
+<section>
+  <div class="shead">
+    <h2>Chiến lược tiếp theo</h2>
+    <span class="vintage">còn ~6 tuần tới 17/10</span>
+  </div>
+  <p class="lede">Số học của cuộc thi rất rõ và nên được nói thẳng: alpha đo được của hệ thống là <strong>+0,7 đpt mỗi năm với t ≈ 0,2</strong> — trong 6 tuần kỳ vọng khoảng <strong>+0,08 đpt</strong>. Cùng lúc đó, 35,3% tiền mặt sẽ lấy đi <strong>2,17 đpt</strong> nếu chỉ số đi 1%/tuần. Tỷ trọng tiền mặt quyết định thứ hạng lớn hơn việc chọn mã, gấp khoảng 27 lần.</p>
+
+  <div class="recs">
+    <div class="rec">
+      <span class="tag hold">giữ nguyên</span>
+      <div>
+        <h3>Không giao dịch gì tới kỳ soát 01/10</h3>
+        <p class="why">Đúng khung đã chốt: trong tháng chỉ hành động khi chạm chặn cứng −25%, mà mã gần nhất còn cách 30,1%. Bảng xếp hạng giữa kỳ sẽ còn nhảy do cửa sổ 252 phiên lăn — đã bị dính hôm 03/09 khi HCM rơi khỏi rổ làm MSB rớt nhóm giữ dù giá MSB không đổi một đồng.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <span class="tag do">làm ngay</span>
+      <div>
+        <h3>Điền nốt thẩm định — đây là đòn bẩy lớn nhất còn lại, và nó không đổi luật</h3>
+        <p class="why">Bốn trong tám ô của Danh mục 2 đang trống <em>không phải vì thiếu ứng viên</em>, mà vì hồ sơ thẩm định chưa xong: PVD và BAF chưa có kết luận Bước 3/4; STB, LPB, GMD dừng ở “B4 chờ”. Mở khoá số này kéo mục tiêu tiền mặt từ 51,3% xuống khoảng 25%.</p>
+        <p class="why">Quan trọng: phải làm <strong>trước</strong> ngày 01/10, tức trước khi biết dữ liệu ra bảng lệnh gì. Sổ ghi chép đã ghi nhận một lần chốt luật <em>sau</em> khi nhìn bảng lệnh (trần trùng lặp, 02/09) — đừng để lặp lại, vì báo cáo cuối kỳ phải chứng minh được luật chốt trước khi biết kết quả.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <span class="tag ask">cần bạn quyết</span>
+      <div>
+        <h3>Danh mục 1 — 200 triệu vẫn đang không có dữ liệu</h3>
+        <p class="why"><code>HOLDINGS["DM1"]</code> rỗng và <code>TIEN_MAT["DM1"] = 0</code> từ 25/08. Đây là khoản gấp 3,3 lần Danh mục 2 và hệ thống hiện <em>không sinh được bảng lệnh nào</em> cho nó. Nếu số tiền đó thực sự đang nằm im, chi phí cơ hội kể từ 25/08 là khoảng 14 triệu theo mức tăng của chỉ số.</p>
+        <p class="why">Cho tôi biết trạng thái thật (đang giữ mã gì, tiền mặt bao nhiêu) thì tôi chạy được bảng lệnh 10 ô cho DM1 ngay trong kỳ soát 01/10.</p>
+      </div>
+    </div>
+
+    <div class="rec">
+      <span class="tag dont">không nên</span>
+      <div>
+        <h3>Đừng đổi luật giữa cuộc thi để đuổi theo chỉ số</h3>
+        <p class="why">Cám dỗ rõ ràng: đang thua chỉ số 7,23 đpt, còn 6 tuần, và cách nhanh nhất để bám chỉ số là mua thứ đang kéo chỉ số. Nhưng mã đó là VIC — và ở quy mô 60 triệu, một lô đã bằng 42,7% NAV, vượt trần 2,1 lần. Không có đường thực thi.</p>
+        <p class="why">Đổi khung lần thứ ba (sau 14/08 và 17/08) sẽ phá hỏng đúng lập luận mà báo cáo cuối kỳ dựa vào. Thay vào đó hãy viết thẳng vào báo cáo: <em>“tiền mặt 30–55% là chi phí đã biết trước của lựa chọn ngày 17/08, không phải sự cố”</em> — và kèm con số độ rộng ở trên làm bằng chứng rằng bộ lọc đang từ chối 101/112 mã vì lý do có thật.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="note" style="margin-top:20px">
+    <h3>Sổ trượt giá: 3/10 quan sát</h3>
+    <p>Ròng −100.000 đ qua ba lệnh (19/08 bán VNM −110.000 và BAF −50.000; 03/09 mua DHC <span class="pos">+60.000</span>). Hai lệnh bán 03/09 khớp sát giá kế hoạch (−245 đ tổng) nên chưa ghi thêm quan sát đáng kể. <strong>Chưa đủ 10–15 quan sát để xét đổi sang đặt lệnh ATC</strong> — và đổi ngay sau khi nhìn kết quả một lệnh chính là loại thay-luật-phản-ứng mà hệ thống dựng ra để chặn.</p>
+  </div>
+</section>
+
+<!-- ============================ VIỆC TREO ============================ -->
+<section>
+  <div class="shead">
+    <h2>Việc phải xong trước 01/10</h2>
+    <span class="vintage">theo thứ tự ảnh hưởng tới bảng lệnh</span>
+  </div>
+  <p class="lede">Đây là danh sách có thứ tự thật: mỗi việc phía trên thay đổi đầu vào của việc phía dưới.</p>
+
+  <ol class="todo">
+    <li><div><div class="tt">Xác nhận khối lượng hai lệnh bán 03/09</div><div class="td">Sổ giả định 100 GMD + 100 LPB. Nếu khác, tiền mặt 21.178.965 đ sai theo, và mọi bảng lệnh sau đó sai theo.</div></div></li>
+    <li><div><div class="tt">Kết luận Bước 3 / Bước 4 cho PVD và BAF</div><div class="td">Hai mã duy nhất qua bộ lọc mà chưa từng được thẩm định. BAF vừa mới vào rổ hôm nay.</div></div></li>
+    <li><div><div class="tt">Chốt định giá cho STB, LPB, GMD (đang “B4 chờ”)</div><div class="td">STB đang được giữ và xếp hạng 3 — nhưng vì B4 chưa xong, hệ thống không cho mua thêm, và cũng không đưa STB vào danh mục mục tiêu.</div></div></li>
+    <li><div><div class="tt">Viết <code>luan_diem_con_nguyen</code> cho 5 mã đang giữ</div><div class="td">Quy tắc thoát số 4 chưa từng được rà soát lần nào kể từ khi khung được chốt 17/08.</div></div></li>
+    <li><div><div class="tt">Quyết định về Danh mục 1</div><div class="td">Nhập lại vốn và vị thế, hoặc xác nhận rằng danh mục này tạm dừng và không cần bảng lệnh.</div></div></li>
+    <li><div><div class="tt">Quét lại 113 mã trên dữ liệu đóng cửa 30/09</div><div class="td">Quy tắc 3 phụ thuộc thứ hạng tương đối trong rổ, không suy ra được từ bản quét hôm nay.</div></div></li>
+  </ol>
+</section>
+
+<footer class="foot">
+  <p><strong>Nguồn dữ liệu.</strong> Quét 113 mã HOSE từ TradingView Desktop lúc đóng cửa 04/09/2026, lưu tại <code>data/scan_20260904.json</code>; 0 mã lỗi, 0 cặp trùng chữ ký, 0 mã lệch quá 12% so bản quét 28/08. Bộ lọc và xếp hạng chạy bằng <code>lt_screener.py</code>, bảng lệnh mô phỏng bằng <code>lt_allocator.py</code>, cả hai theo luật chốt ngày 17/08/2026.</p>
+  <p><strong>Định nghĩa.</strong> RS 12T = lợi suất 252 phiên bỏ 21 phiên gần nhất, trừ đi cùng chỉ số của VNINDEX. Điểm xếp hạng = 0,40×RS12T + 0,30×RS6T + 0,20×RS3T + 0,10×R²(log giá), tính theo phân vị <em>trong rổ đã lọc</em>. Thứ hạng 0,40 = ngưỡng top 40%. ATR tính trên 14 phiên, theo phần trăm giá.</p>
+  <p><strong>Cảnh báo đã biết.</strong> Alpha của hệ thống đo trên 4 pha lưới: CAGR 9,1% so với chỉ số 8,3%, t ≈ 0,2 — <em>không có ý nghĩa thống kê</em>. Con số 13,89% trong các bản ghi trước ngày 26/08 đã bị thay thế và không được trích dẫn lại.</p>
+</footer>
+
+</div>

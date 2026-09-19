@@ -1,0 +1,890 @@
+[
+ {
+  "ma": "VIC",
+  "gia": 220500,
+  "atr": 0.0339,
+  "tov": 1133300000000.0,
+  "ma50": 214976,
+  "ma200": 175117,
+  "r252": 2.731,
+  "rs_252_skip21": 2.609714564555928,
+  "rs_126": 0.4329,
+  "rs_63": 0.0848,
+  "rs_21": -0.0405,
+  "trend_r2": 0.52869677147533,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 1.0,
+  "pr_rs_126": 1.0,
+  "pr_rs_63": 0.45454545454545453,
+  "pr_trend_r2": 0.5454545454545454,
+  "diem": 0.8454545454545455,
+  "thu": 1,
+  "thu_hang": 0.0,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "STB",
+  "gia": 74200,
+  "atr": 0.0239,
+  "tov": 310600000000.0,
+  "ma50": 72550,
+  "ma200": 63892,
+  "r252": 0.3715,
+  "rs_252_skip21": 0.3373455895849655,
+  "rs_126": 0.1497,
+  "rs_63": 0.13,
+  "rs_21": -0.0499,
+  "trend_r2": 0.7581747559261537,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.8181818181818182,
+  "pr_rs_126": 0.5454545454545454,
+  "pr_rs_63": 1.0,
+  "pr_trend_r2": 0.9090909090909091,
+  "diem": 0.7818181818181819,
+  "thu": 2,
+  "thu_hang": 0.09090909090909091,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "VHM",
+  "gia": 73600,
+  "atr": 0.0389,
+  "tov": 792900000000.0,
+  "ma50": 72396,
+  "ma200": 62885,
+  "r252": 0.4869,
+  "rs_252_skip21": 0.32042282287070867,
+  "rs_126": 0.413,
+  "rs_63": -0.027800000000000005,
+  "rs_21": 0.0504,
+  "trend_r2": 0.39223960725733814,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 0.7272727272727273,
+  "pr_rs_126": 0.9090909090909091,
+  "pr_rs_63": 0.0,
+  "pr_trend_r2": 0.45454545454545453,
+  "diem": 0.6090909090909091,
+  "thu": 3,
+  "thu_hang": 0.18181818181818182,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "MSB",
+  "gia": 15600,
+  "atr": 0.0152,
+  "tov": 274700000000.0,
+  "ma50": 15961,
+  "ma200": 13454,
+  "r252": 0.145,
+  "rs_252_skip21": 0.1569334347574487,
+  "rs_126": 0.316,
+  "rs_63": 0.07189999999999999,
+  "rs_21": -0.08600000000000001,
+  "trend_r2": 0.8666740881107692,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.36363636363636365,
+  "pr_rs_126": 0.8181818181818182,
+  "pr_rs_63": 0.2727272727272727,
+  "pr_trend_r2": 1.0,
+  "diem": 0.5454545454545455,
+  "thu": 4,
+  "thu_hang": 0.2727272727272727,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "LPB",
+  "gia": 49800,
+  "atr": 0.034,
+  "tov": 212300000000.0,
+  "ma50": 52201,
+  "ma200": 47255,
+  "r252": 0.0885,
+  "rs_252_skip21": 0.17753452863670272,
+  "rs_126": 0.2146,
+  "rs_63": -0.0216,
+  "rs_21": -0.1511,
+  "trend_r2": 0.6494870515716431,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.5454545454545454,
+  "pr_rs_126": 0.6363636363636364,
+  "pr_rs_63": 0.18181818181818182,
+  "pr_trend_r2": 0.8181818181818182,
+  "diem": 0.5272727272727272,
+  "thu": 5,
+  "thu_hang": 0.36363636363636365,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "HCM",
+  "gia": 26250,
+  "atr": 0.0275,
+  "tov": 283200000000.0,
+  "ma50": 24994,
+  "ma200": 22230,
+  "r252": 0.0668,
+  "rs_252_skip21": 0.013204882139196794,
+  "rs_126": 0.28090000000000004,
+  "rs_63": 0.12890000000000001,
+  "rs_21": -0.0233,
+  "trend_r2": 0.6067982319965453,
+  "nganh": "Chung khoan",
+  "pr_rs_252_skip21": 0.09090909090909091,
+  "pr_rs_126": 0.7272727272727273,
+  "pr_rs_63": 0.9090909090909091,
+  "pr_trend_r2": 0.7272727272727273,
+  "diem": 0.5090909090909091,
+  "thu": 6,
+  "thu_hang": 0.45454545454545453,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "PVD",
+  "gia": 19200,
+  "atr": 0.0319,
+  "tov": 194000000000.0,
+  "ma50": 18805,
+  "ma200": 18701,
+  "r252": 0.4435,
+  "rs_252_skip21": 0.3730150231990521,
+  "rs_126": -0.0872,
+  "rs_63": 0.107,
+  "rs_21": -0.024100000000000003,
+  "trend_r2": -0.4981126720837926,
+  "nganh": "Dau khi",
+  "pr_rs_252_skip21": 0.9090909090909091,
+  "pr_rs_126": 0.0,
+  "pr_rs_63": 0.6363636363636364,
+  "pr_trend_r2": 0.0,
+  "diem": 0.49090909090909096,
+  "thu": 7,
+  "thu_hang": 0.5454545454545454,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "GMD",
+  "gia": 78700,
+  "atr": 0.0237,
+  "tov": 170500000000.0,
+  "ma50": 76222,
+  "ma200": 71892,
+  "r252": 0.2653,
+  "rs_252_skip21": 0.1596302381336845,
+  "rs_126": 0.0211,
+  "rs_63": 0.12430000000000001,
+  "rs_21": 0.015199999999999991,
+  "trend_r2": 0.012362498951193518,
+  "nganh": "Cang bien",
+  "pr_rs_252_skip21": 0.45454545454545453,
+  "pr_rs_126": 0.2727272727272727,
+  "pr_rs_63": 0.8181818181818182,
+  "pr_trend_r2": 0.18181818181818182,
+  "diem": 0.4454545454545455,
+  "thu": 8,
+  "thu_hang": 0.6363636363636364,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "VPI",
+  "gia": 65100,
+  "atr": 0.0274,
+  "tov": 133900000000.0,
+  "ma50": 62190,
+  "ma200": 59023,
+  "r252": 0.1166,
+  "rs_252_skip21": 0.067462717852798,
+  "rs_126": 0.1223,
+  "rs_63": 0.08710000000000001,
+  "rs_21": -0.030000000000000006,
+  "trend_r2": 0.5409898142706583,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 0.2727272727272727,
+  "pr_rs_126": 0.45454545454545453,
+  "pr_rs_63": 0.5454545454545454,
+  "pr_trend_r2": 0.6363636363636364,
+  "diem": 0.41818181818181815,
+  "thu": 9,
+  "thu_hang": 0.7272727272727273,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "BSR",
+  "gia": 26700,
+  "atr": 0.0411,
+  "tov": 259300000000.0,
+  "ma50": 25421,
+  "ma200": 24171,
+  "r252": 0.4519,
+  "rs_252_skip21": 0.2859497782868978,
+  "rs_126": -0.053000000000000005,
+  "rs_63": -0.024400000000000005,
+  "rs_21": 0.053299999999999986,
+  "trend_r2": -0.32133867019205736,
+  "nganh": "Dau khi",
+  "pr_rs_252_skip21": 0.6363636363636364,
+  "pr_rs_126": 0.09090909090909091,
+  "pr_rs_63": 0.09090909090909091,
+  "pr_trend_r2": 0.09090909090909091,
+  "diem": 0.30909090909090914,
+  "thu": 10,
+  "thu_hang": 0.8181818181818182,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "DHC",
+  "gia": 35850,
+  "atr": 0.0304,
+  "tov": 14800000000.0,
+  "ma50": 33297,
+  "ma200": 32299,
+  "r252": 0.2304,
+  "rs_252_skip21": 0.009629797797881867,
+  "rs_126": 0.0537,
+  "rs_63": 0.1222,
+  "rs_21": 0.142,
+  "trend_r2": 0.2505754885589408,
+  "nganh": "Giay",
+  "pr_rs_252_skip21": 0.0,
+  "pr_rs_126": 0.36363636363636365,
+  "pr_rs_63": 0.7272727272727273,
+  "pr_trend_r2": 0.36363636363636365,
+  "diem": 0.29090909090909095,
+  "thu": 11,
+  "thu_hang": 0.9090909090909091,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true
+ },
+ {
+  "ma": "HDB",
+  "gia": 27000,
+  "atr": 0.0227,
+  "tov": 443600000000.0,
+  "ma50": 26395,
+  "ma200": 26256,
+  "r252": 0.0994,
+  "rs_252_skip21": 0.027377295932300205,
+  "rs_126": -0.013699999999999997,
+  "rs_63": 0.0833,
+  "rs_21": -0.006100000000000008,
+  "trend_r2": 0.08861231128160299,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.18181818181818182,
+  "pr_rs_126": 0.18181818181818182,
+  "pr_rs_63": 0.36363636363636365,
+  "pr_trend_r2": 0.2727272727272727,
+  "diem": 0.2272727272727273,
+  "thu": 12,
+  "thu_hang": 1.0,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true
+ }
+]

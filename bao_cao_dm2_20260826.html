@@ -1,0 +1,576 @@
+<title>Danh mục 2 · 26/08/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600;8..60,700&family=Be+Vietnam+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  --ground:#F6F8F6;
+  --surface:#FFFFFF;
+  --surface-2:#EFF2F0;
+  --line:#DBE2DE;
+  --line-strong:#BFCAC4;
+  --ink:#141F1B;
+  --ink-2:#3D4C46;
+  --muted:#6C7B74;
+  --accent:#4C3A8C;
+  --accent-soft:#EDE9F8;
+  --up:#1B6E45;
+  --up-soft:#E4F1EA;
+  --down:#B32F28;
+  --down-soft:#FAE7E5;
+  --warn:#9C6A05;
+  --warn-soft:#FBF0DA;
+  --shadow:0 1px 2px rgba(20,31,27,.05), 0 8px 24px -18px rgba(20,31,27,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --ground:#0F1512;
+    --surface:#161E1A;
+    --surface-2:#1D2723;
+    --line:#2A3630;
+    --line-strong:#3C4A43;
+    --ink:#E7EEE9;
+    --ink-2:#B6C3BC;
+    --muted:#8A9992;
+    --accent:#AC9BF2;
+    --accent-soft:#241E3D;
+    --up:#57C48B;
+    --up-soft:#12291E;
+    --down:#F0817A;
+    --down-soft:#2E1817;
+    --warn:#DEA83E;
+    --warn-soft:#2B2211;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --ground:#0F1512;
+  --surface:#161E1A;
+  --surface-2:#1D2723;
+  --line:#2A3630;
+  --line-strong:#3C4A43;
+  --ink:#E7EEE9;
+  --ink-2:#B6C3BC;
+  --muted:#8A9992;
+  --accent:#AC9BF2;
+  --accent-soft:#241E3D;
+  --up:#57C48B;
+  --up-soft:#12291E;
+  --down:#F0817A;
+  --down-soft:#2E1817;
+  --warn:#DEA83E;
+  --warn-soft:#2B2211;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  background:var(--ground);
+  color:var(--ink);
+  font-family:"Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",sans-serif;
+  font-size:16px;
+  line-height:1.65;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1000px;margin:0 auto;padding:0 24px 96px}
+
+/* ---------- masthead ---------- */
+.mast{
+  border-bottom:2px solid var(--ink);
+  padding:44px 0 20px;
+  display:flex;
+  flex-wrap:wrap;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:20px 32px;
+}
+.mast h1{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-weight:700;
+  font-size:clamp(2rem,4.6vw,3.1rem);
+  line-height:1.04;
+  letter-spacing:-.022em;
+  margin:0;
+  text-wrap:balance;
+}
+.mast .sub{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.75rem;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--muted);
+  margin:0 0 10px;
+}
+.mast .meta{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.75rem;
+  line-height:1.9;
+  color:var(--muted);
+  text-align:right;
+  white-space:nowrap;
+}
+.mast .meta b{color:var(--ink-2);font-weight:500}
+
+/* ---------- verdict ---------- */
+.verdict{
+  margin:28px 0 0;
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-left:4px solid var(--accent);
+  border-radius:3px;
+  padding:22px 26px;
+  box-shadow:var(--shadow);
+}
+.verdict .k{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);margin:0 0 6px;
+}
+.verdict p{margin:0;font-size:1.12rem;line-height:1.55;max-width:64ch}
+.verdict p + p{margin-top:10px;font-size:.98rem;color:var(--ink-2)}
+
+/* ---------- stat strip ---------- */
+.stats{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:1px;
+  background:var(--line);
+  border:1px solid var(--line);
+  border-radius:3px;
+  margin:28px 0 0;
+  overflow:hidden;
+}
+.stat{background:var(--surface);padding:16px 18px}
+.stat .lab{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.67rem;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--muted);margin:0 0 6px;
+}
+.stat .val{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums;
+  font-size:1.5rem;font-weight:600;line-height:1.1;letter-spacing:-.02em;
+}
+.stat .note{font-size:.78rem;color:var(--muted);margin-top:4px;line-height:1.4}
+
+/* ---------- sections ---------- */
+section{margin-top:56px}
+h2{
+  font-family:"Source Serif 4",Georgia,serif;
+  font-size:1.6rem;font-weight:600;letter-spacing:-.015em;
+  margin:0 0 4px;text-wrap:balance;
+}
+h2 + .dek{
+  color:var(--muted);font-size:.94rem;margin:0 0 20px;max-width:70ch;
+}
+h3{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.74rem;letter-spacing:.13em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;
+  margin:32px 0 12px;
+  padding-bottom:6px;border-bottom:1px solid var(--line);
+}
+p{max-width:70ch}
+p.wide{max-width:none}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;border:1px solid var(--line);border-radius:3px;background:var(--surface)}
+table{border-collapse:collapse;width:100%;font-size:.88rem}
+th,td{padding:9px 13px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--line)}
+th:first-child,td:first-child{text-align:left}
+th:last-child,td:last-child{text-align:left;white-space:normal;min-width:190px}
+thead th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--muted);font-weight:600;
+  background:var(--surface-2);
+  border-bottom:1px solid var(--line-strong);
+  position:sticky;top:0;
+}
+tbody tr:last-child td{border-bottom:none}
+tbody tr.total td{background:var(--surface-2);font-weight:600;border-top:1px solid var(--line-strong)}
+td.num,th.num{font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums}
+td.ticker{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:600;letter-spacing:.02em}
+.up{color:var(--up)}
+.down{color:var(--down)}
+.flat{color:var(--muted)}
+
+.pill{
+  display:inline-block;
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;font-weight:600;
+  padding:2px 8px;border-radius:2px;white-space:nowrap;
+}
+.pill.keep{background:var(--up-soft);color:var(--up)}
+.pill.sell{background:var(--down-soft);color:var(--down)}
+.pill.wait{background:var(--warn-soft);color:var(--warn)}
+.pill.new{background:var(--accent-soft);color:var(--accent)}
+
+/* ---------- gates ---------- */
+.gates{display:flex;flex-direction:column;gap:9px;margin:4px 0 0}
+.gate{display:grid;grid-template-columns:minmax(150px,auto) 1fr minmax(84px,auto);align-items:center;gap:14px}
+.gate .gname{font-size:.87rem;color:var(--ink-2)}
+.gate .bar{height:9px;background:var(--surface-2);border-radius:2px;overflow:hidden;border:1px solid var(--line)}
+.gate .fill{height:100%;background:var(--accent);opacity:.82}
+.gate .gnum{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;font-variant-numeric:tabular-nums;
+  font-size:.82rem;color:var(--muted);text-align:right;
+}
+.gate.final .fill{background:var(--up)}
+.gate.final .gname{font-weight:600;color:var(--ink)}
+.gate.final .gnum{color:var(--ink)}
+
+/* ---------- rules ---------- */
+ol.rules{list-style:none;counter-reset:r;padding:0;margin:0;display:flex;flex-direction:column;gap:12px}
+ol.rules li{
+  counter-increment:r;
+  display:grid;grid-template-columns:30px 1fr;gap:14px;align-items:start;
+  padding-bottom:12px;border-bottom:1px solid var(--line);
+}
+ol.rules li:last-child{border-bottom:none;padding-bottom:0}
+ol.rules li::before{
+  content:counter(r);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.8rem;font-weight:600;
+  color:var(--accent);background:var(--accent-soft);
+  width:26px;height:26px;border-radius:2px;
+  display:flex;align-items:center;justify-content:center;
+  margin-top:1px;
+}
+ol.rules .rt{font-weight:600;display:block;margin-bottom:2px}
+ol.rules .rd{color:var(--ink-2);font-size:.92rem}
+
+/* ---------- callouts ---------- */
+.todo{
+  background:var(--surface);
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:0;
+  overflow:hidden;
+  box-shadow:var(--shadow);
+}
+.todo-item{padding:20px 24px;border-bottom:1px solid var(--line)}
+.todo-item:last-child{border-bottom:none}
+.todo-item .th{
+  display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:6px;
+}
+.todo-item .th strong{font-size:1.03rem}
+.todo-item p{margin:0;font-size:.93rem;color:var(--ink-2)}
+.todo-item p + p{margin-top:8px}
+code{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.86em;background:var(--surface-2);
+  padding:1px 5px;border-radius:2px;border:1px solid var(--line);
+}
+
+.note{
+  border-left:3px solid var(--line-strong);
+  padding:2px 0 2px 18px;
+  color:var(--ink-2);
+  font-size:.93rem;
+  margin:20px 0 0;
+}
+.note strong{color:var(--ink)}
+
+footer{
+  margin-top:64px;padding-top:20px;border-top:1px solid var(--line);
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:.72rem;line-height:1.9;color:var(--muted);
+}
+
+@media (max-width:640px){
+  .mast{padding-top:32px}
+  .mast .meta{text-align:left}
+  .gate{grid-template-columns:1fr;gap:4px}
+  .gate .gnum{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+<div class="wrap">
+
+  <header class="mast">
+    <div>
+      <p class="sub">Bản ghi phiên · tài khoản dự thi</p>
+      <h1>Danh mục 2<br>26 tháng 8, 2026</h1>
+    </div>
+    <div class="meta">
+      Nguồn <b>HOSE_DLY, đóng cửa</b><br>
+      Quét <b>113 mã</b> · 13:15–15:22<br>
+      Kỳ rà soát kế tiếp <b>01/09/2026</b>
+    </div>
+  </header>
+
+  <div class="verdict">
+    <p class="k">Hôm nay</p>
+    <p><strong>Không đặt lệnh nào.</strong> Khung dài hạn chỉ cho phép giao dịch tại kỳ rà soát đầu tháng, ngoại lệ duy nhất là chặn cứng −25% so với giá vốn — mã gần nhất là MSB, còn cách 27,9%.</p>
+    <p>Việc thật sự phải làm trước 01/09 nằm ở <code>data/tham_dinh.json</code>: file đang trống, và trong khi nó trống thì <em>không mã nào được phép mua</em> và quy tắc thoát số 4 chưa được rà soát cho bất kỳ mã nào đang nắm giữ.</p>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <p class="lab">NAV</p>
+      <div class="val">59.651.732</div>
+      <p class="note"><span class="down">−0,58%</span> so với vốn 60tr · hôm qua −0,47%</p>
+    </div>
+    <div class="stat">
+      <p class="lab">Thay đổi trong ngày</p>
+      <div class="val down">−0,11%</div>
+      <p class="note">−65.000 đ, trong khi VNINDEX <span class="up">+1,67%</span></p>
+    </div>
+    <div class="stat">
+      <p class="lab">Tiền mặt</p>
+      <div class="val">26,5%</div>
+      <p class="note">15.826.732 đ · thiết kế ban đầu là 16,1%</p>
+    </div>
+    <div class="stat">
+      <p class="lab">Qua bộ lọc cứng</p>
+      <div class="val">11<span style="color:var(--muted);font-size:1rem">/112</span></div>
+      <p class="note">25/08 là 12 mã · 17/08 là 8 mã</p>
+    </div>
+  </div>
+
+  <section>
+    <h2>Thị trường hôm nay</h2>
+    <p class="dek">VNINDEX đóng cửa 1.821,32 điểm, tăng 29,91 điểm (+1,67%) so với 1.791,41 phiên trước. Chỉ số nằm trên cả MA50 (1.787) lẫn MA200 (1.780).</p>
+
+    <p>Con số đáng chú ý không phải là phiên tăng, mà là <strong>khoảng cách giữa chỉ số và phần còn lại của thị trường</strong>. VNINDEX +7,9% trong 12 tháng, nhưng trung vị 112 mã HOSE là <span class="down">−16,5%</span>. Chỉ 26 mã có lợi suất 12 tháng dương và chỉ 15 mã thắng được chỉ số. Nguyên nhân đọc được ngay: VIC — mã vốn hoá lớn nhất sàn — tăng <strong>+270%</strong> trong 12 tháng và một mình nó kéo chỉ số đi.</p>
+
+    <p>Nhịp một tháng gần đây thì ngược lại và rất rộng: trung vị +7,6%, 94/112 mã tăng. Đây là một đợt hồi ngắn trên nền một năm phân hoá cực mạnh, chứ không phải một xu hướng tăng đã lan toả.</p>
+
+    <h3>Bốn cửa lọc, đo độc lập trên 112 mã</h3>
+    <div class="gates">
+      <div class="gate">
+        <span class="gname">Thanh khoản ≥ 10 tỷ/phiên</span>
+        <div class="bar"><div class="fill" style="width:83%"></div></div>
+        <span class="gnum">93 · 83%</span>
+      </div>
+      <div class="gate">
+        <span class="gname">Giá &gt; MA200</span>
+        <div class="bar"><div class="fill" style="width:26%"></div></div>
+        <span class="gnum">29 · 26%</span>
+      </div>
+      <div class="gate">
+        <span class="gname">MA50 &gt; MA200</span>
+        <div class="bar"><div class="fill" style="width:18%"></div></div>
+        <span class="gnum">20 · 18%</span>
+      </div>
+      <div class="gate">
+        <span class="gname">Thắng VNINDEX 12T (bỏ 1T)</span>
+        <div class="bar"><div class="fill" style="width:14%"></div></div>
+        <span class="gnum">16 · 14%</span>
+      </div>
+      <div class="gate final">
+        <span class="gname">Qua đủ cả 5 điều kiện</span>
+        <div class="bar"><div class="fill" style="width:10%"></div></div>
+        <span class="gnum">11 · 10%</span>
+      </div>
+    </div>
+
+    <p class="note"><strong>Đây chính là cơ chế cầm tiền của hệ thống.</strong> Không có ai quyết định "thị trường rủi ro nên giữ tiền" — chỉ có 11 mã qua được cửa, nên phần vốn còn lại tự động nằm tiền. Ghi lại vì bản báo cáo cuối kỳ cần chứng minh tiền mặt đến từ bộ lọc chứ không từ dự đoán.</p>
+
+    <h3>Lợi suất theo khung thời gian, 112 mã HOSE</h3>
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Khung</th>
+            <th class="num">VNINDEX</th>
+            <th class="num">Trung vị 112 mã</th>
+            <th class="num">Số mã dương</th>
+            <th class="num">Số mã thắng chỉ số</th>
+            <th>Đọc được gì</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>1 tháng</td><td class="num up">+8,4%</td><td class="num up">+7,6%</td><td class="num">94/112</td><td class="num">52/112</td><td>Hồi rộng, gần một nửa số mã theo kịp</td></tr>
+          <tr><td>3 tháng</td><td class="num down">−2,3%</td><td class="num down">−6,6%</td><td class="num">31/112</td><td class="num">35/112</td><td>Chỉ số đi ngang, cổ phiếu giảm</td></tr>
+          <tr><td>6 tháng</td><td class="num down">−3,1%</td><td class="num down">−15,8%</td><td class="num">16/112</td><td class="num">21/112</td><td>Phân hoá đã bắt đầu từ đây</td></tr>
+          <tr><td>12 tháng</td><td class="num up">+7,9%</td><td class="num down">−16,5%</td><td class="num">26/112</td><td class="num">15/112</td><td>Chỉ số dương gần như hoàn toàn nhờ VIC</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section>
+    <h2>Danh mục 2 sau phiên</h2>
+    <p class="dek">Sáu mã, không thay đổi từ 19/08. Cổ phiếu 43.825.000 đ (73,5%), tiền mặt 15.826.732 đ (26,5%).</p>
+
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Mã</th>
+            <th class="num">KL</th>
+            <th class="num">Giá vốn</th>
+            <th class="num">25/08</th>
+            <th class="num">26/08</th>
+            <th class="num">Phiên</th>
+            <th class="num">Lãi/lỗ</th>
+            <th class="num">%</th>
+            <th class="num">Cách −25%</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="ticker">MSB</td><td class="num">700</td><td class="num">16.000</td><td class="num">15.600</td><td class="num">15.350</td><td class="num down">−1,60%</td><td class="num down">−455.000</td><td class="num down">−4,06%</td><td class="num">27,9%</td></tr>
+          <tr><td class="ticker">BSR</td><td class="num">200</td><td class="num">27.000</td><td class="num">26.700</td><td class="num">26.850</td><td class="num up">+0,56%</td><td class="num down">−30.000</td><td class="num down">−0,56%</td><td class="num">32,6%</td></tr>
+          <tr><td class="ticker">GMD</td><td class="num">100</td><td class="num">78.800</td><td class="num">78.700</td><td class="num">79.300</td><td class="num up">+0,76%</td><td class="num up">+50.000</td><td class="num up">+0,63%</td><td class="num">34,2%</td></tr>
+          <tr><td class="ticker">LPB</td><td class="num">100</td><td class="num">50.800</td><td class="num">49.800</td><td class="num">49.600</td><td class="num down">−0,40%</td><td class="num down">−120.000</td><td class="num down">−2,36%</td><td class="num">30,2%</td></tr>
+          <tr><td class="ticker">STB</td><td class="num">100</td><td class="num">74.200</td><td class="num">74.200</td><td class="num">74.600</td><td class="num up">+0,54%</td><td class="num up">+40.000</td><td class="num up">+0,54%</td><td class="num">34,1%</td></tr>
+          <tr><td class="ticker">VHM</td><td class="num">100</td><td class="num">69.000</td><td class="num">73.600</td><td class="num">73.600</td><td class="num flat">0,00%</td><td class="num up">+460.000</td><td class="num up">+6,67%</td><td class="num">42,2%</td></tr>
+          <tr class="total"><td>Tổng</td><td class="num"></td><td class="num"></td><td class="num">43.890.000</td><td class="num">43.825.000</td><td class="num down">−0,15%</td><td class="num down">−55.000</td><td class="num"></td><td class="num"></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:20px">Rổ cổ phiếu mất 0,15% trong một phiên chỉ số tăng 1,67% — <strong>thua chỉ số 1,8 điểm phần trăm chỉ trong hôm nay</strong>. Toàn bộ mức thua đến từ MSB (−1,60%, mã có tỷ trọng lớn nhất danh mục). Một phiên không nói lên điều gì, nhưng đáng ghi lại vì đây là phiên thứ hai liên tiếp MSB kéo lùi danh mục.</p>
+
+    <p>Lãi/lỗ chưa thực hiện cộng dồn: <span class="down">−55.000 đ</span>. Lỗ đã thực hiện: <span class="down">−227.447 đ</span> (bán VNM và BAF ngày 19/08). VHM vẫn là mã duy nhất lãi đáng kể (+6,67%) — và đó vẫn là mã từng bị ghi chép 19/08 đánh giá là "dễ bị bán nhất".</p>
+  </section>
+
+  <section>
+    <h2>Bảng xếp hạng sau phiên</h2>
+    <p class="dek">11 mã qua bộ lọc cứng, xếp theo điểm Bước 2 (0,40·RS12T + 0,30·RS6T + 0,20·RS3T + 0,10·R²), tính phân vị trong rổ đã lọc.</p>
+
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Mã</th>
+            <th class="num">Giá</th>
+            <th class="num">Điểm</th>
+            <th class="num">Thứ hạng</th>
+            <th class="num">RS12T</th>
+            <th class="num">RS6T</th>
+            <th class="num">RS3T</th>
+            <th>Trạng thái</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="num">1</td><td class="ticker">VIC</td><td class="num">230.000</td><td class="num">0,88</td><td class="num">0,00</td><td class="num up">+244,7%</td><td class="num up">+39,3%</td><td class="num up">+11,1%</td><td><span class="pill new">Ứng viên</span></td></tr>
+          <tr><td class="num">2</td><td class="ticker">VHM</td><td class="num">73.600</td><td class="num">0,68</td><td class="num">0,10</td><td class="num up">+32,6%</td><td class="num up">+39,9%</td><td class="num down">−3,4%</td><td><span class="pill keep">Đang giữ · giữ tiếp</span></td></tr>
+          <tr><td class="num">3</td><td class="ticker">STB</td><td class="num">74.600</td><td class="num">0,63</td><td class="num">0,20</td><td class="num up">+25,9%</td><td class="num up">+14,4%</td><td class="num up">+12,0%</td><td><span class="pill keep">Đang giữ · giữ tiếp</span></td></tr>
+          <tr><td class="num">4</td><td class="ticker">VPI</td><td class="num">67.800</td><td class="num">0,48</td><td class="num">0,30</td><td class="num up">+11,8%</td><td class="num up">+16,3%</td><td class="num up">+11,1%</td><td><span class="pill new">Ứng viên</span></td></tr>
+          <tr><td class="num">5</td><td class="ticker">MSB</td><td class="num">15.350</td><td class="num">0,48</td><td class="num">0,40</td><td class="num up">+9,8%</td><td class="num up">+28,9%</td><td class="num up">+2,6%</td><td><span class="pill keep">Đang giữ · sát mép</span></td></tr>
+          <tr><td class="num">6</td><td class="ticker">HCM</td><td class="num">26.500</td><td class="num">0,47</td><td class="num">0,50</td><td class="num up">+3,1%</td><td class="num up">+28,6%</td><td class="num up">+12,7%</td><td><span class="pill wait">Rớt khỏi top 40%</span></td></tr>
+          <tr><td class="num">7</td><td class="ticker">GMD</td><td class="num">79.300</td><td class="num">0,44</td><td class="num">0,60</td><td class="num up">+17,3%</td><td class="num up">+0,5%</td><td class="num up">+11,9%</td><td><span class="pill sell">Đang giữ · BÁN</span></td></tr>
+          <tr><td class="num">8</td><td class="ticker">PVD</td><td class="num">19.600</td><td class="num">0,44</td><td class="num">0,70</td><td class="num up">+40,6%</td><td class="num down">−9,4%</td><td class="num up">+9,5%</td><td><span class="pill wait">Rớt khỏi top 40%</span></td></tr>
+          <tr><td class="num">9</td><td class="ticker">LPB</td><td class="num">49.600</td><td class="num">0,42</td><td class="num">0,80</td><td class="num up">+11,0%</td><td class="num up">+18,1%</td><td class="num down">−2,4%</td><td><span class="pill sell">Đang giữ · BÁN</span></td></tr>
+          <tr><td class="num">10</td><td class="ticker">BSR</td><td class="num">26.850</td><td class="num">0,32</td><td class="num">0,90</td><td class="num up">+31,4%</td><td class="num down">−7,4%</td><td class="num down">−7,5%</td><td><span class="pill sell">Đang giữ · BÁN</span></td></tr>
+          <tr><td class="num">11</td><td class="ticker">DHC</td><td class="num">36.250</td><td class="num">0,26</td><td class="num">1,00</td><td class="num up">+9,0%</td><td class="num up">+3,5%</td><td class="num up">+10,9%</td><td><span class="pill wait">Rớt khỏi top 40%</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="note"><strong>Ranh giới 40% đang mỏng đến mức nguy hiểm.</strong> Rổ chỉ có 11 mã, nên "top 40%" là đúng 5 mã. Mã giữ được vị trí cuối cùng là MSB với 0,48 điểm; mã đầu tiên bị loại là HCM với 0,47 điểm. Một điểm phần trăm chênh lệch quyết định giữ hay bán. Con số 0,40 đã được chốt và <em>không nên đổi lúc này</em> — nhưng phải ghi vào báo cáo rằng độ nhạy ở đây là thật, không phải lý thuyết.</p>
+  </section>
+
+  <section>
+    <h2>Bốn quy tắc thoát, đối chiếu ngày 26/08</h2>
+    <p class="dek">Bảng CL.3 của <code>Triet_ly_dau_tu_FF5.docx</code>. Chỉ cần một câu trả lời phủ định là bán toàn bộ vị thế.</p>
+
+    <ol class="rules">
+      <li>
+        <span class="rt">Giá đóng cửa &gt; 0,97 × MA200?</span>
+        <span class="rd"><strong>Cả 6 mã đều CÒN ĐẠT.</strong> Không mã nào thủng đệm 3% dưới MA200.</span>
+      </li>
+      <li>
+        <span class="rt">RS 12 tháng so với VNINDEX &gt; −5%?</span>
+        <span class="rd"><strong>Cả 6 mã đều CÒN ĐẠT.</strong> Thấp nhất là MSB ở +9,8%, còn rất xa ngưỡng.</span>
+      </li>
+      <li>
+        <span class="rt">Còn trong top 40% rổ đã lọc?</span>
+        <span class="rd"><strong>GMD (60%), LPB (80%), BSR (90%) — KHÔNG CÒN ĐẠT.</strong> Đây là quy tắc duy nhất kích hoạt trong kỳ này, và nó là quy tắc <em>thay thế</em>, không phải cắt lỗ: cả ba mã đều không hề vi phạm quy tắc xu hướng nào.</span>
+      </li>
+      <li>
+        <span class="rt">Luận điểm doanh nghiệp còn nguyên vẹn như khi mua?</span>
+        <span class="rd"><strong>CHƯA RÀ SOÁT — cho cả 6 mã.</strong> Đây là quy tắc duy nhất không đọc dữ liệu giá; kết luận phải do người nhập vào <code>data/tham_dinh.json</code>. File hiện có 0 bản ghi.</span>
+      </li>
+    </ol>
+
+    <p class="note">Quy tắc thứ năm (bán bớt khi giá quá nóng) vẫn <strong>chưa chạy được</strong>: dấu hiệu định giá cần người nhập, còn dấu hiệu khoảng cách giá–MA cần 500 bar mà bản quét mới lấy 300. Không mã nào trong danh mục có biểu hiện quá nóng ở phiên này.</p>
+  </section>
+
+  <section>
+    <h2>Kỳ rà soát 01/09 — bảng lệnh mà luật sinh ra</h2>
+    <p class="dek">Đây là kết quả chạy <code>lt_allocator.py</code> trên dữ liệu 26/08. Giá sẽ đổi trước ngày 01/09; cấu trúc quyết định thì gần như sẽ không đổi.</p>
+
+    <div class="scroll">
+      <table>
+        <thead>
+          <tr><th>Lệnh</th><th class="num">KL</th><th>Mã</th><th class="num">Giá 26/08</th><th class="num">Giá trị</th><th class="num">Phí + thuế</th><th>Lý do</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="pill sell">Bán</span></td><td class="num">200</td><td class="ticker">BSR</td><td class="num">26.850</td><td class="num">5.370.000</td><td class="num">13.425</td><td>Quy tắc 3 — thứ hạng 90%</td></tr>
+          <tr><td><span class="pill sell">Bán</span></td><td class="num">100</td><td class="ticker">GMD</td><td class="num">79.300</td><td class="num">7.930.000</td><td class="num">19.825</td><td>Quy tắc 3 — thứ hạng 60%</td></tr>
+          <tr><td><span class="pill sell">Bán</span></td><td class="num">100</td><td class="ticker">LPB</td><td class="num">49.600</td><td class="num">4.960.000</td><td class="num">12.400</td><td>Quy tắc 3 — thứ hạng 80%</td></tr>
+          <tr class="total"><td colspan="4">Tiền về</td><td class="num">18.214.350</td><td class="num">45.650</td><td>0,08% NAV</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top:20px"><strong>Không có lệnh mua nào.</strong> Không phải vì thiếu ứng viên — VIC, VPI, HCM đều qua bộ lọc cứng — mà vì Bước 3 và Bước 4 chưa có kết luận. Thiết kế này là cố ý: thiếu kết luận thẩm định thì mặc định là <em>chưa được mua</em>, chứ không phải mặc định đạt.</p>
+
+    <p>Nếu đặt đủ ba lệnh bán và không mua gì, danh mục còn <strong>3 mã</strong> — MSB, STB, VHM — trị giá 25.565.000 đ (<strong>42,9%</strong>), tiền mặt lên 34.041.082 đ (<strong>57,1%</strong>). Cuộc thi chấm theo lợi suất và còn khoảng bảy tuần. Đây là cái giá phải trả cho việc để hệ thống tự quyết, và cần nhìn thẳng vào nó trước ngày 01/09 chứ không phải sau.</p>
+  </section>
+
+  <section>
+    <h2>Ba việc phải làm trước 01/09</h2>
+    <p class="dek">Xếp theo mức độ chặn: việc thứ nhất không làm thì kỳ rà soát không chạy được đúng.</p>
+
+    <div class="todo">
+      <div class="todo-item">
+        <div class="th"><strong>Điền <code>data/tham_dinh.json</code></strong> <span class="pill sell">Chặn cứng</span></div>
+        <p>File đang có 0 bản ghi. Hệ quả kép: (a) quy tắc thoát số 4 không rà soát được cho 6 mã đang giữ, (b) không mã nào trong 11 ứng viên được phép mua, nên toàn bộ tiền bán ra sẽ nằm tiền.</p>
+        <p>Tối thiểu cần: trường <code>luan_diem_con_nguyen</code> cho MSB, BSR, GMD, LPB, STB, VHM; và kết luận <code>buoc3_tham_dinh</code> + <code>buoc4_dinh_gia</code> cho các ứng viên muốn mua — trước hết là VIC, VPI, HCM. Đây là việc của người, không được suy ra từ dữ liệu giá.</p>
+      </div>
+
+      <div class="todo-item">
+        <div class="th"><strong>Quyết định về trần trùng lặp khi DM1 đang rỗng</strong> <span class="pill wait">Sẽ sinh lệnh sai</span></div>
+        <p><code>TRAN_TRUNG_LAP = 10%</code> tính trên <em>tổng tài sản hai danh mục</em>. Từ khi dữ liệu DM1 bị tạm xoá ngày 25/08, tổng tài sản chỉ còn chính DM2, nên trần này tụt xuống <strong>5.965.173 đ/mã</strong> — thấp hơn cả trần mã 20% của riêng DM2 (11.930.346 đ).</p>
+        <p>Chạy thử với giả định Bước 3/4 đều đạt: một lô 100 CP của VHM (7,36tr), STB (7,46tr), VPI (6,78tr), GMD (7,93tr) đều <em>vượt trần trùng lặp</em> và bị cắt về 0. VIC thì một lô đã là 23tr, vượt cả trần mã — DM2 không thể mua VIC ở bất kỳ cấu hình nào. Kết quả: bảng lệnh mua gần như rỗng vì lý do kỹ thuật, không phải vì luật đầu tư.</p>
+        <p>Hai lối ra: khôi phục số liệu DM1 vào <code>lt_config.py</code>, hoặc chốt rõ rằng trần trùng lặp không áp khi chỉ một danh mục có vốn. Phải chọn <strong>trước</strong> ngày 01/09 — chốt sau khi nhìn thấy bảng lệnh là tự phá vỡ nguyên tắc "luật chốt trước khi biết kết quả".</p>
+      </div>
+
+      <div class="todo-item">
+        <div class="th"><strong>Ghi nhận độ mỏng của ngưỡng thứ hạng 40%</strong> <span class="pill wait">Ghi sổ</span></div>
+        <p>Rổ đã lọc chỉ có 11 mã nên ngưỡng 40% = đúng 5 vị trí, trong khi DM2 được cấu hình 8 ô. Nghĩa là quy tắc thoát số 3 đang tự giới hạn danh mục xuống dưới số ô của chính nó, và phần chênh lệch tự động thành tiền mặt.</p>
+        <p>Không đề xuất sửa: 0,40 là con số đã chốt và bảng độ nhạy cũ cho thấy cả họ 0,25–0,60 đều thắng VNINDEX. Nhưng phải ghi vào sổ ngay hôm nay, để nếu sau này có đổi thì đổi vì lý do đã ghi trước, không phải vì kết quả.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Ghi chú dữ liệu phiên này</h2>
+    <p class="dek">Hai lỗi bắt được trong lúc chạy, cả hai đều đã sửa. Ghi lại vì cả hai đều thuộc loại hỏng âm thầm — không báo lỗi, chỉ cho ra số sai.</p>
+
+    <div class="todo">
+      <div class="todo-item">
+        <div class="th"><strong>Bản ghi VNINDEX nhận nhầm dữ liệu của TCB</strong></div>
+        <p>Vòng quét bắt đầu khi chart đang đứng ở TCB, và mã đầu tiên trong danh sách là VNINDEX. Cơ chế chống dữ liệu cũ so chữ ký bar với mã liền trước, nhưng ở lượt đầu tiên không có mã liền trước (<code>prev = null</code>) nên nó nhận luôn bar của TCB. Kết quả: "VNINDEX" mang giá 33.450 và lợi suất 12 tháng −19,5%.</p>
+        <p>Đã quét lại riêng VNINDEX và thay vào. Toàn bộ điểm RS của 112 mã tính từ mốc đúng. <strong>Cách chặn lần sau:</strong> đặt chart về VNINDEX trước khi chạy, hoặc khởi tạo <code>prev</code> bằng chữ ký của bar đang hiển thị.</p>
+      </div>
+
+      <div class="todo-item">
+        <div class="th"><strong><code>lt_screener.py</code> chọn nhầm file quét tuần</strong></div>
+        <p>Hàm <code>newest("scan_")</code> lấy file cuối cùng theo thứ tự tên, mà <code>weekly_rank.py</code> ghi ra <code>data/scan_weekly_*.json</code> với định dạng hoàn toàn khác — cũng bắt đầu bằng <code>scan_</code>. Screener luôn nhặt phải file tuần và chết ở <code>KeyError: 'ds'</code>.</p>
+        <p>Đã thêm bộ lọc: chỉ nhận hậu tố đúng 8 chữ số. Đây là lỗi tồn tại từ 24/08, ngày các file quét tuần đầu tiên xuất hiện.</p>
+      </div>
+
+      <div class="todo-item">
+        <div class="th"><strong>Đối chiếu bắt buộc: đã làm</strong></div>
+        <p>Giá đóng cửa phiên trước của cả 6 mã đang giữ khớp đúng bản ghi 25/08 — MSB 15.600, BSR 26.700, GMD 78.700, LPB 49.800, STB 74.200, VHM 73.600. Quét lại 9 mã sau giờ đóng cửa cho kết quả trùng khớp hoàn toàn với lần quét trong phiên, nên dữ liệu là giá đóng cửa thật chứ không phải ảnh chụp giữa phiên.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Dữ liệu HOSE_DLY (trễ 15 phút, bar ngày đã chốt) · quét 113 mã lúc 13:15–15:22 GMT+7 ngày 26/08/2026<br>
+    Nguồn: <code>data/scan_20260826.json</code> → <code>data/candidates_20260826.json</code> → <code>data/bao_cao_dau_tu_20260826.xlsx</code><br>
+    Khung áp dụng: <code>CHIEN_LUOC_DAI_HAN.md</code> · <code>Triet_ly_dau_tu_FF5.docx</code> (bản chốt 17/08/2026, đồng bộ 25/08)
+  </footer>
+
+</div>

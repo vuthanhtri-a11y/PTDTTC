@@ -1,0 +1,902 @@
+[
+ {
+  "ma": "VIC",
+  "gia": 213000,
+  "atr": 0.0305,
+  "tov": 1026700000000.0,
+  "ma50": 214416,
+  "ma200": 174495,
+  "r252": 2.6041,
+  "rs_252_skip21": 2.5866739949294093,
+  "rs_126": 0.3498,
+  "rs_63": 0.0561,
+  "rs_21": -0.0614,
+  "trend_r2": 0.5870421726592958,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 1.0,
+  "pr_rs_126": 0.8888888888888888,
+  "pr_rs_63": 0.3333333333333333,
+  "pr_trend_r2": 0.6666666666666666,
+  "diem": 0.8,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": true,
+  "investment_score": 10.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    3.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    2.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ]
+  ],
+  "sell_ready": false
+ },
+ {
+  "ma": "STB",
+  "gia": 75000,
+  "atr": 0.0243,
+  "tov": 295500000000.0,
+  "ma50": 72494,
+  "ma200": 63791,
+  "r252": 0.4098,
+  "rs_252_skip21": 0.3623860963740948,
+  "rs_126": 0.2252,
+  "rs_63": 0.1438,
+  "rs_21": -0.0405,
+  "trend_r2": 0.6889867367527412,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.5555555555555556,
+  "pr_rs_126": 0.6666666666666666,
+  "pr_rs_63": 1.0,
+  "pr_trend_r2": 0.8888888888888888,
+  "diem": 0.7111111111111111,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": true,
+  "investment_score": 10.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    3.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    2.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ]
+  ],
+  "sell_ready": false
+ },
+ {
+  "ma": "VHM",
+  "gia": 72700,
+  "atr": 0.0394,
+  "tov": 910400000000.0,
+  "ma50": 72275,
+  "ma200": 62764,
+  "r252": 0.5485,
+  "rs_252_skip21": 0.3652144945041853,
+  "rs_126": 0.3521,
+  "rs_63": 0.0321,
+  "rs_21": 0.05759999999999999,
+  "trend_r2": 0.4734231777472992,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 0.7777777777777778,
+  "pr_rs_126": 1.0,
+  "pr_rs_63": 0.2222222222222222,
+  "pr_trend_r2": 0.4444444444444444,
+  "diem": 0.7,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": true,
+  "investment_score": 10.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    3.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    2.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ]
+  ],
+  "sell_ready": false
+ },
+ {
+  "ma": "MSB",
+  "gia": 15850,
+  "atr": 0.015,
+  "tov": 188400000000.0,
+  "ma50": 15949,
+  "ma200": 13437,
+  "r252": 0.2076,
+  "rs_252_skip21": 0.19602715696881678,
+  "rs_126": 0.3467,
+  "rs_63": 0.10239999999999999,
+  "rs_21": -0.06720000000000001,
+  "trend_r2": 0.8996654395749573,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.3333333333333333,
+  "pr_rs_126": 0.7777777777777778,
+  "pr_rs_63": 0.7777777777777778,
+  "pr_trend_r2": 1.0,
+  "diem": 0.6222222222222222,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": true,
+  "investment_score": 10.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    3.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    2.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ]
+  ],
+  "sell_ready": false
+ },
+ {
+  "ma": "BSR",
+  "gia": 27550,
+  "atr": 0.0414,
+  "tov": 246200000000.0,
+  "ma50": 25426,
+  "ma200": 24119,
+  "r252": 0.6005,
+  "rs_252_skip21": 0.3750562599359435,
+  "rs_126": 0.0261,
+  "rs_63": 0.0209,
+  "rs_21": 0.087,
+  "trend_r2": -0.2923008819174214,
+  "nganh": "Dau khi",
+  "pr_rs_252_skip21": 0.8888888888888888,
+  "pr_rs_126": 0.3333333333333333,
+  "pr_rs_63": 0.1111111111111111,
+  "pr_trend_r2": 0.1111111111111111,
+  "diem": 0.4888888888888889,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    false
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": false,
+  "investment_score": 8.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    2.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    1.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ]
+  ],
+  "sell_ready": true
+ },
+ {
+  "ma": "PVD",
+  "gia": 19400,
+  "atr": 0.0318,
+  "tov": 187900000000.0,
+  "ma50": 18783,
+  "ma200": 18674,
+  "r252": 0.4108,
+  "rs_252_skip21": 0.36241828662280295,
+  "rs_126": -0.0827,
+  "rs_63": 0.11959999999999998,
+  "rs_21": -0.0398,
+  "trend_r2": -0.4927120410123735,
+  "nganh": "Dau khi",
+  "pr_rs_252_skip21": 0.6666666666666666,
+  "pr_rs_126": 0.0,
+  "pr_rs_63": 0.8888888888888888,
+  "pr_trend_r2": 0.0,
+  "diem": 0.4444444444444444,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    false
+   ],
+   [
+    "trend_quality_r2",
+    false
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": false,
+  "investment_score": 6.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    2.0
+   ],
+   [
+    "valuation",
+    1.0
+   ],
+   [
+    "trend",
+    1.0
+   ],
+   [
+    "relative_strength",
+    1.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ]
+  ],
+  "sell_ready": true
+ },
+ {
+  "ma": "LPB",
+  "gia": 49650,
+  "atr": 0.0331,
+  "tov": 194200000000.0,
+  "ma50": 52145,
+  "ma200": 47267,
+  "r252": 0.16,
+  "rs_252_skip21": 0.20504544978612516,
+  "rs_126": 0.2077,
+  "rs_63": -0.03490000000000001,
+  "rs_21": -0.1134,
+  "trend_r2": 0.584548269373635,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.4444444444444444,
+  "pr_rs_126": 0.5555555555555556,
+  "pr_rs_63": 0.0,
+  "pr_trend_r2": 0.5555555555555556,
+  "diem": 0.4,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": true,
+  "investment_score": 9.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    3.0
+   ],
+   [
+    "valuation",
+    1.0
+   ],
+   [
+    "trend",
+    2.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ]
+  ],
+  "sell_ready": true
+ },
+ {
+  "ma": "VPI",
+  "gia": 64600,
+  "atr": 0.0269,
+  "tov": 130300000000.00002,
+  "ma50": 62130,
+  "ma200": 58978,
+  "r252": 0.1081,
+  "rs_252_skip21": 0.07174278707875748,
+  "rs_126": 0.10300000000000001,
+  "rs_63": 0.0826,
+  "rs_21": -0.045200000000000004,
+  "trend_r2": 0.6812986775472806,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 0.1111111111111111,
+  "pr_rs_126": 0.4444444444444444,
+  "pr_rs_63": 0.4444444444444444,
+  "pr_trend_r2": 0.7777777777777778,
+  "diem": 0.34444444444444444,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": true,
+  "investment_score": 10.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    3.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    2.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ]
+  ],
+  "sell_ready": true
+ },
+ {
+  "ma": "GMD",
+  "gia": 77900,
+  "atr": 0.0236,
+  "tov": 154100000000.0,
+  "ma50": 76248,
+  "ma200": 71837,
+  "r252": 0.2365,
+  "rs_252_skip21": 0.14267670028509394,
+  "rs_126": 0.0184,
+  "rs_63": 0.08579999999999999,
+  "rs_21": 0.0032999999999999904,
+  "trend_r2": -0.07114649800469543,
+  "nganh": "Cang bien",
+  "pr_rs_252_skip21": 0.2222222222222222,
+  "pr_rs_126": 0.2222222222222222,
+  "pr_rs_63": 0.6666666666666666,
+  "pr_trend_r2": 0.2222222222222222,
+  "diem": 0.3111111111111111,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    false
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": false,
+  "investment_score": 8.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    2.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    1.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ]
+  ],
+  "sell_ready": true
+ },
+ {
+  "ma": "HDB",
+  "gia": 27700,
+  "atr": 0.0228,
+  "tov": 434700000000.0,
+  "ma50": 26366,
+  "ma200": 26242,
+  "r252": 0.1054,
+  "rs_252_skip21": 0.012312663461136797,
+  "rs_126": 0.014100000000000001,
+  "rs_63": 0.0832,
+  "rs_21": 0.010699999999999994,
+  "trend_r2": 0.07791383951359437,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.0,
+  "pr_rs_126": 0.1111111111111111,
+  "pr_rs_63": 0.5555555555555556,
+  "pr_trend_r2": 0.3333333333333333,
+  "diem": 0.17777777777777778,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "rs_6m_positive",
+    true
+   ],
+   [
+    "trend_quality_r2",
+    false
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "buy_ready": false,
+  "investment_score": 8.0,
+  "investment_score_detail": [
+   [
+    "quality",
+    2.0
+   ],
+   [
+    "valuation",
+    2.0
+   ],
+   [
+    "trend",
+    1.0
+   ],
+   [
+    "relative_strength",
+    2.0
+   ],
+   [
+    "risk",
+    1.0
+   ]
+  ],
+  "score_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ]
+  ],
+  "sell_ready": true
+ }
+]

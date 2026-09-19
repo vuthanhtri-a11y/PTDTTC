@@ -1,0 +1,421 @@
+{
+  "_huong_dan": [
+    "SO GIAO DICH DM2 — ban 2, dung lai 15/09/2026 theo BIEU PHI DUNG.",
+    "So goc cho bao cao cuoi ky. Moi lenh moi phai vao day NGAY khi khop,",
+    "truoc khi sua HOLDINGS/TIEN_MAT trong lt_config.py.",
+    "",
+    "BIEU PHI (sua 15/09/2026, thay cho 0,15%/0,25% dung tu dau):",
+    "  phi dich vu  0,08% gia tri giao dich — ap CA hai chieu mua va ban",
+    "  thue TNCN    0,10% gia tri ban — chi khi BAN",
+    "  phi luu ky   0,3 d/CP/thang (VSD) — theo THOI GIAN NAM GIU, khong theo lenh",
+    "",
+    "VI SAO BAN 1 SAI: 0,15%/0,25% la gia dinh go vao tu dau, chua bao gio doi",
+    "chieu voi sao ke. Tren 15 lenh (gia tri 106.755.000 d) no tinh thua 74.729 d",
+    "chi phi, tuc bao thieu dung so do o tien mat. Sau diem doi chieu trong cac",
+    "ban sao luu cu (315.607 / 15.826.732 / 8.495.752 / 21.178.965 / 25.054.252 /",
+    "32.725.027) KHOP VOI NHAU vi tat ca cung sai mot kieu — chung xac nhan tinh",
+    "nhat quan cua so, KHONG xac nhan tinh dung.",
+    "",
+    "BANG CHUNG CHO BIEU PHI MOI la mot so lieu BEN NGOAI: NAV sao ke 60.444.027",
+    "do user bao ngay 15/09. Chay lai 15 lenh voi 0,08%/0,10% ra NAV 60.443.756",
+    "— lech 271 d, tuc 0,00045%. Voi bieu phi cu, lech la 75.000 d.",
+    "Giai nguoc muc thue an trong NAV sao ke duoc 0,0993% => xac nhan thue 0,10%.",
+    "",
+    "CON 271 D CHUA TRUY DUOC. Khong the do gia co phieu: gia tri 4 vi the luon",
+    "la boi so cua 1.000 d nen khong tao duoc du 271. Vay no nam o TIEN MAT.",
+    "Hai kha nang: lai tien gui tren so du, hoac lam tron cua cong ty chung khoan.",
+    "Can mot dong sao ke de dong lai.",
+    "",
+    "GIA VON VNM 62.500 va BAF 32.150 VAN DUNG sau khi doi bieu phi: chung duoc",
+    "xac dinh bang bang lenh 17/08 (dinh gia ma da roi bo loc bang GIA VON), mot",
+    "duong KHONG phu thuoc vao muc phi. Duong thu hai — giai nguoc tu con so 'lo'",
+    "trong ke_hoach_20260819.txt — nay HET HIEU LUC vi con so lo do chinh no da",
+    "duoc tinh bang bieu phi cu.",
+    "",
+    "QUY UOC LAI/LO (mot chuan duy nhat):",
+    "  gop  = (gia ban - gia von binh quan) x KL, chua tru phi",
+    "  rong = gop - phi mua phan bo - phi ban - thue   <- con so that su vao NAV"
+  ],
+  "von_goc": 60000000,
+  "ngay_dung_so": "2026-09-15",
+  "bieu_phi": {
+    "phi_dich_vu": 0.0008,
+    "thue_tncn_ban": 0.001,
+    "phi_luu_ky_d_cp_thang": 0.3,
+    "hieu_luc": "ap dung hoi to cho toan bo lich su tu von goc",
+    "bieu_phi_cu_da_bo": {
+      "mua": 0.0015,
+      "ban": 0.0025
+    }
+  },
+  "nguon": [
+    "data/ke_hoach_20260817.txt",
+    "data/ke_hoach_20260819.txt",
+    "data/scan_20260817.json",
+    "lt_config.py",
+    "bay ban sao luu lt_config (20260825 -> 20260915)",
+    "NAV sao ke 60.444.027 do user cung cap 15/09/2026"
+  ],
+  "giao_dich": [
+    {
+      "ngay": "truoc 17/08",
+      "loai": "MUA",
+      "ma": "MSB",
+      "kl": 700,
+      "gia": 16000,
+      "gia_tri": 11200000,
+      "phi_dich_vu": 8960,
+      "thue": 0,
+      "dong_tien": -11208960,
+      "du_tien_mat_sau": 48791040,
+      "can_cu": "khung cu",
+      "ghi_chu": "ke thua tu khung cu"
+    },
+    {
+      "ngay": "truoc 17/08",
+      "loai": "MUA",
+      "ma": "VNM",
+      "kl": 200,
+      "gia": 62500,
+      "gia_tri": 12500000,
+      "phi_dich_vu": 10000,
+      "thue": 0,
+      "dong_tien": -12510000,
+      "du_tien_mat_sau": 36281040,
+      "can_cu": "khung cu",
+      "ghi_chu": "ke thua, gia von suy ra"
+    },
+    {
+      "ngay": "truoc 17/08",
+      "loai": "MUA",
+      "ma": "BAF",
+      "kl": 100,
+      "gia": 32150,
+      "gia_tri": 3215000,
+      "phi_dich_vu": 2572,
+      "thue": 0,
+      "dong_tien": -3217572,
+      "du_tien_mat_sau": 33063468,
+      "can_cu": "khung cu",
+      "ghi_chu": "ke thua, gia von suy ra"
+    },
+    {
+      "ngay": "17-19/08",
+      "loai": "MUA",
+      "ma": "BSR",
+      "kl": 200,
+      "gia": 27000,
+      "gia_tri": 5400000,
+      "phi_dich_vu": 4320,
+      "thue": 0,
+      "dong_tien": -5404320,
+      "du_tien_mat_sau": 27659148,
+      "can_cu": "bang lenh 17/08",
+      "ghi_chu": "ke hoach 26.000, khop cao hon 1.000"
+    },
+    {
+      "ngay": "17-19/08",
+      "loai": "MUA",
+      "ma": "GMD",
+      "kl": 100,
+      "gia": 78800,
+      "gia_tri": 7880000,
+      "phi_dich_vu": 6304,
+      "thue": 0,
+      "dong_tien": -7886304,
+      "du_tien_mat_sau": 19772844,
+      "can_cu": "bang lenh 17/08",
+      "ghi_chu": "khop dung ke hoach"
+    },
+    {
+      "ngay": "17-19/08",
+      "loai": "MUA",
+      "ma": "LPB",
+      "kl": 100,
+      "gia": 50800,
+      "gia_tri": 5080000,
+      "phi_dich_vu": 4064,
+      "thue": 0,
+      "dong_tien": -5084064,
+      "du_tien_mat_sau": 14688780,
+      "can_cu": "bang lenh 17/08",
+      "ghi_chu": "ke hoach 50.900"
+    },
+    {
+      "ngay": "17-19/08",
+      "loai": "MUA",
+      "ma": "STB",
+      "kl": 100,
+      "gia": 74200,
+      "gia_tri": 7420000,
+      "phi_dich_vu": 5936,
+      "thue": 0,
+      "dong_tien": -7425936,
+      "du_tien_mat_sau": 7262844,
+      "can_cu": "bang lenh 17/08",
+      "ghi_chu": "khop dung ke hoach"
+    },
+    {
+      "ngay": "17-19/08",
+      "loai": "MUA",
+      "ma": "VHM",
+      "kl": 100,
+      "gia": 69000,
+      "gia_tri": 6900000,
+      "phi_dich_vu": 5520,
+      "thue": 0,
+      "dong_tien": -6905520,
+      "du_tien_mat_sau": 357324,
+      "can_cu": "bang lenh 17/08",
+      "ghi_chu": "ke hoach 68.200, khop cao hon 800"
+    },
+    {
+      "ngay": "2026-08-19",
+      "loai": "BAN",
+      "ma": "VNM",
+      "kl": 200,
+      "gia": 62000,
+      "gia_tri": 12400000,
+      "phi_dich_vu": 9920,
+      "thue": 12400,
+      "dong_tien": 12377680,
+      "du_tien_mat_sau": 12735004,
+      "can_cu": "quy tac thoat 1",
+      "ghi_chu": "MA50 < MA200",
+      "lai_lo": {
+        "gop": -100000,
+        "phi_mua_phan_bo": 10000,
+        "phi_ban_va_thue": 22320,
+        "rong": -132320
+      }
+    },
+    {
+      "ngay": "2026-08-19",
+      "loai": "BAN",
+      "ma": "BAF",
+      "kl": 100,
+      "gia": 31500,
+      "gia_tri": 3150000,
+      "phi_dich_vu": 2520,
+      "thue": 3150,
+      "dong_tien": 3144330,
+      "du_tien_mat_sau": 15879334,
+      "can_cu": "quy tac thoat 2",
+      "ghi_chu": "RS 12T thua VNINDEX",
+      "lai_lo": {
+        "gop": -65000,
+        "phi_mua_phan_bo": 2572,
+        "phi_ban_va_thue": 5670,
+        "rong": -73242
+      }
+    },
+    {
+      "ngay": "2026-09-03",
+      "loai": "MUA",
+      "ma": "DHC",
+      "kl": 200,
+      "gia": 36600,
+      "gia_tri": 7320000,
+      "phi_dich_vu": 5856,
+      "thue": 0,
+      "dong_tien": -7325856,
+      "du_tien_mat_sau": 8553478,
+      "can_cu": "ky soat 09",
+      "ghi_chu": "ke hoach 36.900, khop thap hon 300"
+    },
+    {
+      "ngay": "2026-09-03",
+      "loai": "BAN",
+      "ma": "GMD",
+      "kl": 100,
+      "gia": 78100,
+      "gia_tri": 7810000,
+      "phi_dich_vu": 6248,
+      "thue": 7810,
+      "dong_tien": 7795942,
+      "du_tien_mat_sau": 16349420,
+      "can_cu": "quy tac thoat 3",
+      "ghi_chu": "rot khoi top 40%",
+      "lai_lo": {
+        "gop": -70000,
+        "phi_mua_phan_bo": 6304,
+        "phi_ban_va_thue": 14058,
+        "rong": -90362
+      }
+    },
+    {
+      "ngay": "2026-09-03",
+      "loai": "BAN",
+      "ma": "LPB",
+      "kl": 100,
+      "gia": 49050,
+      "gia_tri": 4905000,
+      "phi_dich_vu": 3924,
+      "thue": 4905,
+      "dong_tien": 4896171,
+      "du_tien_mat_sau": 21245591,
+      "can_cu": "quy tac thoat 3",
+      "ghi_chu": "rot khoi top 40%",
+      "lai_lo": {
+        "gop": -175000,
+        "phi_mua_phan_bo": 4064,
+        "phi_ban_va_thue": 8829,
+        "rong": -187893
+      }
+    },
+    {
+      "ngay": "2026-09-07",
+      "loai": "BAN",
+      "ma": "VHM",
+      "kl": 50,
+      "gia": 77700,
+      "gia_tri": 3885000,
+      "phi_dich_vu": 3108,
+      "thue": 3885,
+      "dong_tien": 3878007,
+      "du_tien_mat_sau": 25123598,
+      "can_cu": "LENH NGOAI LUAT #1",
+      "ghi_chu": "chot lai mot phan",
+      "lai_lo": {
+        "gop": 435000,
+        "phi_mua_phan_bo": 2760,
+        "phi_ban_va_thue": 6993,
+        "rong": 425247
+      }
+    },
+    {
+      "ngay": "2026-09-14",
+      "loai": "BAN",
+      "ma": "STB",
+      "kl": 100,
+      "gia": 76900,
+      "gia_tri": 7690000,
+      "phi_dich_vu": 6152,
+      "thue": 7690,
+      "dong_tien": 7676158,
+      "du_tien_mat_sau": 32799756,
+      "can_cu": "quy tac thoat 4",
+      "ghi_chu": "luan diem gay, phieu 1/6",
+      "lai_lo": {
+        "gop": 270000,
+        "phi_mua_phan_bo": 5936,
+        "phi_ban_va_thue": 13842,
+        "rong": 250222
+      }
+    }
+  ],
+  "su_kien_phi_tien_mat": [
+    {
+      "ngay": "2026-08-28",
+      "ma": "MSB",
+      "viec": "Chia co tuc bang CO PHIEU 100:20, GDKHQ 28/08/2026",
+      "truoc": {
+        "kl": 700,
+        "gia_von": 16000
+      },
+      "sau": {
+        "kl": 840,
+        "gia_von": 13333
+      },
+      "dong_tien": 0,
+      "canh_bao": "140 CP thuong ve TK sau ~4-6 tuan. Tinh den 15/09 CHUA XAC NHAN da ve — neu chua, lenh ban MSB chi khop duoc 700 CP."
+    }
+  ],
+  "lenh_khong_khop": [
+    {
+      "ngay": "2026-08-20",
+      "ma": "VPI",
+      "viec": "MUA 100 VPI gia toi da 63.000",
+      "ket_qua": "KHONG KHOP",
+      "ghi_chu": "Ke hoach 19/08 co nhanh bat buoc 'qua 21/08 chua khop -> mua gia thi truong'. Nhanh do DA KHONG duoc thuc hien. Lech so voi ke hoach da chot, khong phai lenh cho. User xac nhan 25/08/2026."
+    }
+  ],
+  "phi_luu_ky": {
+    "muc": "0,3 d/CP/thang",
+    "co_so_tinh": "so du chung khoan cuoi thang",
+    "ky": [
+      {
+        "thang": "08/2026",
+        "so_cp": 1440,
+        "phi": 432.0
+      },
+      {
+        "thang": "09/2026",
+        "so_cp": 1290,
+        "phi": 387.0
+      }
+    ],
+    "cong": 819.0,
+    "ghi_chu": "CHUA tru khoi so du tien mat trong so nay. Bang chung: neu da tru, NAV dung lai se thap hon sao ke 1.090 d thay vi 271 d. Khi cong ty chung khoan thuc su thu, ghi mot dong chi rieng vao day."
+  },
+  "vi_the_dang_giu": [
+    {
+      "ma": "BSR",
+      "kl": 200,
+      "gia_von": 27000,
+      "von_goc": 5400000,
+      "phi_mua_con_lai": 4320,
+      "gia_15_09": 29050,
+      "gia_tri": 5810000,
+      "lai_lo_gop": 410000,
+      "lai_lo_rong": 405680
+    },
+    {
+      "ma": "DHC",
+      "kl": 200,
+      "gia_von": 36600,
+      "von_goc": 7320000,
+      "phi_mua_con_lai": 5856,
+      "gia_15_09": 37300,
+      "gia_tri": 7460000,
+      "lai_lo_gop": 140000,
+      "lai_lo_rong": 134144
+    },
+    {
+      "ma": "MSB",
+      "kl": 840,
+      "gia_von": 13333,
+      "von_goc": 11200000,
+      "phi_mua_con_lai": 8960,
+      "gia_15_09": 12850,
+      "gia_tri": 10794000,
+      "lai_lo_gop": -406000,
+      "lai_lo_rong": -414960
+    },
+    {
+      "ma": "VHM",
+      "kl": 50,
+      "gia_von": 69000,
+      "von_goc": 3450000,
+      "phi_mua_con_lai": 2760,
+      "gia_15_09": 71600,
+      "gia_tri": 3580000,
+      "lai_lo_gop": 130000,
+      "lai_lo_rong": 127240
+    }
+  ],
+  "tong_ket": {
+    "so_luot_lenh": 15,
+    "so_lenh_mua": 9,
+    "so_lenh_ban": 6,
+    "tong_gia_tri_giao_dich": 106755000,
+    "tong_phi_dich_vu": 85404,
+    "tong_phi_mua": 53532,
+    "tong_phi_ban": 31872,
+    "tong_thue_tncn": 39840,
+    "tong_chi_phi_giao_dich": 125244,
+    "chi_phi_tren_von_goc_pct": 0.209,
+    "chi_phi_theo_bieu_cu": 199973,
+    "tiet_kiem_so_voi_bieu_cu": 74728,
+    "lai_lo_da_thuc_hien_gop": 295000,
+    "lai_lo_da_thuc_hien_rong": 191652,
+    "lai_lo_chua_thuc_hien_rong": 252104,
+    "co_phieu": 27644000,
+    "tien_mat": 32799756,
+    "nav_dung_lai": 60443756,
+    "nav_sao_ke_user_bao": 60444027,
+    "con_lech": 271,
+    "con_lech_pct": 0.00045,
+    "gia_dung_de_danh_gia_lai": "TradingView HOSE_DLY doc 15/09/2026 luc 12:50 (tre 15 phut, nghi trua): MSB 12.850 / BSR 29.050 / VHM 71.600 / DHC 37.300"
+  }
+}

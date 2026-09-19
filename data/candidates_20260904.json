@@ -1,0 +1,1031 @@
+[
+ {
+  "ma": "VIC",
+  "gia": 256100,
+  "atr": 0.0416,
+  "tov": 1390000000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 217994,
+  "ma200": 178595,
+  "r252": 2.7801,
+  "rs_252_skip21": 2.0902139968662294,
+  "rs_126": 0.6268,
+  "rs_63": 0.2674,
+  "rs_21": 0.1511,
+  "trend_r2": 0.5709982899028918,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 1.0,
+  "pr_rs_126": 1.0,
+  "pr_rs_63": 1.0,
+  "pr_trend_r2": 0.7,
+  "diem": 0.97,
+  "thu": 1,
+  "thu_hang": 0.0,
+  "buoc3_tham_dinh": "loai",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "Loai khoi danh muc do van de co ban (nguoi tham dinh phu quyet o buoc 3, ngay 01/09/2026). Phu quyet dinh tinh thang moi tin hieu ky thuat, ke ca 7/7 checklist ngay 25/08.",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": true,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "VHM",
+  "gia": 75200,
+  "atr": 0.0316,
+  "tov": 647700000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 72415,
+  "ma200": 63561,
+  "r252": 0.4379,
+  "rs_252_skip21": 0.36113413987167364,
+  "rs_126": 0.5895,
+  "rs_63": -0.0091,
+  "rs_21": -0.035,
+  "trend_r2": 0.38511346795473944,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 0.8,
+  "pr_rs_126": 0.9,
+  "pr_rs_63": 0.1,
+  "pr_trend_r2": 0.5,
+  "diem": 0.6600000000000001,
+  "thu": 2,
+  "thu_hang": 0.1,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "dat",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "chenh_co_so": -0.0669975186104218,
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "STB",
+  "gia": 77300,
+  "atr": 0.0251,
+  "tov": 351600000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 72894,
+  "ma200": 64510,
+  "r252": 0.3903,
+  "rs_252_skip21": 0.23216176812415634,
+  "rs_126": 0.1398,
+  "rs_63": 0.0862,
+  "rs_21": 0.029900000000000003,
+  "trend_r2": 0.6428488208396056,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.6,
+  "pr_rs_126": 0.6,
+  "pr_rs_63": 0.7,
+  "pr_trend_r2": 0.8,
+  "diem": 0.64,
+  "thu": 3,
+  "thu_hang": 0.2,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": true,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "chenh_co_so": 0.29915966386554627,
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "VPI",
+  "gia": 68900,
+  "atr": 0.0264,
+  "tov": 146000000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 63022,
+  "ma200": 59401,
+  "r252": 0.2414,
+  "rs_252_skip21": 0.1172888486832655,
+  "rs_126": 0.18539999999999998,
+  "rs_63": 0.1289,
+  "rs_21": 0.008799999999999995,
+  "trend_r2": 0.7292926836288713,
+  "nganh": "Bat dong san",
+  "pr_rs_252_skip21": 0.3,
+  "pr_rs_126": 0.7,
+  "pr_rs_63": 0.9,
+  "pr_trend_r2": 0.9,
+  "diem": 0.6,
+  "thu": 4,
+  "thu_hang": 0.3,
+  "buoc3_tham_dinh": "loai",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "Loai khoi danh muc do van de co ban (nguoi tham dinh phu quyet o buoc 3, ngay 01/09/2026). Thang tin hieu ky thuat 7/7 checklist ngay 25/08.",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": true,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "MSB",
+  "gia": 13150,
+  "atr": 0.0249,
+  "tov": 336500000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 13314,
+  "ma200": 11288,
+  "r252": 0.0638,
+  "rs_252_skip21": 0.031556222247380195,
+  "rs_126": 0.3354,
+  "rs_63": 0.0727,
+  "rs_21": -0.0711,
+  "trend_r2": 0.8665588965804845,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.1,
+  "pr_rs_126": 0.8,
+  "pr_rs_63": 0.5,
+  "pr_trend_r2": 1.0,
+  "diem": 0.48,
+  "thu": 5,
+  "thu_hang": 0.4,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "dat",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    false
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "DHC",
+  "gia": 35700,
+  "atr": 0.0283,
+  "tov": 15000000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 33555,
+  "ma200": 32448,
+  "r252": 0.2709,
+  "rs_252_skip21": 0.17788772882311998,
+  "rs_126": 0.0267,
+  "rs_63": 0.08209999999999999,
+  "rs_21": -0.0194,
+  "trend_r2": 0.15335342749834333,
+  "nganh": "Giay",
+  "pr_rs_252_skip21": 0.5,
+  "pr_rs_126": 0.3,
+  "pr_rs_63": 0.6,
+  "pr_trend_r2": 0.3,
+  "diem": 0.44,
+  "thu": 6,
+  "thu_hang": 0.5,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "dat",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "chenh_co_so": -0.15000000000000002,
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "LPB",
+  "gia": 49000,
+  "atr": 0.0331,
+  "tov": 222200000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 52261,
+  "ma200": 47248,
+  "r252": 0.1187,
+  "rs_252_skip21": 0.1562162648286578,
+  "rs_126": 0.11779999999999999,
+  "rs_63": 0.0431,
+  "rs_21": -0.1267,
+  "trend_r2": 0.37812901566930546,
+  "nganh": "Ngan hang",
+  "pr_rs_252_skip21": 0.4,
+  "pr_rs_126": 0.5,
+  "pr_rs_63": 0.4,
+  "pr_trend_r2": 0.4,
+  "diem": 0.43000000000000005,
+  "thu": 7,
+  "thu_hang": 0.6,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": true,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "chenh_co_so": 0.04477611940298498,
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "BSR",
+  "gia": 26750,
+  "atr": 0.0334,
+  "tov": 261200000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 25487,
+  "ma200": 24437,
+  "r252": 0.6302,
+  "rs_252_skip21": 0.5002082508092796,
+  "rs_126": -0.3124,
+  "rs_63": -0.0862,
+  "rs_21": -0.0022000000000000006,
+  "trend_r2": -0.23886304605047437,
+  "nganh": "Dau khi",
+  "pr_rs_252_skip21": 0.9,
+  "pr_rs_126": 0.0,
+  "pr_rs_63": 0.0,
+  "pr_trend_r2": 0.1,
+  "diem": 0.37000000000000005,
+  "thu": 8,
+  "thu_hang": 0.7,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "dat",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": true,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "chenh_co_so": -0.10833333333333328,
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "PVD",
+  "gia": 19200,
+  "atr": 0.0298,
+  "tov": 154600000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 18872,
+  "ma200": 18815,
+  "r252": 0.4974,
+  "rs_252_skip21": 0.35773294214067763,
+  "rs_126": -0.307,
+  "rs_63": 0.0303,
+  "rs_21": 0.009599999999999997,
+  "trend_r2": -0.3681756880981997,
+  "nganh": "Dau khi",
+  "pr_rs_252_skip21": 0.7,
+  "pr_rs_126": 0.1,
+  "pr_rs_63": 0.3,
+  "pr_trend_r2": 0.0,
+  "diem": 0.37,
+  "thu": 9,
+  "thu_hang": 0.8,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "BAF",
+  "gia": 32550,
+  "atr": 0.0165,
+  "tov": 95300000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 30579,
+  "ma200": 29884,
+  "r252": 0.1371,
+  "rs_252_skip21": 0.013355271569145843,
+  "rs_126": 0.0323,
+  "rs_63": 0.1187,
+  "rs_21": 0.0143,
+  "trend_r2": 0.5300127246498423,
+  "nganh": "Chan nuoi",
+  "pr_rs_252_skip21": 0.0,
+  "pr_rs_126": 0.4,
+  "pr_rs_63": 0.8,
+  "pr_trend_r2": 0.6,
+  "diem": 0.34,
+  "thu": 10,
+  "thu_hang": 0.9,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ },
+ {
+  "ma": "GMD",
+  "gia": 77400,
+  "atr": 0.0203,
+  "tov": 167800000000.0,
+  "dma50": null,
+  "vol60": null,
+  "c60": null,
+  "ma50": 76386,
+  "ma200": 72267,
+  "r252": 0.1727,
+  "rs_252_skip21": 0.11430101068541942,
+  "rs_126": -0.0394,
+  "rs_63": 0.005300000000000001,
+  "rs_21": -0.0473,
+  "trend_r2": 0.039623464369441475,
+  "nganh": "Cang bien",
+  "pr_rs_252_skip21": 0.2,
+  "pr_rs_126": 0.2,
+  "pr_rs_63": 0.2,
+  "pr_trend_r2": 0.2,
+  "diem": 0.2,
+  "thu": 11,
+  "thu_hang": 1.0,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": true,
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "rs_12m_below_minus_5pct",
+    false
+   ],
+   [
+    "rank_below_40pct",
+    true
+   ],
+   [
+    "luan_diem_gay",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_luan_diem": true,
+  "qua_nong": {
+   "a": null,
+   "b": null,
+   "c": null,
+   "vi_sao": {
+    "a": "chi co 0/500 quan sat — quet lai voi ban lt_scan_tradingview.js >= 07/09/2026",
+    "b": "chua co ket luan 'dinh_gia_qua_cao' trong data/tham_dinh.json",
+    "c": "thieu chuoi vol60/c60 — quet lai voi ban >= 07/09/2026"
+   },
+   "chenh_co_so": -0.012755102040816313,
+   "du_ba": false,
+   "khong_do_duoc": [
+    "a",
+    "b",
+    "c"
+   ]
+  }
+ }
+]

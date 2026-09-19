@@ -1,0 +1,58 @@
+KE HOACH DM2 — sau phien thu Tu 19/08/2026 (dong cua)
+=====================================================================
+
+DA KHOP HOM NAY (2 lenh ban, dung luat thoat khung dai han 17/08):
+  BAN  200 VNM  x 62.000 = 12.400.000  phi+thue 31.000  -> ve 12.369.000  lo -149.750
+                 ly do: MA50 < MA200
+  BAN  100 BAF  x 31.500 =  3.150.000  phi+thue  7.875  -> ve  3.142.125  lo  -77.697
+                 ly do: RS 12 thang thua VNINDEX
+  Tong tien ve 15.511.125 | lo da thuc hien -227.447 | phi+thue 38.875
+
+TRUOT GIA SO VOI GIA DONG CUA (ghi lai de theo doi, KHONG doi luat):
+  VNM dong cua 63.100 -> ban thap hon 220.000
+  BAF dong cua 32.000 -> ban thap hon  50.000
+  Tong 270.000 = 0,45% NAV, gap 7 lan tien phi.
+
+DANH MUC SAU PHIEN (gia dong cua 19/08, HOSE_DLY tre 15 phut)
+  Ma   KL   Von     Gia     L/L%    Gia tri     %NAV  MA50    MA200   ATR%  demATR
+  MSB  700  16.000  15.550  -2,81  10.885.000   18,3  15.899  13.382  1,54  10,7
+  GMD  100  78.800  78.600  -0,25   7.860.000   13,2  76.226  71.711  2,56   4,5
+  STB  100  74.200  74.800  +0,81   7.480.000   12,6  72.290  63.494  2,52   7,0
+  VHM  100  69.000  69.100  +0,14   6.910.000   11,6  72.190  62.448  4,30   2,9
+  BSR  200  27.000  26.700  -1,11   5.340.000    9,0  25.451  23.959  4,25   3,0
+  LPB  100  50.800  50.700  -0,20   5.070.000    8,5  51.907  47.286  3,21   3,0
+  ---------------------------------------------------------------------------
+  Co phieu 43.545.000 (73,3%) | Tien mat 15.826.732 (26,7%)
+  NAV 59.371.732 = -1,05% so von 60tr | trong ngay -393.875 (-0,66%)
+
+LENH DUY NHAT CON LAI — dat NGAY MAI 20/08:
+  MUA  100 VPI  gia toi da 63.000  (dong cua 19/08 = 62.700, trong vung 61.000-63.000)
+    -> 6.270.000 + phi 9.405 | tien mat con 9.547.327 = 16,1% NAV
+    VPI qua 5/5 dieu kien loc sau phien 19/08:
+      gia 62.700 > MA200 58.852 | MA50 61.962 > MA200 | RS12T +6,7 diem
+      ATR 2,76% < 6% | thanh khoan 127,2 ty > 10 ty
+    Neu 20/08 mo cua > 63.000 -> cho toi 21/08; qua 21/08 chua khop -> mua gia thi truong.
+
+SAU DO: KHONG GIAO DICH GI TU 21/08 DEN 31/08 (9 phien).
+  Ngoai le duy nhat: chan cung -25% so gia von.
+  Ma gan nhat la LPB, kich hoat o 38.100, con cach 24,9%.
+
+KY SOAT KE TIEP: thu Ba 01/09/2026.
+  1) quet 113 ma (lt_scan_tradingview.js) -> data/scan_20260901.json
+  2) lt_screener.py -> bang xep hang moi
+  3) cap nhat HOLDINGS/TIEN_MAT trong lt_config.py cho khop sao ke
+  4) lt_allocator.py -> bang lenh
+  Ba dieu kien giu: gia > 0,97xMA200 | RS12T > -5% | con trong top 40%.
+  Ung vien de bi ban nhat: VHM (2,9 ATR, duoi MA50, RS3T -2,1),
+  BSR (3,0 ATR, RS3T -2,1), LPB (3,0 ATR, duoi MA50).
+
+RUI RO DA GHI NHAN:
+  - Nganh ngan hang 39,5% (sat tran 40%), BDS 22,2% sau khi mua VPI
+    -> 7 ma nhung chi ~4 cuoc doc lap.
+  - VNINDEX 1.726,69, duoi MA50 -3,5% va duoi MA200 -2,8%. He thong CO Y
+    khong phan ung theo chi so (da kiem 17/08: loc VNINDEX theo MA50 khong
+    du bao duoc huong chi so).
+  - O VIC treo suot cuoc thi (1 lo = 33,7% NAV > tran 20%). 16,1% tien mat
+    la ket qua bat buoc cua quy tac.
+
+Bao cao dang artifact: bao_cao_dm2_20260819.html

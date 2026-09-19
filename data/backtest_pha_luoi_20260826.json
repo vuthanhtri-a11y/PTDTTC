@@ -1,0 +1,241 @@
+{
+ "_mo_ta": "Backtest chien luoc dai han, 4 pha luoi lay mau thang, 52 thang, 112 ma HOSE, da tru phi 0,4%/vong quay. Chay 26/08/2026.",
+ "_pham_vi": {
+  "A": "thu hang tren TOAN RO (ban backtest cu 17/08/2026)",
+  "B1": "thu hang trong RO DA QUA BO LOC (Triet_ly_dau_tu_FF5); ma dang giu roi khoi bo loc van duoc chen diem vao bang xep hang",
+  "B2": "nhu B1 nhung ma dang giu roi khoi bo loc = hong quy tac 3 -> ban ngay",
+  "tat_qt3": "B1 nhung tat han quy tac thoat so 3 (hyst = 1,00)"
+ },
+ "_doi_chung": "Pha 1 (ket thuc 2026-08-17) tai tao ban 17/08: A = 14,07% vs 13,89% cong bo, sut giam -21,4% vs -21,3%, t = 0,81 vs 0,87. Harness duoc xac nhan la trung thuc.",
+ "pha0": {
+  "ngay_cuoi": "2026-08-24",
+  "A": {
+   "cagr": 0.1036,
+   "mdd": -0.2088,
+   "alpha": 0.00205,
+   "t": 0.39
+  },
+  "B1": {
+   "cagr": 0.0765,
+   "mdd": -0.361,
+   "alpha": 0.00032,
+   "t": 0.04
+  },
+  "B2": {
+   "cagr": 0.071,
+   "mdd": -0.361,
+   "alpha": -0.00011,
+   "t": -0.01
+  },
+  "tat_qt3": {
+   "cagr": 0.1009,
+   "mdd": -0.2088,
+   "alpha": 0.00122,
+   "t": 0.28
+  },
+  "VNINDEX": 0.0832,
+  "pool_median": 30
+ },
+ "pha1": {
+  "ngay_cuoi": "2026-08-17",
+  "A": {
+   "cagr": 0.1407,
+   "mdd": -0.2135,
+   "alpha": 0.00508,
+   "t": 0.81
+  },
+  "B1": {
+   "cagr": 0.0937,
+   "mdd": -0.3247,
+   "alpha": 0.00186,
+   "t": 0.24
+  },
+  "B2": {
+   "cagr": 0.0922,
+   "mdd": -0.3287,
+   "alpha": 0.00175,
+   "t": 0.23
+  },
+  "tat_qt3": {
+   "cagr": 0.0666,
+   "mdd": -0.2343,
+   "alpha": -0.00122,
+   "t": -0.24
+  },
+  "VNINDEX": 0.0809,
+  "pool_median": 31
+ },
+ "pha2": {
+  "ngay_cuoi": "2026-08-10",
+  "A": {
+   "cagr": 0.0938,
+   "mdd": -0.2765,
+   "alpha": 0.00146,
+   "t": 0.28
+  },
+  "B1": {
+   "cagr": 0.087,
+   "mdd": -0.2535,
+   "alpha": 0.00116,
+   "t": 0.2
+  },
+  "B2": {
+   "cagr": 0.0808,
+   "mdd": -0.2619,
+   "alpha": 0.00073,
+   "t": 0.13
+  },
+  "tat_qt3": {
+   "cagr": 0.0618,
+   "mdd": -0.2765,
+   "alpha": -0.00115,
+   "t": -0.23
+  },
+  "VNINDEX": 0.0771,
+  "pool_median": 31
+ },
+ "pha3": {
+  "ngay_cuoi": "2026-08-03",
+  "A": {
+   "cagr": 0.1454,
+   "mdd": -0.2303,
+   "alpha": 0.00469,
+   "t": 0.71
+  },
+  "B1": {
+   "cagr": 0.1049,
+   "mdd": -0.2389,
+   "alpha": 0.00123,
+   "t": 0.22
+  },
+  "B2": {
+   "cagr": 0.1049,
+   "mdd": -0.2389,
+   "alpha": 0.00123,
+   "t": 0.22
+  },
+  "tat_qt3": {
+   "cagr": 0.1355,
+   "mdd": -0.2261,
+   "alpha": 0.00395,
+   "t": 0.59
+  },
+  "VNINDEX": 0.0923,
+  "pool_median": 30
+ },
+ "trung_binh_4_pha": {
+  "A": {
+   "cagr": 0.1209,
+   "mdd": -0.2323,
+   "vuot_index_diem_pt": 3.75
+  },
+  "B1": {
+   "cagr": 0.0905,
+   "mdd": -0.2945,
+   "vuot_index_diem_pt": 0.72
+  },
+  "B2": {
+   "cagr": 0.0872,
+   "mdd": -0.2976,
+   "vuot_index_diem_pt": 0.39
+  },
+  "tat_qt3": {
+   "cagr": 0.0912,
+   "vuot_index_diem_pt": 0.78
+  },
+  "VNINDEX": {
+   "cagr": 0.0834
+  }
+ },
+ "_ket_luan": [
+  "1. Con so 13,89% cong bo la MOT trong bon rut tham cua pha luoi, va la rut tham cao thu hai. Trung binh 4 pha cua cung phuong phap A la 12,09%, bien do 9,38-14,54%.",
+  "2. Pham vi B (theo ban chot) vuot index trung binh chi +0,72 diem phan tram/nam, t = 0,04-0,24 o ca 4 pha. Khong phan biet duoc voi 0.",
+  "3. Pham vi A vuot index o CA 4/4 pha (+1,67 den +5,98) va vuot B1 o ca 4/4 pha. Nhung 4 pha dung chung phan lon du lieu nen khong phai 4 quan sat doc lap.",
+  "4. Sut giam: B1 sau hon A o CA 4/4 pha (-29,5% so voi -23,2% trung binh). Day la phat bieu vung nhat trong bo so nay.",
+  "5. Tat han quy tac thoat 3: chenh so voi B1 la +2,44 / -2,71 / -2,52 / +3,06 diem pt theo tung pha -> trung binh +0,07. Tac dong cua quy tac 3 la NHIEU, khong phai tin hieu. Ket luan 'tat quy tac 3 tot hon' rut ra tu rieng pha 0 la SAI."
+ ],
+ "thamso_4pha": {
+  "_mo_ta": "Do lai cac tham so THIET KE dang chay, pham vi B1 (ban chot), 4 pha luoi.",
+  "so_o": {
+   "pha0": {
+    "5": 0.0884,
+    "6": 0.0786,
+    "8": 0.0665,
+    "10": 0.0765,
+    "12": 0.063,
+    "15": 0.064
+   },
+   "pha1": {
+    "5": 0.1011,
+    "6": 0.1329,
+    "8": 0.1108,
+    "10": 0.0937,
+    "12": 0.071,
+    "15": 0.0867
+   },
+   "pha2": {
+    "5": 0.092,
+    "6": 0.0829,
+    "8": 0.0564,
+    "10": 0.087,
+    "12": 0.1048,
+    "15": 0.0892
+   },
+   "pha3": {
+    "5": 0.1448,
+    "6": 0.1254,
+    "8": 0.1296,
+    "10": 0.1049,
+    "12": 0.0828,
+    "15": 0.0822
+   },
+   "trung_binh": {
+    "5": 0.1066,
+    "6": 0.105,
+    "8": 0.0908,
+    "10": 0.0905,
+    "12": 0.0804,
+    "15": 0.0805
+   }
+  },
+  "phan_bo": {
+   "1_tren_ATR": {
+    "cagr": 0.0905,
+    "mdd": -0.2945
+   },
+   "can_bang_deu": {
+    "cagr": 0.0929,
+    "mdd": -0.3093
+   },
+   "ghi_chu": "1/ATR cho sut giam nho hon o CA 4/4 pha (chenh TB 1,5 diem pt); loi nhuan ngang nhau."
+  },
+  "chu_ky_ra_soat": {
+   "hang_thang": {
+    "cagr": 0.0905,
+    "mdd": -0.2945
+   },
+   "hang_quy": {
+    "cagr": 0.1167,
+    "mdd": -0.2414
+   },
+   "theo_pha_quy": [
+    0.0484,
+    0.121,
+    0.1073,
+    0.1899
+   ],
+   "theo_pha_thang": [
+    0.0765,
+    0.0937,
+    0.087,
+    0.1049
+   ],
+   "ghi_chu": "Hang quy TOT HON hang thang o 3/4 pha va TB +2,6 diem pt, sut giam nong hon 5,3 diem pt. NGUOC voi phat bieu 'ra soat hang quy lam tut 13,89% -> 7,06%' trong ban cu."
+  },
+  "_ket_luan_them": [
+   "6. So o: TB 4 pha cho 5 o = 10,66%, 6 o = 10,50%, 10 o = 9,05%, 15 o = 8,05%. Ban cu do duoc dieu NGUOC LAI (10 o tot nhat, 5 o te nhat). N=5 tot hon N=10 o CA 4/4 pha. Co the co co che that: voi ro da loc, top 40% ~ 12 ma, nen N cang lon thi cang nhieu vi the nam sat nguong va bi quy tac 3 xoay vong.",
+   "7. Chu ky ra soat: hang quy TOT HON hang thang (TB 11,67% vs 9,05%, sut giam -24,1% vs -29,5%). Phat bieu 'toc do THOAT quan trong hon toc do vao' KHONG con duoc du lieu ung ho.",
+   "8. Phan bo 1/ATR: la lua chon thiet ke DUY NHAT song sot. Sut giam nho hon can bang deu o ca 4/4 pha, loi nhuan ngang nhau — dung nhu ly do da ghi ('chon vi rui ro, khong vi loi nhuan')."
+  ]
+ }
+}

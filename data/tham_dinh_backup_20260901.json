@@ -1,0 +1,134 @@
+{
+ "_huong_dan": [
+  "Buoc 3 va Buoc 4 cua Triet_ly_dau_tu_FF5 do NGUOI lam, co quyen phu quyet.",
+  "Thieu ban ghi cho mot ma = 'chua tham dinh' = KHONG duoc mua. Day la co y:",
+  "neu mac dinh la 'dat' thi lop phu quyet khong ton tai.",
+  "",
+  "buoc3_tham_dinh — doanh nghiep -> nganh -> vi mo (Bang CL.2):",
+  "   dat  : tra loi duoc ca ba lop",
+  "   loai : bi phu quyet. BAT BUOC ghi ly_do — tai lieu yeu cau moi ma bi loai",
+  "          o buoc 3 deu duoc ghi vao so kem ly do cu the, de doi chieu ve sau",
+  "   chua : chua tham dinh",
+  "",
+  "buoc4_dinh_gia — gia hop ly + diem mua:",
+  "   dat  : gia hop ly, dang o vung cung co / gan MA trung han",
+  "   cho  : doanh nghiep dat nhung gia doi hoi moi gia dinh deu dung -> danh sach cho",
+  "   chua : chua dinh gia",
+  "",
+  "luan_diem — ghi lai LY DO MUA ngay tu dau. Ky ra soat sau doi chieu voi dung",
+  "   ban da ghi nay, khong duoc viet lai luan diem de tiep tuc nam giu.",
+  "   Voi 6 ma dang giu: day la LAN DAU ghi luan diem (chua tung ghi luc mua",
+  "   17-19/08) — ghi lai LY DO LUC MUA, khong phai ly do bay gio dang co lai/lo.",
+  "",
+  "luan_diem_con_nguyen — quy tac thoat so 4, chi dung cho ma DANG NAM GIU:",
+  "   true  : luan diem con nguyen ven -> giu",
+  "   false : luan diem da gay -> BAN toan bo trong ky ra soat nay",
+  "   khong ghi (null) : chua ra soat -> khong tu dong ban, nhung bao cao se",
+  "                      danh dau '[quy tac 4 chua ra soat]'",
+  "   Khong ap dung cho ma ung vien chua mua — de null va bo qua truong nay.",
+  "",
+  "_tham_khao — du lieu dinh luong da co san (gia, MA, ATR, RS, ngay chot du lieu),",
+  "   chi de doi chieu khi viet luan diem dinh tinh. KHONG phai ket luan tham dinh,",
+  "   va gia/MA co the da cu — kiem tra lai truoc ky soat 01/09 neu can.",
+  "   Xoa key nay khoi ban ghi sau khi da dien xong, khong bat buoc giu lai.",
+  "",
+  "Mau mot ban ghi day du:",
+  "   \"XYZ\": {",
+  "     \"buoc3_tham_dinh\": \"dat\",",
+  "     \"buoc4_dinh_gia\": \"dat\",",
+  "     \"luan_diem\": \"vi sao mua, viet ngan gon, khong sua ve sau\",",
+  "     \"ly_do\": \"neu loai thi ghi ly do o day\",",
+  "     \"luan_diem_con_nguyen\": true,",
+  "     \"ngay\": \"2026-09-01\"",
+  "   }"
+ ],
+ "_trang_thai": "Khung da dung san cho 6 ma DM2 dang giu + 4 ma ung vien. Con thieu: buoc3_tham_dinh, buoc4_dinh_gia, luan_diem, va (voi ma dang giu) luan_diem_con_nguyen — dien truoc ky ra soat 01/09/2026.",
+
+ "MSB": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "luan_diem_con_nguyen": null,
+  "ngay": null,
+  "_tham_khao": "28/08/2026 GDKHQ co tuc bang CO PHIEU 100:20. Vi the: 840 CP, gia von 13.333 (truoc: 700 CP @16.000 — tong von khong doi). MOI SO LIEU GIA DUOI DAY DA CHIA 1,2, doi chieu voi ban ghi cu phai nhan 1,2. Sang 28/08: 13.250 (+1,27% so tham chieu 13.083), lai/lo -0,63%. MA50 13.299, MA200 11.256, ATR% 2,44, RS12T +0,7 diem so VNINDEX — MONG NHAT trong 6 ma (nguong ban la -5). Ghi chu cu: chot 26/08 15.350 = 12.792 sau chia; ngay 26/08 MSB -1,60% khi VNINDEX +1,67%. Ky soat 26/08 MSB giu suat cuoi bang xep hang voi 0,48 diem, hon HCM 0,47 — rat sat."
+ },
+ "BSR": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "luan_diem_con_nguyen": null,
+  "ngay": null,
+  "_tham_khao": "Dang giu 200 CP, gia von 27.000. Chot 26/08: 26.850 (-0,56%). Chot 19/08: MA50 25.451, MA200 23.959, ATR% 4,25, dem ATR 3,0. Bang lenh luat sinh cho ky soat 01/09 (chay 26/08): BAN toan bo — vi pham quy tac 3 (rot khoi top 40% ro da loc), khong thung MA200/RS12T."
+ },
+ "GMD": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "luan_diem_con_nguyen": null,
+  "ngay": null,
+  "_tham_khao": "Dang giu 100 CP, gia von 78.800. Chot 26/08: 79.300 (+0,63%). Chot 19/08: MA50 76.226, MA200 71.711, ATR% 2,56, dem ATR 4,5. Bang lenh luat sinh cho ky soat 01/09: BAN toan bo — chi vi pham quy tac 3 (rot khoi top 40%)."
+ },
+ "LPB": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "luan_diem_con_nguyen": null,
+  "ngay": null,
+  "_tham_khao": "Dang giu 100 CP, gia von 50.800. Chot 26/08: 49.600 (-2,36%). Chot 19/08: MA50 51.907, MA200 47.286, ATR% 3,21, dem ATR 3,0. Gan nguong chan cung thao mat -25% nhat trong 6 ma (con cach 27,9% tinh theo MSB, LPB rieng con cach ~24,9% theo ghi chu 19/08). Bang lenh luat sinh cho ky soat 01/09: BAN toan bo — chi vi pham quy tac 3 (rot khoi top 40%)."
+ },
+ "STB": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "luan_diem_con_nguyen": null,
+  "ngay": null,
+  "_tham_khao": "Dang giu 100 CP, gia von 74.200. Chot 26/08: 74.600 (+0,54%). Chot 19/08: MA50 72.290, MA200 63.494, ATR% 2,52, dem ATR 7,0 — dem rong thu hai. Van con trong ro sau ky soat 01/09 theo bang lenh luat sinh ngay 26/08 (chi con MSB/STB/VHM)."
+ },
+ "VHM": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "luan_diem_con_nguyen": null,
+  "ngay": null,
+  "_tham_khao": "Dang giu 100 CP, gia von 69.000. Chot 26/08: 73.600 (+6,67%) — ma lai duy nhat trong ro. Chot 19/08: MA50 72.190, MA200 62.448, ATR% 4,30, dem ATR 2,9 — dem mong nhat, tung bi ghi nhan 'de bi ban nhat' ngay 19/08 nhung canh bao do da sai. Van con trong ro sau ky soat 01/09 theo bang lenh luat sinh ngay 26/08."
+ },
+
+ "VIC": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "ngay": null,
+  "_tham_khao": "Ung vien, chua mua — luan_diem_con_nguyen khong ap dung. Dat 7/7 checklist ky thuat ngay 25/08. Dang giu 100 CP o DM1 (gia von 198.000-203.000 theo ke_hoach 17-18/08). CANH BAO rieng: theo phan tich TRAN_TRUNG_LAP ngay 26/08, mot lo VIC (~23tr) vuot ca tran ma 20% cua DM2 lan tran trung lap 10% tren tong tai san 2 danh muc (con 5.965.173d/ma sau khi DM1 bi xoa du lieu) — DM2 co the KHONG BAO GIO mua duoc VIC du buoc 3/4 co dat, tru khi quyet dinh TRAN_TRUNG_LAP duoc chot lai truoc. Nen quyet dinh TRAN_TRUNG_LAP truoc khi danh cong tham dinh cho ma nay."
+ },
+ "VPI": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "ngay": null,
+  "_tham_khao": "Ung vien, chua mua. Dat 7/7 checklist ngay 25/08. Du lieu 19/08 (luc dinh mua 100 CP nhung khong khop): gia 62.700, MA200 58.852, MA50 61.962, RS12T +6,7 diem, ATR% 2,76, thanh khoan 127,2 ty. Can cap nhat gia/MA moi truoc khi ket luan buoc 4."
+ },
+ "HCM": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "ngay": null,
+  "_tham_khao": "Ung vien, chua mua. Dat 7/7 checklist ky thuat ngay 25/08 (12/112 ma qua loc), nhung trong bang xep hang top-40% chay 26/08 (11/112 ma qua loc) HCM bi loai voi 0,47 diem, sat nut voi MSB (0,48) giu duoc cho cuoi cung — nguong 40% dang rat mong. Can cap nhat lai truoc khi tham dinh."
+ },
+ "DHC": {
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "luan_diem": "",
+  "ly_do": "",
+  "ngay": null,
+  "_tham_khao": "Ung vien, chua mua. Dat 7/7 checklist ky thuat ngay 25/08. Chua co du lieu MA/ATR/RS chi tiet trong bo nho — can quet lai truoc khi tham dinh."
+ }
+}

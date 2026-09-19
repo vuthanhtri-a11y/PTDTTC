@@ -1,0 +1,485 @@
+<title>Danh mục 2 · 03/09/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bitter:ital,wght@0,600;0,700;1,600&family=Be+Vietnam+Pro:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  /* neutrals: giấy sổ lệnh, ngả xanh lạnh về phía accent */
+  --paper:#F6F8F9;
+  --paper-2:#EDF1F3;
+  --paper-3:#E3E9EC;
+  --ink:#141E26;
+  --ink-2:#4A5A65;
+  --ink-3:#7B8A93;
+  --rule:#D3DCE1;
+  --rule-strong:#B4C2C9;
+  --accent:#1B5C6B;
+  --accent-soft:#DCEBEE;
+  /* quy ước bảng giá HOSE */
+  --tang:#0E7A50;
+  --tang-bg:#E1F1E9;
+  --giam:#B8342A;
+  --giam-bg:#F7E4E1;
+  --thamchieu:#9A7207;
+  --thamchieu-bg:#F6EEDA;
+  --shadow:0 1px 2px rgba(20,30,38,.06), 0 6px 20px -12px rgba(20,30,38,.28);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#0F161B;
+    --paper-2:#161F26;
+    --paper-3:#1D2831;
+    --ink:#E2E9ED;
+    --ink-2:#A2B1BA;
+    --ink-3:#74848E;
+    --rule:#26333C;
+    --rule-strong:#3A4A55;
+    --accent:#5EAEBE;
+    --accent-soft:#15303841;
+    --tang:#3ECB92;
+    --tang-bg:#10312541;
+    --giam:#F0776A;
+    --giam-bg:#38191741;
+    --thamchieu:#DCB65A;
+    --thamchieu-bg:#33290E41;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#0F161B;
+  --paper-2:#161F26;
+  --paper-3:#1D2831;
+  --ink:#E2E9ED;
+  --ink-2:#A2B1BA;
+  --ink-3:#74848E;
+  --rule:#26333C;
+  --rule-strong:#3A4A55;
+  --accent:#5EAEBE;
+  --accent-soft:#15303841;
+  --tang:#3ECB92;
+  --tang-bg:#10312541;
+  --giam:#F0776A;
+  --giam-bg:#38191741;
+  --thamchieu:#DCB65A;
+  --thamchieu-bg:#33290E41;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -14px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--paper);
+  color:var(--ink);
+  font-family:"Be Vietnam Pro","Segoe UI",system-ui,sans-serif;
+  font-size:15px; line-height:1.62;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:940px;margin:0 auto;padding:36px 24px 96px}
+
+/* ---------- masthead ---------- */
+.masthead{border-bottom:2px solid var(--ink);padding-bottom:18px}
+.eyebrow{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--accent);font-weight:600;
+}
+h1{
+  font-family:"Bitter",Georgia,serif;font-weight:700;
+  font-size:clamp(30px,5.2vw,46px);line-height:1.08;
+  margin:.24em 0 .18em;letter-spacing:-.015em;text-wrap:balance;
+}
+.dateline{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12.5px;color:var(--ink-2);
+}
+.dateline b{color:var(--ink);font-weight:600}
+
+.delay{
+  margin-top:16px;padding:9px 13px;
+  border-left:3px solid var(--thamchieu);
+  background:var(--thamchieu-bg);
+  font-size:13px;color:var(--ink-2);border-radius:0 3px 3px 0;
+}
+
+/* ---------- stat strip ---------- */
+.stats{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:1px;background:var(--rule);
+  border:1px solid var(--rule);margin:22px 0 6px;
+}
+.stat{background:var(--paper);padding:13px 15px}
+.stat dt{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.09em;text-transform:uppercase;
+  color:var(--ink-3);margin-bottom:4px;
+}
+.stat dd{
+  margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:20px;font-weight:600;font-variant-numeric:tabular-nums;
+  letter-spacing:-.02em;line-height:1.2;
+}
+.stat small{display:block;font-size:11.5px;font-weight:400;color:var(--ink-3);
+  font-family:"Be Vietnam Pro",sans-serif;letter-spacing:0;margin-top:2px}
+
+.up{color:var(--tang)} .down{color:var(--giam)} .flat{color:var(--thamchieu)}
+
+/* ---------- sections ---------- */
+section{margin-top:46px}
+.sec-head{display:flex;align-items:baseline;gap:12px;
+  border-bottom:1px solid var(--rule-strong);padding-bottom:7px;margin-bottom:20px}
+.sec-num{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:12px;font-weight:600;color:var(--accent);
+  letter-spacing:.08em;flex:none;
+}
+h2{font-family:"Bitter",Georgia,serif;font-size:22px;font-weight:600;
+  margin:0;letter-spacing:-.01em;line-height:1.25}
+h3{font-family:"Be Vietnam Pro",sans-serif;font-size:14px;font-weight:600;
+  margin:26px 0 9px;letter-spacing:.005em}
+p{margin:0 0 13px;max-width:68ch}
+a{color:var(--accent)}
+strong{font-weight:600}
+code,.num{font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+code{font-size:.9em;background:var(--paper-2);padding:1px 5px;border-radius:3px}
+
+/* ---------- chart ---------- */
+.chart-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);
+  gap:24px;align-items:start}
+@media(max-width:720px){.chart-grid{grid-template-columns:1fr}}
+figure{margin:0}
+figcaption{font-size:12px;color:var(--ink-3);margin-top:8px;line-height:1.5}
+svg{display:block;width:100%;height:auto}
+.idx-list{display:flex;flex-direction:column;gap:0;
+  border-top:1px solid var(--rule)}
+.idx-list div{display:flex;justify-content:space-between;gap:12px;
+  padding:7px 0;border-bottom:1px solid var(--rule);font-size:13px}
+.idx-list dt{color:var(--ink-2);margin:0}
+.idx-list dd{margin:0;font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums;font-weight:500;text-align:right}
+
+/* ---------- tables ---------- */
+.scroll{overflow-x:auto;margin:0 0 6px;
+  border:1px solid var(--rule);background:var(--paper)}
+table{border-collapse:collapse;width:100%;font-size:13.5px;min-width:560px}
+th,td{padding:8px 12px;text-align:right;white-space:nowrap;
+  border-bottom:1px solid var(--rule)}
+th{
+  font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--ink-3);font-weight:600;background:var(--paper-2);
+  border-bottom:1px solid var(--rule-strong);
+}
+th:first-child,td:first-child{text-align:left}
+td.ma{font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:600;
+  letter-spacing:.03em}
+td.n{font-family:"IBM Plex Mono",ui-monospace,monospace;
+  font-variant-numeric:tabular-nums}
+tbody tr:last-child td{border-bottom:none}
+tr.total td{background:var(--paper-2);font-weight:600;
+  border-top:1px solid var(--rule-strong)}
+.caption{font-size:12px;color:var(--ink-3);margin:7px 0 0;max-width:68ch}
+
+/* ---------- diverging bars ---------- */
+.movers{border:1px solid var(--rule);background:var(--paper)}
+.mv{display:grid;grid-template-columns:56px 1fr 66px;align-items:center;
+  gap:10px;padding:5px 12px;border-bottom:1px solid var(--rule)}
+.mv:last-child{border-bottom:none}
+.mv.bench{background:var(--paper-2)}
+.mv .t{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;
+  font-weight:600;letter-spacing:.03em}
+.mv .v{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:12.5px;
+  font-variant-numeric:tabular-nums;text-align:right;font-weight:500}
+.track{position:relative;height:15px}
+.track::before{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;
+  width:1px;background:var(--rule-strong)}
+.bar{position:absolute;top:3px;height:9px;border-radius:1px}
+
+/* ---------- callouts ---------- */
+.call{
+  border:1px solid var(--rule-strong);background:var(--paper-2);
+  padding:16px 18px;margin:20px 0;border-radius:2px;
+}
+.call.act{border-left:4px solid var(--accent);background:var(--accent-soft);
+  border-color:var(--rule-strong)}
+.call.warn{border-left:4px solid var(--giam);background:var(--giam-bg)}
+.call h4{margin:0 0 8px;font-family:"Bitter",Georgia,serif;
+  font-size:16.5px;font-weight:600;line-height:1.3}
+.call p:last-child{margin-bottom:0}
+.call p{max-width:none}
+
+.order{display:flex;flex-wrap:wrap;align-items:baseline;gap:10px;
+  padding:11px 0;border-bottom:1px solid var(--rule)}
+.order:last-of-type{border-bottom:none}
+.tag{font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:10.5px;
+  font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:2px 7px;border-radius:2px;flex:none}
+.tag.done{background:var(--tang-bg);color:var(--tang);
+  box-shadow:inset 0 0 0 1px var(--tang)}
+.tag.open{background:var(--giam-bg);color:var(--giam);
+  box-shadow:inset 0 0 0 1px var(--giam)}
+.order .body{font-size:13.5px;flex:1 1 300px;min-width:0}
+.order .body .num{font-weight:500}
+
+ul{margin:0 0 13px;padding-left:20px;max-width:68ch}
+li{margin-bottom:6px}
+li::marker{color:var(--ink-3)}
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:9px;
+  font-size:11.5px;color:var(--ink-3)}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.sw{width:9px;height:9px;border-radius:1px;display:inline-block}
+
+footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--rule);
+  font-size:12px;color:var(--ink-3);display:flex;flex-wrap:wrap;
+  justify-content:space-between;gap:10px}
+footer .num{font-size:11.5px}
+
+@media (prefers-reduced-motion:no-preference){
+  .draw{stroke-dasharray:1400;stroke-dashoffset:0;
+    animation:draw 1.1s cubic-bezier(.4,0,.2,1) both}
+  @keyframes draw{from{stroke-dashoffset:1400}to{stroke-dashoffset:0}}
+}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+</style>
+
+<div class="wrap">
+
+<header class="masthead">
+  <div class="eyebrow">Danh mục 2 · tài khoản dự thi · 60.000.000 đ</div>
+  <h1>Bản tin phiên sáng</h1>
+  <div class="dateline"><b>Thứ Năm 03/09/2026</b> · 11:30 · phiên giao dịch đầu tiên sau nghỉ Quốc khánh (29/08 – 02/09)</div>
+  <div class="delay">
+    Giá lấy từ <code>HOSE_DLY</code> trên gói TradingView Basic — <strong>trễ khoảng 15 phút</strong>.
+    Mọi con số dưới đây là số giữa phiên, không phải giá đóng cửa.
+  </div>
+</header>
+
+<dl class="stats">
+  <div class="stat"><dt>NAV</dt><dd class="num">59.994.752<small>−0,01% so vốn gốc</small></dd></div>
+  <div class="stat"><dt>Phiên sáng</dt><dd class="num down">−0,27%<small class="up">thắng index +0,31 đpt</small></dd></div>
+  <div class="stat"><dt>VNINDEX</dt><dd class="num down">−0,57%<small>1.832,12 → 1.821,59</small></dd></div>
+  <div class="stat"><dt>Từ 14/08</dt><dd class="num down">−5,36 đpt<small>DM2 −0,01% · index +5,35%</small></dd></div>
+  <div class="stat"><dt>Tiền mặt</dt><dd class="num">14,2%<small>8.495.752 đ · 7 mã</small></dd></div>
+</dl>
+<p class="caption">Bảng giá dùng quy ước HOSE: <span class="up">xanh = tăng</span>, <span class="down">đỏ = giảm</span>, <span class="flat">vàng = tham chiếu</span>.</p>
+
+<!-- ======================= 1 ======================= -->
+<section>
+  <div class="sec-head"><span class="sec-num">§1</span><h2>Thị trường: bán mạnh một giờ đầu, hồi suốt phần còn lại</h2></div>
+
+  <div class="chart-grid">
+    <figure>
+      <svg viewBox="0 0 720 244" role="img" aria-label="VNINDEX phiên sáng 03/09/2026: mở 1.832,12, đáy 1.802,11 lúc khoảng 10h15, đóng phiên sáng 1.821,59">
+        <!-- lưới -->
+        <g stroke="var(--rule)" stroke-width="1">
+          <line x1="56" y1="60" x2="700" y2="60"/>
+          <line x1="56" y1="105" x2="700" y2="105"/>
+          <line x1="56" y1="150" x2="700" y2="150"/>
+          <line x1="56" y1="195" x2="700" y2="195"/>
+        </g>
+        <g fill="var(--ink-3)" font-size="10.5" font-family="IBM Plex Mono, monospace" text-anchor="end">
+          <text x="48" y="63.5">1.830</text>
+          <text x="48" y="108.5">1.820</text>
+          <text x="48" y="153.5">1.810</text>
+          <text x="48" y="198.5">1.800</text>
+        </g>
+
+        <!-- vùng dưới tham chiếu = đỏ, đúng quy ước bảng giá -->
+        <path d="M56,50.5 L184,108.3 L312,147.6 L440,174.7 L568,116.4 L696,98.4 L696,50.5 L56,50.5 Z"
+              fill="var(--giam)" opacity=".13"/>
+
+        <!-- đường tham chiếu -->
+        <line x1="56" y1="50.5" x2="700" y2="50.5" stroke="var(--thamchieu)"
+              stroke-width="1.5" stroke-dasharray="5 4"/>
+        <text x="700" y="44" fill="var(--thamchieu)" font-size="10.5"
+              font-family="IBM Plex Mono, monospace" text-anchor="end">tham chiếu 1.832,12</text>
+
+        <!-- đường giá -->
+        <path class="draw" d="M56,50.5 L184,108.3 L312,147.6 L440,174.7 L568,116.4 L696,98.4"
+              fill="none" stroke="var(--giam)" stroke-width="2.4"
+              stroke-linejoin="round" stroke-linecap="round"/>
+
+        <!-- đáy phiên -->
+        <circle cx="376" cy="185.5" r="3.5" fill="var(--giam)"/>
+        <line x1="376" y1="185.5" x2="376" y2="212" stroke="var(--rule-strong)" stroke-width="1"/>
+        <text x="376" y="225" fill="var(--giam)" font-size="10.5" font-weight="600"
+              font-family="IBM Plex Mono, monospace" text-anchor="middle">đáy 1.802,11 · −1,64%</text>
+
+        <!-- điểm cuối -->
+        <circle cx="696" cy="98.4" r="4.5" fill="var(--paper)" stroke="var(--giam)" stroke-width="2.4"/>
+
+        <!-- trục thời gian -->
+        <g fill="var(--ink-3)" font-size="10.5" font-family="IBM Plex Mono, monospace" text-anchor="middle">
+          <text x="56" y="14">09:00</text>
+          <text x="184" y="14">09:30</text>
+          <text x="312" y="14">10:00</text>
+          <text x="440" y="14">10:30</text>
+          <text x="568" y="14">11:00</text>
+          <text x="682" y="14">11:30</text>
+        </g>
+      </svg>
+      <figcaption>VNINDEX theo bar 30 phút. Đóng phiên sáng ở <strong>63% khoảng hồi</strong> tính từ đáy — người mua đã vào ở vùng 1.802–1.805.</figcaption>
+    </figure>
+
+    <dl class="idx-list">
+      <div><dt>Đóng phiên sáng</dt><dd>1.821,59</dd></div>
+      <div><dt>Cao / thấp</dt><dd>1.833,29 / 1.802,11</dd></div>
+      <div><dt>KL sáng nay</dt><dd>282,2 tr</dd></div>
+      <div><dt>KL sáng 28/08</dt><dd>252,2 tr</dd></div>
+      <div><dt>Chênh khối lượng</dt><dd class="up">+11,9%</dd></div>
+      <div><dt>So MA50 (1.786)</dt><dd class="up">+1,98%</dd></div>
+      <div><dt>So MA200 (1.783)</dt><dd class="up">+2,16%</dd></div>
+    </dl>
+  </div>
+
+  <p style="margin-top:20px">Khối lượng cao hơn phiên sáng liền trước gần 12% mà giá vẫn lấy lại được hai phần ba mức giảm — đây là phiên rũ có người đỡ, không phải phiên gãy. MA50 và MA200 gần như chồng lên nhau (1.786 và 1.783), index còn cách cả hai khoảng 2%.</p>
+  <p><strong>Nhưng khung dài hạn không giao dịch theo hình dạng phiên.</strong> Phần này là bối cảnh để đọc bảng lệnh, không phải tín hiệu — không có quy tắc nào trong hệ thống nhận đầu vào là "index hồi từ đáy".</p>
+
+  <h3>Rổ 11 mã đã qua bộ lọc — biến động phiên sáng</h3>
+  <div class="movers">
+    <div class="mv"><span class="t">BSR</span><span class="track"><span class="bar" style="left:50%;width:47.0%;background:var(--tang)"></span></span><span class="v up">+2,82%</span></div>
+    <div class="mv"><span class="t">PVD</span><span class="track"><span class="bar" style="left:50%;width:43.5%;background:var(--tang)"></span></span><span class="v up">+2,61%</span></div>
+    <div class="mv"><span class="t">VPI</span><span class="track"><span class="bar" style="left:50%;width:19.5%;background:var(--tang)"></span></span><span class="v up">+1,17%</span></div>
+    <div class="mv"><span class="t">HCM</span><span class="track"><span class="bar" style="left:50%;width:6.3%;background:var(--tang)"></span></span><span class="v up">+0,38%</span></div>
+    <div class="mv"><span class="t">VIC</span><span class="track"><span class="bar" style="left:50%;width:2.2%;background:var(--tang)"></span></span><span class="v up">+0,13%</span></div>
+    <div class="mv"><span class="t">VHM</span><span class="track"><span class="bar" style="left:calc(50% - 1px);width:2px;background:var(--thamchieu)"></span></span><span class="v flat">0,00%</span></div>
+    <div class="mv"><span class="t">MSB</span><span class="track"><span class="bar" style="left:calc(50% - 1px);width:2px;background:var(--thamchieu)"></span></span><span class="v flat">0,00%</span></div>
+    <div class="mv bench"><span class="t">VN‑INDEX</span><span class="track"><span class="bar" style="left:40.5%;width:9.5%;background:var(--ink-3)"></span></span><span class="v">−0,57%</span></div>
+    <div class="mv"><span class="t">STB</span><span class="track"><span class="bar" style="left:36.8%;width:13.2%;background:var(--giam)"></span></span><span class="v down">−0,79%</span></div>
+    <div class="mv"><span class="t">DHC</span><span class="track"><span class="bar" style="left:27.3%;width:22.7%;background:var(--giam)"></span></span><span class="v down">−1,36%</span></div>
+    <div class="mv"><span class="t">LPB</span><span class="track"><span class="bar" style="left:26.7%;width:23.3%;background:var(--giam)"></span></span><span class="v down">−1,40%</span></div>
+    <div class="mv"><span class="t">GMD</span><span class="track"><span class="bar" style="left:22.7%;width:27.3%;background:var(--giam)"></span></span><span class="v down">−1,64%</span></div>
+  </div>
+  <p class="caption">Thang ±3,0%. 5 tăng / 4 giảm / 2 đứng giá. Hai mã dẫn đầu rổ đều là dầu khí; ba mã yếu nhất gồm đúng hai mã đang chờ bán.</p>
+</section>
+
+<!-- ======================= 2 ======================= -->
+<section>
+  <div class="sec-head"><span class="sec-num">§2</span><h2>Danh mục sau khi mua DHC</h2></div>
+
+  <div class="scroll">
+  <table>
+    <thead><tr>
+      <th>Mã</th><th>KL</th><th>Giá vốn</th><th>28/08</th><th>Sáng 03/09</th>
+      <th>% ngày</th><th>% vốn</th><th>Giá trị</th>
+    </tr></thead>
+    <tbody>
+      <tr><td class="ma">MSB</td><td class="n">840</td><td class="n">13.333</td><td class="n">13.350</td><td class="n">13.350</td><td class="n flat">0,00%</td><td class="n up">+0,13%</td><td class="n">11.214.000</td></tr>
+      <tr><td class="ma">BSR</td><td class="n">200</td><td class="n">27.000</td><td class="n">26.600</td><td class="n">27.350</td><td class="n up">+2,82%</td><td class="n up">+1,30%</td><td class="n">5.470.000</td></tr>
+      <tr><td class="ma">GMD</td><td class="n">100</td><td class="n">78.800</td><td class="n">79.500</td><td class="n">78.200</td><td class="n down">−1,64%</td><td class="n down">−0,76%</td><td class="n">7.820.000</td></tr>
+      <tr><td class="ma">LPB</td><td class="n">100</td><td class="n">50.800</td><td class="n">49.950</td><td class="n">49.250</td><td class="n down">−1,40%</td><td class="n down">−3,05%</td><td class="n">4.925.000</td></tr>
+      <tr><td class="ma">STB</td><td class="n">100</td><td class="n">74.200</td><td class="n">75.500</td><td class="n">74.900</td><td class="n down">−0,79%</td><td class="n up">+0,94%</td><td class="n">7.490.000</td></tr>
+      <tr><td class="ma">VHM</td><td class="n">100</td><td class="n">69.000</td><td class="n">73.000</td><td class="n">73.000</td><td class="n flat">0,00%</td><td class="n up">+5,80%</td><td class="n">7.300.000</td></tr>
+      <tr><td class="ma">DHC</td><td class="n">200</td><td class="n">36.600</td><td class="n">36.900</td><td class="n">36.400</td><td class="n down">−1,36%</td><td class="n down">−0,55%</td><td class="n">7.280.000</td></tr>
+      <tr class="total"><td>Cổ phiếu</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">85,8%</td><td class="n">51.499.000</td></tr>
+      <tr class="total"><td>Tiền mặt</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">14,2%</td><td class="n">8.495.752</td></tr>
+      <tr class="total"><td>NAV</td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n"></td><td class="n">−0,01%</td><td class="n">59.994.752</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="caption">Giá vốn MSB đã quy về sau chia cổ tức cổ phiếu 100:20 (GDKHQ 28/08); 140 CP mới còn chờ về tài khoản. Cột <em>28/08</em> của DHC là giá tham chiếu bảng lệnh, chưa phải giá vốn.</p>
+
+  <div class="call warn" style="margin-top:22px">
+    <h4>Một giả định cần anh xác nhận</h4>
+    <p>Anh báo giá khớp DHC nhưng chưa báo khối lượng. Cả bản tin này tính theo <strong>200 CP</strong> đúng như bảng lệnh kỳ soát tháng 9. Nếu khớp khác 200, mọi con số NAV và tỷ trọng ở trên phải tính lại.</p>
+  </div>
+</section>
+
+<!-- ======================= 3 ======================= -->
+<section>
+  <div class="sec-head"><span class="sec-num">§3</span><h2>Ba lệnh của kỳ soát: một khớp, hai chưa</h2></div>
+
+  <div class="order">
+    <span class="tag done">Đã khớp</span>
+    <span class="body"><strong>MUA 200 DHC @36.600</strong> — kế hoạch ghi <span class="num">36.900</span> (chốt 28/08), khớp <strong class="up">rẻ hơn 300 đ/CP = +60.000 đ</strong>. Chi <span class="num">7.320.000</span> + phí <span class="num">10.980</span>. Tiền mặt <span class="num">15.826.732 → 8.495.752</span>.</span>
+  </div>
+  <div class="order">
+    <span class="tag open">Chưa khớp</span>
+    <span class="body"><strong>BÁN 100 GMD</strong> — kế hoạch <span class="num">79.500</span>, giữa phiên <span class="num">78.200</span>. GMD <strong>mở cửa đúng 79.500</strong> sáng nay: giá kế hoạch đã bị chạm. Lệch <span class="num down">−130.000 đ</span>.</span>
+  </div>
+  <div class="order">
+    <span class="tag open">Chưa khớp</span>
+    <span class="body"><strong>BÁN 100 LPB</strong> — kế hoạch <span class="num">49.950</span>, giữa phiên <span class="num">49.250</span>. LPB chạm <strong>50.000</strong> sáng nay, cao hơn giá kế hoạch. Lệch <span class="num down">−70.000 đ</span>.</span>
+  </div>
+
+  <div class="call warn">
+    <h4>Chưa bán đã tốn 200.000 đ — gấp 4,6 lần toàn bộ phí của cả kỳ soát</h4>
+    <p>Phí + thuế của cả ba lệnh kỳ soát cộng lại là <span class="num">43.432 đ</span>. Riêng việc hai lệnh bán chưa đi đã làm mất <span class="num">200.000 đ = 0,33% NAV</span>. Và cả hai giá kế hoạch <strong>đều đã được thị trường chạm trong phiên sáng</strong>.</p>
+    <p style="margin-top:9px">Đây là lần thứ hai chuyện chờ giá đẹp tốn tiền. Lần đầu là lệnh mua 100 VPI ngày 20–21/08: không khớp, rồi nhánh bắt buộc "quá hạn thì mua giá thị trường" cũng không được thực hiện, và ô thứ 7 để trống suốt hai tuần.</p>
+  </div>
+</section>
+
+<!-- ======================= 4 ======================= -->
+<section>
+  <div class="sec-head"><span class="sec-num">§4</span><h2>Chiến lược phiên chiều</h2></div>
+
+  <div class="call act">
+    <h4>Việc duy nhất phải làm: đặt bán GMD và LPB ở giá thị trường</h4>
+    <p>Không treo lại giá 79.500 / 49.950. Hai lý do:</p>
+    <ul style="margin-top:9px;margin-bottom:0">
+      <li><strong>Quy tắc 3 là quy tắc thứ hạng, không được tạm hoãn vì giá vừa giảm.</strong> Xếp hạng chạy lại trên giá giữa phiên vẫn để GMD hạng 9/10 và LPB hạng 10/10 — đúng đáy bảng, không đổi so với 28/08.</li>
+      <li><strong>Khung không có điều khoản "chỉ bán khi giá hồi".</strong> Thêm nó vào lúc đang cầm hai mã lỗ là sửa luật để né một kết quả cụ thể.</li>
+    </ul>
+  </div>
+
+  <h3>Về chuyện chuyển sang đặt ATC — chưa</h3>
+  <p>Sổ trượt giá mới có <strong>3 quan sát</strong> (19/08 bán VNM −110.000 và BAF −50.000; 03/09 mua DHC +60.000, ròng −100.000). Ngưỡng đã chốt để xét đổi cách đặt lệnh là 10–15 lệnh. Đổi ngay bây giờ, sau khi vừa nhìn thấy GMD và LPB tụt, đúng là loại thay-luật-phản-ứng mà hệ thống dựng ra để chặn. Nếu anh vẫn muốn đổi thì phải chốt thành luật thường trực cho mọi lệnh về sau, không phải cho riêng hai lệnh này.</p>
+
+  <h3>Sau khi bán xong: đứng yên tới 01/10</h3>
+  <div class="scroll">
+  <table>
+    <thead><tr><th>Sau hai lệnh bán</th><th>Giá trị</th><th>Tỷ trọng</th></tr></thead>
+    <tbody>
+      <tr><td class="ma">MSB</td><td class="n">11.214.000</td><td class="n">18,7%</td></tr>
+      <tr><td class="ma">STB</td><td class="n">7.490.000</td><td class="n">12,5%</td></tr>
+      <tr><td class="ma">VHM</td><td class="n">7.300.000</td><td class="n">12,2%</td></tr>
+      <tr><td class="ma">DHC</td><td class="n">7.280.000</td><td class="n">12,1%</td></tr>
+      <tr><td class="ma">BSR</td><td class="n">5.470.000</td><td class="n">9,1%</td></tr>
+      <tr class="total"><td>Cổ phiếu · 5 mã</td><td class="n">38.754.000</td><td class="n">64,6%</td></tr>
+      <tr class="total"><td>Tiền mặt</td><td class="n">21.208.890</td><td class="n">35,4%</td></tr>
+      <tr class="total"><td>NAV</td><td class="n">59.962.890</td><td class="n">−0,06%</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p class="caption">Thu về 12.713.138 (phí + thuế 31.862). Lỗ thực hiện: GMD −79.550, LPB −167.312. Ngành ngân hàng tụt từ <strong>39,4% xuống 31,2%</strong> — rời khỏi mép trần 40%. Không mã nào chạm trần 20%.</p>
+
+  <p style="margin-top:18px"><strong>Không mua gì thêm chiều nay.</strong> Không mã nào qua đủ bốn bước: VIC và VPI bị phủ quyết ở Bước 3; HCM chưa có định giá nên Bước 4 vẫn là "chưa"; PVD chưa thẩm định. Tiền mặt 35,4% là chi phí đã biết trước của lựa chọn ngày 17/08, không phải sự cố.</p>
+
+  <p>Đòn bẩy duy nhất để hạ tiền mặt là <strong>thẩm định PVD</strong> — việc treo số 1. Nhưng nói thẳng số của nó trước khi anh quyết: hạng 6/10, <code>thu_hang</code> 0,56 nên <strong>đã nằm ngoài top 40%</strong>; RS 6 tháng −26,2%; chất lượng xu hướng R² −0,14, tức âm. Mua một mã mà kỳ soát 01/10 nhiều khả năng đòi bán lại là trả phí hai lần. Nếu vẫn làm, kết luận Bước 3 và Bước 4 phải độc lập với việc hôm nay PVD tăng 2,61%.</p>
+</section>
+
+<!-- ======================= 5 ======================= -->
+<section>
+  <div class="sec-head"><span class="sec-num">§5</span><h2>Cái không được hành động: bảng xếp hạng giữa phiên</h2></div>
+
+  <p>Chạy lại xếp hạng trên giá giữa phiên ra một bảng khác hẳn: HCM rơi khỏi bộ lọc cứng → rổ còn 10 mã → top 40% co từ 5 suất xuống <strong>4 suất</strong> (VIC, VHM, STB, VPI) → MSB rớt khỏi nhóm giữ.</p>
+
+  <div class="call">
+    <h4>Phần lớn thay đổi đó là ảo — do cửa sổ 252 phiên lăn một nấc</h4>
+    <p>Giữa bản quét 28/08 và bản giữa phiên hôm nay chỉ thêm <strong>đúng một bar</strong>, index chỉ đổi −0,57%, nhưng <code>r252</code> của VNINDEX tụt từ <span class="num">+13,51%</span> xuống <span class="num">+9,23%</span> — 4,3 điểm phần trăm. Nguyên nhân nằm ở mẫu số: bar tham chiếu lùi một nấc, từ <span class="num">1.614,06</span> lên <span class="num">1.667,66</span>.</p>
+    <p style="margin-top:9px">Vì <code>rs_252_skip21</code> đo so với benchmark, benchmark yếu đi thì RS của mọi mã đổi theo. HCM tụt từ +5,0% xuống −0,65% và rơi khỏi bộ lọc; MSB rớt nhóm giữ <strong>dù giá MSB không đổi một đồng nào cả phiên</strong>.</p>
+  </div>
+
+  <p>Luật chỉ chạy đầu tháng. Kỳ soát tiếp theo là <strong>01/10/2026</strong>, và tới lúc đó cửa sổ sẽ lăn thêm 20 nấc nữa. Bảng giữa phiên này chỉ để biết. Việc cần làm là ghi vào quy trình: mỗi kỳ soát in kèm <code>r252</code> của VNINDEX kỳ trước và kỳ này để đối chiếu — lệch trên 2 đpt trong khi index gần như đứng yên nghĩa là cửa sổ vừa lăn qua vùng biến động mạnh, và báo cáo phải nói rõ điều đó.</p>
+
+  <p>Chặn cứng −25% không cắn phiên này: mã gần nhất là LPB, còn cách 29,3% — và LPB đang được bán.</p>
+</section>
+
+<!-- ======================= 6 ======================= -->
+<section>
+  <div class="sec-head"><span class="sec-num">§6</span><h2>Ba việc treo — không đổi so với kỳ soát 02/09</h2></div>
+  <ul>
+    <li><strong>PVD chưa có kết luận Bước 3 / Bước 4.</strong> Mã duy nhất qua Bước 1 mà chưa thẩm định. Xem đánh giá ở §4.</li>
+    <li><strong><code>luan_diem_con_nguyen</code> vẫn <code>null</code> cho cả rổ</strong> → quy tắc thoát số 4 chưa bao giờ được rà soát. Screener in "[quy tắc 4 chưa rà soát]" cho từng dòng.</li>
+    <li><strong>Danh mục 1 vẫn rỗng</strong> từ 25/08 — 200 triệu không sinh được bảng lệnh nào.</li>
+  </ul>
+  <p style="margin-top:16px">Đã cập nhật trong phiên này: <code>lt_config.py</code> (thêm DHC, tiền mặt 8.495.752) và <code>data/tham_dinh.json</code> (ghi giá thị trường DHC, Bước 4 giữ nguyên "đạt" vì 36.400 &lt; định giá cơ sở 42.000). Sao lưu tại <code>data/lt_config_backup_20260903.py</code> và <code>data/tham_dinh_backup_20260903.json</code>.</p>
+</section>
+
+<footer>
+  <span>Bản ghi phiên 03/09/2026 · Danh mục 2 · một artifact riêng cho mỗi phiên, không ghi đè</span>
+  <span class="num">Nguồn: HOSE_DLY qua TradingView, trễ ~15 phút</span>
+</footer>
+
+</div>

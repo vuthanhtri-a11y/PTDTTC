@@ -1,0 +1,53 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__tradingview__batch_run"
+    ]
+  },
+  "skillOverrides": {
+    "ask-matt": "off",
+    "banner-design": "off",
+    "batch-grill-me": "off",
+    "brand": "off",
+    "claude-handoff": "off",
+    "codebase-design": "off",
+    "design": "off",
+    "design-an-interface": "off",
+    "design-system": "off",
+    "domain-modeling": "off",
+    "edit-article": "off",
+    "git-guardrails-claude-code": "off",
+    "grill-me": "off",
+    "grill-with-docs": "off",
+    "handoff": "off",
+    "implement": "off",
+    "improve-codebase-architecture": "off",
+    "loop-me": "off",
+    "migrate-to-shoehorn": "off",
+    "obsidian-vault": "off",
+    "prototype": "off",
+    "qa": "off",
+    "request-refactor-plan": "off",
+    "resolving-merge-conflicts": "off",
+    "scaffold-exercises": "off",
+    "setup-matt-pocock-skills": "off",
+    "setup-pre-commit": "off",
+    "setup-ts-deep-modules": "off",
+    "slides": "off",
+    "tdd": "off",
+    "teach": "off",
+    "to-questionnaire": "off",
+    "to-spec": "off",
+    "to-tickets": "off",
+    "triage": "off",
+    "ubiquitous-language": "off",
+    "ui-styling": "off",
+    "ui-ux-pro-max": "off",
+    "wayfinder": "off",
+    "wizard": "off",
+    "writing-beats": "off",
+    "writing-fragments": "off",
+    "writing-great-skills": "off",
+    "writing-shape": "off"
+  }
+}

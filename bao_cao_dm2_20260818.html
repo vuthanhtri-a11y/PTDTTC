@@ -1,0 +1,803 @@
+<title>Danh mục 2 · 18/08/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+
+<style>
+:root{
+  color-scheme: light;
+  --ground:#f5f7f4; --surface:#fdfdfb; --surface-2:#eef1ec;
+  --ink:#121614; --ink-2:#4e5652; --ink-3:#848c87;
+  --rule:#e0e4dd; --rule-strong:#c4cbc4;
+  --accent:#0e5f52; --accent-soft:#dcebe6;
+  --s1:#2a78d6; --s2:#eb6834;
+  --good:#0ca30c; --bad:#d03b3b; --warn:#fab219;
+  --good-ink:#046004; --bad-ink:#a92c2c;
+  --cash:#a8b0aa;
+  --shadow:0 1px 2px rgba(18,22,20,.05), 0 6px 20px rgba(18,22,20,.05);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme: dark;
+    --ground:#0b0f0d; --surface:#161b19; --surface-2:#1e2523;
+    --ink:#f1f4f1; --ink-2:#b2bbb6; --ink-3:#7d8681;
+    --rule:#262d2a; --rule-strong:#3a423e;
+    --accent:#54c3ac; --accent-soft:#173029;
+    --s1:#3987e5; --s2:#d95926;
+    --good:#0ca30c; --bad:#d03b3b; --warn:#fab219;
+    --good-ink:#3cc23c; --bad-ink:#e26b6b;
+    --cash:#5d6763;
+    --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme: dark;
+  --ground:#0b0f0d; --surface:#161b19; --surface-2:#1e2523;
+  --ink:#f1f4f1; --ink-2:#b2bbb6; --ink-3:#7d8681;
+  --rule:#262d2a; --rule-strong:#3a423e;
+  --accent:#54c3ac; --accent-soft:#173029;
+  --s1:#3987e5; --s2:#d95926;
+  --good:#0ca30c; --bad:#d03b3b; --warn:#fab219;
+  --good-ink:#3cc23c; --bad-ink:#e26b6b;
+  --cash:#5d6763;
+  --shadow:0 1px 2px rgba(0,0,0,.3), 0 6px 20px rgba(0,0,0,.25);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0; background:var(--ground); color:var(--ink);
+  font-family:"Source Serif 4", Georgia, serif;
+  font-size:16px; line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 20px 96px}
+
+h1,h2,h3,h4,.ui{font-family:"Archivo","Segoe UI",system-ui,sans-serif}
+.mono,td.num,th.num,.tile-val,.chip,.axis,.bar-val{font-family:"IBM Plex Mono",ui-monospace,monospace; font-variant-numeric:tabular-nums}
+
+/* ---------- header ---------- */
+header{padding:56px 0 28px; border-bottom:2px solid var(--ink)}
+.eyebrow{
+  font-family:"IBM Plex Mono",monospace; font-size:12px; letter-spacing:.16em;
+  text-transform:uppercase; color:var(--accent); margin:0 0 14px
+}
+h1{font-size:clamp(30px,5.2vw,46px); line-height:1.08; margin:0 0 12px; font-weight:700; letter-spacing:-.02em; text-wrap:balance}
+.dek{margin:0; max-width:62ch; color:var(--ink-2); font-size:17px}
+
+/* ---------- tiles ---------- */
+.tiles{display:grid; grid-template-columns:repeat(auto-fit,minmax(168px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); margin:28px 0 0}
+.tile{background:var(--surface); padding:16px 18px 18px}
+.tile-lab{font-family:"Archivo",sans-serif; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3); margin:0 0 8px}
+.tile-val{font-size:24px; font-weight:600; line-height:1.15; letter-spacing:-.02em}
+.tile-sub{font-size:13px; color:var(--ink-2); margin-top:5px; font-family:"Archivo",sans-serif}
+.up{color:var(--good-ink)} .down{color:var(--bad-ink)}
+
+/* ---------- sections ---------- */
+section{margin-top:56px}
+.sec-head{display:flex; align-items:baseline; gap:14px; border-bottom:1px solid var(--rule-strong); padding-bottom:10px; margin-bottom:24px}
+h2{font-size:23px; margin:0; font-weight:600; letter-spacing:-.01em}
+.sec-note{font-family:"Archivo",sans-serif; font-size:13px; color:var(--ink-3); margin-left:auto; text-align:right}
+p{margin:0 0 16px; max-width:68ch}
+.lead{font-size:17px}
+strong{font-weight:600}
+em.term{font-style:normal; font-weight:600; color:var(--accent)}
+
+/* ---------- cards ---------- */
+.card{background:var(--surface); border:1px solid var(--rule); box-shadow:var(--shadow); padding:22px 24px; margin-bottom:20px}
+.card h3{margin:0; font-size:18px; font-weight:600}
+
+/* ---------- charts ---------- */
+.chart{margin:6px 0 4px}
+.chart-title{font-family:"Archivo",sans-serif; font-size:14px; font-weight:600; margin:0 0 3px}
+.chart-sub{font-family:"Archivo",sans-serif; font-size:12.5px; color:var(--ink-3); margin:0 0 16px}
+.legend{display:flex; flex-wrap:wrap; gap:16px; margin:0 0 16px; font-family:"Archivo",sans-serif; font-size:12.5px; color:var(--ink-2)}
+.legend span{display:inline-flex; align-items:center; gap:7px}
+.sw{width:11px; height:11px; border-radius:2px; display:inline-block}
+
+.rows{display:flex; flex-direction:column; gap:9px; padding-right:100px}
+.axis{padding-right:100px}
+.row{display:grid; grid-template-columns:52px 1fr; align-items:center; gap:12px}
+.row-lab{font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:500; text-align:right; color:var(--ink)}
+.track{position:relative; height:26px; display:flex; flex-direction:column; justify-content:center; gap:3px}
+.bar{height:10px; border-radius:0 3px 3px 0; position:relative; min-width:1px; transition:filter .12s}
+.bar:hover{filter:brightness(1.12)}
+.bar-val{position:absolute; left:calc(100% + 7px); top:50%; transform:translateY(-50%); font-size:11.5px; color:var(--ink-2); white-space:nowrap}
+.grid-line{position:absolute; top:-3px; bottom:-3px; width:1px; background:var(--rule); z-index:0}
+.cap-line{position:absolute; top:-4px; bottom:-4px; width:2px; background:var(--bad); opacity:.55; z-index:2}
+.axis{display:grid; grid-template-columns:52px 1fr; gap:12px; margin-top:10px; font-size:11px; color:var(--ink-3)}
+.axis-in{position:relative; height:14px}
+.axis-in span{position:absolute; transform:translateX(-50%); top:0}
+
+/* diverging */
+.row-d{display:grid; grid-template-columns:52px 1fr 128px; align-items:center; gap:12px}
+.rows.div-chart{padding-right:0}
+.axis.div-axis{padding-right:140px}
+.dval{font-family:"IBM Plex Mono",monospace; font-size:11.5px; color:var(--ink-2); text-align:right; white-space:nowrap}
+.track-d{position:relative; height:18px}
+.zero{position:absolute; top:-2px; bottom:-2px; width:1px; background:var(--rule-strong)}
+.bar-d{position:absolute; top:4px; height:10px}
+.bar-d.pos{background:var(--good); border-radius:0 3px 3px 0}
+.bar-d.neg{background:var(--bad); border-radius:3px 0 0 3px}
+
+/* ---------- table ---------- */
+.tbl-wrap{overflow-x:auto; border:1px solid var(--rule); background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:840px; font-family:"IBM Plex Mono",monospace; font-size:12.5px}
+th,td{padding:9px 11px; text-align:left; border-bottom:1px solid var(--rule); white-space:nowrap}
+thead th{font-family:"Archivo",sans-serif; font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--ink-3); font-weight:600; background:var(--surface-2); position:sticky; top:0}
+td.num,th.num{text-align:right}
+tbody tr:hover{background:var(--surface-2)}
+tfoot td{font-weight:600; border-top:2px solid var(--rule-strong); border-bottom:none; background:var(--surface-2)}
+td.ma{font-weight:600}
+
+/* chips */
+.chip{display:inline-block; font-size:10.5px; padding:2px 7px; border-radius:2px; letter-spacing:.03em; font-weight:500}
+.chip.ok{background:color-mix(in srgb, var(--good) 16%, transparent); color:var(--good-ink)}
+.chip.no{background:color-mix(in srgb, var(--bad) 16%, transparent); color:var(--bad-ink)}
+.chip.mid{background:color-mix(in srgb, var(--warn) 24%, transparent); color:var(--ink-2)}
+.chip.neutral{background:var(--surface-2); color:var(--ink-2)}
+
+/* ---------- stock cards ---------- */
+.stocks{display:grid; gap:16px}
+.stk{background:var(--surface); border:1px solid var(--rule); box-shadow:var(--shadow); padding:0; overflow:hidden}
+.stk-top{display:flex; flex-wrap:wrap; align-items:baseline; gap:10px 14px; padding:15px 20px; border-bottom:1px solid var(--rule); background:var(--surface-2)}
+.stk-tk{font-family:"Archivo",sans-serif; font-size:20px; font-weight:700; letter-spacing:.01em}
+.stk-px{font-family:"IBM Plex Mono",monospace; font-size:15px; font-weight:500}
+.stk-tag{font-family:"Archivo",sans-serif; font-size:11.5px; font-weight:600; letter-spacing:.06em; text-transform:uppercase; margin-left:auto; padding:3px 9px; border-radius:2px}
+.tag-hold{background:var(--accent-soft); color:var(--accent)}
+.tag-sell{background:color-mix(in srgb, var(--bad) 16%, transparent); color:var(--bad-ink)}
+.tag-buy{background:color-mix(in srgb, var(--s1) 16%, transparent); color:var(--s1)}
+.stk-body{padding:16px 20px 18px}
+.stk-body p{font-size:15px; margin:0 0 12px; max-width:none}
+.stk-body p:last-child{margin-bottom:0}
+.mas{display:flex; flex-wrap:wrap; gap:6px; margin:0 0 14px}
+.metrics{display:grid; grid-template-columns:repeat(auto-fit,minmax(92px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); margin:0 0 15px}
+.met{background:var(--surface); padding:8px 10px}
+.met-l{font-family:"Archivo",sans-serif; font-size:10px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-3)}
+.met-v{font-family:"IBM Plex Mono",monospace; font-size:14px; font-weight:500; margin-top:2px}
+.verdict{border-left:3px solid var(--accent); padding:8px 0 8px 13px; margin-top:14px; font-size:14.5px; color:var(--ink-2)}
+.verdict b{color:var(--ink); font-family:"Archivo",sans-serif; font-size:12px; letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:3px; color:var(--accent)}
+
+/* ---------- order list ---------- */
+.orders{counter-reset:o; display:flex; flex-direction:column; gap:0; border:1px solid var(--rule); background:var(--surface)}
+.ord{display:grid; grid-template-columns:34px 1fr; gap:14px; padding:18px 20px; border-bottom:1px solid var(--rule)}
+.ord:last-child{border-bottom:none}
+.ord-n{counter-increment:o; font-family:"IBM Plex Mono",monospace; font-size:13px; color:var(--ink-3); padding-top:2px}
+.ord-n::before{content:counter(o,decimal-leading-zero)}
+.ord h4{margin:0 0 6px; font-size:16px; font-weight:600}
+.ord p{margin:0 0 8px; font-size:14.5px; color:var(--ink-2); max-width:66ch}
+.ord p:last-child{margin-bottom:0}
+.ord-meta{font-family:"IBM Plex Mono",monospace; font-size:12.5px; color:var(--ink); background:var(--surface-2); padding:7px 10px; display:inline-block; margin-bottom:8px}
+
+/* ---------- callout ---------- */
+.callout{border:1px solid var(--rule); border-left:3px solid var(--warn); background:var(--surface); padding:16px 20px; margin:20px 0}
+.callout.stop{border-left-color:var(--bad)}
+.callout h4{margin:0 0 8px; font-size:15px; font-weight:600; font-family:"Archivo",sans-serif}
+.callout p{margin:0 0 10px; font-size:14.5px; color:var(--ink-2)}
+.callout p:last-child{margin-bottom:0}
+
+ul{margin:0 0 16px; padding-left:20px; max-width:68ch}
+li{margin-bottom:8px; color:var(--ink-2)}
+li strong{color:var(--ink)}
+
+footer{margin-top:64px; padding-top:20px; border-top:1px solid var(--rule); font-family:"Archivo",sans-serif; font-size:12.5px; color:var(--ink-3)}
+footer p{max-width:none; margin:0 0 6px}
+
+/* tooltip */
+#tip{position:fixed; z-index:99; pointer-events:none; opacity:0; transition:opacity .1s;
+  background:var(--ink); color:var(--ground); font-family:"IBM Plex Mono",monospace; font-size:11.5px;
+  padding:6px 9px; border-radius:3px; white-space:pre; line-height:1.45}
+[data-tip]{cursor:default}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+@media (max-width:620px){
+  .row,.row-d,.axis{grid-template-columns:44px 1fr}
+  .rows,.axis{padding-right:74px}
+  .row-d{grid-template-columns:44px 1fr}
+  .dval{display:none}
+  .rows.div-chart,.axis.div-axis{padding-right:0}
+  .bar-val{font-size:10.5px}
+  .wrap{padding:0 14px 72px}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <p class="eyebrow">Danh mục 2 · Tài khoản dự thi · Đóng cửa 18/08/2026</p>
+  <h1>Đã lấp 8 ô, cạn tiền, và còn hai mã phải bán</h1>
+  <p class="dek">Năm lệnh mua hôm nay tiêu gần đúng 99% số tiền còn lại. Danh mục giờ nắm 8 mã — nhưng hai trong số đó (VNM, BAF) là lệnh bán đang chờ hàng về, và ô thứ tám (VPI) vẫn chưa được lấp. Toàn bộ việc của ngày mai gói trong ba lệnh.</p>
+
+  <div class="tiles">
+    <div class="tile">
+      <p class="tile-lab">NAV</p>
+      <div class="tile-val">59.765.607</div>
+      <div class="tile-sub down">−0,39% so với vốn gốc 60tr</div>
+    </div>
+    <div class="tile">
+      <p class="tile-lab">Lãi/lỗ mở</p>
+      <div class="tile-val down">−145.000</div>
+      <div class="tile-sub">chưa gồm 89.393 phí đã trả</div>
+    </div>
+    <div class="tile">
+      <p class="tile-lab">Tiền mặt</p>
+      <div class="tile-val">315.607</div>
+      <div class="tile-sub">0,5% NAV — không còn đạn</div>
+    </div>
+    <div class="tile">
+      <p class="tile-lab">5 mã mua hôm nay</p>
+      <div class="tile-val up">+0,46%</div>
+      <div class="tile-sub">+150.000 trên 32,68tr giải ngân</div>
+    </div>
+    <div class="tile">
+      <p class="tile-lab">VNINDEX</p>
+      <div class="tile-val">1.732,02</div>
+      <div class="tile-sub down">dưới MA200 −2,5%</div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ BỐI CẢNH ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Bối cảnh: mua mã mạnh trong thị trường yếu</h2>
+    <p class="sec-note">VNINDEX 1.732,02 · +0,26%</p>
+  </div>
+
+  <p class="lead">VNINDEX đóng cửa dưới cả MA50 (1.790,4 · −3,3%) lẫn MA200 (1.776,2 · −2,5%), cách đỉnh 52 tuần −10,6% và giảm 8,7% trong ba tháng. Nói thẳng ra: <strong>chính bộ lọc của hệ thống sẽ loại VNINDEX ra khỏi rổ</strong> nếu chỉ số là một cổ phiếu. Đó là lý do chỉ 8/112 mã qua được vòng lọc ngày 17/08.</p>
+
+  <p>Đây không phải lỗi vận hành — đó là chữ ký của trend-following và là chế độ thị trường mà backtest 52 tháng nói hệ thống <em class="term">thắng</em> chỉ số (04/2022→06/2024: hệ thống +15,4% khi index −1,4%). Đổi lại, cũng chính là chế độ tạo ra phần lớn mức sụt giảm −21,3%. Cả hai vế đã được chấp nhận trước khi vào lệnh; không có gì mới để quyết hôm nay.</p>
+
+  <div class="callout">
+    <h4>Điều duy nhất đáng ghi nhớ về phiên hôm nay</h4>
+    <p>Phiên 14/08 chỉ số rơi từ 1.765 xuống 1.729 với biên độ 1.765→1.717,6 trong một phiên. Hai phiên sau đó hồi rất nhẹ (+0,26% hôm nay) trên nền khối lượng 550 triệu so với trung bình 20 phiên là 699 triệu — <strong>hồi trên khối lượng thấp, chưa phải tín hiệu tạo đáy</strong>. Ngưỡng 1.717,6 (đáy phiên 14/08) là mốc kỹ thuật gần nhất của chỉ số.</p>
+  </div>
+</section>
+
+<!-- ============ CƠ CẤU ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Cơ cấu danh mục</h2>
+    <p class="sec-note">8 vị thế · nhưng chỉ ~5 cược độc lập</p>
+  </div>
+
+  <div class="card">
+    <div class="chart">
+      <p class="chart-title">Tỷ trọng thực tế so với tỷ trọng mục tiêu (1/ATR)</p>
+      <p class="chart-sub">% NAV, đóng cửa 18/08. Mục tiêu lấy từ bộ phân bổ 1/ATR ngày 18/08; ô VIC không lấp được nên mục tiêu của nó nằm ở dòng tiền mặt.</p>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--s1)"></i>Thực tế 18/08</span>
+        <span><i class="sw" style="background:var(--s2)"></i>Mục tiêu</span>
+        <span><i class="sw" style="background:var(--bad); opacity:.55"></i>Trần 20%/mã</span>
+      </div>
+      <div class="rows" id="cA"></div>
+      <div class="axis"><span></span><div class="axis-in" id="cAx"></div></div>
+    </div>
+    <p style="margin-top:22px; font-size:15px">Hai vạch đỏ nhất trên biểu đồ này là <strong>VNM 20,8%</strong> và <strong>BAF 5,3%</strong> — hai mã có mục tiêu bằng 0. Nghĩa là hơn một phần tư danh mục đang nằm ở chỗ hệ thống bảo không được nằm. Không phải sai lầm: cả hai mua ngày 17/08 nên <strong>chưa về tài khoản</strong>, sớm nhất 13h ngày 19/08 mới bán được. Chỉ là thực tế phải sống chung thêm một phiên.</p>
+  </div>
+
+  <div class="card">
+    <div class="chart">
+      <p class="chart-title">Lãi/lỗ mở theo vị thế</p>
+      <p class="chart-sub">VND, giá vốn so với giá đóng cửa 18/08. Chưa trừ phí giao dịch.</p>
+      <div class="rows div-chart" id="cB"></div>
+      <div class="axis div-axis"><span></span><div class="axis-in" id="cBx"></div></div>
+    </div>
+    <p style="margin-top:22px; font-size:15px">Tổng −145.000 trên NAV 59,77tr là nhiễu, không phải tín hiệu — giá vốn mới có tuổi đời một tới hai phiên. Điều đáng đọc là <strong>phân bố</strong>: 4/5 mã mua hôm nay đang xanh vì giá khớp đều thấp hơn giá đóng cửa (BSR 27.000 so với 27.200; STB 74.200 so với 75.200). Ngoại lệ duy nhất là LPB, và đó cũng là mã có vấn đề kỹ thuật thật.</p>
+  </div>
+
+  <div class="card">
+    <div class="chart">
+      <p class="chart-title">Tỷ trọng ngành — trước và sau khi cơ cấu ngày 19/08</p>
+      <p class="chart-sub">% NAV. Trần ngành của Danh mục 2 là 40%.</p>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--s1)"></i>Hôm nay 18/08</span>
+        <span><i class="sw" style="background:var(--s2)"></i>Sau 3 lệnh ngày 19/08</span>
+        <span><i class="sw" style="background:var(--bad); opacity:.55"></i>Trần ngành 40%</span>
+      </div>
+      <div class="rows" id="cC"></div>
+      <div class="axis"><span></span><div class="axis-in" id="cCx"></div></div>
+    </div>
+    <p style="margin-top:22px; font-size:15px"><strong>Ngân hàng 39,4% — chạm trần 40%.</strong> MSB, STB và LPB là ba mã có tương quan rất cao với nhau; cộng thêm VHM và VPI cùng nhóm bất động sản (22,0% sau cơ cấu), danh mục 8 ô thực chất chỉ là khoảng <strong>5 cược độc lập</strong>. Một cú giảm của ngành ngân hàng đánh thẳng vào 40% sổ. Đây là hệ quả cơ học của việc thị trường yếu: khi chỉ 8 mã qua lọc, không còn chỗ để đa dạng hoá.</p>
+  </div>
+
+  <div class="card">
+    <div class="chart">
+      <p class="chart-title">Đệm an toàn tới mức cắt, quy ra bội số ATR</p>
+      <p class="chart-sub">Mức cắt = 0,97 × MA200, kiểm tra ở kỳ soát đầu tháng. Đo bằng số ATR để so sánh được giữa các mã có biên độ khác nhau — cùng một khoảng cách phần trăm nghĩa rất khác nhau với MSB (ATR 1,54%) và VHM (ATR 4,80%).</p>
+      <div class="rows" id="cD"></div>
+      <div class="axis"><span></span><div class="axis-in" id="cDx"></div></div>
+    </div>
+    <p style="margin-top:22px; font-size:15px">Đây là biểu đồ quan trọng nhất trang này. Đọc theo phần trăm thì LPB (+9,0%) và VPI (+8,8%) trông giống nhau, còn VHM (+14,4%) trông an toàn hơn hẳn. Quy ra ATR thì thứ tự đảo lại: <strong>LPB 2,6 ATR và VHM 3,0 ATR là hai mã mỏng nhất</strong> — chỉ cần ba phiên xấu bình thường là chạm mức cắt. MSB có 14,0 ATR đệm, tức gần như chỉ chết vì hết chuẩn xếp hạng chứ không vì giá.</p>
+    <p style="font-size:15px">Đây đúng là phát hiện đã ghi ngày 17/08 về luật C: <strong>một ngưỡng phần trăm cố định không trung tính với biến động</strong>. Lần này nó xuất hiện ở mức cắt MA200 thay vì ở trailing stop, nhưng cùng một cơ chế.</p>
+  </div>
+</section>
+
+<!-- ============ TIỀN MẶT ============ -->
+<section>
+  <div class="sec-head">
+    <h2>16,2% tiền mặt sau cơ cấu là bắt buộc, không phải lựa chọn</h2>
+    <p class="sec-note">lô 100 CP + trần 20%/mã</p>
+  </div>
+
+  <p>Sau khi bán VNM + BAF và mua VPI, tài khoản còn <strong>9.652.304 đồng = 16,2% NAV</strong>. Câu hỏi tự nhiên là: sao không mua thêm? Câu trả lời là mọi lô 100 CP bổ sung đều làm danh mục tệ hơn, không phải tốt hơn:</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead><tr>
+        <th>Nếu mua thêm 1 lô</th><th class="num">Chi phí</th><th class="num">Tỷ trọng mới</th><th class="num">Mục tiêu</th><th>Kết quả</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="ma">MSB +100</td><td class="num">1.575.000</td><td class="num">21,1%</td><td class="num">20,0%</td><td><span class="chip no">vượt trần 20%/mã</span></td></tr>
+        <tr><td class="ma">STB +100</td><td class="num">7.520.000</td><td class="num">25,2%</td><td class="num">14,5%</td><td><span class="chip no">vượt trần 20%/mã</span></td></tr>
+        <tr><td class="ma">GMD +100</td><td class="num">7.950.000</td><td class="num">26,6%</td><td class="num">13,5%</td><td><span class="chip no">vượt trần 20%/mã</span></td></tr>
+        <tr><td class="ma">VPI +100</td><td class="num">6.210.000</td><td class="num">20,8%</td><td class="num">12,4%</td><td><span class="chip no">vượt trần 20%/mã</span></td></tr>
+        <tr><td class="ma">LPB +100</td><td class="num">5.000.000</td><td class="num">16,7%</td><td class="num">10,9%</td><td><span class="chip mid">lệch +5,8% thay vì −2,5%</span></td></tr>
+        <tr><td class="ma">BSR +100</td><td class="num">2.720.000</td><td class="num">13,7%</td><td class="num">8,7%</td><td><span class="chip mid">lệch +5,0%, mà ATR cao nhì rổ</span></td></tr>
+        <tr><td class="ma">VIC +100</td><td class="num">20.000.000</td><td class="num">33,5%</td><td class="num">10,4%</td><td><span class="chip no">1 lô đã vượt trần</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p style="margin-top:20px">Ô VIC là ô treo vĩnh viễn trong khuôn khổ cuộc thi: một lô VIC ở giá 200.000 tương đương 33,5% NAV, và để lô đó lọt trần 20% thì VIC phải xuống dưới <strong>119.400</strong>. Số tiền đó sẽ chỉ được dùng khi kỳ quét <strong>01/09</strong> tìm ra ứng viên mới đủ chuẩn.</p>
+
+  <p>Tôi cũng đã thử phương án chia lại tỷ trọng cho 7 mã còn lại thay vì để ô VIC nằm tiền — kết quả <strong>vẫn ra đúng 16,2% tiền mặt</strong>, vì mọi mã đều bị chặn bởi lô hoặc bởi trần. Không có gì để tối ưu ở đây.</p>
+</section>
+
+<!-- ============ KỸ THUẬT ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Phân tích kỹ thuật từng mã</h2>
+    <p class="sec-note">giá đóng cửa 18/08 · HOSE_DLY</p>
+  </div>
+
+  <div class="tbl-wrap" style="margin-bottom:28px">
+    <table>
+      <thead><tr>
+        <th>Mã</th><th class="num">Giá</th><th class="num">%</th><th class="num">vs MA20</th><th class="num">vs MA50</th><th class="num">vs MA200</th>
+        <th class="num">RSI</th><th class="num">ATR%</th><th class="num">vs đỉnh 52T</th><th class="num">RS 12T</th><th class="num">KL/TB20</th><th class="num">Mức cắt</th><th class="num">Đệm</th>
+      </tr></thead>
+      <tbody>
+        <tr><td class="ma">STB</td><td class="num">75.200</td><td class="num up">+1,35</td><td class="num up">+3,1%</td><td class="num up">+4,1%</td><td class="num up">+18,6%</td><td class="num">65</td><td class="num">2,48</td><td class="num">−2,1%</td><td class="num up">+32,0</td><td class="num">1,89×</td><td class="num">61.503</td><td class="num">9,0 ATR</td></tr>
+        <tr><td class="ma">MSB</td><td class="num">15.750</td><td class="num down">−2,17</td><td class="num down">−1,8%</td><td class="num down">−0,8%</td><td class="num up">+17,8%</td><td class="num">46</td><td class="num">1,54</td><td class="num">−4,3%</td><td class="num up">+14,4</td><td class="num">0,21×</td><td class="num">12.966</td><td class="num">14,0 ATR</td></tr>
+        <tr><td class="ma">GMD</td><td class="num">79.500</td><td class="num up">+0,89</td><td class="num up">+4,5%</td><td class="num up">+4,4%</td><td class="num up">+10,9%</td><td class="num">80</td><td class="num">2,57</td><td class="num">−11,2%</td><td class="num up">+23,0</td><td class="num">2,14×</td><td class="num">69.514</td><td class="num">5,6 ATR</td></tr>
+        <tr><td class="ma">BSR</td><td class="num">27.200</td><td class="num up">+4,62</td><td class="num up">+7,6%</td><td class="num up">+6,8%</td><td class="num up">+13,8%</td><td class="num">64</td><td class="num">4,08</td><td class="num">−31,3%</td><td class="num up">+87,7</td><td class="num">2,20×</td><td class="num">23.194</td><td class="num">4,2 ATR</td></tr>
+        <tr><td class="ma">VPI</td><td class="num">62.100</td><td class="num up">+2,31</td><td class="num down">−0,9%</td><td class="num up">+0,3%</td><td class="num up">+5,6%</td><td class="num">41</td><td class="num">2,85</td><td class="num">−6,8%</td><td class="num up">+4,8</td><td class="num">0,93×</td><td class="num">57.057</td><td class="num">3,1 ATR</td></tr>
+        <tr><td class="ma">VHM</td><td class="num">69.200</td><td class="num up">+1,47</td><td class="num down">−2,2%</td><td class="num down">−4,3%</td><td class="num up">+11,0%</td><td class="num">48</td><td class="num">4,80</td><td class="num">−20,1%</td><td class="num up">+41,3</td><td class="num">0,42×</td><td class="num">60.491</td><td class="num">3,0 ATR</td></tr>
+        <tr><td class="ma">LPB</td><td class="num">50.000</td><td class="num down">−1,77</td><td class="num down">−5,3%</td><td class="num down">−3,5%</td><td class="num up">+5,7%</td><td class="num">39</td><td class="num">3,47</td><td class="num">−14,5%</td><td class="num up">+20,1</td><td class="num">0,65×</td><td class="num">45.883</td><td class="num">2,6 ATR</td></tr>
+        <tr style="opacity:.72"><td class="ma">VNM</td><td class="num">62.100</td><td class="num down">−0,16</td><td class="num up">+2,8%</td><td class="num up">+6,1%</td><td class="num up">+0,7%</td><td class="num">62</td><td class="num">2,39</td><td class="num">−17,7%</td><td class="num down">−5,9</td><td class="num">0,44×</td><td class="num">—</td><td class="num">bán</td></tr>
+        <tr style="opacity:.72"><td class="ma">BAF</td><td class="num">31.750</td><td class="num">0,00</td><td class="num up">+4,3%</td><td class="num up">+5,9%</td><td class="num up">+7,3%</td><td class="num">79</td><td class="num">2,23</td><td class="num">−3,3%</td><td class="num down">−1,4</td><td class="num">0,73×</td><td class="num">—</td><td class="num">bán</td></tr>
+      </tbody>
+      <tfoot><tr><td>VNINDEX</td><td class="num">1.732,02</td><td class="num up">+0,26</td><td class="num down">−0,3%</td><td class="num down">−3,3%</td><td class="num down">−2,5%</td><td class="num">57</td><td class="num">1,85</td><td class="num">−10,6%</td><td class="num">—</td><td class="num">0,79×</td><td class="num">—</td><td class="num">—</td></tr></tfoot>
+    </table>
+  </div>
+
+  <div class="stocks">
+
+    <!-- STB -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">STB</span>
+        <span class="stk-px">75.200 <span class="up">+1,35%</span></span>
+        <span class="chip neutral">Ngân hàng</span>
+        <span class="stk-tag tag-hold">Giữ — mạnh nhất rổ</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip ok">trên MA20</span><span class="chip ok">trên MA50</span><span class="chip ok">trên MA200</span><span class="chip ok">MA50 &gt; MA200</span>
+        </div>
+        <div class="metrics">
+          <div class="met"><div class="met-l">Giá vốn</div><div class="met-v">74.200</div></div>
+          <div class="met"><div class="met-l">L/L</div><div class="met-v up">+1,35%</div></div>
+          <div class="met"><div class="met-l">Đỉnh 52T</div><div class="met-v">76.800</div></div>
+          <div class="met"><div class="met-l">Đỉnh 20 phiên</div><div class="met-v">76.100</div></div>
+          <div class="met"><div class="met-l">Điểm xếp hạng</div><div class="met-v">0,600</div></div>
+        </div>
+        <p>Nằm trên cả ba đường trung bình, và tăng trong phiên với khối lượng 8,0 triệu = <strong>1,89 lần trung bình 20 phiên</strong> — tiền vào thật, không phải giá trôi lên vì thiếu bán. Cao nhất phiên 76.000, đúng sát đỉnh 20 phiên 76.100 và cách đỉnh 52 tuần chỉ 2,1%.</p>
+        <p>RS 12 tháng vượt VNINDEX <strong>32,0 điểm phần trăm</strong>, đứng thứ hai rổ về điểm tổng hợp (0,600) sau VIC — mà VIC thì không mua được. Trên thực tế đây là mã tốt nhất trong danh mục.</p>
+        <div class="verdict"><b>Ngày mai</b>Không làm gì. Nếu vượt 76.100–76.800 kèm khối lượng trên trung bình thì xác lập đỉnh 52 tuần mới; đó là tin tốt cần ghi nhận chứ không phải cớ để mua thêm — trần 20%/mã đã chặn.</div>
+      </div>
+    </article>
+
+    <!-- MSB -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">MSB</span>
+        <span class="stk-px">15.750 <span class="down">−2,17%</span></span>
+        <span class="chip neutral">Ngân hàng</span>
+        <span class="stk-tag tag-hold">Giữ — ô nặng nhất</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip no">dưới MA20</span><span class="chip no">dưới MA50</span><span class="chip ok">trên MA200</span><span class="chip ok">MA50 &gt; MA200</span>
+        </div>
+        <div class="metrics">
+          <div class="met"><div class="met-l">Giá vốn</div><div class="met-v">16.000</div></div>
+          <div class="met"><div class="met-l">L/L</div><div class="met-v down">−1,56%</div></div>
+          <div class="met"><div class="met-l">Đáy 20 phiên</div><div class="met-v">15.350</div></div>
+          <div class="met"><div class="met-l">ATR</div><div class="met-v">1,54%</div></div>
+          <div class="met"><div class="met-l">Tỷ trọng</div><div class="met-v">18,4%</div></div>
+        </div>
+        <p>Thủng cả MA20 (16.032) và MA50 (15.880) trong phiên hôm nay — nhưng với khối lượng <strong>2,5 triệu = 0,21 lần trung bình</strong>. Giảm trên khối lượng cạn là giảm vì thiếu người mua, không phải vì có người bán tháo. Khác biệt đó quan trọng.</p>
+        <p>ATR 1,54% là thấp nhất rổ, nên theo phân bổ 1/ATR nó nhận tỷ trọng lớn nhất — đúng thiết kế, không phải do ưa thích. Đệm tới mức cắt là 14,0 ATR, xa nhất danh mục: <strong>MSB gần như không thể bị loại vì giá, chỉ có thể bị loại vì tụt hạng RS.</strong></p>
+        <p>Một chi tiết cần nhớ: năm phiên trước có một phiên khối lượng <strong>42,5 triệu CP = 3,6 lần trung bình</strong> mà giá đóng cửa đi ngang. Khối lượng cỡ đó ở MSB thường là giao dịch thoả thuận. Chưa đủ dữ kiện để đọc chiều, nhưng đáng ghi vào sổ.</p>
+        <div class="verdict"><b>Ngày mai</b>Không làm gì. Mốc duy nhất đáng theo dõi là đáy 20 phiên 15.350 — và kể cả thủng thì luật cũng không cho bán giữa tháng.</div>
+      </div>
+    </article>
+
+    <!-- GMD -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">GMD</span>
+        <span class="stk-px">79.500 <span class="up">+0,89%</span></span>
+        <span class="chip neutral">Cảng biển</span>
+        <span class="stk-tag tag-hold">Giữ — quá mua ngắn hạn</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip ok">trên MA20</span><span class="chip ok">trên MA50</span><span class="chip ok">trên MA200</span><span class="chip mid">RSI 80</span>
+        </div>
+        <div class="metrics">
+          <div class="met"><div class="met-l">Giá vốn</div><div class="met-v">78.800</div></div>
+          <div class="met"><div class="met-l">L/L</div><div class="met-v up">+0,89%</div></div>
+          <div class="met"><div class="met-l">Cụm MA20/50</div><div class="met-v">~76.100</div></div>
+          <div class="met"><div class="met-l">Đỉnh 52T</div><div class="met-v">89.500</div></div>
+          <div class="met"><div class="met-l">Điểm xếp hạng</div><div class="met-v">0,314</div></div>
+        </div>
+        <p><strong>RSI 80 — cao nhất danh mục.</strong> Khối lượng 4,1 triệu = 2,14 lần trung bình, giá trên MA20 và MA50 (cả hai gần như trùng nhau ở 76.100). Xu hướng ngắn hạn tốt, nhưng vùng RSI này là vùng mà nhịp chỉnh về trung bình thường xảy ra.</p>
+        <p>Nghịch lý cần nêu: dù đang mạnh nhất về đà, GMD lại có <strong>điểm xếp hạng gần thấp nhất rổ (0,314)</strong>, vì R² xu hướng 12 tháng xấp xỉ 0 — đường giá dài hạn đi ngang chứ không đi lên đều. Nó nằm trong danh mục vì đủ chuẩn, không phải vì thuyết phục.</p>
+        <div class="verdict"><b>Ngày mai</b>Giữ, tuyệt đối không mua thêm ở RSI 80. Nếu chỉnh, hỗ trợ đầu tiên là cụm MA20/MA50 quanh 76.100 (−4,3% từ giá hiện tại).</div>
+      </div>
+    </article>
+
+    <!-- BSR -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">BSR</span>
+        <span class="stk-px">27.200 <span class="up">+4,62%</span></span>
+        <span class="chip neutral">Dầu khí</span>
+        <span class="stk-tag tag-hold">Giữ — bứt phá trên nền yếu</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip ok">trên MA20</span><span class="chip ok">trên MA50</span><span class="chip ok">trên MA200</span><span class="chip mid">R² xu hướng −0,40</span>
+        </div>
+        <div class="metrics">
+          <div class="met"><div class="met-l">Giá vốn</div><div class="met-v">27.000</div></div>
+          <div class="met"><div class="met-l">L/L</div><div class="met-v up">+0,74%</div></div>
+          <div class="met"><div class="met-l">Đỉnh phiên</div><div class="met-v">27.650</div></div>
+          <div class="met"><div class="met-l">ATR</div><div class="met-v">4,08%</div></div>
+          <div class="met"><div class="met-l">RS 12T</div><div class="met-v up">+87,7</div></div>
+        </div>
+        <p>Mã tăng mạnh nhất phiên. Phá vùng tích luỹ 25.000–26.900 với khối lượng <strong>20,6 triệu = 2,20 lần trung bình</strong>. Mua ở 27.000, tức khớp ngay trước cú bứt.</p>
+        <p>Nhưng phải nói cả mặt kia. RS 12 tháng +87,7 điểm nghe rất mạnh, thực chất đến từ <strong>nền thấp của năm ngoái</strong>, không từ một xu hướng đều: giá còn cách đỉnh 52 tuần −31,3%, ba tháng gần nhất −11,4%, và R² xu hướng là <strong>−0,40</strong> — đường giá gãy khúc. Đây là mã có cấu trúc dài hạn yếu nhất trong rổ, và điểm xếp hạng 0,429 phản ánh đúng điều đó.</p>
+        <p>Chi tiết cuối phiên: đóng cửa 27.200 so với đỉnh phiên 27.650, tức trả lại 1,6% — có lực bán ra ở vùng cao.</p>
+        <div class="verdict"><b>Ngày mai</b>Giữ. Không mua thêm dù đang là mã thắng — ATR 4,08% cao nhì rổ nên phân bổ 1/ATR cố tình để nó nhỏ. Đệm tới mức cắt 4,2 ATR.</div>
+      </div>
+    </article>
+
+    <!-- VHM -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">VHM</span>
+        <span class="stk-px">69.200 <span class="up">+1,47%</span></span>
+        <span class="chip neutral">Bất động sản</span>
+        <span class="stk-tag tag-hold">Giữ — rủi ro cao nhất</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip no">dưới MA20</span><span class="chip no">dưới MA50</span><span class="chip ok">trên MA200</span><span class="chip mid">ATR 4,80% — cao nhất</span>
+        </div>
+        <div class="metrics">
+          <div class="met"><div class="met-l">Giá vốn</div><div class="met-v">69.000</div></div>
+          <div class="met"><div class="met-l">L/L</div><div class="met-v up">+0,29%</div></div>
+          <div class="met"><div class="met-l">MA50</div><div class="met-v">72.276</div></div>
+          <div class="met"><div class="met-l">Mức cắt</div><div class="met-v">60.491</div></div>
+          <div class="met"><div class="met-l">Đệm</div><div class="met-v">3,0 ATR</div></div>
+        </div>
+        <p>Đây là <strong>mã duy nhất trong 5 lệnh mua hôm nay nằm dưới MA50</strong>. Giá đã rơi từ 81.700 xuống 68.200 trong 8 phiên (−16,5%), ba tháng −13,4%, cách đỉnh 52 tuần −20,1%. Phiên hôm nay nảy +1,47% nhưng với khối lượng 5,9 triệu = <strong>0,42 lần trung bình</strong> — nảy trên khối lượng cạn, chưa đủ gọi là đảo chiều.</p>
+        <p>Mã này qua được bộ lọc vì vẫn trên MA200 (+11,0%) và RS 12 tháng +41,3 điểm. Cả hai đều đúng. Nhưng đứng ở góc kỹ thuật thuần tuý thì đây là lệnh <strong>mua vào một mã đang rơi</strong>, và ATR 4,80% khiến đệm 14,4% chỉ tương đương 3,0 ATR.</p>
+        <p>Tỷ trọng thực tế 11,6% so với mục tiêu 7,5% — vượt <strong>+4,1%</strong>, mức lệch duy nhất phá biên không giao dịch 3%. Không sửa được: một lô là mức nhỏ nhất có thể nắm.</p>
+        <div class="verdict"><b>Ngày mai</b>Giữ. Mức cắt ở kỳ soát 01/09 là 60.491 (0,97 × MA200); chặn thảm hoạ −25% từ giá vốn là 51.750, xa hơn nên không phải mức có hiệu lực.</div>
+      </div>
+    </article>
+
+    <!-- LPB -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">LPB</span>
+        <span class="stk-px">50.000 <span class="down">−1,77%</span></span>
+        <span class="chip neutral">Ngân hàng</span>
+        <span class="stk-tag tag-hold">Giữ — mắt xích yếu nhất</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip no">dưới MA20</span><span class="chip no">dưới MA50</span><span class="chip ok">trên MA200</span><span class="chip no">RSI 39 — yếu nhất</span>
+        </div>
+        <div class="metrics">
+          <div class="met"><div class="met-l">Giá vốn</div><div class="met-v">50.800</div></div>
+          <div class="met"><div class="met-l">L/L</div><div class="met-v down">−1,57%</div></div>
+          <div class="met"><div class="met-l">Đáy 20 phiên</div><div class="met-v">50.000</div></div>
+          <div class="met"><div class="met-l">Mức cắt</div><div class="met-v">45.883</div></div>
+          <div class="met"><div class="met-l">Đệm</div><div class="met-v">2,6 ATR</div></div>
+        </div>
+        <p><strong>Đây là điểm vào xấu nhất trong ngày.</strong> LPB đóng cửa đúng giá thấp nhất phiên, và giá đó cũng đúng bằng đáy 20 phiên (50.000). Dưới MA20 −5,3%, dưới MA50 −3,5%, RSI 38,6 — yếu nhất rổ. Năm phiên gần nhất −6,9%, một tháng −6,5%.</p>
+        <p>Khối lượng 3,2 triệu = 0,65 lần trung bình. Ở đáy, khối lượng thấp là tín hiệu <strong>xấu</strong> chứ không tốt: chưa có phiên bán tháo nào để cho thấy nguồn cung đã cạn.</p>
+        <p>Đệm trên MA200 chỉ +5,7%, mức cắt 45.883 tức <strong>2,6 ATR</strong> — mỏng nhất danh mục. Nếu có một mã bị loại ở kỳ soát 01/09 thì gần như chắc chắn là mã này.</p>
+        <div class="verdict"><b>Ngày mai</b>Giữ theo luật. Trong tháng chỉ có chặn thảm hoạ −25% = 38.100 mới kích hoạt. Nếu muốn thêm một luật cắt trong tháng thì <strong>phải chốt trước khi LPB giảm tiếp</strong> — sửa luật lúc đang lỗ là cách chắc chắn nhất để tự lừa mình.</div>
+      </div>
+    </article>
+
+    <!-- VNM -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">VNM</span>
+        <span class="stk-px">62.100 <span class="down">−0,16%</span></span>
+        <span class="chip neutral">Tiêu dùng</span>
+        <span class="stk-tag tag-sell">Bán 200 CP</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip ok">trên MA20</span><span class="chip ok">trên MA50</span><span class="chip mid">trên MA200 chỉ +0,7%</span><span class="chip no">MA50 &lt; MA200</span><span class="chip no">RS 12T −5,9</span>
+        </div>
+        <p>Lý do bán không nằm ở đồ thị ngắn hạn — RSI 62 và giá đang trên MA20, MA50, tức đang trong nhịp hồi. Lý do là <strong>cấu trúc dài hạn chưa xác lập</strong>: MA50 (58.516) vẫn nằm dưới MA200 (61.695), và RS 12 tháng thua VNINDEX 5,9 điểm. Giá chỉ trên MA200 đúng 0,7% — sát mép.</p>
+        <p>Nhịp hồi hiện tại là điều kiện bán tốt, không phải lý do hoãn bán.</p>
+        <div class="verdict"><b>Ngày mai</b>Bán toàn bộ 200 CP từ 13h00 (hàng T+2 về). Thu về ~12.388.950 sau phí. Lỗ ròng gồm phí ~129.800.</div>
+      </div>
+    </article>
+
+    <!-- BAF -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">BAF</span>
+        <span class="stk-px">31.750 <span>0,00%</span></span>
+        <span class="chip neutral">Chăn nuôi</span>
+        <span class="stk-tag tag-sell">Bán 100 CP</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip ok">trên MA20</span><span class="chip ok">trên MA50</span><span class="chip ok">trên MA200</span><span class="chip mid">RSI 79</span><span class="chip no">RS 12T −1,4</span>
+        </div>
+        <p>Cần nói thẳng vì lệnh này sẽ khó chịu khi đặt: bạn đang bán một mã <strong>RSI 78,6, nằm trên cả ba đường trung bình, cách đỉnh 52 tuần chỉ −3,3%</strong>. Nhìn đồ thị thì không có lý do nào để bán.</p>
+        <p>Lý do duy nhất là bộ lọc: lợi nhuận 12 tháng của BAF là +6,1% trong khi VNINDEX +7,5% — <strong>thua chỉ số 1,4 điểm</strong>, nên trượt điều kiện "RS 12 tháng dương". Sát nút, nhưng luật là luật, và giá trị của luật nằm ở chỗ nó được áp cả khi khó chịu.</p>
+        <div class="verdict"><b>Ngày mai</b>Bán toàn bộ 100 CP từ 13h00. Thu về ~3.167.062 sau phí. Đây là lệnh bán theo luật, không theo đồ thị — ghi rõ điều này vào báo cáo cuối kỳ.</div>
+      </div>
+    </article>
+
+    <!-- VPI -->
+    <article class="stk">
+      <div class="stk-top">
+        <span class="stk-tk">VPI</span>
+        <span class="stk-px">62.100 <span class="up">+2,31%</span></span>
+        <span class="chip neutral">Bất động sản</span>
+        <span class="stk-tag tag-buy">Mua 100 CP</span>
+      </div>
+      <div class="stk-body">
+        <div class="mas">
+          <span class="chip no">dưới MA20</span><span class="chip ok">trên MA50</span><span class="chip ok">trên MA200</span><span class="chip mid">điểm 0,157 — thấp nhất rổ</span>
+        </div>
+        <div class="metrics">
+          <div class="met"><div class="met-l">MA20</div><div class="met-v">62.635</div></div>
+          <div class="met"><div class="met-l">MA50</div><div class="met-v">61.924</div></div>
+          <div class="met"><div class="met-l">MA200</div><div class="met-v">58.822</div></div>
+          <div class="met"><div class="met-l">ATR</div><div class="met-v">2,85%</div></div>
+          <div class="met"><div class="met-l">Đỉnh 52T</div><div class="met-v">66.600</div></div>
+        </div>
+        <p>Hôm nay tăng 2,31% lên 62.100 — <strong>cao hơn giá 61.100 trong bảng kế hoạch buổi sáng</strong>, nên chi phí mua sẽ nhỉnh hơn dự tính. Vẫn trên MA50 (+0,3%) và MA200 (+5,6%), nhưng còn dưới MA20 (62.635) một chút. RSI 41. Khối lượng 0,93 lần trung bình — bình thường.</p>
+        <p>VPI vào danh mục với <strong>điểm xếp hạng thấp nhất rổ (0,157)</strong>: RS 12 tháng chỉ hơn VNINDEX 4,8 điểm. Nó ở đây vì đủ chuẩn và vì cần lấp ô thứ tám, không vì hấp dẫn.</p>
+        <div class="verdict"><b>Ngày mai</b>Mua 100 CP trong vùng <strong>61.000–63.000</strong> (khoảng ±1 ATR quanh giá đóng cửa). Nếu mở cửa nhảy trên 63.000 thì vẫn mua ở giá thị trường — bài học đã ghi từ tháng 8 là chờ retest làm lỡ mã, và ở đây chỉ có một lô nên sai số giá không đáng kể. Kháng cự gần: MA20 62.635, rồi 66.600.</div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- ============ KẾ HOẠCH ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Kế hoạch ngày mai — 19/08/2026</h2>
+    <p class="sec-note">3 lệnh, theo đúng thứ tự này</p>
+  </div>
+
+  <p class="lead">Đánh số ở đây là <strong>thứ tự bắt buộc</strong>, không phải để trang trí: hai lệnh bán phải khớp trước thì mới có tiền cho lệnh mua.</p>
+
+  <div class="orders">
+    <div class="ord">
+      <div class="ord-n"></div>
+      <div>
+        <h4>Bán 200 VNM</h4>
+        <div class="ord-meta">từ 13h00 · giá tham chiếu 62.100 · thu ~12.388.950</div>
+        <p>Cổ phiếu mua ngày 17/08 về tài khoản đầu phiên chiều 19/08, nên <strong>không đặt được lệnh trong phiên sáng</strong>. Đặt LO quanh giá tham chiếu; nếu tới 14h15 chưa khớp thì chuyển ATC. Không neo giá bán để "gỡ" về 62.500 — chênh lệch 400 đồng/CP là 80.000 đồng, không đáng đánh đổi việc phải chờ thêm một phiên.</p>
+      </div>
+    </div>
+    <div class="ord">
+      <div class="ord-n"></div>
+      <div>
+        <h4>Bán 100 BAF</h4>
+        <div class="ord-meta">từ 13h00 · giá tham chiếu 31.750 · thu ~3.167.062</div>
+        <p>Cùng khung giờ. BAF đang ở RSI 79 gần đỉnh 52 tuần nên khả năng khớp ở giá tốt là cao. Nếu mở phiên chiều giá đỏ, vẫn bán — lý do bán là RS 12 tháng âm, không phụ thuộc giá hôm đó.</p>
+      </div>
+    </div>
+    <div class="ord">
+      <div class="ord-n"></div>
+      <div>
+        <h4>Mua 100 VPI</h4>
+        <div class="ord-meta">sau khi 2 lệnh trên khớp · vùng 61.000–63.000 · chi ~6.219.315</div>
+        <p>Kiểm tra trước một điều ở công ty chứng khoán: <strong>tiền bán có dùng mua được ngay trong ngày hay không</strong>. Phần lớn công ty cho phép; nếu tài khoản của bạn không, lệnh này lùi sang 20/08 và không có gì phải sửa.</p>
+        <p>Sau lệnh này danh mục về đúng 7 mã đủ chuẩn + 16,2% tiền mặt, và <strong>đợt xây dựng danh mục kết thúc</strong>.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="callout stop" style="margin-top:24px">
+    <h4>Và sau ba lệnh đó: không giao dịch gì nữa cho tới 01/09</h4>
+    <p>Khung dài hạn rà soát <strong>đầu mỗi tháng</strong>, không theo phiên. Con số đo được ở backtest 52 tháng nói rõ vì sao: chuyển từ soát hằng tháng sang hằng quý làm CAGR tụt từ 13,9% xuống 7,1% — <strong>tốc độ thoát quan trọng hơn tốc độ vào</strong> — nhưng soát dày hơn hằng tháng thì chưa từng được kiểm định, và mọi lệnh phát sinh giữa kỳ đều là lệnh nằm ngoài hệ thống.</p>
+    <p>Cụ thể: kể cả khi VNINDEX thủng 1.717,6 vào ngày mai, kể cả khi LPB rơi tiếp 5%, hệ thống <strong>không có phản ứng</strong> cho tới 01/09. Ngoại lệ duy nhất là chặn thảm hoạ −25% so với giá vốn — mà mã gần nhất (LPB ở 38.100) còn cách 23,8%.</p>
+    <p>Đây là đánh đổi đã chọn từ 17/08, không phải sơ suất. Nếu muốn đổi thì đổi <strong>bây giờ</strong>, khi danh mục gần như hoà vốn, chứ không phải sau một phiên xấu.</p>
+  </div>
+</section>
+
+<!-- ============ RỦI RO ============ -->
+<section>
+  <div class="sec-head">
+    <h2>Những gì có thể sai</h2>
+    <p class="sec-note">đã biết trước, không phải cảnh báo mới</p>
+  </div>
+
+  <ul>
+    <li><strong>Ngân hàng 39,4%, chạm trần 40%.</strong> Ba mã MSB, STB, LPB tương quan rất cao. Cộng VHM + VPI (bất động sản 22,0%), danh mục 8 ô chỉ là ~5 cược độc lập. Không có cách sửa: chỉ 8 mã qua lọc thì không có gì để đa dạng hoá thêm.</li>
+    <li><strong>Nền thống kê mỏng.</strong> Alpha tháng của khung này là +0,54% với <strong>t = 0,87 — không có ý nghĩa thống kê</strong>. Chia đôi giai đoạn: hệ thống thắng đậm khi thị trường xấu (2022-04→2024-06), thua khi thị trường tăng mạnh (2024-06→2026-08: +12,9% so với index +17,2%).</li>
+    <li><strong>Lệch khung thời gian.</strong> Cuộc thi dài 2 tháng; lợi thế của hệ thống dài hạn cần nhiều năm mới hiện ra. Điều này đã được nêu rõ trước khi đổi khung ngày 17/08 và bạn đã quyết định chấp nhận.</li>
+    <li><strong>LPB là mắt xích yếu.</strong> Đệm 2,6 ATR, RSI 39, đóng cửa ở đáy 20 phiên. Ứng viên bị loại đầu tiên ở kỳ soát 01/09.</li>
+    <li><strong>BSR có RS đẹp trên cấu trúc xấu.</strong> R² xu hướng −0,40 nghĩa là con số RS +87,7 điểm đến từ nền thấp chứ không từ xu hướng đều. Bộ lọc không phân biệt được hai thứ này.</li>
+    <li><strong>Ngưỡng top 40% là đỉnh của bề mặt độ nhạy.</strong> Cả họ 25–60% đều thắng index, nhưng riêng con số 40% cho kết quả cao nhất là do may. Không được coi nó là thiêng.</li>
+  </ul>
+</section>
+
+<footer>
+  <p>Dữ liệu giá: TradingView Desktop, nguồn HOSE_DLY (trễ 15 phút trong phiên; các số trên là giá đóng cửa phiên 18/08/2026 nên đã chốt). Chỉ báo MA20/50/200, RSI 14, ATR 14 tính trực tiếp từ 300 phiên gần nhất.</p>
+  <p>Phí giả định: mua 0,15%, bán 0,15% + thuế TNCN 0,1%. Khung chiến lược: <span class="mono">CHIEN_LUOC_DAI_HAN.md</span>, chốt 17/08/2026.</p>
+</footer>
+
+</div>
+
+<div id="tip"></div>
+
+<script>
+(function(){
+  var fmtP = function(v){ return (v>=0?'':'−') + Math.abs(v).toFixed(1).replace('.',',') + '%'; };
+  var fmtV = function(v){ return (v>0?'+':v<0?'−':'') + Math.abs(v).toLocaleString('vi-VN'); };
+
+  // ---- Chart A: weight vs target
+  var A = [
+    {k:'VNM', a:20.8, t:0.0},
+    {k:'MSB', a:18.4, t:20.0},
+    {k:'GMD', a:13.3, t:13.5},
+    {k:'STB', a:12.6, t:14.5},
+    {k:'VHM', a:11.6, t:7.5},
+    {k:'BSR', a:9.1,  t:8.7},
+    {k:'LPB', a:8.4,  t:10.9},
+    {k:'BAF', a:5.3,  t:0.0},
+    {k:'Tiền',a:0.5,  t:10.4}
+  ];
+  buildGrouped('cA','cAx',A,22,[0,5,10,15,20],20,'%');
+
+  // ---- Chart C: sector before/after
+  var C = [
+    {k:'Ngân hàng', a:39.4, t:39.4},
+    {k:'BĐS',       a:11.6, t:22.0},
+    {k:'Tiền mặt',  a:0.5,  t:16.2},
+    {k:'Cảng biển', a:13.3, t:13.3},
+    {k:'Dầu khí',   a:9.1,  t:9.1},
+    {k:'Tiêu dùng', a:20.8, t:0.0},
+    {k:'Chăn nuôi', a:5.3,  t:0.0}
+  ];
+  buildGrouped('cC','cCx',C,44,[0,10,20,30,40],40,'%');
+
+  function buildGrouped(id, axId, data, max, ticks, cap, unit){
+    var host=document.getElementById(id); if(!host) return;
+    data.forEach(function(d){
+      var row=document.createElement('div'); row.className='row';
+      var lab=document.createElement('div'); lab.className='row-lab'; lab.textContent=d.k;
+      var tr=document.createElement('div'); tr.className='track';
+      ticks.forEach(function(t){ if(t===0) return;
+        var g=document.createElement('i'); g.className='grid-line'; g.style.left=(t/max*100)+'%'; tr.appendChild(g); });
+      if(cap){ var cl=document.createElement('i'); cl.className='cap-line'; cl.style.left=(cap/max*100)+'%'; tr.appendChild(cl); }
+      var b1=document.createElement('div'); b1.className='bar'; b1.style.background='var(--s1)';
+      b1.style.width=Math.max(d.a/max*100,0.15)+'%'; b1.style.position='relative'; b1.style.zIndex='1';
+      b1.setAttribute('data-tip', d.k+'\nThực tế: '+d.a.toFixed(1).replace('.',',')+'%');
+      var v1=document.createElement('span'); v1.className='bar-val'; v1.textContent=d.a.toFixed(1).replace('.',',')+'%'; b1.appendChild(v1);
+      var b2=document.createElement('div'); b2.className='bar'; b2.style.background='var(--s2)';
+      b2.style.width=Math.max(d.t/max*100,0.15)+'%'; b2.style.position='relative'; b2.style.zIndex='1';
+      b2.setAttribute('data-tip', d.k+'\nMục tiêu: '+d.t.toFixed(1).replace('.',',')+'%');
+      var v2=document.createElement('span'); v2.className='bar-val'; v2.textContent=d.t.toFixed(1).replace('.',',')+'%'; b2.appendChild(v2);
+      tr.appendChild(b1); tr.appendChild(b2);
+      row.appendChild(lab); row.appendChild(tr); host.appendChild(row);
+    });
+    var ax=document.getElementById(axId);
+    ticks.forEach(function(t){ var s=document.createElement('span'); s.style.left=(t/max*100)+'%'; s.textContent=t+(t===ticks[ticks.length-1]?' '+unit:''); ax.appendChild(s); });
+  }
+
+  // ---- Chart B: diverging P/L
+  var B=[
+    {k:'STB', v:100000,  p:'+1,35%'},
+    {k:'GMD', v:70000,   p:'+0,89%'},
+    {k:'BSR', v:40000,   p:'+0,74%'},
+    {k:'VHM', v:20000,   p:'+0,29%'},
+    {k:'BAF', v:-40000,  p:'−1,24%'},
+    {k:'VNM', v:-80000,  p:'−0,64%'},
+    {k:'LPB', v:-80000,  p:'−1,57%'},
+    {k:'MSB', v:-175000, p:'−1,56%'}
+  ];
+  (function(){
+    var host=document.getElementById('cB'); var M=200000;
+    B.forEach(function(d){
+      var row=document.createElement('div'); row.className='row-d';
+      var lab=document.createElement('div'); lab.className='row-lab'; lab.textContent=d.k;
+      var tr=document.createElement('div'); tr.className='track-d';
+      var z=document.createElement('i'); z.className='zero'; z.style.left='50%'; tr.appendChild(z);
+      var b=document.createElement('div');
+      var w=Math.abs(d.v)/M*50;
+      b.className='bar-d '+(d.v>=0?'pos':'neg');
+      b.style.background=d.v>=0?'var(--good)':'var(--bad)';
+      if(d.v>=0){ b.style.left='50%'; } else { b.style.left=(50-w)+'%'; }
+      b.style.width=w+'%';
+      b.setAttribute('data-tip', d.k+'\n'+fmtV(d.v)+' đ  ('+d.p+')');
+      tr.appendChild(b);
+      var val=document.createElement('div'); val.className='dval';
+      val.textContent=fmtV(d.v)+' đ · '+d.p;
+      row.appendChild(lab); row.appendChild(tr); row.appendChild(val); host.appendChild(row);
+    });
+    var ax=document.getElementById('cBx');
+    [[-200000,'−200k'],[-100000,'−100k'],[0,'0'],[100000,'+100k'],[200000,'+200k']].forEach(function(t){
+      var s=document.createElement('span'); s.style.left=(50+t[0]/M*50)+'%'; s.textContent=t[1]; ax.appendChild(s);
+    });
+  })();
+
+  // ---- Chart D: buffer in ATR
+  var D=[
+    {k:'MSB', atr:14.0, pct:'+21,5%'},
+    {k:'STB', atr:9.0,  pct:'+22,3%'},
+    {k:'GMD', atr:5.6,  pct:'+14,4%'},
+    {k:'BSR', atr:4.2,  pct:'+17,3%'},
+    {k:'VPI', atr:3.1,  pct:'+8,8%'},
+    {k:'VHM', atr:3.0,  pct:'+14,4%'},
+    {k:'LPB', atr:2.6,  pct:'+9,0%'}
+  ];
+  (function(){
+    var host=document.getElementById('cD'); var M=20;
+    D.forEach(function(d){
+      var row=document.createElement('div'); row.className='row';
+      var lab=document.createElement('div'); lab.className='row-lab'; lab.textContent=d.k;
+      var tr=document.createElement('div'); tr.className='track';
+      [5,10,15,20].forEach(function(t){ var g=document.createElement('i'); g.className='grid-line'; g.style.left=(t/M*100)+'%'; tr.appendChild(g); });
+      var b=document.createElement('div'); b.className='bar';
+      b.style.background = d.atr<4 ? 'var(--bad)' : 'var(--s1)';
+      b.style.width=(d.atr/M*100)+'%'; b.style.height='14px'; b.style.position='relative'; b.style.zIndex='1';
+      b.setAttribute('data-tip', d.k+'\nĐệm '+d.pct+' = '+d.atr.toFixed(1).replace('.',',')+' ATR');
+      var v=document.createElement('span'); v.className='bar-val';
+      v.textContent=d.atr.toFixed(1).replace('.',',')+' ATR';
+      b.appendChild(v);
+      tr.appendChild(b);
+      row.appendChild(lab); row.appendChild(tr); host.appendChild(row);
+    });
+    var ax=document.getElementById('cDx');
+    [0,5,10,15,20].forEach(function(t){ var s=document.createElement('span'); s.style.left=(t/M*100)+'%'; s.textContent=t+(t===20?' ATR':''); ax.appendChild(s); });
+  })();
+
+  // ---- tooltip
+  var tip=document.getElementById('tip');
+  document.addEventListener('mouseover', function(e){
+    var el=e.target.closest('[data-tip]');
+    if(!el){ tip.style.opacity='0'; return; }
+    tip.textContent=el.getAttribute('data-tip'); tip.style.opacity='1';
+  });
+  document.addEventListener('mousemove', function(e){
+    if(tip.style.opacity!=='1') return;
+    var x=e.clientX+14, y=e.clientY+14;
+    var r=tip.getBoundingClientRect();
+    if(x+r.width>window.innerWidth-8) x=e.clientX-r.width-14;
+    if(y+r.height>window.innerHeight-8) y=e.clientY-r.height-14;
+    tip.style.left=x+'px'; tip.style.top=y+'px';
+  });
+})();
+</script>

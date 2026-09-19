@@ -1,0 +1,616 @@
+<title>Danh mục 2 · tuần 07/09</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap">
+<style>
+:root{
+  --bg:#F1F2F4; --surface:#FFFFFF; --surface-2:#E7EAEF; --surface-3:#DCE0E7;
+  --ink:#15181D; --ink-2:#4E5665; --ink-3:#79818F;
+  --rule:#D6DAE1; --rule-strong:#B9C0CA;
+  --accent:#0089A0; --accent-2:#96660F;
+  --accent-soft:#DCEEF2;
+  --up:#1F7A46; --down:#B33A32; --warn-bg:#F6EEDD; --warn-ink:#7A5406;
+  --shadow:0 1px 2px rgba(21,24,29,.05), 0 8px 24px -16px rgba(21,24,29,.28);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#131619; --surface:#1A1E23; --surface-2:#222730; --surface-3:#2A303A;
+    --ink:#E7EAEE; --ink-2:#A3ABB7; --ink-3:#757E8B;
+    --rule:#2C333C; --rule-strong:#3B434E;
+    --accent:#0F97AD; --accent-2:#B08430;
+    --accent-soft:#123A42;
+    --up:#4CB77C; --down:#E37066; --warn-bg:#2E2617; --warn-ink:#D9AE5B;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#131619; --surface:#1A1E23; --surface-2:#222730; --surface-3:#2A303A;
+  --ink:#E7EAEE; --ink-2:#A3ABB7; --ink-3:#757E8B;
+  --rule:#2C333C; --rule-strong:#3B434E;
+  --accent:#0F97AD; --accent-2:#B08430;
+  --accent-soft:#123A42;
+  --up:#4CB77C; --down:#E37066; --warn-bg:#2E2617; --warn-ink:#D9AE5B;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 8px 24px -16px rgba(0,0,0,.7);
+}
+
+*{box-sizing:border-box}
+body{
+  background:var(--bg); color:var(--ink);
+  font-family:"Newsreader",Georgia,"Times New Roman",serif;
+  font-size:17px; line-height:1.62; margin:0;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:1080px; margin:0 auto; padding:0 24px 96px}
+.prose{max-width:66ch}
+h1,h2,h3,.tag,.stat .val,ol.tasks .t-head{font-family:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif}
+.mono,.n,th,.tick,.eyebrow,.kicker,.fig-sub,.fignote,.mast-meta,.stat .lbl,.stat .sub,.bar-val,.legend span,.sec-num,.sec-head .aside,ol.tasks .t-meta,.tl-lab,.tip,footer{font-family:"IBM Plex Mono",ui-monospace,"Cascadia Mono",Consolas,monospace}
+.n,table{font-variant-numeric:tabular-nums}
+
+header.mast{padding:56px 0 0}
+.eyebrow{font-size:11.5px; letter-spacing:.16em; text-transform:uppercase; color:var(--accent); font-weight:500}
+h1{font-size:clamp(38px,5.4vw,58px); line-height:1.02; letter-spacing:-.026em; font-weight:700; margin:14px 0 0; text-wrap:balance; max-width:16ch}
+.dek{color:var(--ink-2); font-size:19px; margin:16px 0 0; max-width:60ch}
+.mast-meta{display:flex; flex-wrap:wrap; gap:8px 22px; margin-top:24px; font-size:12px; color:var(--ink-3)}
+.mast-meta b{color:var(--ink-2); font-weight:500}
+
+.verdict{margin-top:40px; background:var(--surface); border:1px solid var(--rule); border-left:4px solid var(--accent); border-radius:3px; padding:26px 30px; box-shadow:var(--shadow)}
+.verdict .kicker{font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-3); font-weight:500}
+.verdict h2{font-size:29px; letter-spacing:-.02em; margin:8px 0 10px; font-weight:600; line-height:1.2}
+.verdict p{margin:0; color:var(--ink-2); max-width:64ch}
+.verdict cite{font-style:normal; color:var(--ink-3)}
+
+.stats{display:grid; grid-template-columns:repeat(auto-fit,minmax(178px,1fr)); gap:1px; background:var(--rule); border:1px solid var(--rule); margin-top:22px; border-radius:3px; overflow:hidden}
+.stat{background:var(--surface); padding:18px 20px 20px}
+.stat .lbl{font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--ink-3)}
+.stat .val{font-weight:600; font-size:27px; letter-spacing:-.02em; margin-top:7px; line-height:1.1}
+.stat.hero .val{font-size:40px}
+.stat .sub{font-size:12px; color:var(--ink-3); margin-top:5px}
+.up{color:var(--up)} .down{color:var(--down)}
+
+section{margin-top:64px}
+.sec-head{display:flex; align-items:baseline; gap:16px; border-bottom:1px solid var(--rule-strong); padding-bottom:12px}
+.sec-num{font-size:12px; color:var(--accent); font-weight:600; letter-spacing:.1em}
+.sec-head h2{font-size:27px; font-weight:600; letter-spacing:-.02em; margin:0; flex:1}
+.sec-head .aside{font-size:12px; color:var(--ink-3); text-align:right}
+section > p{margin:20px 0 0}
+h3{font-size:16px; font-weight:600; letter-spacing:.01em; margin:36px 0 12px; color:var(--ink)}
+
+figure{margin:30px 0 0; background:var(--surface); border:1px solid var(--rule); border-radius:3px; padding:22px 22px 16px; box-shadow:var(--shadow)}
+.fig-title{font-family:"Archivo",sans-serif; font-weight:600; font-size:16px; letter-spacing:-.005em}
+.fig-sub{font-size:12px; color:var(--ink-3); margin-top:4px}
+.legend{display:flex; gap:20px; margin-top:14px; flex-wrap:wrap}
+.legend span{display:flex; align-items:center; gap:7px; font-size:12px; color:var(--ink-2)}
+.key{width:16px; height:2px; border-radius:1px; display:inline-block}
+.chartbox{position:relative; margin-top:14px; overflow-x:auto}
+svg{display:block; width:100%; height:auto}
+.tip{position:absolute; pointer-events:none; opacity:0; transition:opacity .12s; background:var(--surface); border:1px solid var(--rule-strong); border-radius:3px; padding:8px 11px; font-size:12px; color:var(--ink); box-shadow:var(--shadow); white-space:nowrap; z-index:5; line-height:1.5}
+.tip b{color:var(--ink-2); font-weight:400}
+.fignote{font-size:11.5px; color:var(--ink-3); margin-top:12px; line-height:1.55}
+
+.tbl-wrap{overflow-x:auto; margin-top:24px; border:1px solid var(--rule); border-radius:3px; background:var(--surface); box-shadow:var(--shadow)}
+table{border-collapse:collapse; width:100%; font-size:14px; min-width:660px}
+th{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-3); font-weight:600; text-align:left; padding:13px 14px; border-bottom:1px solid var(--rule-strong); background:var(--surface-2); white-space:nowrap}
+th.n,td.n{text-align:right}
+td{padding:12px 14px; border-bottom:1px solid var(--rule); color:var(--ink-2); vertical-align:middle}
+tbody tr:last-child td{border-bottom:none}
+td.sym{font-family:"IBM Plex Mono",monospace; font-weight:600; color:var(--ink); font-size:14px}
+tfoot td{background:var(--surface-2); font-weight:600; color:var(--ink); border-top:1px solid var(--rule-strong); border-bottom:none}
+.bar-cell{display:flex; align-items:center; gap:10px; min-width:132px}
+.bar-track{flex:1; height:8px; background:var(--surface-3); border-radius:2px; overflow:hidden}
+.bar-fill{height:100%; background:var(--accent); border-radius:0 2px 2px 0}
+.bar-fill.cash{background:var(--ink-3)}
+.bar-val{font-size:12.5px; color:var(--ink-2); width:52px; text-align:right}
+tr.cash-row td{background:var(--surface-2)}
+
+.tag{display:inline-flex; align-items:center; gap:5px; font-family:"IBM Plex Mono",monospace; font-size:11px; letter-spacing:.03em; padding:3px 8px; border-radius:2px; white-space:nowrap; border:1px solid transparent; font-weight:500}
+.tag.ok{background:var(--accent-soft); color:var(--accent); border-color:var(--accent)}
+.tag.no{background:var(--surface-2); color:var(--down); border-color:var(--down)}
+.tag.wait{background:var(--warn-bg); color:var(--warn-ink); border-color:var(--warn-ink)}
+.tag.none{background:var(--surface-2); color:var(--ink-3); border-color:var(--rule-strong)}
+.tag::before{content:""; width:5px; height:5px; border-radius:50%; background:currentColor; flex:none}
+
+ol.tasks{list-style:none; counter-reset:t; padding:0; margin:26px 0 0}
+ol.tasks li{counter-increment:t; display:grid; grid-template-columns:38px 1fr; gap:0 18px; padding:20px 0; border-bottom:1px solid var(--rule)}
+ol.tasks li:first-child{border-top:1px solid var(--rule)}
+ol.tasks li::before{content:counter(t,decimal-leading-zero); font-family:"IBM Plex Mono",monospace; font-size:13px; font-weight:600; color:var(--accent); padding-top:4px}
+ol.tasks .t-head{font-weight:600; font-size:16px; color:var(--ink); letter-spacing:-.005em}
+ol.tasks .t-body{color:var(--ink-2); margin-top:5px; max-width:62ch}
+ol.tasks .t-meta{font-size:11.5px; color:var(--ink-3); margin-top:8px; display:flex; gap:16px; flex-wrap:wrap}
+
+.opts{display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:18px; margin-top:26px}
+.opt{background:var(--surface); border:1px solid var(--rule); border-radius:3px; padding:22px 22px 24px; box-shadow:var(--shadow)}
+.opt.pick{border-color:var(--accent); border-top:3px solid var(--accent)}
+.opt .kicker{font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-3)}
+.opt.pick .kicker{color:var(--accent)}
+.opt h3{margin:8px 0 10px; font-size:18px}
+.opt p{margin:0 0 12px; color:var(--ink-2); font-size:16px}
+.opt ul{margin:0; padding-left:19px; color:var(--ink-2); font-size:15.5px}
+.opt li{margin-bottom:6px}
+
+.timeline{margin-top:28px; border:1px solid var(--rule); border-radius:3px; background:var(--surface); padding:26px 24px 22px; box-shadow:var(--shadow); overflow-x:auto}
+.tl-track{position:relative; min-width:640px; height:3px; background:var(--surface-3); margin:44px 0 0}
+.tl-pt{position:absolute; top:50%; transform:translate(-50%,-50%); width:11px; height:11px; border-radius:50%; background:var(--surface); border:2.5px solid var(--rule-strong)}
+.tl-pt.on{border-color:var(--accent); background:var(--accent)}
+.tl-pt.key{border-color:var(--accent-2); background:var(--accent-2); width:13px; height:13px}
+.tl-lab{position:absolute; transform:translateX(-50%); text-align:center; width:136px; font-size:11px; color:var(--ink-3); line-height:1.45}
+.tl-lab b{display:block; color:var(--ink); font-weight:600; font-size:12px}
+.tl-lab.above{bottom:20px} .tl-lab.below{top:20px}
+
+.notes{margin-top:34px; border-top:1px solid var(--rule-strong); padding-top:22px}
+.notes h3{margin-top:0}
+.notes ul{margin:0; padding-left:20px; color:var(--ink-2); font-size:15.5px}
+.notes li{margin-bottom:10px}
+.callout{margin-top:26px; background:var(--warn-bg); border:1px solid var(--warn-ink); border-radius:3px; padding:18px 22px; color:var(--warn-ink); font-size:16px}
+.callout b{font-family:"Archivo",sans-serif}
+footer{margin-top:72px; border-top:1px solid var(--rule); padding-top:24px; font-size:11.5px; color:var(--ink-3); line-height:1.8}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent); outline-offset:2px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important; animation:none!important}}
+@media (max-width:640px){
+  body{font-size:16px}
+  .wrap{padding:0 18px 72px}
+  .verdict{padding:22px 20px}
+  .sec-head{flex-wrap:wrap}
+  .sec-head .aside{text-align:left; flex-basis:100%}
+}
+</style>
+
+<div class="wrap">
+
+<header class="mast">
+  <div class="eyebrow">Danh mục 2 · tài khoản dự thi · 60.000.000 đ</div>
+  <h1>Tuần không có lệnh</h1>
+  <p class="dek">Bản soát cuối tuần, trước phiên thứ Hai 07/09/2026. Cả năm vị thế còn trả lời “có” cho mọi quy tắc giữ. 35,3% tiền mặt đang nằm ngoài thị trường vì hồ sơ thẩm định chưa xong — không vì một quyết định đầu tư nào.</p>
+  <div class="mast-meta">
+    <span>Dữ liệu <b>đóng cửa thứ Sáu 04/09/2026</b></span>
+    <span>Nguồn <b>HOSE_DLY · TradingView</b></span>
+    <span>Rổ quét <b>112 mã + VNINDEX</b></span>
+    <span>Soạn <b>CN 06/09/2026</b></span>
+  </div>
+</header>
+
+<div class="verdict">
+  <div class="kicker">Đề xuất cho tuần 07–11/09</div>
+  <h2>Không đặt lệnh. Dùng cả tuần để mở khoá 21,2 triệu tiền mặt.</h2>
+  <p>Đây là luật đã chốt, không phải phản ứng với thị trường — mục 6 của <span class="mono">CHIEN_LUOC_DAI_HAN.md</span>: <cite>“Trong tháng không làm gì trừ khi chạm chặn cứng −25%.”</cite> Kỳ soát tiếp theo là 01/10. Việc duy nhất có đòn bẩy trong tuần là điền nốt Bước 3 và Bước 4 cho PVD và BAF, vì đúng lúc này <b>không một mã mới nào được phép mua</b>.</p>
+</div>
+
+<div class="stats">
+  <div class="stat hero">
+    <div class="lbl">NAV 04/09</div>
+    <div class="val">59.964.965</div>
+    <div class="sub down">−0,06% so vốn gốc</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">Tiền mặt</div>
+    <div class="val">35,3%</div>
+    <div class="sub">21.178.965 đ · 4/8 ô trống</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">Chênh với VNINDEX</div>
+    <div class="val down">−7,23</div>
+    <div class="sub">điểm pt, tính từ 14/08</div>
+  </div>
+  <div class="stat">
+    <div class="lbl">Phiên còn lại</div>
+    <div class="val">30</div>
+    <div class="sub">tới 16/10 · 18 trước kỳ soát</div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">I</span>
+    <h2>Thị trường</h2>
+    <span class="aside">VNINDEX 1.853,08 · +3,44% tuần</span>
+  </div>
+
+  <p class="prose">Chỉ số đang ở <b>nhịp hồi sau sụt giảm</b>, không phải phá đỉnh. Đỉnh đóng cửa là 1.927,94 ngày 18/05; từ đó giảm −13,46% xuống đáy 1.668,53 ngày 22/07, rồi hồi +11,06%. Giá hôm nay vẫn thấp hơn đỉnh 3,88%. Đó cũng là lý do MA50 (1.786) và MA200 (1.784) gần như chồng lên nhau — hai đường trung bình chưa tách ra, tức xu hướng chưa xác lập lại.</p>
+
+  <figure>
+    <figcaption>
+      <div class="fig-title">VNINDEX và MA200, 101 phiên gần nhất</div>
+      <div class="fig-sub">09/04/2026 – 04/09/2026 · đóng cửa ngày · điểm</div>
+    </figcaption>
+    <div class="legend">
+      <span><i class="key" style="background:var(--accent)"></i>VNINDEX đóng cửa</span>
+      <span><i class="key" style="background:var(--accent-2)"></i>MA200</span>
+    </div>
+    <div class="chartbox" id="box1"><div class="tip" id="tip1"></div></div>
+    <div class="fignote">Ngưỡng của quy tắc thoát số 1 là 0,97 × MA200 = 1.730,8 điểm — chỉ số đang cao hơn ngưỡng đó 7,1%.</div>
+  </figure>
+
+  <p class="prose">Nhưng chỉ số không phải thị trường. Trong 112 mã được quét, <b>trung vị 12 tháng là −16,1%</b> trong khi VNINDEX +10,8%; chỉ 14 mã thắng chỉ số. Chỉ 25/112 mã đang trên MA200 và 20/112 có MA50 vượt MA200. Nhịp tăng này rất hẹp — riêng VIC chiếm 8,8% tổng thanh khoản của cả rổ.</p>
+
+  <figure>
+    <figcaption>
+      <div class="fig-title">Lợi suất 12 tháng của 112 mã HOSE</div>
+      <div class="fig-sub">số mã trong mỗi khoảng 10 điểm phần trăm · tính tới 04/09/2026</div>
+    </figcaption>
+    <div class="chartbox" id="box2"><div class="tip" id="tip2"></div></div>
+    <div class="fignote">Phân phối lệch hẳn sang trái: 78 trong 112 mã lỗ trong 12 tháng. Hai mã ở khoảng ngoài cùng bên phải là BSR (+63,0%) và VIC (+278,0%).</div>
+  </figure>
+
+  <p class="prose">Đọc thẳng: một nhịp tăng mà cổ phiếu trung vị vẫn lỗ là nền yếu. Điều đó <b>không</b> cho phép dự đoán tuần sau, nhưng nó làm nhẹ đi lập luận “phải giải ngân ngay kẻo lỡ sóng”.</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">II</span>
+    <h2>Danh mục</h2>
+    <span class="aside">5 mã · 38.786.000 đ cổ phiếu (64,7%)</span>
+  </div>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Mã</th><th>Ngành</th><th class="n">KL</th><th class="n">Giá vốn</th><th class="n">Giá 04/09</th><th class="n">Lãi/lỗ</th><th>Tỷ trọng NAV</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="sym">MSB</td><td>Ngân hàng</td><td class="n">840</td><td class="n">13.333</td><td class="n">13.150</td><td class="n down">−1,37%</td>
+          <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:52.1%"></div></div><span class="bar-val">18,4%</span></div></td></tr>
+        <tr><td class="sym">STB</td><td>Ngân hàng</td><td class="n">100</td><td class="n">74.200</td><td class="n">77.300</td><td class="n up">+4,18%</td>
+          <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:36.5%"></div></div><span class="bar-val">12,9%</span></div></td></tr>
+        <tr><td class="sym">VHM</td><td>Bất động sản</td><td class="n">100</td><td class="n">69.000</td><td class="n">75.200</td><td class="n up">+8,99%</td>
+          <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:35.5%"></div></div><span class="bar-val">12,5%</span></div></td></tr>
+        <tr><td class="sym">DHC</td><td>Giấy</td><td class="n">200</td><td class="n">36.600</td><td class="n">35.700</td><td class="n down">−2,46%</td>
+          <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:33.7%"></div></div><span class="bar-val">11,9%</span></div></td></tr>
+        <tr><td class="sym">BSR</td><td>Dầu khí</td><td class="n">200</td><td class="n">27.000</td><td class="n">26.750</td><td class="n down">−0,93%</td>
+          <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill" style="width:25.3%"></div></div><span class="bar-val">8,9%</span></div></td></tr>
+        <tr class="cash-row"><td class="sym">—</td><td>Tiền mặt</td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="n">—</td>
+          <td><div class="bar-cell"><div class="bar-track"><div class="bar-fill cash" style="width:100%"></div></div><span class="bar-val">35,3%</span></div></td></tr>
+      </tbody>
+      <tfoot>
+        <tr><td colspan="5">NAV</td><td class="n down">−0,06%</td><td class="n">59.964.965 đ</td></tr>
+      </tfoot>
+    </table>
+  </div>
+  <div class="fignote">Thanh tỷ trọng chia theo dòng lớn nhất trong bảng (tiền mặt 35,3%). Ngành ngân hàng cộng lại 31,3%, dưới trần ngành 40% của Danh mục 2; không mã nào chạm trần 20%/mã.</div>
+
+  <h3>Bốn quy tắc thoát, soát trên đóng cửa 04/09</h3>
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th>Mã</th><th class="n">1 · giá vs 0,97×MA200</th><th class="n">2 · RS 12T (skip-21)</th><th>3 · thứ hạng ≤ 0,40</th><th>4 · luận điểm</th><th class="n">chặn cứng −25%</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="sym">MSB</td><td class="n">+20,1%</td><td class="n">+3,2%</td><td><span class="tag ok">0,40 · sát biên</span></td><td><span class="tag none">chưa rà soát</span></td><td class="n">còn −23,9%</td></tr>
+        <tr><td class="sym">STB</td><td class="n">+23,5%</td><td class="n">+23,2%</td><td><span class="tag ok">0,30</span></td><td><span class="tag none">chưa rà soát</span></td><td class="n">còn −28,0%</td></tr>
+        <tr><td class="sym">VHM</td><td class="n">+22,0%</td><td class="n">+36,1%</td><td><span class="tag ok">0,10</span></td><td><span class="tag none">chưa rà soát</span></td><td class="n">còn −31,2%</td></tr>
+        <tr><td class="sym">DHC</td><td class="n">+13,4%</td><td class="n">+17,8%</td><td><span class="tag no">0,50 · rớt</span></td><td><span class="tag none">chưa rà soát</span></td><td class="n">còn −23,1%</td></tr>
+        <tr><td class="sym">BSR</td><td class="n">+12,8%</td><td class="n">+50,0%</td><td><span class="tag no">0,70 · rớt</span></td><td><span class="tag none">chưa rà soát</span></td><td class="n">còn −24,3%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="fignote">DHC và BSR vi phạm quy tắc 3, nhưng cả hai vẫn được phép giải ngân nên bảng xếp hạng đòi mua lại đúng số lượng vừa bán — cơ chế bù trừ triệt tiêu lệnh và tránh 49.960 đ phí rửa. Đây là hành vi đã lập trình từ 02/09, không phải một ngoại lệ mở tay. Cột “chặn cứng” là mức giảm thêm cần có để chạm −25% so giá vốn; DHC gần nhất, vẫn cần 4 phiên sàn liên tiếp.</div>
+
+  <div class="callout">
+    <b>Quy tắc 4 chưa từng chạy.</b> Trường <span class="mono">luan_diem_con_nguyen</span> vẫn null cho cả năm mã, nghĩa là hệ thống đang vận hành với 3 trong 4 quy tắc thoát. Đây là lỗ hổng lớn nhất trong sổ, và nó nằm hoàn toàn trong tầm tay: viết luận điểm là việc của người, không phải của dữ liệu.
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">III</span>
+    <h2>Vì sao tiền mặt bị kẹt</h2>
+    <span class="aside">mục tiêu tiền mặt của allocator: 51,3%</span>
+  </div>
+
+  <p class="prose">11 mã qua được bộ lọc cứng ngày 04/09. Nhưng bộ lọc mới là Bước 1. Bước 3 (thẩm định doanh nghiệp → ngành → vĩ mô) và Bước 4 (định giá) là hai cửa do người quyết, và <b>thiếu kết luận nghĩa là chưa được mua</b> — nếu mặc định là đạt thì lớp phủ quyết không tồn tại. Chạy allocator hôm nay: chỉ 4/8 ô có ứng viên, và cả bốn đều là mã đã nằm trong danh mục.</p>
+
+  <div class="tbl-wrap">
+    <table>
+      <thead>
+        <tr><th class="n">Hạng</th><th>Mã</th><th class="n">Điểm</th><th class="n">RS 12T</th><th>Bước 3</th><th>Bước 4</th><th>Kết luận của người</th><th>Được giải ngân?</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="n">1</td><td class="sym">VIC</td><td class="n">0,97</td><td class="n">+209,0%</td><td><span class="tag no">loại</span></td><td><span class="tag none">—</span></td><td>loại</td><td><span class="tag no">không · người phủ quyết</span></td></tr>
+        <tr><td class="n">2</td><td class="sym">VHM</td><td class="n">0,66</td><td class="n">+36,1%</td><td><span class="tag ok">đạt</span></td><td><span class="tag ok">đạt</span></td><td>nắm giữ</td><td><span class="tag wait">giữ, không thêm tiền</span></td></tr>
+        <tr><td class="n">3</td><td class="sym">STB</td><td class="n">0,64</td><td class="n">+23,2%</td><td><span class="tag ok">đạt</span></td><td><span class="tag wait">chờ</span></td><td>kém khả quan</td><td><span class="tag no">không · giá vượt định giá</span></td></tr>
+        <tr><td class="n">4</td><td class="sym">VPI</td><td class="n">0,60</td><td class="n">+11,7%</td><td><span class="tag no">loại</span></td><td><span class="tag none">—</span></td><td>loại</td><td><span class="tag no">không · người phủ quyết</span></td></tr>
+        <tr><td class="n">5</td><td class="sym">MSB</td><td class="n">0,48</td><td class="n">+3,2%</td><td><span class="tag ok">đạt</span></td><td><span class="tag ok">đạt</span></td><td>khả quan</td><td><span class="tag ok">có · đã giữ 840</span></td></tr>
+        <tr><td class="n">6</td><td class="sym">DHC</td><td class="n">0,44</td><td class="n">+17,8%</td><td><span class="tag ok">đạt</span></td><td><span class="tag ok">đạt</span></td><td>khả quan</td><td><span class="tag ok">có · đã giữ 200</span></td></tr>
+        <tr><td class="n">7</td><td class="sym">LPB</td><td class="n">0,43</td><td class="n">+15,6%</td><td><span class="tag ok">đạt</span></td><td><span class="tag wait">chờ</span></td><td>kém khả quan</td><td><span class="tag no">không · đã bán 03/09</span></td></tr>
+        <tr><td class="n">8</td><td class="sym">BSR</td><td class="n">0,37</td><td class="n">+50,0%</td><td><span class="tag ok">đạt</span></td><td><span class="tag ok">đạt</span></td><td>khả quan</td><td><span class="tag ok">có · đã giữ 200</span></td></tr>
+        <tr><td class="n">9</td><td class="sym">PVD</td><td class="n">0,37</td><td class="n">+35,8%</td><td><span class="tag none">chưa</span></td><td><span class="tag none">chưa</span></td><td>—</td><td><span class="tag none">chưa thẩm định</span></td></tr>
+        <tr><td class="n">10</td><td class="sym">BAF</td><td class="n">0,34</td><td class="n">+2,4%</td><td><span class="tag none">chưa</span></td><td><span class="tag none">chưa</span></td><td>—</td><td><span class="tag none">chưa thẩm định</span></td></tr>
+        <tr><td class="n">11</td><td class="sym">GMD</td><td class="n">0,20</td><td class="n">+11,4%</td><td><span class="tag ok">đạt</span></td><td><span class="tag wait">chờ</span></td><td>kém khả quan</td><td><span class="tag no">không · đã bán 03/09</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="prose"><b>Không có một mã mới nào đang được phép mua.</b> Ba mã duy nhất còn cửa giải ngân — MSB, DHC, BSR — đều đã ở trong danh mục, và hai trong ba đã rớt khỏi top 40% nên bảng xếp hạng cũng không muốn thêm. 21,2 triệu đồng đang nằm ngoài thị trường vì hai ô trống trong một file JSON, chứ không vì ai đó kết luận thị trường rủi ro.</p>
+
+  <p class="prose">Hệ quả cần nói thẳng: Danh mục 2 hiện là <b>một vị thế phòng thủ do tai nạn giấy tờ</b>. Nó thắng nếu thị trường quay đầu và thua nếu chỉ số tiếp tục chạy. Nếu anh muốn giữ tư thế đó, hãy giữ nó như một lựa chọn có ý thức và ghi vào báo cáo cuối kỳ đúng như vậy — đừng để nó là mặc định.</p>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">IV</span>
+    <h2>Việc của tuần 07–11/09</h2>
+    <span class="aside">xếp theo đòn bẩy, không theo thứ tự thời gian</span>
+  </div>
+
+  <ol class="tasks">
+    <li><div>
+      <div class="t-head">Đối chiếu sao kê ba lệnh ngày 03/09</div>
+      <div class="t-body">Khối lượng của cả ba lệnh — mua 200 DHC, bán 100 GMD, bán 100 LPB — vẫn là giả định theo bảng lệnh, chưa ai xác nhận. Toàn bộ con số NAV 59.964.965 đứng trên đó.</div>
+      <div class="t-meta"><span>rẻ nhất</span><span>rủi ro sai sổ cao nhất</span><span>tiền lệ: sổ 03/09 ghi “đã cập nhật” trong khi file chưa hề sửa</span></div>
+    </div></li>
+    <li><div>
+      <div class="t-head">Thẩm định Bước 3 và Bước 4 cho PVD và BAF</div>
+      <div class="t-body">Hai mã duy nhất qua bộ lọc mà chưa có hồ sơ, và là cửa duy nhất để tiền mặt tìm được chỗ đứng ở kỳ soát 01/10. Mô phỏng ngày 04/09 ước tính mở khoá hết thẩm định kéo mục tiêu tiền mặt từ 51,3% xuống khoảng 25%.</div>
+      <div class="t-meta"><span>đòn bẩy lớn nhất</span><span>hạn: trước 01/10</span><span>ghi vào data/tham_dinh.json</span></div>
+    </div></li>
+    <li><div>
+      <div class="t-head">Chốt lại định giá cho STB, LPB, GMD</div>
+      <div class="t-body">Cả ba đang treo ở “Bước 4 chờ”. STB đang nắm giữ nhưng bị khoá không được thêm tiền vì giá 74.600 hôm 26/08 đã cao hơn định giá cơ sở 59.500 tới 25,4%. Nếu giả định cơ sở đã cũ thì phải ghi lại con số — không phải ghi lại kết luận.</div>
+      <div class="t-meta"><span>hạn: trước 01/10</span></div>
+    </div></li>
+    <li><div>
+      <div class="t-head">Viết luận điểm cho năm mã đang giữ</div>
+      <div class="t-body">Bật lại quy tắc thoát số 4. Yêu cầu của tài liệu là ghi <i>lý do lúc mua</i>, không phải lý do bây giờ đang lãi hay lỗ — viết lại luận điểm cho khớp hiện trạng thì quy tắc mất sạch tác dụng.</div>
+      <div class="t-meta"><span>hạn: trước 01/10</span><span>5 bản ghi</span></div>
+    </div></li>
+    <li><div>
+      <div class="t-head">Vá lỗ hổng chặn cứng −25%</div>
+      <div class="t-body">Với mã đã rớt bộ lọc cứng, allocator không tìm thấy giá trong <span class="mono">candidates_*.json</span> nên lùi về giá vốn, khiến điều kiện −25% không bao giờ đúng. Cổ phiếu sập thường thủng MA200 <i>trước</i> khi giảm 25%, nên chặn cứng đang tắt đúng lúc nó có việc. Sửa gốc: đọc giá từ <span class="mono">scan_*.json</span>.</div>
+      <div class="t-meta"><span>việc code</span><span>hiện chưa mã nào rơi vào diện này</span></div>
+    </div></li>
+    <li><div>
+      <div class="t-head">Thứ Tư 30/09: quét lại 113 mã</div>
+      <div class="t-body">Để kỳ soát 01/10 chạy trên đóng cửa tháng 9. Đặt chart ở VNINDEX trước khi chạy và khởi tạo chữ ký bằng bar đang hiển thị — cách này đã chặn thành công bẫy “VNINDEX nhận nhầm bar mã trước” hôm 04/09.</div>
+      <div class="t-meta"><span>~15 phút</span><span>kiểm tra 0 cặp trùng chữ ký trước khi tin kết quả</span></div>
+    </div></li>
+  </ol>
+
+  <div class="callout" style="margin-top:30px">
+    <b>Các việc 2–4 phải xong trước khi nhìn bảng lệnh 01/10.</b> Sổ đã ghi nhận hai lần chốt luật <i>sau</i> khi thấy bảng lệnh (trần trùng lặp, 02/09). Thẩm định làm sau khi đã biết luật sẽ sinh lệnh gì thì không còn là lớp phủ quyết độc lập nữa.
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <span class="sec-num">V</span>
+    <h2>Một quyết định cần anh chốt</h2>
+    <span class="aside">chốt tuần này, đừng chốt ngày 01/10</span>
+  </div>
+
+  <p class="prose">Cuộc thi kết thúc 17/10. Kỳ soát 01/10 chỉ để lại 11 phiên cho tiền mới làm việc. Câu hỏi hợp lệ là: <b>có nên đẩy kỳ soát lên sớm hơn không?</b> Đây là thay đổi luật, nên phải quyết bây giờ — trước khi biết bảng lệnh — và phải ghi lại kèm lý do.</p>
+
+  <p class="prose">Tôi đo thử phần được lợi. Nếu mở khoá hết thẩm định, tiền mặt mục tiêu về khoảng 25%, tức giải ngân thêm ~10,3 điểm NAV (~6,2 triệu). Làm sớm 3,6 tuần, với giả định chỉ số đi +1%/tuần, phần chênh là <b>+0,37 điểm phần trăm</b>. Khoảng cách hiện tại với chỉ số là <b>7,23 điểm</b>. Tức là phá luật để lấy 5% của khoảng cách, và dấu của nó không chắc — nếu chỉ số giảm, làm sớm là lỗ thêm.</p>
+
+  <div class="opts">
+    <div class="opt pick">
+      <div class="kicker">Khuyến nghị</div>
+      <h3>Giữ nguyên lịch soát 01/10</h3>
+      <p>Không đặt lệnh tuần sau. Dồn tuần vào sáu việc ở mục IV để bảng lệnh 01/10 thật sự có chỗ giải ngân.</p>
+      <ul>
+        <li>Phần bỏ lỡ ước tính +0,37 đpt, dấu không chắc</li>
+        <li>Không tạo tiền lệ đổi luật khi đang thua</li>
+        <li>Nền thị trường hẹp: 78/112 mã lỗ 12 tháng</li>
+        <li>Báo cáo cuối kỳ giữ được một hệ thống nhất quán</li>
+      </ul>
+    </div>
+    <div class="opt">
+      <div class="kicker">Lựa chọn thay thế</div>
+      <h3>Dời kỳ soát lên 21/09</h3>
+      <p>Lý do hợp lệ duy nhất: chân trời cuộc thi (2 tháng) ngắn hơn nhịp tái cân bằng mà hệ thống được thiết kế cho (hằng tháng, vô hạn định).</p>
+      <ul>
+        <li>Phải ghi lý do vào sổ <b>trước</b> khi quét lại</li>
+        <li>Lý do không được là “đang thua chỉ số”</li>
+        <li>Chênh lệch chân trời đã biết từ 17/08 — chốt bây giờ là đã nhiễm kết quả</li>
+        <li>Thêm một vòng phí ~0,07% NAV nếu 01/10 lại đảo</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="tl-track">
+      <div class="tl-pt on" style="left:0%"></div>
+      <div class="tl-lab above" style="left:0%"><b>07/09</b>thứ Hai<br>không có lệnh</div>
+
+      <div class="tl-pt" style="left:16.7%"></div>
+      <div class="tl-lab below" style="left:16.7%"><b>11/09</b>hạn mềm<br>PVD · BAF</div>
+
+      <div class="tl-pt" style="left:50%"></div>
+      <div class="tl-lab above" style="left:50%"><b>25/09 – 09/10</b>140 CP MSB<br>dự kiến về tài khoản</div>
+
+      <div class="tl-pt" style="left:73.3%"></div>
+      <div class="tl-lab below" style="left:73.3%"><b>30/09</b>quét lại<br>113 mã</div>
+
+      <div class="tl-pt key" style="left:80%"></div>
+      <div class="tl-lab above" style="left:80%"><b>01/10</b>kỳ soát<br>bảng lệnh</div>
+
+      <div class="tl-pt" style="left:100%"></div>
+      <div class="tl-lab below" style="left:100%"><b>16/10</b>phiên cuối<br>cuộc thi</div>
+    </div>
+    <div class="fignote" style="margin-top:56px">Trục chia theo số phiên giao dịch, không theo ngày lịch. 30 phiên từ 07/09 đến 16/10, trong đó 18 phiên nằm trước kỳ soát 01/10.</div>
+  </div>
+
+  <div class="callout">
+    <b>Rủi ro lịch cần biết trước.</b> 140 cổ phiếu cổ tức MSB (giao dịch không hưởng quyền 28/08) về tài khoản sau khoảng 4–6 tuần, tức rơi đúng quanh kỳ soát 01/10. MSB đang sát biên cả quy tắc 2 (RS +3,2%) lẫn quy tắc 3 (thứ hạng đúng bằng 0,40). Nếu 01/10 sinh lệnh bán MSB mà cổ phiếu chưa về, anh chỉ bán được 700 trong 840 CP.
+  </div>
+</section>
+
+<section class="notes">
+  <h3>Những gì bản này không chứng minh được</h3>
+  <ul>
+    <li><b>Khối lượng ba lệnh ngày 03/09 là giả định.</b> Chưa đối chiếu sao kê. Nếu sai, NAV và mọi tỷ trọng trong bản này sai theo.</li>
+    <li><b>Quy tắc thoát số 4 chưa từng được rà soát</b> cho bất kỳ mã nào. Bảng “bốn quy tắc” ở mục II thực chất là ba.</li>
+    <li><b>Chặn cứng −25% không kiểm được cho mã đã rớt bộ lọc.</b> Hiện chưa mã nào rơi vào diện đó, nên kết luận “không mã nào chạm chặn cứng” vẫn đúng — nhưng đúng vì may, không vì code.</li>
+    <li><b>Con số 13,89%/năm trong các bản báo cáo cũ đã bị thay thế.</b> Đo lại trên 4 pha lưới ngày 26/08: CAGR 9,1% so với chỉ số 8,3%, t ≈ 0,2 — không có ý nghĩa thống kê. Hệ thống này thắng khi thị trường xấu và thua khi thị trường tăng mạnh; đó là chữ ký của trend-following và phải chấp nhận trước.</li>
+    <li><b>Ước tính “tiền mặt mục tiêu về ~25%”</b> lấy từ mô phỏng ngày 04/09, chưa chạy lại sau đó.</li>
+  </ul>
+</section>
+
+<footer>
+  Dữ liệu giá: HOSE_DLY qua TradingView Desktop (gói Basic; trễ 15 phút trong phiên, bản này dùng đóng cửa nên không ảnh hưởng).<br>
+  Bar cuối cùng của HOSE là thứ Sáu 04/09/2026 — không có phiên nào phát sinh cuối tuần.<br>
+  Nguồn tính toán: data/scan_20260904.json · data/candidates_20260904.json · data/tham_dinh.json · lt_screener.py · lt_allocator.py.<br>
+  Khung luật: CHIEN_LUOC_DAI_HAN.md, bản chốt 17/08/2026, sửa lần cuối 02/09/2026.
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var IDX = {"d":["2026-04-09","2026-04-10","2026-04-13","2026-04-14","2026-04-15","2026-04-16","2026-04-17","2026-04-20","2026-04-21","2026-04-22","2026-04-23","2026-04-24","2026-04-28","2026-04-29","2026-05-04","2026-05-05","2026-05-06","2026-05-07","2026-05-08","2026-05-11","2026-05-12","2026-05-13","2026-05-14","2026-05-15","2026-05-18","2026-05-19","2026-05-20","2026-05-21","2026-05-22","2026-05-25","2026-05-26","2026-05-27","2026-05-28","2026-05-29","2026-06-01","2026-06-02","2026-06-03","2026-06-04","2026-06-05","2026-06-08","2026-06-09","2026-06-10","2026-06-11","2026-06-12","2026-06-15","2026-06-16","2026-06-17","2026-06-18","2026-06-19","2026-06-22","2026-06-23","2026-06-24","2026-06-25","2026-06-26","2026-06-29","2026-06-30","2026-07-01","2026-07-02","2026-07-03","2026-07-06","2026-07-07","2026-07-08","2026-07-09","2026-07-10","2026-07-13","2026-07-14","2026-07-15","2026-07-16","2026-07-17","2026-07-20","2026-07-21","2026-07-22","2026-07-23","2026-07-24","2026-07-27","2026-07-28","2026-07-29","2026-07-30","2026-07-31","2026-08-03","2026-08-04","2026-08-05","2026-08-06","2026-08-07","2026-08-10","2026-08-11","2026-08-12","2026-08-13","2026-08-14","2026-08-17","2026-08-18","2026-08-19","2026-08-20","2026-08-21","2026-08-24","2026-08-25","2026-08-26","2026-08-27","2026-08-28","2026-09-03","2026-09-04"],"c":[1736.68,1750.0,1758.96,1775.65,1800.65,1819.83,1817.17,1837.11,1833.48,1857.3,1870.36,1853.29,1875.84,1854.1,1854.06,1874.85,1891.2,1909.01,1915.37,1895.5,1901.1,1898.37,1925.46,1921.6,1927.94,1912.93,1913.23,1896.89,1877.13,1886.03,1884.18,1874.43,1863.67,1863.49,1844.54,1826.47,1819.01,1831.55,1838.9,1790.53,1793.05,1803.71,1798.61,1791.65,1799.31,1807.94,1806.2,1830.47,1824.53,1857.91,1869.04,1878.02,1863.07,1871.91,1854.97,1860.01,1867.21,1866.35,1862.08,1843.5,1848.25,1853.7,1840.7,1828.34,1800.54,1806.63,1782.12,1804.24,1787.45,1743.51,1730.56,1668.53,1699.38,1686.11,1669.01,1680.62,1704.68,1744.66,1735.78,1762.84,1777.23,1776.46,1764.78,1768.06,1776.77,1773.41,1793.18,1765.63,1729.08,1727.46,1732.02,1726.69,1734.24,1768.12,1788.78,1791.41,1821.32,1831.56,1832.12,1827.72,1853.08],"m":[1672.37,1674.33,1676.29,1678.34,1680.51,1682.75,1684.96,1687.26,1689.5,1691.88,1694.29,1696.55,1698.85,1700.97,1703.01,1705.09,1707.2,1709.44,1711.64,1713.67,1715.68,1717.75,1719.83,1721.88,1723.91,1725.82,1727.6,1729.62,1731.46,1733.38,1735.33,1737.06,1738.64,1740.09,1741.4,1742.61,1743.72,1744.84,1745.97,1746.72,1747.54,1748.38,1749.1,1749.73,1750.29,1751.1,1752.06,1752.88,1753.64,1754.52,1755.46,1756.44,1757.27,1758.3,1759.45,1760.56,1761.68,1762.73,1763.7,1764.49,1765.33,1766.24,1767.12,1767.97,1768.8,1769.66,1770.28,1770.97,1771.61,1771.99,1772.34,1772.35,1772.59,1772.79,1772.66,1772.63,1772.67,1772.81,1772.75,1772.74,1772.82,1772.91,1772.9,1773.08,1773.79,1774.34,1774.91,1775.3,1775.53,1775.91,1776.16,1776.37,1776.69,1777.33,1778.19,1778.89,1779.72,1780.67,1781.83,1783.07,1784.36]};
+  var HIST = [{"a":-70,"b":-60,"n":1},{"a":-60,"b":-50,"n":6},{"a":-50,"b":-40,"n":3},{"a":-40,"b":-30,"n":26},{"a":-30,"b":-20,"n":10},{"a":-20,"b":-10,"n":27},{"a":-10,"b":0,"n":16},{"a":0,"b":10,"n":8},{"a":10,"b":20,"n":6},{"a":20,"b":30,"n":4},{"a":30,"b":40,"n":1},{"a":40,"b":50,"n":2},{"a":50,"b":60,"n":0},{"a":60,"b":null,"n":2,"names":["BSR","VIC"]}];
+
+  function css(v){ return getComputedStyle(document.documentElement).getPropertyValue(v).trim(); }
+  function fmt(n,d){ return n.toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d}); }
+  function el(tag,attrs,text){
+    var e=document.createElementNS('http://www.w3.org/2000/svg',tag);
+    for(var k in attrs) e.setAttribute(k,attrs[k]);
+    if(text!=null) e.textContent=text;
+    return e;
+  }
+
+  function drawLine(){
+    var box=document.getElementById('box1'), tip=document.getElementById('tip1');
+    Array.prototype.forEach.call(box.querySelectorAll('svg'),function(s){s.remove();});
+    var W=960,H=360,PL=10,PR=104,PT=40,PB=40;
+    var pw=W-PL-PR, ph=H-PT-PB;
+    var lo=1640, hi=1950;
+    var d=IDX.d, c=IDX.c, m=IDX.m, n=d.length, i;
+    var X=function(i){ return PL + i*pw/(n-1); };
+    var Y=function(v){ return PT + (hi-v)/(hi-lo)*ph; };
+
+    var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'VNINDEX và MA200, 101 phiên tới 04/09/2026'});
+    var ink3=css('--ink-3'), ink2=css('--ink-2'), ink=css('--ink'),
+        rule=css('--rule'), acc=css('--accent'), acc2=css('--accent-2'), surf=css('--surface');
+
+    [1700,1800,1900].forEach(function(t){
+      svg.appendChild(el('line',{x1:PL,x2:PL+pw,y1:Y(t),y2:Y(t),stroke:rule,'stroke-width':1}));
+      svg.appendChild(el('text',{x:PL+pw+8,y:Y(t)+4,fill:ink3,'font-size':11,'font-family':'IBM Plex Mono, monospace'},fmt(t,0)));
+    });
+    svg.appendChild(el('line',{x1:PL,x2:PL+pw,y1:PT+ph,y2:PT+ph,stroke:css('--rule-strong'),'stroke-width':1}));
+
+    var area='M'+X(0)+' '+Y(c[0]);
+    for(i=1;i<n;i++) area+='L'+X(i)+' '+Y(c[i]);
+    area+='L'+X(n-1)+' '+(PT+ph)+'L'+X(0)+' '+(PT+ph)+'Z';
+    svg.appendChild(el('path',{d:area,fill:acc,'fill-opacity':0.10,stroke:'none'}));
+
+    var ci=d.indexOf('2026-08-14');
+    if(ci>=0){
+      svg.appendChild(el('line',{x1:X(ci),x2:X(ci),y1:PT,y2:PT+ph,stroke:ink3,'stroke-width':1,'stroke-dasharray':'3 3'}));
+      svg.appendChild(el('text',{x:X(ci)-7,y:PT-13,fill:ink2,'font-size':11.5,'text-anchor':'end','font-family':'IBM Plex Mono, monospace'},'bắt đầu thi 14/08'));
+    }
+
+    var pm='M'+X(0)+' '+Y(c[0]); for(i=1;i<n;i++) pm+='L'+X(i)+' '+Y(c[i]);
+    var p2='M'+X(0)+' '+Y(m[0]); for(i=1;i<n;i++) p2+='L'+X(i)+' '+Y(m[i]);
+    svg.appendChild(el('path',{d:p2,fill:'none',stroke:acc2,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'}));
+    svg.appendChild(el('path',{d:pm,fill:'none',stroke:acc,'stroke-width':2,'stroke-linejoin':'round','stroke-linecap':'round'}));
+
+    function annot(date,val,label,dy,anchor){
+      var k=d.indexOf(date); if(k<0) return;
+      svg.appendChild(el('circle',{cx:X(k),cy:Y(val),r:4.5,fill:acc,stroke:surf,'stroke-width':2}));
+      svg.appendChild(el('text',{x:X(k)+(anchor==='end'?-9:9),y:Y(val)+dy,fill:ink,'font-size':11.5,'text-anchor':anchor,'font-family':'IBM Plex Mono, monospace'},label));
+    }
+    annot('2026-05-18',1927.94,'đỉnh 1.927,94 · 18/05',-11,'start');
+    annot('2026-07-22',1668.53,'đáy 1.668,53 · 22/07',20,'start');
+
+    svg.appendChild(el('circle',{cx:X(n-1),cy:Y(m[n-1]),r:4.5,fill:acc2,stroke:surf,'stroke-width':2}));
+    svg.appendChild(el('circle',{cx:X(n-1),cy:Y(c[n-1]),r:4.5,fill:acc,stroke:surf,'stroke-width':2}));
+    svg.appendChild(el('rect',{x:PL+pw+9,y:Y(c[n-1])-20,width:14,height:2.5,fill:acc,rx:1}));
+    svg.appendChild(el('text',{x:PL+pw+9,y:Y(c[n-1])+1,fill:ink,'font-size':13,'font-weight':600,'font-family':'IBM Plex Mono, monospace'},'1.853,08'));
+    svg.appendChild(el('rect',{x:PL+pw+9,y:Y(m[n-1])+9,width:14,height:2.5,fill:acc2,rx:1}));
+    svg.appendChild(el('text',{x:PL+pw+9,y:Y(m[n-1])+29,fill:ink2,'font-size':13,'font-family':'IBM Plex Mono, monospace'},'1.784'));
+
+    [0,20,40,60,80,n-1].forEach(function(k){
+      var p=d[k].split('-');
+      svg.appendChild(el('text',{x:X(k),y:PT+ph+21,fill:ink3,'font-size':11,'text-anchor':k===0?'start':(k===n-1?'end':'middle'),'font-family':'IBM Plex Mono, monospace'},p[2]+'/'+p[1]));
+    });
+
+    var cross=el('line',{x1:0,x2:0,y1:PT,y2:PT+ph,stroke:css('--rule-strong'),'stroke-width':1,opacity:0});
+    var hd=el('circle',{r:5,fill:acc,stroke:surf,'stroke-width':2,opacity:0});
+    svg.appendChild(cross); svg.appendChild(hd);
+    svg.appendChild(el('rect',{x:PL,y:PT,width:pw,height:ph,fill:'transparent'}));
+    svg.addEventListener('mousemove',function(e){
+      var r=svg.getBoundingClientRect();
+      var px=(e.clientX-r.left)/r.width*W;
+      if(px<PL||px>PL+pw){cross.setAttribute('opacity',0);hd.setAttribute('opacity',0);tip.style.opacity=0;return;}
+      var k=Math.round((px-PL)/pw*(n-1)); k=Math.max(0,Math.min(n-1,k));
+      cross.setAttribute('opacity',1); cross.setAttribute('x1',X(k)); cross.setAttribute('x2',X(k));
+      hd.setAttribute('opacity',1); hd.setAttribute('cx',X(k)); hd.setAttribute('cy',Y(c[k]));
+      var dd=d[k].split('-');
+      tip.innerHTML='<b>'+dd[2]+'/'+dd[1]+'/'+dd[0]+'</b><br>VNINDEX '+fmt(c[k],2)+'<br>MA200 '+fmt(m[k],0);
+      tip.style.opacity=1;
+      var lx=X(k)/W*r.width+16, ty=Y(c[k])/H*r.height-12;
+      if(lx>r.width-160) lx=X(k)/W*r.width-tip.offsetWidth-16;
+      tip.style.left=Math.max(0,lx)+'px'; tip.style.top=Math.max(0,ty)+'px';
+    });
+    svg.addEventListener('mouseleave',function(){cross.setAttribute('opacity',0);hd.setAttribute('opacity',0);tip.style.opacity=0;});
+    box.appendChild(svg);
+  }
+
+  function drawHist(){
+    var box=document.getElementById('box2'), tip=document.getElementById('tip2');
+    Array.prototype.forEach.call(box.querySelectorAll('svg'),function(s){s.remove();});
+    var W=880,H=340,PL=44,PR=20,PT=58,PB=54;
+    var pw=W-PL-PR, ph=H-PT-PB;
+    var nb=HIST.length, band=pw/nb, bw=Math.min(24,band-8);
+    var maxN=30;
+    var X=function(k){ return PL + k*band + band/2; };
+    var Y=function(v){ return PT + (1-v/maxN)*ph; };
+
+    var svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'img','aria-label':'Phân phối lợi suất 12 tháng của 112 mã HOSE'});
+    var ink3=css('--ink-3'), ink2=css('--ink-2'), ink=css('--ink'),
+        rule=css('--rule'), acc=css('--accent'), acc2=css('--accent-2');
+
+    [0,10,20,30].forEach(function(t){
+      svg.appendChild(el('line',{x1:PL,x2:PL+pw,y1:Y(t),y2:Y(t),stroke:t===0?css('--rule-strong'):rule,'stroke-width':1}));
+      svg.appendChild(el('text',{x:PL-11,y:Y(t)+4,fill:ink3,'font-size':11,'text-anchor':'end','font-family':'IBM Plex Mono, monospace'},String(t)));
+    });
+    svg.appendChild(el('text',{x:PL-11,y:PT-18,fill:ink3,'font-size':11,'text-anchor':'end','font-family':'IBM Plex Mono, monospace'},'số mã'));
+
+    HIST.forEach(function(b,k){
+      if(b.n===0) return;
+      var h=b.n/maxN*ph, x=X(k)-bw/2, y=Y(b.n);
+      var r=Math.min(4,h);
+      var p='M'+x+' '+(PT+ph)+'V'+(y+r)+'a'+r+' '+r+' 0 0 1 '+r+' '+(-r)+'h'+(bw-2*r)+'a'+r+' '+r+' 0 0 1 '+r+' '+r+'V'+(PT+ph)+'Z';
+      var path=el('path',{d:p,fill:acc});
+      path.style.cursor='crosshair';
+      svg.appendChild(path);
+      path.addEventListener('mouseenter',function(){
+        var r2=svg.getBoundingClientRect();
+        var lbl = (b.b===null) ? 'từ +60% trở lên' : b.a+'% đến '+b.b+'%';
+        tip.innerHTML='<b>'+lbl+'</b><br>'+b.n+' mã'+(b.names?'<br>'+b.names.join(' · '):'');
+        tip.style.opacity=1;
+        tip.style.left=Math.min(X(k)/W*r2.width+16, Math.max(0,r2.width-170))+'px';
+        tip.style.top=Math.max(0,Y(b.n)/H*r2.height-10)+'px';
+      });
+      path.addEventListener('mouseleave',function(){tip.style.opacity=0;});
+    });
+
+    [3,5,13].forEach(function(k){
+      var b=HIST[k]; if(!b||b.n===0) return;
+      svg.appendChild(el('text',{x:X(k),y:Y(b.n)-10,fill:ink,'font-size':12,'font-weight':600,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'},String(b.n)));
+    });
+
+    function vx(v){ return PL + (v+70)/140*pw; }
+    var mx=vx(-16.1), ix=vx(10.8);
+    svg.appendChild(el('line',{x1:mx,x2:mx,y1:PT-8,y2:PT+ph,stroke:ink,'stroke-width':1.5}));
+    svg.appendChild(el('text',{x:mx-9,y:PT-16,fill:ink,'font-size':11.5,'text-anchor':'end','font-weight':600,'font-family':'IBM Plex Mono, monospace'},'trung vị 112 mã −16,1%'));
+    svg.appendChild(el('line',{x1:ix,x2:ix,y1:PT-8,y2:PT+ph,stroke:acc2,'stroke-width':1.5}));
+    svg.appendChild(el('text',{x:ix+9,y:PT-16,fill:ink2,'font-size':11.5,'text-anchor':'start','font-family':'IBM Plex Mono, monospace'},'VNINDEX +10,8%'));
+
+    HIST.forEach(function(b,k){
+      if(b.b!==null && k%2!==0) return;
+      var lab = (b.b===null) ? '+60% ↑' : (b.a>0?'+':'')+b.a+'%';
+      svg.appendChild(el('text',{x:X(k),y:PT+ph+21,fill:ink3,'font-size':10.5,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'},lab));
+    });
+    svg.appendChild(el('text',{x:PL+pw/2,y:PT+ph+43,fill:ink3,'font-size':11,'text-anchor':'middle','font-family':'IBM Plex Mono, monospace'},'lợi suất 12 tháng · khoảng chia 10 điểm phần trăm'));
+
+    box.appendChild(svg);
+  }
+
+  function drawAll(){ drawLine(); drawHist(); }
+  drawAll();
+  var mq=window.matchMedia('(prefers-color-scheme: dark)');
+  if(mq.addEventListener) mq.addEventListener('change',drawAll);
+  new MutationObserver(drawAll).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+  var rt; window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawAll,150);});
+})();
+</script>
