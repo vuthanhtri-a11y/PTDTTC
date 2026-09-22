@@ -322,6 +322,66 @@
     "phi_ban_va_thue": 5634,
     "rong": 422206
    }
+  },
+  {
+   "ngay": "2026-09-22",
+   "loai": "BAN",
+   "ma": "VHM",
+   "kl": 50,
+   "gia": 69000,
+   "gia_tri": 3450000,
+   "phi_dich_vu": 2760,
+   "thue": 3450,
+   "dong_tien": 3443790,
+   "du_tien_mat_sau": 39368153,
+   "can_cu": "PHU_QUYET Buoc 3 (13/09/2026, truc A=0 va C=0) -> quy tac thoat 4 (luan diem gay)",
+   "ghi_chu": "Ban TOAN BO 50/50 CP (het vi the). Tin hieu phat sinh 13/09 (TRUOC moc 16/09 cua BAO_LUU_TIN_HIEU), le ra hieu luc thuc thi 01/10 nhung khop SOM hon tai 22/09 theo trinh tu ky soat bo sung 21/09 (LICH_SOAT: 'lenh BAN van dat 22/09'). Ghi nhan lech so voi ke hoach da chot, trung thuc. Gia ban 69.000 = dung gia von -> lai gop = 0.",
+   "lai_lo": {
+    "gop": 0,
+    "phi_mua_phan_bo": 2760,
+    "phi_ban_va_thue": 6210,
+    "rong": -8970
+   }
+  },
+  {
+   "ngay": "2026-09-22",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 300,
+   "gia": 13450,
+   "gia_tri": 4035000,
+   "phi_dich_vu": 3228,
+   "thue": 4035,
+   "dong_tien": 4027737,
+   "du_tien_mat_sau": 43395890,
+   "can_cu": "QUY_TAC_5 (ban theo cam quan thi truong cua quy)",
+   "ghi_chu": "Ban 300/840 CP (35,7% vi the, duoi tran 50%). Ghi vao LENH_QUY_TAC_5 so 2 trong lt_config.py. cam_quan: lo ngai chung ve nganh ngan hang/thi truong, khong rieng ve ban than MSB. GHI SAU KHI DA KHOP (le sai quy trinh nhu BSR 16/09), ghi lai trung thuc.",
+   "lai_lo": {
+    "gop": 35100,
+    "phi_mua_phan_bo": 3200,
+    "phi_ban_va_thue": 7263,
+    "rong": 24637
+   }
+  },
+  {
+   "ngay": "2026-09-22",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 50,
+   "gia": 13500,
+   "gia_tri": 675000,
+   "phi_dich_vu": 540,
+   "thue": 675,
+   "dong_tien": 673785,
+   "du_tien_mat_sau": 44069675,
+   "can_cu": "QUY_TAC_5 (ban theo cam quan thi truong cua quy)",
+   "ghi_chu": "Ban them 50/540 CP con lai (tong 350/840 = 41,7% vi the goc, van duoi tran 50% tinh tren moi lan). Ghi vao LENH_QUY_TAC_5 so 3 trong lt_config.py. cam_quan: lo ngai chung ve nganh ngan hang/thi truong, khong rieng ve ban than MSB. GHI SAU KHI DA KHOP, ghi lai trung thuc.",
+   "lai_lo": {
+    "gop": 8350,
+    "phi_mua_phan_bo": 533,
+    "phi_ban_va_thue": 1215,
+    "rong": 6602
+   }
   }
  ],
  "su_kien_phi_tien_mat": [
@@ -413,29 +473,11 @@
   },
   {
    "ma": "MSB",
-   "kl": 840,
+   "kl": 490,
    "gia_von": 13333,
-   "von_goc": 11200000,
-   "phi_mua_con_lai": 8960,
-   "gia_15_09": 12850,
-   "gia_tri": 10836000,
-   "lai_lo_gop": -364000,
-   "lai_lo_rong": -372960,
-   "gia_18_09": 12900,
-   "lai_lo_rong_pct": -3.33
-  },
-  {
-   "ma": "VHM",
-   "kl": 50,
-   "gia_von": 69000,
-   "von_goc": 3450000,
-   "phi_mua_con_lai": 2760,
-   "gia_15_09": 71600,
-   "gia_tri": 3550000,
-   "lai_lo_gop": 100000,
-   "lai_lo_rong": 97240,
-   "gia_18_09": 71000,
-   "lai_lo_rong_pct": 2.82
+   "von_goc": 6533170,
+   "phi_mua_con_lai": 5227,
+   "ghi_chu": "Con 490/840 CP sau khi ban 300 @13.450 va 50 @13.500 theo QUY_TAC_5 ngay 22/09/2026 (LENH_QUY_TAC_5 so 2, so 3). Gia thi truong/lai_lo o day CHUA cap nhat theo gia 22/09 - can dinh gia lai dong bo o ky soat ke tiep."
   }
  ],
  "tong_ket": {

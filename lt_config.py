@@ -124,8 +124,28 @@ HOLDINGS = {
     #   Lai chua thuc hien tren 100 CP con lai: (31.300-27.000) x 100 = +430.000
     #   gop / +427.840 rong (tru phi mua con lai 2.160). Sao luu truoc khi sua:
     #   data/lt_config_backup_20260916.py
-    "DM2": [("MSB", 840, 13_333), ("BSR", 100, 27_000),
-            ("VHM", 50, 69_000), ("DHC", 200, 36_600)],
+    # 22/09/2026 — BAN TOAN BO 50 VHM @69.000 do PHU_QUYET (Buoc 3 ngay 13/09,
+    #   truc A=0 va C=0) -> quy tac thoat 4 (luan diem gay). Da het vi the.
+    #   ⚠️ LECH KE HOACH: BAO_LUU_TIN_HIEU (ben duoi) ghi tin hieu nay phat sinh
+    #   13/09 (TRUOC moc 16/09) nen le ra giu lich thuc thi CU, ban o ky 01/10.
+    #   Nhung lenh da khop SOM hon, tai 22/09 — theo trinh tu ky soat bo sung
+    #   21/09 (LICH_SOAT: "lenh BAN van dat 22/09, khong can tham dinh"). User
+    #   xac nhan day la lenh khop som theo trinh tu do, khong phai quyet dinh
+    #   khac. Ghi nhan lech trung thuc, khong sua lai BAO_LUU_TIN_HIEU cho khop.
+    #   Gia ban = dung gia von 69.000 -> lai gop = 0, lai rong = -8.970 (phi+thue).
+    #   Thu ve: 50 x 69.000 = 3.450.000 - phi/thue 0,18% (6.210) = 3.443.790.
+    #   Da them vao KHOA_WHIPSAW.ban_ky_bo_sung (mot trong bon quy tac thoat).
+    # 22/09/2026 — BAN 300 + 50 MSB @13.450 va @13.500 theo QUY TAC THU NAM
+    #   (cam quan: lo ngai chung ve nganh ngan hang/thi truong, khong rieng ve
+    #   ban than MSB). Hai lenh khop rieng, ghi thanh LENH_QUY_TAC_5 so 2 va
+    #   so 3 ben duoi — GHI SAU KHI DA KHOP (le sai quy trinh nhu BSR 16/09),
+    #   ghi lai trung thuc. Tong 350/840 CP (41,7% vi the goc), moi lenh rieng
+    #   deu duoi tran 50%. Con lai 490 CP, gia von khong doi 13.333.
+    #   Thu ve: 300 x 13.450 = 4.035.000 - phi/thue (7.263) = 4.027.737;
+    #           50 x 13.500 = 675.000 - phi/thue (1.215) = 673.785.
+    #   Sao luu truoc khi sua: data/lt_config_backup_20260922.py
+    "DM2": [("MSB", 490, 13_333), ("BSR", 100, 27_000),
+            ("DHC", 200, 36_600)],
 }
 # DM2: 15.826.732 - 7.330.980 (mua DHC 03/09) = 8.495.752
 #      8.495.752 + 12.683.213 (ban GMD+LPB 03/09) = 21.178.965
@@ -144,7 +164,10 @@ HOLDINGS = {
 # NAV tu day mang GIA MIXED NGAY (BSR 16/09, MSB/VHM/DHC van 15/09) nen chua
 # doi chieu duoc voi sao ke moi — can mot dong sao ke ke tiep de dong lai.
 # 18/09/2026 — DOI CHIEU SAO KE TIEN: 35.924.363 (lech +241 so voi 35.924.122: lai 638, luu ky -169, TTLK -225, lam tron -3). Xem so_giao_dich.json.
-TIEN_MAT = {"DM1": 0, "DM2": 35_924_363}
+# 22/09/2026 — 35.924.363 + 3.443.790 (ban 50 VHM, phu_quyet) = 39.368.153
+#              39.368.153 + 4.027.737 (ban 300 MSB, quy tac 5) = 43.395.890
+#              43.395.890 + 673.785 (ban 50 MSB, quy tac 5) = 44.069.675
+TIEN_MAT = {"DM1": 0, "DM2": 44_069_675}
 
 # ------------------------------------------------- Lenh ngoai luat (co y thuc)
 # Quy dinh: nhung quyet dinh KHONG sinh ra tu bon quy tac thoat / bang xep hang
@@ -387,6 +410,41 @@ LENH_QUY_TAC_5 = [
         # doi hoi ("ghi TRUOC khi dat lenh"). Day la mot le sai quy trinh da
         # biet, ghi lai de ky sau doi chieu — khong phai de bao chua.
     },
+    {
+        "so": 2,
+        "ngay": "2026-09-22",
+        "dm": "DM2",
+        "ma": "MSB",
+        "kl_truoc": 840,
+        "kl_ban": 300,
+        "gia": 13_450,
+        "cam_quan": "Lo ngai chung ve nganh ngan hang/thi truong, khong phai vi "
+                    "tin xau rieng cua MSB.",
+        "sai_khi": None,
+        "trang_thai": "da khop",
+        "gia_han_den": None,
+        "ngay_ghi_gia_han": None,
+        # ⚠️ Ghi nhan trung thuc: ban ghi nay duoc lap SAU KHI lenh da khop,
+        # cung mot le sai quy trinh nhu ban ghi so 1 (BSR 16/09).
+    },
+    {
+        "so": 3,
+        "ngay": "2026-09-22",
+        "dm": "DM2",
+        "ma": "MSB",
+        "kl_truoc": 540,
+        "kl_ban": 50,
+        "gia": 13_500,
+        "cam_quan": "Lo ngai chung ve nganh ngan hang/thi truong, khong phai vi "
+                    "tin xau rieng cua MSB — cung ly do voi lenh so 2, khop rieng "
+                    "gia trong cung phien.",
+        "sai_khi": None,
+        "trang_thai": "da khop",
+        "gia_han_den": None,
+        "ngay_ghi_gia_han": None,
+        # ⚠️ Ghi nhan trung thuc: ban ghi nay duoc lap SAU KHI lenh da khop,
+        # cung mot le sai quy trinh nhu ban ghi so 1 va so 2.
+    },
 ]
 
 # ------------------------------------------------- Lich ra soat (chot 16/09/2026)
@@ -438,7 +496,11 @@ LICH_SOAT = {
 #    "ly_do_ban": "quy tac 3 — thu hang 0,55 > 0,40"}
 KHOA_WHIPSAW = {
     "khoa_den": "2026-11-01",       # allocator khong mua lai truoc ngay nay
-    "ban_ky_bo_sung": [],           # dien sau khi ky 21/09 sinh lenh ban that
+    "ban_ky_bo_sung": [
+        {"ngay": "2026-09-22", "dm": "DM2", "ma": "VHM", "kl": 50,
+         "ly_do_ban": "quy tac thoat 4 — phu quyet Buoc 3 13/09 (truc A=0, C=0), "
+                      "luan diem gay. Ban het vi the."},
+    ],
 }
 
 # ------------------------------------------ Dieu khoan bao luu (chot 16/09/2026)
@@ -459,7 +521,14 @@ BAO_LUU_TIN_HIEU = {
     "ma": {
         "VHM": "Phu quyet Buoc 3 ngay 13/09/2026 (cong V3+V4, truc C = 0) -> quy "
                "tac 4 hong. Tin hieu phat sinh 13/09, TRUOC moc 16/09 -> giu "
-               "lich thuc thi cu: ban o ky 01/10, KHONG bi ky 21/09 day som.",
+               "lich thuc thi cu: ban o ky 01/10, KHONG bi ky 21/09 day som.\n"
+               "        ⚠️ 22/09/2026 — THUC TE KHONG DUNG NHU TREN: ban TOAN BO "
+               "50 CP da khop 22/09 (theo trinh tu ky soat bo sung 21/09, "
+               "LICH_SOAT: 'lenh BAN van dat 22/09'), SOM hon lich thuc thi da "
+               "chot o day (01/10). User xac nhan day la lenh khop som theo "
+               "trinh tu 21/09, khong phai quyet dinh khac. Dieu khoan bao luu "
+               "o day KHONG duoc tuan thu dung nhu viet — ghi lai trung thuc de "
+               "ky sau doi chieu, khong sua lai cho khop voi thuc te.",
     },
 }
 
