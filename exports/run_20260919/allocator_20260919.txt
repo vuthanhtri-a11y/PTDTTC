@@ -1,0 +1,65 @@
+TOP 5 MA DUOC PHEP GIAI NGAN (qua ca 4 buoc), xep theo thu hang Buoc 2
+
+Ma     Hang   Diem    RS12T     R2   ATR%    Ty/ph    B3    B4 Nganh       
+----------------------------------------------------------------------------------------
+BSR       5   0.57   +50.8%   0.01   3.82    336.7   dat   dat Dau khi     
+DHC       9   0.33    +4.8%   0.35   2.89     16.2   dat   dat Giay        
+
+11 ma qua Buoc 1, nhung 2 ma CHUA co ket luan tham dinh Buoc 3/4 nen chua duoc phep mua:
+  BAF(#7), HDB(#10)
+  -> nhap ket luan vao data/tham_dinh.json roi chay lai.
+
+-> Excel: data\bao_cao_dau_tu_20260919.xlsx
+Tong tai san 2 danh muc: 60,640,363 d
+
+==============================================================================
+DM1 — Danh muc 1 — tien that
+KHONG CO DU LIEU VON (HOLDINGS rong va TIEN_MAT = 0).
+Bo qua phan bo. Cap nhat lt_config.py roi chay lai; ban ghi cu o data/lt_config_backup_20260825.py.
+==============================================================================
+
+==============================================================================
+DM2 — Danh muc 2 — tai khoan du thi
+Von ban dau 60,000,000  |  NAV hien tai 60,640,363  |  2/8 o co ung vien
+==============================================================================
+Ma     Diem  ATR%      w      Gia      KL       Gia tri   %NAV  Ghi chu
+------------------------------------------------------------------------------
+BSR    0.57  3.82 10.6%   30,200     200     6,040,000  10.0%  
+DHC    0.33  2.89 13.9%   36,550     200     7,310,000  12.1%  
+------------------------------------------------------------------------------
+MUC TIEU CP                                   13,350,000  22.0%
+MUC TIEU TM                                   47,290,363  78.0%
+  (danh muc MUC TIEU cua cac o DA co ma qua du 4 buoc — khong phai trang thai hien tai)
+
+LENH BAN (bon quy tac thoat):
+  (khong co — moi vi the con tra loi CO cho ca bon cau hoi)
+
+LENH MUA (o trong sau khi ban, theo thu hang Buoc 2):
+  (khong co lenh mua)
+  (khong co lenh)
+
+DA BU TRU (khong dat lenh — vi the khong doi):
+      200 DHC   — quy tac thoat doi ban (rank_below_40pct), bang xep hang doi mua lai cung so luong. Tranh duoc 19,006 d phi rua.
+
+KHOA BOI QUY TAC 5 (quy da gia han — khong mua lai phan da ban):
+      100 BSR   — xem LENH_QUY_TAC_5
+
+SAU KHI DAT LENH: 4 ma (BSR, DHC, MSB, VHM)
+  co phieu    24,716,000 (40.8%)   tien mat    35,924,363 (59.2%)   NAV 60,640,363
+
+
+SO LENH NGOAI LUAT — nguoi quyet, he thong KHONG sinh ra:
+  #1  2026-09-07  VHM  [da khop]
+      ten      : Lenh chot lai mot phan theo yeu cau nguoi gop von
+      viec     : BAN 50/100 VHM @77.700 (+12,6% tren gia von 69.000)
+      con treo : MUA LAI 50 CP khi gia <= 75.200  (han 2026-10-16)
+      het han  : HET HIEU LUC sau han chot; KHONG duoc nang gia mua lai. Nang gia = doi luat sau khi biet ket qua.
+      so hoc   : Khop -> +109.648 d (+0,18% NAV). Khong khop ma VHM len 80.000/85.000 -> -124.712/-374.712 d (-0,21%/-0,62% NAV). Xac suat khop phai dat 53,2%/77,4% moi hoa von.
+      [NGUOC]  : Luat A (chot lai tai muc tieu) co alpha AM tren 56.496 lenh mo phong — xem memory luat-thoat-va-cuoc-thi-dau-tu.
+
+SO LENH QUY TAC 5 — Ban theo cam quan thi truong cua quy (tuy nghi, tu 2026-09-11):
+  #1  2026-09-16  DM2  BSR  [da khop]
+      ban      : 100/200 CP @31,300
+      cam quan : Lo ngai chung ve thi truong/nhom nganh dau khi noi rieng, khong phai vi tin xau rieng cua BSR. BSR da tang 27.000 -> 31.300 (+15,9%) tu gia von.
+      hieu luc : gia han den 2026-09-30 (ghi ngay 2026-09-16)
+

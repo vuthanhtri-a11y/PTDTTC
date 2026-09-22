@@ -16,6 +16,7 @@ Chay: PYTHONIOENCODING=utf-8 python lt_allocator.py
 """
 
 import json
+import math
 import os
 import sys
 from datetime import datetime
@@ -23,7 +24,7 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
 
-from lt_config import (PORTFOLIOS, HOLDINGS, TIEN_MAT,
+from lt_config import (PORTFOLIOS, HOLDINGS, TIEN_MAT, NGANH,
                        FEE_BUY, FEE_SELL, LOT, EXIT, LENH_NGOAI_LUAT,
                        QUY_TAC_5, LENH_QUY_TAC_5,
                        LICH_SOAT, KHOA_WHIPSAW, BAO_LUU_TIN_HIEU)
@@ -143,7 +144,7 @@ def chon(cands, cfg):
 
 
 def ty_trong(chosen, cfg):
-    """1/ATR chuan hoa, ap tran ma, phan phoi lai phan bi cat."""
+    """1/ATR, cap each stock, then cap sector value; excess stays in cash."""
     N = cfg["so_vi_the"]
     base = (1 - DEM_PHI) / N
     tong = base * len(chosen)                # o trong = tien mat
@@ -163,7 +164,55 @@ def ty_trong(chosen, cfg):
         sc = sum(w[k] for k in con)
         for k in con:
             w[k] += thua * (w[k] / sc if sc > 0 else 1.0 / len(con))
+    sector_weights = {}
+    for c in chosen:
+        sector_weights[c["nganh"]] = sector_weights.get(c["nganh"], 0) + w[c["ma"]]
+    for c in chosen:
+        total = sector_weights[c["nganh"]]
+        if total > cfg["tran_nganh"]:
+            w[c["ma"]] *= cfg["tran_nganh"] / total
     return w
+
+
+def gioi_han_mua(mua, ban, holdings, cash, prices, candidates, cfg, total_nav):
+    """Fund buys in rank order using the portfolio actually retained after sales.
+
+    Caps use pre-trade NAV, as do target weights. Never sell retained holdings
+    merely to enforce a cap; only prevent buys from increasing the excess.
+    """
+    remaining = {ma: qty - ban.get(ma, 0) for ma, qty in holdings.items()
+                 if qty - ban.get(ma, 0) > 0}
+    available = cash + sum(qty * prices[ma] * (1 - FEE_SELL)
+                           for ma, qty in ban.items())
+    sectors = {}
+    for ma, qty in remaining.items():
+        sector = candidates.get(ma, {}).get("nganh", NGANH.get(ma, "Khac"))
+        sectors[sector] = sectors.get(sector, 0) + qty * prices[ma]
+    allowed, reduced = {}, {}
+    for ma in sorted(mua, key=lambda m: (candidates[m].get("thu", 10**6), m)):
+        requested, price = mua[ma], prices[ma]
+        sector = candidates[ma]["nganh"]
+        current = remaining.get(ma, 0)
+        if price <= 0 or (current == 0 and len(remaining) >= cfg["so_vi_the"]):
+            qty = 0
+        else:
+            room = max(0, min(available / (1 + FEE_BUY),
+                              cfg["tran_ma"] * total_nav - current * price,
+                              cfg["tran_nganh"] * total_nav - sectors.get(sector, 0)))
+            # Preserve an existing odd-lot top-up when fully affordable. When
+            # reducing an order, use whole lots without rounding past the cap.
+            qty = requested if requested * price <= room else min(
+                requested, math.floor(room / price / LOT) * LOT)
+            if current == 0 and qty * price < cfg["ticket_toi_thieu"]:
+                qty = 0
+        if qty:
+            allowed[ma] = qty
+            available -= qty * price * (1 + FEE_BUY)
+            remaining[ma] = current + qty
+            sectors[sector] = sectors.get(sector, 0) + qty * price
+        if qty < requested:
+            reduced[ma] = requested - qty
+    return allowed, reduced
 
 
 def nav(pk, gia):
@@ -348,7 +397,7 @@ def main():
     print()
 
     navs = {pk: nav(pk, gia) for pk in PORTFOLIOS}
-    today = datetime.now().strftime("%Y%m%d")
+    today = HOM_NAY.replace("-", "")
     excel_path = os.path.join("data", f"bao_cao_dau_tu_{today}.xlsx")
     export_excel(cands, navs, excel_path)
     print(f"-> Excel: {excel_path}")
@@ -536,6 +585,11 @@ def main():
             if mua_kl[ma] <= 0:
                 del mua_kl[ma]
 
+        # Validate executable orders against retained positions and actual cash.
+        mua_kl, giam_mua = gioi_han_mua(
+            mua_kl, ban_kl, dang_giu, TIEN_MAT[pk], {**von, **gia},
+            by_ma, cfg, NAV)
+
         # --- Giai doan 4: in bang lenh (da bu tru)
         lenh, phi = 0, 0
         if cham_tay:
@@ -598,6 +652,11 @@ def main():
             for ma in sorted(da_khoa_ws):
                 print(f"  {da_khoa_ws[ma]:>7,} {ma:<5} — chong whipsaw giua "
                       f"hai ky cach 7 phien; xem KHOA_WHIPSAW")
+
+        if giam_mua:
+            print("\nGIAM LENH MUA (tien sau phi / tran ma / tran nganh / so o / ticket):")
+            for ma, qty in giam_mua.items():
+                print(f"  {ma:<5} giam {qty:,} CP so voi muc tieu")
 
         if hoan_ban:
             print(f"\n[BAO LUU {BAO_LUU_TIN_HIEU['thuc_thi_tai']}] — quy "
@@ -667,7 +726,7 @@ def in_lenh_quy_tac_5():
     if not LENH_QUY_TAC_5:
         print("  (chua co lenh nao)\n")
         return
-    hom_nay = datetime.now().strftime("%Y-%m-%d")
+    hom_nay = HOM_NAY
     for L in LENH_QUY_TAC_5:
         thieu = [f for f in Q["truong_bat_buoc"] if L.get(f) in (None, "")]
         print(f"  #{L.get('so', '?')}  {L.get('ngay', '?')}  {L.get('dm', 'DM2')}  "
@@ -694,6 +753,7 @@ def in_lenh_quy_tac_5():
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8")
     if not os.path.isdir("data"):
         sys.exit("Thieu thu muc data/")
     main()

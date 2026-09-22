@@ -536,3 +536,93 @@ Mục 2 có một câu tự kiểm tra: *"một lớp phủ quyết không bao g
 **Điều đáng ghi nhất không phải lãi 3,38%.** Là chỗ này: một luận điểm xây trên báo cáo phân tích bên thứ ba, chưa qua thẩm định độc lập, **là luận điểm chưa từng được kiểm**. Nó không "gãy" vào tháng 9 — nó vốn đã mỏng từ tháng 8, và chỉ lộ ra khi quỹ tự đọc số gốc. Hệ quả cho quy trình: **Bước 3 phải chạy TRƯỚC khi mua, không phải khi viết báo cáo giữa kỳ.** Bốn mã còn lại (MSB, BSR, VHM, DHC) đều đang mang nhãn `buoc3 = "dat"` nhập ngày 01/09 và `luan_diem` vẫn rỗng — cùng tình trạng mà STB đã ở, chỉ là chưa ai đọc lại.
 
 **Dữ liệu:** `data/tham_dinh.json` → `STB.buoc3_chi_tiet` (năm cổng, ba trục, bảng V3b bốn kỳ, kiểm định độ bền bốn cách đọc, ba việc mở lại phiếu trước hạn 12/12/2026) và `STB.da_ban`. Sao lưu: `data/tham_dinh_backup_20260914.json`, `data/lt_config_backup_20260914.py`, `data/CHIEN_LUOC_DAI_HAN_backup_20260914.md`.
+
+---
+
+## 12. Bước 3a CANSLIM — đăng ký trước, kiểm định, BÁC BỎ — ngày 22/09/2026
+
+Đề xuất "Thay Bước 3 bằng thẩm định CANSLIM" (bản nháp mục 9.4 của báo cáo) được chất vấn qua 9 quyết định, rồi đo bằng phép thử **đăng ký trước**. Kết quả: **BÁC BỎ**. Mục này ghi lại theo đúng thứ tự: quyết định, dữ liệu, kết quả, phản biện, và những gì còn mở.
+
+### 12.1 Chín quyết định (chốt trước khi chạy)
+
+| # | Quyết định |
+|---|---|
+| 1 | Dòng "Kiểm định 12 năm của Quỹ (Mục 8.7): quán tính 0,52, t = 5,8; M cắt sụt giảm −54% → −37%" **không có trong project** (không có file, không có script, dữ liệu giá không dài tới 12 năm) và **mâu thuẫn** với mục 2 (lọc VNINDEX theo MA50 không dự báo được hướng) và mục 8 (t ≈ 0,2). Đã gỡ khỏi phần lý do; L và M được coi là giả thuyết cần đo như mọi chữ khác. |
+| 2 | Dữ liệu lợi nhuận: BCTC quý và năm từ API công khai của Vietcap (`canslim_data.py`), 112 mã HOSE, **ngày hiệu lực = ngày công bố muộn nhất trong các phần BCTC**, và không sớm hơn cuối quý + 20 ngày. |
+| 3 | Bước 3 = **3a CANSLIM (máy chấm)** + **3b năm cổng phủ quyết V1–V5 (người)**; mã phải qua cả hai. |
+| 4 | Nhánh chính: **M, C, A là cổng cứng; N, S, L cộng điểm, cần ≥ 2/3**. Nhánh đối chứng: cả sáu chữ đều qua. Ngưỡng ở `CANSLIM` trong `lt_config.py`. |
+| 5 | **I bỏ khỏi luật máy.** Không có dữ liệu tương đương 13F. Nhánh thăm dò "khối ngoại mua ròng" **không chạy được**: Vietcap chỉ có ảnh chụp room ngoại hiện tại, không có lịch sử. |
+| 6 | Phép đo P1: hệ thống B1 **có** 3a so với **không có** 3a, 4 pha lưới, 8 ô, trần 20%, 1/ATR, biên không giao dịch 3%, phí 0,4%, t Newey-West. **Chấp nhận** khi ≥ 3/4 pha dương, t ≥ 2 và sụt giảm không tệ hơn quá 3 điểm %. **Chưa kết luận** khi 1 ≤ t < 2. **Bác bỏ** khi t < 1. |
+| 7 | Công tắc `CANSLIM_CHAN_MUA` bật hay tắt theo kết quả. Bác bỏ thì gỡ khỏi báo cáo, chỉ lưu hồ sơ. V1–V5 vẫn chặn trong mọi trường hợp. |
+| 8 | V3 máy tính (dòng tiền HĐKD 3 năm / LNST 3 năm < 50%) **chỉ làm cờ** cho người lập phiếu 3b, không chặn mua. |
+| 9 | Kết quả máy chấm ghi ra `data/canslim_YYYYMMDD.json`. `tham_dinh.json` giữ nguyên vai trò file kết luận của **người**. |
+
+**Lệch khỏi đăng ký trước, do dữ liệu, ghi thẳng:** cửa sổ dự kiến là 2016–08/2026, nhưng Vietcap chỉ có BCTC từ Q1/2018, mà chữ A cần 16 quý LNST liên tục. Cửa sổ thực tế vì vậy là **02/2022 → 09/2026** (≈ 54 kỳ tháng), gần trùng với cửa sổ 04/2022–08/2026 của mục 8. Không có ngưỡng nào bị chỉnh sau khi xem kết quả.
+
+### 12.2 Kết quả P1 (sau khi sửa các lỗi phản biện chỉ ra, xem 12.3)
+
+| Biến thể | CAGR TB 4 pha | Sụt giảm TB (theo ngày) | Chênh lệch/kỳ so với B1 | t TB | Pha dương | Giải ngân TB | Phán quyết |
+|---|---|---|---|---|---|---|---|
+| B1 (không 3a) | **10,0%** | −41,1% | — | — | — | 94–96% | — |
+| **3a nhánh chính** | **2,3%** | −19,9% | **−0,89%** | **−1,00** | **0/4** | 16–20% | **BÁC BỎ** |
+| 3a đối chứng (6 chữ) | 2,4% | −13,0% | −0,90% | −0,98 | 0/4 | 10–14% | BÁC BỎ |
+| 3a chính + cờ V3 chặn | 2,8% | −19,9% | −0,85% | −0,95 | 0/4 | 16–19% | BÁC BỎ |
+| Chỉ M làm cổng | 8,8% | −30,6% | −0,19% | −0,41 | 2/4 | 64–70% | BÁC BỎ |
+| VN-Index | 4,6% | | | | | | |
+
+Nguồn: `data/canslim_backtest_20260922.json`, chạy lại bằng `python canslim_backtest.py`.
+
+**Cơ chế thất bại — đọc đúng phạm vi:** nhánh chính chỉ giữ trung bình **1,3–1,6 mã / 8 ô**. Có 36–39/54 kỳ không có mã nào vừa qua Tầng 1 vừa qua 3a. Phần lớn chênh lệch đến từ **tiền nằm không**, không phải từ việc chọn mã. Phân rã của Codex: khoảng −1,09 điểm %/kỳ đến từ mức giải ngân, +0,09 điểm %/kỳ là phần dư. Phán quyết bác bỏ là bác bỏ **luật phân bổ này**: 3a làm cổng cứng trong rổ 112 mã. Nó **không** chứng minh CANSLIM chọn mã tệ hơn.
+
+**Kiểm định từng chữ** (lợi suất vượt VN-Index 3 tháng tới, nhóm qua trừ nhóm không qua, t Newey-West, 51 kỳ, rổ ≥ 10 tỷ/phiên như đăng ký): C −0,8% (t −0,64) · A +0,9% (t +0,70) · N −0,0% (t −0,01) · S −0,5% (t −0,67) · L −2,0% (t −1,42) · M: VN-Index 3 tháng sau khi M **sai** lại tăng hơn khi M đúng 3,2 điểm % (t −0,86). **Không chữ nào có ý nghĩa thống kê**, theo cả hai chiều. L và M, hai chữ mà bản nháp 9.4.2 gọi là "đã được xác nhận trên HOSE", là hai chữ **có dấu ngược**. Kết quả này khớp với mục 2 và mục 8, không khớp với dòng "12 năm".
+
+**Chẩn đoán HẬU KIỂM** (không dùng để phán quyết, vì được nghĩ ra sau khi đã xem kết quả):
+- Lợi suất trên phần vốn đã giải ngân: 3a chính 1,15–2,11%/kỳ, so với B1 0,95–1,60%/kỳ.
+- Kiểm định từng chữ chỉ trong rổ đã qua Tầng 1: A +2,8% (t 1,54). Tổ hợp C+A+NSL: +4,0% (t 1,99), nhưng **chỉ 6 kỳ**.
+
+Hai con số này gợi ý rằng chữ A **có thể** có giá trị khi dùng làm **tiêu chí nghiêng tỷ trọng** chứ không phải cổng cứng. Đó là **một giả thuyết mới**. Muốn dùng thì phải đăng ký một phép đo mới, có ngày mới, không được hồi tố lên kết quả này.
+
+### 12.3 Phản biện đối kháng (Codex, 22/09/2026) — 15 điểm
+
+Đã sửa rồi chạy lại. Phán quyết không đổi.
+
+| # | Lỗi | Xử lý |
+|---|---|---|
+| 2 | Biên 3% khôi phục tỷ trọng cũ sau khi đã áp trần, dẫn tới giải ngân tới 107% và một mã 22,9% | `gioi_han()` áp lại trần 20% và tổng 98% |
+| 3 | Mỗi phần BCTC không giữ ngày công bố riêng | Lưu `pd_<phần>`, lấy ngày muộn nhất (177/3.772 quý có ngày khác nhau) |
+| 4 | Tín hiệu và lệnh cùng giá đóng cửa | Khớp lệnh ở phiên a+1 |
+| 7 | ATR xấp xỉ bằng trị tuyệt đối %thay đổi | ATR14 true range |
+| 8 | Mã đang giữ mà thiếu dữ liệu thì bị bán ngầm | Giữ nguyên |
+| 9 | Sụt giảm chỉ đo ở mốc tháng | Đo theo ngày |
+| 11–14 | S bị yêu cầu ≥ 10 phiên mỗi chiều; LNST = 0 bị thay bằng LNST tổng; "không năm nào giảm" bị hiểu là tăng ngặt; nhận diện ngân hàng nhìn cả kỳ chưa công bố | Đã sửa, có test |
+| Lúc dừng | `python canslim.py 2016-09-18` (trước đầu lịch sử): `get_indexer` trả −1, lấy nhầm phiên **cuối** 22/09/2026, tức dùng dữ liệu tương lai mà không báo | `vi_tri_ngay()` báo lỗi khi ngày nằm ngoài lịch; áp cho cả `luoi()` của backtest; có 3 test hồi quy. Backtest không đi qua nhánh này nên số liệu không đổi |
+
+**Chưa sửa được, ghi làm giới hạn:**
+1. BCTC là **bản mới nhất** (có thể đã điều chỉnh hồi tố), không phải bản công bố lần đầu.
+2. **Thiên lệch sống sót:** rổ là mã đang niêm yết hôm nay.
+3. Đây là **bản xấp xỉ B1 theo ngày**, không phải bản tái tạo số học của mục 8: không có trần ngành, không có chặn −25%.
+4. "Chỉ mua mới phải qua 3a": mã đang giữ vẫn được tăng tỷ trọng mà không phải qua 3a.
+5. Kiểm định từng chữ so trên toàn rổ thanh khoản, gồm cả những mã B1 không bao giờ mua (vì vậy có thêm bản hậu kiểm trên rổ Tầng 1).
+
+### 12.4 Trạng thái vận hành
+
+- `CANSLIM_CHAN_MUA = False`, `CANSLIM_KET_QUA = "bac_bo"`. `lt_screener.py` in một dòng thông báo 3a đã bị bác bỏ, **không hiện cột CANSLIM**, và vẫn in **cờ V3**. Ngày 22/09 có 5 mã bị cờ: VHM, BAF, VPI, HCM, SBT. Với HCM (công ty chứng khoán), dòng tiền HĐKD gồm cả cho vay ký quỹ, nên cờ V3 **không có nghĩa**; phiếu 3b phải dùng biến thể riêng.
+- Kiểm tra chéo: V3 máy tính **khớp phiếu tay**: VHM 18% (phiếu 18,1%), BAF −439% (−439,0%), DHC 144% (144,2%).
+- `python canslim.py` vẫn chạy, ghi `data/canslim_YYYYMMDD.{json,md}` làm hồ sơ. Bảng ngày 22/09: **0/13 mã qua 3a**, vì M đang sai (MA50 VNINDEX 1.776 < MA200 1.793).
+
+### 12.5 Việc còn mở — CHỜ NGƯỜI QUYẾT
+
+1. **Ba trục A/B/C của phiếu cũ.** Quyết định 3 bỏ ba trục **với giả định** 3a sẽ thay phần tăng trưởng. 3a đã bị bác bỏ, nên câu hỏi mở lại: Bước 3 quay về phiếu năm cổng, ba trục như trước, hay chỉ giữ V1–V5? Code chưa đổi gì ở phần này (phiếu là thủ công), nên hiện trạng = phiếu cũ.
+2. Có đăng ký phép đo mới "A làm tiêu chí nghiêng tỷ trọng" (12.2, hậu kiểm) hay không.
+
+### 12.6 Sửa bản nháp mục 9.4 của báo cáo
+
+**Dòng cuối Bảng 9.2 thay bằng:**
+
+| Nguồn | Giai đoạn | Kết quả | Giới hạn |
+|---|---|---|---|
+| Kiểm định đăng ký trước của Quỹ trên HOSE (mục 12) | 02/2022 – 09/2026, 112 mã, 4 pha lưới | CANSLIM làm cổng cứng: CAGR 2,3%/năm, so với 10,0% khi không có cổng; t = −1,00; 0/4 pha dương → **bác bỏ**. Không chữ nào có ý nghĩa thống kê; L và M có dấu ngược | Thiên lệch sống sót; BCTC bản mới nhất; không có chữ I; chủ yếu do tiền nằm không (giải ngân 16–20%) |
+
+**Đoạn "Đọc bảng theo đúng phạm vi" thay bằng:** CANSLIM đã cho kết quả tốt ở dạng bộ lọc trên thị trường Mỹ, nhưng các sản phẩm thực chiến xây theo nó lại kém chỉ số. Trên HOSE, kiểm định đăng ký trước của Quỹ **không xác nhận** chữ nào, kể cả L và M. Dùng làm cổng cứng trên rổ 112 mã, CANSLIM để tiền nằm không phần lớn thời gian và bị bác bỏ theo đúng ngưỡng đã chốt trước. Quỹ vì vậy **không** thay Bước 3 bằng CANSLIM. Tín hiệu duy nhất đáng theo dõi là chữ A trong rổ đã qua bộ lọc, và nó sẽ được đo bằng một phép thử đăng ký mới.
+
+**File:** `canslim_data.py`, `canslim.py`, `canslim_backtest.py`, `tests/test_canslim.py`, `data/canslim_cache/`, `data/canslim_20260922.{json,md}`, `data/canslim_backtest_20260922.json`. Sao lưu: `data/CHIEN_LUOC_DAI_HAN_backup_20260922.md`, `data/lt_config_backup_20260922.py`, `data/lt_screener_backup_20260922.py`.

@@ -1,0 +1,150 @@
+Nguon: data\scan_20260918.json   |   11 ma qua bo loc cung / 112 ma quet
+Tham dinh: data/tham_dinh.json — 10 ban ghi
+VNINDEX: 12T +8.9%  6T +5.9%  3T -0.8%  1T +5.1%
+
+QUY TRINH 4 BUOC (Triet_ly_dau_tu_FF5) — khong co diem bu tru giua cac buoc:
+  B1 bo loc cung : thanh khoan>=10 ty, gia>MA200, MA50>MA200, RS12T(bo 1T)>0, ATR<=6%
+  B2 xep hang    : 0,40*RS12T + 0,30*RS6T + 0,20*RS3T + 0,10*R2, phan vi TRONG RO DA LOC
+  B3 tham dinh   : doanh nghiep -> nganh -> vi mo (NGUOI, co quyen phu quyet)
+  B4 dinh gia    : gia hop ly + diem mua (NGUOI)
+
+  # Ma         Gia  Diem  Hang   RS12T    RS6T    RS3T    R2  ATR%  Ty/ph    B3    B4  Mua  Nganh
+-------------------------------------------------------------------------------------------------
+  1 VIC     241200  0.96  0.00 +187.6%  +59.3%  +18.2%  0.51  3.68 1489.1  loai  chua    N  Bat dong san
+  2 STB      78200  0.75  0.10  +30.3%  +17.6%  +11.1%  0.67  2.42  463.5  loai   cho    N  Ngan hang
+  3 MSB      12900  0.60  0.20  +12.6%  +30.4%   -0.6%  0.76  2.13  267.6   dat   cho    N  Ngan hang
+  4 VHM      71000  0.58  0.30  +25.7%  +33.3%   -0.9%  0.18  3.40  705.9  loai   cho    N  Bat dong san
+  5 BSR      30200  0.57  0.40  +50.8%   -7.4%  +15.2%  0.01  3.82  336.7   dat   dat    Y  Dau khi
+  6 LPB      48000  0.40  0.50  +11.8%   +4.0%   +2.8%  0.12  2.78  186.8   dat   cho    N  Ngan hang
+  7 BAF      32050  0.40  0.60   +8.1%   +3.5%   +9.9%  0.59  1.29   79.5  chua  chua    N  Chan nuoi
+  8 HCM      25500  0.37  0.70   +2.0%  +30.1%   +3.4%  0.66  2.78  144.9   dat  chua    N  Chung khoan
+  9 DHC      36550  0.33  0.80   +4.8%  +10.1%   +6.5%  0.35  2.89   16.2   dat   dat    Y  Giay
+ 10 HDB      27500  0.33  0.80   +6.9%   +1.1%  +10.1%  0.35  1.86  566.3  chua  chua    N  Ngan hang
+ 11 GMD      77300  0.21  1.00  +10.3%   -8.6%   +0.4%  0.06  1.79  114.4   dat   cho    N  Cang bien
+
+MUA DUOC ngay: 2 ma ['BSR', 'DHC']
+Danh sach cho (dat B3, gia chua hop ly): ['MSB', 'LPB', 'GMD']
+CHUA THAM DINH — khong duoc mua cho toi khi co ket luan B3/B4: ['BAF', 'HDB']
+  -> nhap ket luan vao data/tham_dinh.json
+
+BON QUY TAC THOAT (Bang CL.3) — mot cau phu dinh la ban toan bo:
+  1. gia < 0,97*MA200   2. RS12T < -5%   3. thu hang > 40% ro da loc   4. luan diem doanh nghiep da gay
+   1. VIC   giu  [quy tac 4 chua ra soat]
+   2. STB   luan_diem_gay
+   3. MSB   giu  [quy tac 4 chua ra soat]
+   4. VHM   giu  [quy tac 4 chua ra soat]
+   5. BSR   giu  [quy tac 4 chua ra soat]
+   6. LPB   rank_below_40pct  [quy tac 4 chua ra soat]
+   7. BAF   rank_below_40pct  [quy tac 4 chua ra soat]
+   8. HCM   rank_below_40pct  [quy tac 4 chua ra soat]
+   9. DHC   rank_below_40pct
+  10. HDB   rank_below_40pct  [quy tac 4 chua ra soat]
+  11. GMD   rank_below_40pct  [quy tac 4 chua ra soat]
+
+QUY TAC THU NAM — Ban theo cam quan thi truong cua quy (tu 2026-09-11):
+  NGUOI quyet, he thong khong sinh tin hieu. Toi da 50% moi vi the moi lan; hieu luc toi ky soat ke tiep. Ghi vao LENH_QUY_TAC_5 TRUOC khi dat lenh.
+
+Bi loai o Buoc 1 (101):
+  ACB   thua VNINDEX 12T
+  ANV   thanh khoan 7.1 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  ASM   thanh khoan 1.1 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  BCM   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  BID   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  BMP   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  BSI   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  BVH   MA50<MA200
+  BWE   thanh khoan 1.3 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  CII   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  CMG   thanh khoan 2.9 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  CSV   thanh khoan 6.2 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  CTD   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  CTG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  CTR   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  DBC   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  DCM   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  DGC   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  DGW   MA50<MA200, thua VNINDEX 12T
+  DIG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  DPM   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  DSE   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  DXG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  EIB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  ELC   thanh khoan 3.8 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  EVF   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  FPT   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  FRT   duoi MA200, MA50<MA200
+  FTS   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  GAS   MA50<MA200
+  GEE   duoi MA200, MA50<MA200
+  GEX   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  GIL   thanh khoan 1.2 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  GVR   duoi MA200, MA50<MA200
+  HAG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HAH   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HDC   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HDG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HHV   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HPG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HSG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HT1   thanh khoan 2.4 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  HVN   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  IMP   thanh khoan 0.4 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  KBC   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  KDC   thua VNINDEX 12T
+  KDH   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  KOS   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  LSS   thanh khoan 0.5 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  MBB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  MSH   thanh khoan 2.7 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  MSN   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  MWG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  NAB   thua VNINDEX 12T
+  NKG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  NLG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  NT2   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  NTL   thanh khoan 8.7 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  NVL   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  OCB   thua VNINDEX 12T
+  PAN   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  PC1   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  PDR   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  PHR   duoi MA200, MA50<MA200
+  PLX   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  PNJ   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  POW   duoi MA200, MA50<MA200
+  PPC   thanh khoan 1.0 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  PTB   thanh khoan 4.0 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  PVD   MA50<MA200
+  PVT   MA50<MA200
+  REE   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  SAB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  SBT   thua VNINDEX 12T
+  SCS   thanh khoan 5.1 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  SHB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  SIP   thanh khoan 3.9 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  SJS   MA50<MA200, thua VNINDEX 12T
+  SSB   thua VNINDEX 12T
+  SSI   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  SZC   thanh khoan 7.4 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  TCB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  TCH   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  TLG   thanh khoan 8.3 ty, MA50<MA200
+  TMS   thanh khoan 0.0 ty, duoi MA200, MA50<MA200, thua VNINDEX 12T
+  TPB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VCB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VCG   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VCI   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VGC   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VHC   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VIB   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VIX   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VJC   duoi MA200, MA50<MA200
+  VND   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VNM   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VPB   MA50<MA200, thua VNINDEX 12T
+  VPI   thua VNINDEX 12T
+  VRE   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VSC   duoi MA200, MA50<MA200, thua VNINDEX 12T
+  VTP   duoi MA200, MA50<MA200, thua VNINDEX 12T
+
+-> data\candidates_20260918.json

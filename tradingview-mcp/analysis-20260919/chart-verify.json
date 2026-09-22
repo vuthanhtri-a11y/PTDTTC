@@ -1,0 +1,1040 @@
+{
+ "HOSE:VPI": {
+  "ok": true,
+  "close": 62900,
+  "tp": 0.488890285933655,
+  "tpPrev": 0.46408334369389875,
+  "tp4": 0.40805029997487574,
+  "tpSeries": [
+   0.264,
+   0.313,
+   0.343,
+   0.374,
+   0.394,
+   0.408,
+   0.422,
+   0.439,
+   0.464,
+   0.489
+  ],
+  "table": [
+   "Bullish FVG | 8 | 12.902M",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [
+   [
+    57727,
+    58182
+   ],
+   [
+    55364,
+    56091
+   ]
+  ],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-57-01-817Z.png"
+ },
+ "HOSE:AAA": {
+  "ok": true,
+  "close": 7260,
+  "tp": 0.3716685415732037,
+  "tpPrev": 0.3486967862900643,
+  "tp4": 0.24273434148396164,
+  "tpSeries": [
+   0.204,
+   0.186,
+   0.193,
+   0.209,
+   0.217,
+   0.243,
+   0.284,
+   0.319,
+   0.349,
+   0.372
+  ],
+  "table": [
+   "Bullish FVG | 1 | 1.507M",
+   "Bearish FVG | 8 | 47.277M"
+  ],
+  "fvgBelow": [
+   [
+    6850,
+    7110
+   ]
+  ],
+  "fvgAbove": [
+   [
+    7360,
+    7470
+   ],
+   [
+    7770,
+    7900
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-57-19-342Z.png"
+ },
+ "HOSE:DHC": {
+  "ok": true,
+  "close": 36550,
+  "tp": -0.4281881171721812,
+  "tpPrev": -0.34521096984723276,
+  "tp4": -0.05784287141813533,
+  "tpSeries": [
+   0.491,
+   0.39,
+   0.281,
+   0.172,
+   0.053,
+   -0.058,
+   -0.153,
+   -0.249,
+   -0.345,
+   -0.428
+  ],
+  "table": [
+   "Bullish FVG | 8 | 5.071M",
+   "Bearish FVG | 1 | 182.008K"
+  ],
+  "fvgBelow": [
+   [
+    35200,
+    36150
+   ],
+   [
+    31500,
+    32450
+   ]
+  ],
+  "fvgAbove": [
+   [
+    38801,
+    39526
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-57-37-241Z.png"
+ },
+ "HOSE:MCH": {
+  "ok": true,
+  "close": 143000,
+  "tp": 0.4859346134783027,
+  "tpPrev": 0.4492544407309511,
+  "tp4": 0.2967139709015756,
+  "tpSeries": [
+   -0.027,
+   0.052,
+   0.126,
+   0.193,
+   0.25,
+   0.297,
+   0.341,
+   0.393,
+   0.449,
+   0.486
+  ],
+  "table": [
+   "Bullish FVG | 0 | 0",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-57-54-084Z.png"
+ },
+ "HOSE:VPB": {
+  "ok": true,
+  "close": 27450,
+  "tp": 0.966989865689635,
+  "tpPrev": 0.9945474238407822,
+  "tp4": 1.0324472176634076,
+  "tpSeries": [
+   0.889,
+   0.948,
+   0.992,
+   1.024,
+   1.035,
+   1.032,
+   1.024,
+   1.008,
+   0.995,
+   0.967
+  ],
+  "table": [
+   "Bullish FVG | 5 | 158.567M",
+   "Bearish FVG | 5 | 233.394M"
+  ],
+  "fvgBelow": [
+   [
+    26800,
+    27100
+   ],
+   [
+    25050,
+    25900
+   ]
+  ],
+  "fvgAbove": [
+   [
+    28450,
+    28750
+   ],
+   [
+    29400,
+    29700
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-58-11-406Z.png"
+ },
+ "HOSE:PVT": {
+  "ok": true,
+  "close": 22800,
+  "tp": 0.6248963323695714,
+  "tpPrev": 0.6213098415472806,
+  "tp4": 0.5793184308056532,
+  "tpSeries": [
+   0.723,
+   0.682,
+   0.637,
+   0.604,
+   0.582,
+   0.579,
+   0.588,
+   0.611,
+   0.621,
+   0.625
+  ],
+  "table": [
+   "Bullish FVG | 7 | 28.026M",
+   "Bearish FVG | 1 | 16.079M"
+  ],
+  "fvgBelow": [
+   [
+    20400,
+    20950
+   ],
+   [
+    18450,
+    19150
+   ]
+  ],
+  "fvgAbove": [
+   [
+    25227,
+    26000
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-58-28-632Z.png"
+ },
+ "HOSE:VIC": {
+  "ok": true,
+  "close": 241200,
+  "tp": 0.7680284098268816,
+  "tpPrev": 0.7660696688983564,
+  "tp4": 0.6732347799637827,
+  "tpSeries": [
+   0.154,
+   0.294,
+   0.417,
+   0.523,
+   0.608,
+   0.673,
+   0.72,
+   0.75,
+   0.766,
+   0.768
+  ],
+  "table": [
+   "Bullish FVG | 10 | 52.382M",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [
+   [
+    214900,
+    219100
+   ],
+   [
+    204200,
+    208000
+   ]
+  ],
+  "fvgAbove": [],
+  "fvgInside": [
+   [
+    237100,
+    244700
+   ]
+  ],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-58-45-224Z.png"
+ },
+ "HOSE:NAB": {
+  "ok": true,
+  "close": 12000,
+  "tp": 0.7264880605285295,
+  "tpPrev": 0.6120370242451258,
+  "tp4": 0.3954458827808539,
+  "tpSeries": [
+   0.145,
+   0.219,
+   0.278,
+   0.328,
+   0.367,
+   0.395,
+   0.428,
+   0.502,
+   0.612,
+   0.726
+  ],
+  "table": [
+   "Bullish FVG | 4 | 8.127M",
+   "Bearish FVG | 1 | 2.181M"
+  ],
+  "fvgBelow": [
+   [
+    11800,
+    12000
+   ],
+   [
+    11300,
+    11800
+   ]
+  ],
+  "fvgAbove": [
+   [
+    12650,
+    12800
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-59-02-012Z.png"
+ },
+ "HOSE:SBT": {
+  "ok": true,
+  "close": 23200,
+  "tp": 0.12373145348483477,
+  "tpPrev": 0.22061766314310988,
+  "tp4": 0.5184830711030098,
+  "tpSeries": [
+   0.939,
+   0.867,
+   0.787,
+   0.703,
+   0.614,
+   0.518,
+   0.421,
+   0.321,
+   0.221,
+   0.124
+  ],
+  "table": [
+   "Bullish FVG | 9 | 21.048M",
+   "Bearish FVG | 1 | 1.182M"
+  ],
+  "fvgBelow": [
+   [
+    21600,
+    23000
+   ],
+   [
+    21350,
+    21600
+   ]
+  ],
+  "fvgAbove": [
+   [
+    24575,
+    24906
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-59-18-548Z.png"
+ },
+ "HOSE:PVD": {
+  "ok": true,
+  "close": 19200,
+  "tp": 0.6384744040526916,
+  "tpPrev": 0.6424047205595804,
+  "tp4": 0.6124992074610323,
+  "tpSeries": [
+   0.541,
+   0.586,
+   0.614,
+   0.624,
+   0.62,
+   0.612,
+   0.62,
+   0.635,
+   0.642,
+   0.638
+  ],
+  "table": [
+   "Bullish FVG | 8 | 169.258M",
+   "Bearish FVG | 1 | 7.905M"
+  ],
+  "fvgBelow": [
+   [
+    17076,
+    17735
+   ],
+   [
+    15488,
+    15848
+   ]
+  ],
+  "fvgAbove": [
+   [
+    22409,
+    23008
+   ]
+  ],
+  "fvgInside": [
+   [
+    19100,
+    19650
+   ]
+  ],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T15-59-35-230Z.png"
+ },
+ "HNX:NTP": {
+  "ok": true,
+  "close": 52500,
+  "tp": 0.6068610617145466,
+  "tpPrev": 0.649559098069048,
+  "tp4": 0.7263081008120962,
+  "tpSeries": [
+   0.757,
+   0.721,
+   0.697,
+   0.71,
+   0.731,
+   0.726,
+   0.71,
+   0.682,
+   0.65,
+   0.607
+  ],
+  "table": [
+   "Bullish FVG | 6 | 2.797M",
+   "Bearish FVG | 3 | 3.959M"
+  ],
+  "fvgBelow": [
+   [
+    49100,
+    51000
+   ],
+   [
+    35669,
+    37121
+   ]
+  ],
+  "fvgAbove": [
+   [
+    54250,
+    55333
+   ],
+   [
+    55333,
+    58417
+   ]
+  ],
+  "fvgInside": [
+   [
+    52300,
+    53400
+   ]
+  ],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-00-00-148Z.png"
+ },
+ "HNX:PVS": {
+  "ok": true,
+  "close": 33300,
+  "tp": 0.8851997888205873,
+  "tpPrev": 0.912999777056065,
+  "tp4": 0.9425293302973126,
+  "tpSeries": [
+   0.93,
+   0.958,
+   0.971,
+   0.973,
+   0.961,
+   0.943,
+   0.933,
+   0.929,
+   0.913,
+   0.885
+  ],
+  "table": [
+   "Bullish FVG | 5 | 30.118M",
+   "Bearish FVG | 4 | 60.991M"
+  ],
+  "fvgBelow": [
+   [
+    29000,
+    29583
+   ],
+   [
+    25917,
+    26500
+   ]
+  ],
+  "fvgAbove": [
+   [
+    33700,
+    34100
+   ],
+   [
+    34750,
+    35417
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-00-16-694Z.png"
+ },
+ "HNX:PVC": {
+  "ok": true,
+  "close": 12700,
+  "tp": 0.8516528226066598,
+  "tpPrev": 0.8290297759772287,
+  "tp4": 0.7397648426498104,
+  "tpSeries": [
+   0.843,
+   0.83,
+   0.814,
+   0.798,
+   0.772,
+   0.74,
+   0.756,
+   0.797,
+   0.829,
+   0.852
+  ],
+  "table": [
+   "Bullish FVG | 6 | 8.28M",
+   "Bearish FVG | 4 | 13.75M"
+  ],
+  "fvgBelow": [
+   [
+    11100,
+    11400
+   ],
+   [
+    9900,
+    10200
+   ]
+  ],
+  "fvgAbove": [
+   [
+    13050,
+    13200
+   ],
+   [
+    15400,
+    15700
+   ]
+  ],
+  "fvgInside": [
+   [
+    12400,
+    13200
+   ]
+  ],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-00-33-164Z.png"
+ },
+ "HNX:BVS": {
+  "ok": true,
+  "close": 28700,
+  "tp": 0.7525503891786529,
+  "tpPrev": 0.7526502322521957,
+  "tp4": 0.7467687613643713,
+  "tpSeries": [
+   0.497,
+   0.575,
+   0.64,
+   0.694,
+   0.73,
+   0.747,
+   0.755,
+   0.752,
+   0.753,
+   0.753
+  ],
+  "table": [
+   "Bullish FVG | 4 | 2.749M",
+   "Bearish FVG | 3 | 5.23M"
+  ],
+  "fvgBelow": [
+   [
+    28000,
+    28700
+   ],
+   [
+    26300,
+    26900
+   ]
+  ],
+  "fvgAbove": [
+   [
+    33700,
+    35100
+   ],
+   [
+    40000,
+    41600
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-00-49-749Z.png"
+ },
+ "HNX:HDA": {
+  "ok": true,
+  "close": 6700,
+  "tp": 0.23859897624778792,
+  "tpPrev": 0.28711956614916384,
+  "tp4": 0.4195633879641568,
+  "tpSeries": [
+   0.322,
+   0.371,
+   0.409,
+   0.435,
+   0.443,
+   0.42,
+   0.383,
+   0.335,
+   0.287,
+   0.239
+  ],
+  "table": [
+   "Bullish FVG | 7 | 523.051K",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [
+   [
+    4364,
+    5000
+   ],
+   [
+    4091,
+    4273
+   ]
+  ],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-01-06-378Z.png"
+ },
+ "HNX:VTZ": {
+  "ok": true,
+  "close": 20400,
+  "tp": 0.2872211896866038,
+  "tpPrev": 0.3183753013325416,
+  "tp4": 0.44168082391601254,
+  "tpSeries": [
+   0.476,
+   0.493,
+   0.508,
+   0.513,
+   0.491,
+   0.442,
+   0.4,
+   0.355,
+   0.318,
+   0.287
+  ],
+  "table": [
+   "Bullish FVG | 0 | 0",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-01-22-875Z.png"
+ },
+ "UPCOM:ABB": {
+  "ok": true,
+  "close": 17900,
+  "tp": 1.0239603883609085,
+  "tpPrev": 0.9796730415112016,
+  "tp4": 0.8909990276352697,
+  "tpSeries": [
+   0.655,
+   0.716,
+   0.769,
+   0.818,
+   0.857,
+   0.891,
+   0.925,
+   0.955,
+   0.98,
+   1.024
+  ],
+  "table": [
+   "Bullish FVG | 8 | 58.784M",
+   "Bearish FVG | 1 | 2.38M"
+  ],
+  "fvgBelow": [
+   [
+    16200,
+    16700
+   ],
+   [
+    13900,
+    14100
+   ]
+  ],
+  "fvgAbove": [
+   [
+    18000,
+    18700
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-01-39-366Z.png"
+ },
+ "UPCOM:OIL": {
+  "ok": true,
+  "close": 14400,
+  "tp": 0.9468487410016775,
+  "tpPrev": 0.9065748992618576,
+  "tp4": 0.7485911559123001,
+  "tpSeries": [
+   0.653,
+   0.681,
+   0.709,
+   0.729,
+   0.741,
+   0.749,
+   0.79,
+   0.852,
+   0.907,
+   0.947
+  ],
+  "table": [
+   "Bullish FVG | 7 | 18.15M",
+   "Bearish FVG | 1 | 12.732M"
+  ],
+  "fvgBelow": [
+   [
+    12800,
+    13300
+   ],
+   [
+    12300,
+    12500
+   ]
+  ],
+  "fvgAbove": [
+   [
+    18000,
+    18300
+   ]
+  ],
+  "fvgInside": [
+   [
+    14100,
+    14600
+   ]
+  ],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-01-55-769Z.png"
+ },
+ "UPCOM:HNM": {
+  "ok": true,
+  "close": 8600,
+  "tp": 1.069540972990536,
+  "tpPrev": 1.0956390286396251,
+  "tp4": 1.0155193221563144,
+  "tpSeries": [
+   0.666,
+   0.771,
+   0.862,
+   0.927,
+   0.968,
+   1.016,
+   1.067,
+   1.094,
+   1.096,
+   1.07
+  ],
+  "table": [
+   "Bullish FVG | 7 | NaN",
+   "Bearish FVG | 1 | 285.7K"
+  ],
+  "fvgBelow": [
+   [
+    7600,
+    8000
+   ],
+   [
+    6600,
+    6800
+   ]
+  ],
+  "fvgAbove": [
+   [
+    10500,
+    10800
+   ]
+  ],
+  "fvgInside": [
+   [
+    8600,
+    8900
+   ]
+  ],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-02-12-356Z.png"
+ },
+ "UPCOM:DRI": {
+  "ok": true,
+  "close": 14800,
+  "tp": 0.9541022013306364,
+  "tpPrev": 1.0138473887540047,
+  "tp4": 1.1853312206029514,
+  "tpSeries": [
+   1.237,
+   1.235,
+   1.244,
+   1.246,
+   1.232,
+   1.185,
+   1.121,
+   1.068,
+   1.014,
+   0.954
+  ],
+  "table": [
+   "Bullish FVG | 3 | 1.633M",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [
+   [
+    10700,
+    11100
+   ],
+   [
+    10400,
+    10700
+   ]
+  ],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-02-28-957Z.png"
+ },
+ "UPCOM:ABW": {
+  "ok": true,
+  "close": 14400,
+  "tp": -0.908124733547204,
+  "tpPrev": -0.9011226173122939,
+  "tp4": -0.7774715615418414,
+  "tpSeries": [
+   -0.47,
+   -0.533,
+   -0.595,
+   -0.656,
+   -0.718,
+   -0.777,
+   -0.828,
+   -0.871,
+   -0.901,
+   -0.908
+  ],
+  "table": [
+   "Bullish FVG | 0 | 0",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-02-45-473Z.png"
+ },
+ "UPCOM:SCL": {
+  "ok": true,
+  "close": 26000,
+  "tp": 0.028598003793864187,
+  "tpPrev": 0.1021723211069427,
+  "tp4": 0.2548187142774798,
+  "tpSeries": [
+   0.144,
+   0.222,
+   0.269,
+   0.287,
+   0.282,
+   0.255,
+   0.219,
+   0.167,
+   0.102,
+   0.029
+  ],
+  "table": [
+   "Bullish FVG | 8 | 983.3K",
+   "Bearish FVG | 2 | 373.8K"
+  ],
+  "fvgBelow": [
+   [
+    22900,
+    23900
+   ],
+   [
+    19500,
+    21500
+   ]
+  ],
+  "fvgAbove": [
+   [
+    27400,
+    28000
+   ],
+   [
+    35400,
+    36300
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-03-01-923Z.png"
+ },
+ "UPCOM:PHP": {
+  "ok": true,
+  "close": 43800,
+  "tp": -0.3001268157500045,
+  "tpPrev": -0.1698622158871328,
+  "tp4": 0.28439756373231495,
+  "tpSeries": [
+   0.846,
+   0.775,
+   0.68,
+   0.565,
+   0.436,
+   0.284,
+   0.129,
+   -0.025,
+   -0.17,
+   -0.3
+  ],
+  "table": [
+   "Bullish FVG | 0 | 0",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-03-18-439Z.png"
+ },
+ "HNX:VC3": {
+  "ok": true,
+  "close": 23800,
+  "tp": 0.6241576360184501,
+  "tpPrev": 0.5652370808111915,
+  "tp4": 0.3931033134820844,
+  "tpSeries": [
+   0.061,
+   0.147,
+   0.225,
+   0.3,
+   0.351,
+   0.393,
+   0.443,
+   0.5,
+   0.565,
+   0.624
+  ],
+  "table": [
+   "Bullish FVG | 3 | 2.08M",
+   "Bearish FVG | 2 | 1.28M"
+  ],
+  "fvgBelow": [
+   [
+    18305,
+    18610
+   ],
+   [
+    16367,
+    16869
+   ]
+  ],
+  "fvgAbove": [
+   [
+    26257,
+    26629
+   ],
+   [
+    27759,
+    28305
+   ]
+  ],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-05-21-760Z.png"
+ },
+ "UPCOM:VEA": {
+  "ok": true,
+  "close": 37000,
+  "tp": 0.7955108249530848,
+  "tpPrev": 0.7728330181446338,
+  "tp4": 0.8517887205262528,
+  "tpSeries": [
+   0.671,
+   0.721,
+   0.783,
+   0.836,
+   0.859,
+   0.852,
+   0.817,
+   0.773,
+   0.773,
+   0.796
+  ],
+  "table": [
+   "Bullish FVG | 2 | 1.376M",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [
+   [
+    36100,
+    36800
+   ],
+   [
+    33700,
+    34500
+   ]
+  ],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-05-38-267Z.png"
+ },
+ "UPCOM:QNS": {
+  "ok": true,
+  "close": 49800,
+  "tp": 1.1357830978826269,
+  "tpPrev": 1.0942955660096143,
+  "tp4": 0.8719721260161393,
+  "tpSeries": [
+   0.194,
+   0.365,
+   0.519,
+   0.652,
+   0.769,
+   0.872,
+   0.96,
+   1.035,
+   1.094,
+   1.136
+  ],
+  "table": [
+   "Bullish FVG | 7 | 1.783M",
+   "Bearish FVG | 0 | 0"
+  ],
+  "fvgBelow": [
+   [
+    48500,
+    48900
+   ],
+   [
+    47500,
+    48000
+   ]
+  ],
+  "fvgAbove": [],
+  "fvgInside": [],
+  "shot": "C:\\New folder\\PTDTTC-main\\PTDTTC-main\\tradingview-mcp\\screenshots\\tv_chart_2026-09-19T16-05-54-746Z.png"
+ }
+}

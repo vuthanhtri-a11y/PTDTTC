@@ -40,8 +40,23 @@
   }
   function prank(a) {
     var idx = a.map(function (v, i) { return i; }); idx.sort(function (x, y) { return a[x] - a[y]; });
-    var o = a.map(function () { return 0; }); idx.forEach(function (i, r) { o[i] = r / Math.max(1, idx.length - 1); });
+    var o = a.map(function () { return 0; });
+    for (var start = 0; start < idx.length;) {
+      var end = start + 1;
+      while (end < idx.length && a[idx[end]] === a[idx[start]]) end++;
+      var rank = idx.length > 1 ? (start + end - 1) / 2 / (idx.length - 1) : 0.5;
+      for (var j = start; j < end; j++) o[idx[j]] = rank;
+      start = end;
+    }
     return o;
+  }
+
+  function scoreRows(rows, field) {
+    rows.forEach(function (o) { o[field] = 0; });
+    [["rs12", 0.4], ["rs6", 0.3], ["rs3", 0.2], ["q", 0.1]].forEach(function (item) {
+      var ranks = prank(rows.map(function (o) { return o[item[0]]; }));
+      rows.forEach(function (o, i) { o[field] += item[1] * ranks[i]; });
+    });
   }
 
   var SNAP = {}, POOL = [];
@@ -59,23 +74,42 @@
         rs12: a12 - i12, rs6: a6 - i6, rs3: a3 - i3, q: q || 0, v: Math.max(v, 0.01)
       });
     });
-    var p12 = prank(out.map(function (o) { return o.rs12; })), p6 = prank(out.map(function (o) { return o.rs6; })),
-        p3 = prank(out.map(function (o) { return o.rs3; })), pq = prank(out.map(function (o) { return o.q; }));
-    out.forEach(function (o, i) { o.score = 0.4 * p12[i] + 0.3 * p6[i] + 0.2 * p3[i] + 0.1 * pq[i]; });
-    out.sort(function (a, b) { return b.score - a.score; });
+    scoreRows(out, "score");
+    out.sort(function (a, b) { return b.score - a.score || a.s.localeCompare(b.s); });
 
     // --- A: thu hang tren TOAN RO (ban cu)
     out.forEach(function (o, i) { o.rankA = i / Math.max(1, out.length - 1); });
 
     // --- B: thu hang trong RO DA QUA BO LOC
-    var pas = out.filter(function (o) { return o.pass; });   // da sap theo score
+    var pas = out.filter(function (o) { return o.pass; });
+    // Filter BEFORE computing component percentiles, as in lt_screener.py.
+    // Merely filtering the globally scored table leaves rejected stocks able
+    // to change the relative weights of the four ranking components.
+    scoreRows(pas, "scoreB");
+    pas.sort(function (a, b) { return b.scoreB - a.scoreB || a.s.localeCompare(b.s); });
     var np = pas.length;
     POOL.push(np);
-    pas.forEach(function (o, i) { o.rankB1 = np > 1 ? i / (np - 1) : 0; o.rankB2 = o.rankB1; });
+    var groupRank = 0;
+    pas.forEach(function (o, i) {
+      if (i === 0 || o.scoreB !== pas[i - 1].scoreB) groupRank = i;
+      o.rankB1 = np > 1 ? groupRank / (np - 1) : 0; o.rankB2 = o.rankB1;
+    });
     out.forEach(function (o) {
       if (o.pass) return;
-      // B1: chen diem cua ma nay vao bang xep hang cua nhom qua loc
-      var k = 0; while (k < np && pas[k].score > o.score) k++;
+      // B1: evaluate a held, rejected stock against the FIXED passing universe;
+      // inserting it must not change the scores of the eligible stocks.
+      o.scoreB = 0;
+      [["rs12", 0.4], ["rs6", 0.3], ["rs3", 0.2], ["q", 0.1]].forEach(function (item) {
+        var less = 0, equal = 0;
+        pas.forEach(function (p) {
+          if (p[item[0]] < o[item[0]]) less++;
+          if (p[item[0]] === o[item[0]]) equal++;
+        });
+        var r = np > 1 ? Math.max(0, Math.min(1, (less + (equal ? (equal - 1) / 2 : 0)) / (np - 1)))
+          : np === 1 ? (o[item[0]] === pas[0][item[0]] ? 0.5 : +(o[item[0]] > pas[0][item[0]])) : 0;
+        o.scoreB += item[1] * r;
+      });
+      var k = 0; while (k < np && pas[k].scoreB > o.scoreB) k++;
       o.rankB1 = np > 1 ? Math.min(1, k / (np - 1)) : 1;
       // B2: roi khoi bo loc = hong quy tac 3
       o.rankB2 = 1.0;
@@ -101,10 +135,13 @@
   // o = {N, cap, hyst, band, cost, scope: "A"|"B1"|"B2", noTrend, rand}
   function run(o, t0, t1) {
     var cost = (o.cost == null ? 0.004 : o.cost), key = "rank" + (o.scope || "A");
-    var nav = 1, prev = {}, held = [], curve = [], ms = [], seed = 12345;
+    var nav = 1, prev = {}, held = [], curve = [1], ms = [], seed = 12345;
     function rnd() { seed = (seed * 1103515245 + 12345) & 0x7fffffff; return seed / 0x7fffffff; }
     for (var t = t0; t < t1; t++) {
-      var snap = snapshot(t), by = {}; snap.forEach(function (x) { by[x.s] = x; });
+      var scoreKey = o.scope === "B1" || o.scope === "B2" ? "scoreB" : "score";
+      var snap = snapshot(t).slice().sort(function (a, b) {
+        return b[scoreKey] - a[scoreKey] || a.s.localeCompare(b.s);
+      }), by = {}; snap.forEach(function (x) { by[x.s] = x; });
       var keep = [];
       if (!o.rand) {
         held.forEach(function (s) { var x = by[s]; if (x && x.soft && x[key] <= o.hyst) keep.push(x); });

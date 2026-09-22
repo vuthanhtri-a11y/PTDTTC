@@ -1,4 +1,5 @@
 import json
+from ranking import pct_rank as rank_pct
 
 d = {}
 for p in ['part1', 'part2']:
@@ -19,14 +20,6 @@ for sym, m in d.items():
     universe[sym] = m
 
 print(len(universe), 'sau loc thanh khoan/ATR')
-
-
-def rank_pct(vals):
-    order = sorted(range(len(vals)), key=lambda i: vals[i])
-    pct = [0] * len(vals)
-    for rank, idx in enumerate(order):
-        pct[idx] = rank / (len(vals) - 1) if len(vals) > 1 else 0.5
-    return pct
 
 
 syms = list(universe.keys())

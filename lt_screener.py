@@ -25,10 +25,10 @@ import math
 import os
 import sys
 
-sys.stdout.reconfigure(encoding="utf-8")
-
-from lt_config import (LOC, RS_WEIGHTS, NGANH, SELL_CHECKLIST, EXIT,
-                       THAM_DINH_FILE, THAM_DINH_TRANG_THAI, QUY_TAC_5)
+from ranking import pct_rank
+from lt_config import (LOC, RS_WEIGHTS, NGANH, EXIT,
+                       THAM_DINH_FILE, THAM_DINH_TRANG_THAI, QUY_TAC_5,
+                       CANSLIM_CHAN_MUA, CANSLIM_KET_QUA)
 
 DATA_DIR = "data"
 # Vi tri cot trong scan_YYYYMMDD.json. CHI DUOC NOI THEM VAO CUOI — cac ban
@@ -68,6 +68,31 @@ def nap_tham_dinh():
                    "ngay": v.get("ngay", ""),
                    "luan_diem_con_nguyen": v.get("luan_diem_con_nguyen", None)}
     return out
+
+
+def nap_canslim():
+    """Buoc 3a — ket qua MAY cham CANSLIM, file data/canslim_YYYYMMDD.json moi nhat
+    (sinh bang `python canslim.py`). Thieu file / thieu ma = None = khong qua.
+
+    Chi CHAN mua khi CANSLIM_CHAN_MUA = True (cong tac theo ket qua kiem dinh
+    dang ky truoc, CHIEN_LUOC_DAI_HAN.md muc 12). Mac dinh chi cham va in ra.
+    """
+    fs = sorted(f for f in os.listdir(DATA_DIR)
+                if f.startswith("canslim_") and f.endswith(".json")
+                and f[8:-5].isdigit() and len(f[8:-5]) == 8)
+    if not fs:
+        return {}, None
+    raw = json.load(open(os.path.join(DATA_DIR, fs[-1]), encoding="utf-8"))
+    return raw.get("toan_ro", {}), raw["_meta"]["ngay_du_lieu"]
+
+
+def cua_canslim(r, cs):
+    v = cs.get(r["ma"], {})
+    r["canslim_3a"] = v.get("qua_3a")
+    r["canslim_chu"] = "".join(k if v.get(k) is True else ("?" if v.get(k) is None else ".")
+                               for k in ("C", "A", "N", "S", "L", "M"))
+    r["canslim_co_v3"] = v.get("co_v3", False)
+    return r
 
 
 def newest(prefix):
@@ -128,14 +153,19 @@ def trend_r2(ds):
     return r2 if sxy > 0 else -r2
 
 
-def pct_rank(vals):
-    """Xep hang phan vi 0..1 (1 = tot nhat)."""
-    idx = [i for i, v in enumerate(vals) if v is not None]
-    order = sorted(idx, key=lambda i: vals[i])
-    out = [0.0] * len(vals)
-    for r, i in enumerate(order):
-        out[i] = r / max(1, len(order) - 1)
-    return out
+def hard_filter_checks(r):
+    """Single source for Step 1 eligibility and its rejection reasons."""
+    return [
+        ("liquidity", r["tov"] >= LOC["thanh_khoan_min"],
+         f"thanh khoan {r['tov']/1e9:.1f} ty"),
+        ("close_above_ma200", not LOC["gia_tren_ma200"] or r["gia"] > r["ma200"],
+         "duoi MA200"),
+        ("ma50_above_ma200", not LOC["ma50_tren_ma200"] or r["ma50"] > r["ma200"],
+         "MA50<MA200"),
+        ("rs_12m_positive", not LOC["rs_252_duong"] or r["rs_252_skip21"] > 0,
+         "thua VNINDEX 12T"),
+        ("atr_max", r["atr"] <= LOC["atr_max"], f"ATR {r['atr']*100:.1f}%"),
+    ]
 
 
 def build_rows(scan, bench):
@@ -160,17 +190,7 @@ def build_rows(scan, bench):
             "trend_r2": trend_r2(d["ds"]), "nganh": NGANH.get(ma, "Khac"),
         }
 
-        why = []
-        if r["tov"] < LOC["thanh_khoan_min"]:
-            why.append(f"thanh khoan {r['tov']/1e9:.1f} ty")
-        if LOC["gia_tren_ma200"] and r["gia"] <= r["ma200"]:
-            why.append("duoi MA200")
-        if LOC["ma50_tren_ma200"] and r["ma50"] <= r["ma200"]:
-            why.append("MA50<MA200")
-        if LOC["rs_252_duong"] and rs252_skip <= 0:
-            why.append("thua VNINDEX 12T")
-        if r["atr"] > LOC["atr_max"]:
-            why.append(f"ATR {r['atr']*100:.1f}%")
+        why = [reason for _, ok, reason in hard_filter_checks(r) if not ok]
 
         (loai if why else rows).append((ma, ", ".join(why)) if why else r)
     return rows, loai
@@ -194,11 +214,16 @@ def score(rows):
             r["pr_" + key] = v
     for r in rows:
         r["diem"] = sum(RS_WEIGHTS[k] * r["pr_" + k] for k in RS_WEIGHTS)
-    rows.sort(key=lambda r: -r["diem"])
+    rows.sort(key=lambda r: (-r["diem"], r["ma"]))
     n = len(rows)
+    group_rank = 0
     for i, r in enumerate(rows):
+        if i == 0 or r["diem"] != rows[i - 1]["diem"]:
+            group_rank = i
         r["thu"] = i + 1
-        r["thu_hang"] = i / max(1, n - 1)
+        # Equal scores share the best position in their group. Symbol order is
+        # only a deterministic display/order tie-break, never an exit signal.
+        r["thu_hang"] = group_rank / max(1, n - 1)
     return rows
 
 
@@ -233,19 +258,14 @@ def buy_checklist(r):
     sau" thanh mot tieu chi "duoc phep hay khong" — sai voi thiet ke "bo loc
     theo phep hoi, khong phai bang diem".
     """
-    checks = [
-        ("liquidity", r["tov"] >= LOC["thanh_khoan_min"]),
-        ("close_above_ma200", r["gia"] > r["ma200"]),
-        ("ma50_above_ma200", r["ma50"] > r["ma200"]),
-        ("rs_12m_positive", r["rs_252_skip21"] > 0),
-        ("atr_max", r["atr"] <= LOC["atr_max"]),
-    ]
+    checks = [(name, ok) for name, ok, _ in hard_filter_checks(r)]
     r["buy_checklist"] = checks
     r["qua_loc_cung"] = all(ok for _, ok in checks)
     # Duoc mua = qua ca bon buoc. Thieu ket luan tham dinh -> KHONG duoc mua.
     r["buy_ready"] = (r["qua_loc_cung"]
                       and r["buoc3_tham_dinh"] == "dat"
-                      and r["buoc4_dinh_gia"] == "dat")
+                      and r["buoc4_dinh_gia"] == "dat"
+                      and (not CANSLIM_CHAN_MUA or r.get("canslim_3a") is True))
     return r
 
 
@@ -277,11 +297,13 @@ def main():
     if bench is None:
         sys.exit("Thieu VNINDEX — khong tinh duoc suc manh tuong doi.")
     td = nap_tham_dinh()
+    cs, cs_ngay = nap_canslim()
 
     rows, loai = build_rows(scan, bench)          # Buoc 1
     score(rows)                                   # Buoc 2 (phan vi trong ro da loc)
     for r in rows:
-        cua_tham_dinh(r, td)                      # Buoc 3 + 4 (nguoi)
+        cua_canslim(r, cs)                        # Buoc 3a (may)
+        cua_tham_dinh(r, td)                      # Buoc 3b + 4 (nguoi)
         buy_checklist(r)
         sell_checklist(r)
 
@@ -292,11 +314,25 @@ def main():
     print("QUY TRINH 4 BUOC (Triet_ly_dau_tu_FF5) — khong co diem bu tru giua cac buoc:")
     print("  B1 bo loc cung : thanh khoan>=10 ty, gia>MA200, MA50>MA200, RS12T(bo 1T)>0, ATR<=6%")
     print("  B2 xep hang    : 0,40*RS12T + 0,30*RS6T + 0,20*RS3T + 0,10*R2, phan vi TRONG RO DA LOC")
-    print("  B3 tham dinh   : doanh nghiep -> nganh -> vi mo (NGUOI, co quyen phu quyet)")
+    hien_3a = CANSLIM_KET_QUA != "bac_bo"
+    if hien_3a:
+        print("  B3a CANSLIM    : M, C, A cung + (N,S,L)>=2 (MAY; "
+              f"{'CHAN mua' if CANSLIM_CHAN_MUA else 'chi cham, KHONG chan'} — muc 12)")
+    else:
+        print("  B3a CANSLIM    : BAC BO boi kiem dinh dang ky truoc 22/09/2026 — khong hien "
+              "thi (muc 12). Chi con co V3.")
+    print("  B3b tham dinh  : nam cong phu quyet V1-V5 (NGUOI, co quyen phu quyet)")
+    if not cs:
+        print("  [CANH BAO] Chua co data/canslim_YYYYMMDD.json — chay: python canslim.py"
+              + ("" if hien_3a else " (de co co V3)"))
+    elif cs_ngay[:10].replace("-", "") < path[-13:-5]:
+        print(f"  [CANH BAO] Diem CANSLIM chot {cs_ngay[:10]}, cu hon ban quet — chay lai canslim.py")
     print("  B4 dinh gia    : gia hop ly + diem mua (NGUOI)")
 
     hdr = (f"{'#':>3} {'Ma':<5} {'Gia':>8} {'Diem':>5} {'Hang':>5} {'RS12T':>7} {'RS6T':>7} "
-           f"{'RS3T':>7} {'R2':>5} {'ATR%':>5} {'Ty/ph':>6} {'B3':>5} {'B4':>5} {'Mua':>4}  Nganh")
+           f"{'RS3T':>7} {'R2':>5} {'ATR%':>5} {'Ty/ph':>6} "
+           + (f"{'CANSLM':>6} {'3a':>3} " if hien_3a else "")
+           + f"{'B3':>5} {'B4':>5} {'Mua':>4}  Nganh")
     print("\n" + hdr)
     print("-" * len(hdr))
     for r in rows:
@@ -304,9 +340,16 @@ def main():
               f"{r['thu_hang']:>5.2f} "
               f"{r['rs_252_skip21']*100:>+6.1f}% {r['rs_126']*100:>+6.1f}% "
               f"{r['rs_63']*100:>+6.1f}% {r['trend_r2']:>5.2f} {r['atr']*100:>5.2f} "
-              f"{r['tov']/1e9:>6.1f} {r['buoc3_tham_dinh']:>5} {r['buoc4_dinh_gia']:>5} "
+              f"{r['tov']/1e9:>6.1f} "
+              + (f"{r['canslim_chu']:>6} {({True: 'Y', False: 'N', None: '?'})[r['canslim_3a']]:>3} "
+                 if hien_3a else "")
+              + f"{r['buoc3_tham_dinh']:>5} {r['buoc4_dinh_gia']:>5} "
               f"{'Y' if r['buy_ready'] else 'N':>4}  {r['nganh']}")
 
+    v3 = [r["ma"] for r in rows if r["canslim_co_v3"]]
+    if v3:
+        print(f"\n[V3 nghi bat] dong tien HDKD 3 nam < 50% LNST (may tinh, chi la co cho "
+              f"phieu 3b): {v3}")
     cho_td = [r for r in rows if r["buoc3_tham_dinh"] == "chua"]
     bi_loai_b3 = [r for r in rows if r["bi_phu_quyet"]]
     ds_cho = [r for r in rows if r["trong_danh_sach_cho"]]
@@ -355,4 +398,5 @@ def main():
 
 
 if __name__ == "__main__":
+    sys.stdout.reconfigure(encoding="utf-8")
     main()

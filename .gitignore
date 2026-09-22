@@ -1,0 +1,18 @@
+# Local environments and generated runtime files
+.venv/
+.uv-cache/
+node_modules/
+__pycache__/
+*.py[cod]
+*.log
+
+# Local credentials and assistant settings
+.env
+.env.*
+!.env.example
+.codex/
+.claude/
+.agents/
+
+# Local code graph caches
+graphify-out/cache/

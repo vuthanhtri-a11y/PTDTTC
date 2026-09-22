@@ -253,6 +253,52 @@ THAM_DINH_TRANG_THAI = ("dat", "loai", "cho", "chua")
 #   cho  — dat ve doanh nghiep nhung gia chua hop ly -> danh sach cho (Buoc 4)
 #   chua — chua tham dinh (mac dinh khi thieu ban ghi)
 
+# ------------------------------------------------ Buoc 3a CANSLIM (chot 22/09/2026)
+# Buoc 3 moi = 3a CANSLIM (MAY cham) + 3b nam cong phu quyet V1-V5 (NGUOI, phieu
+# trong THAM_DINH_FILE). Ba truc A/B/C cua phieu cu bo. Ma phai qua CA HAI.
+# Xem CHIEN_LUOC_DAI_HAN.md muc 12.
+#
+# NGUONG DANG KY TRUOC — chot TRUOC khi chay canslim_backtest.py. Khong duoc sua
+# sau khi da xem ket qua; muon doi thi ghi thanh mot phep do moi, co ngay moi.
+#   C : LNST co dong me quy gan nhat so cung ky >= +25% (quy truoc phai > 0)
+#       VA doanh thu thuan quy >= +15% (ngan hang: thu nhap lai thuan)
+#       Dung LNST co dong me thay EPS: co tuc co phieu lam meo EPS lich su.
+#   A : LNST TTM tang >= 20%/nam binh quan 3 nam, KHONG nam nao giam, VA ROE TTM >= 15%
+#   N : gia cach dinh 252 phien <= 15%  (phan "cai moi" khong do bang may)
+#   S : KL TB phien tang / KL TB phien giam, 50 phien >= 1,0
+#   L : phan vi RS 12T (bo 1T) trong TOAN RO >= 0,70
+#   I : BO khoi luat may — Viet Nam khong co du lieu tuong duong 13F
+#   M : VNINDEX > MA200 VA MA50 > MA200; sai -> khong mua moi ma nao
+# Ket luan: nhanh chinh  = M, C, A cong cung + (N + S + L) >= 2
+#           doi chung    = ca sau chu (M, C, A, N, S, L) deu qua
+CANSLIM = {
+    "c_lnst_yoy_min": 0.25,
+    "c_doanh_thu_yoy_min": 0.15,
+    "a_cagr_3n_min": 0.20,
+    "a_roe_min": 0.15,
+    "n_cach_dinh_max": 0.15,
+    "s_ty_le_kl_min": 1.0,
+    "s_so_phien": 50,
+    "l_phan_vi_min": 0.70,
+    "diem_nsl_min": 2,
+    # Co canh bao cho Buoc 3b (KHONG chan mua): dong tien HDKD 3 nam / LNST 3 nam
+    "v3_nguong": 0.50,
+}
+
+# Cong tac theo ket qua kiem dinh dang ky truoc (muc 12):
+#   dat nguong (>=3/4 pha duong, t>=2, sut giam khong te hon qua 3 diem %) -> True
+#   chua ket luan (1 <= t < 2) -> False: van cham va ghi so, KHONG chan lenh
+#   bac bo (t < 1)            -> go khoi bao cao
+# V1-V5 (Buoc 3b, phieu nguoi) VAN CHAN trong moi truong hop.
+CANSLIM_CHAN_MUA = False
+
+# Ket qua kiem dinh dang ky truoc, chay 22/09/2026 (data/canslim_backtest_20260922.json):
+# 0/4 pha duong, t TB = -1,00 -> BAC BO (ca doi chung, nhanh V3 va nhanh chi-M cung bac bo).
+# Theo luat da chot: go 3a khoi bao cao screener, chi luu ho so. canslim.py van chay
+# duoc de ghi so tien ve truoc neu quy muon dang ky mot phep do MOI (muc 12).
+# Gia tri: "chua_do" | "chap_nhan" | "chua_ket_luan" | "bac_bo"
+CANSLIM_KET_QUA = "bac_bo"
+
 # Bang CL.4 — bon quy tac thoat, ra soat dau moi thang. Chi can MOT cau tra loi
 # phu dinh la ban toan bo vi the.
 SELL_CHECKLIST = {
