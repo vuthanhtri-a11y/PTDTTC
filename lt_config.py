@@ -422,8 +422,18 @@ LENH_QUY_TAC_5 = [
                     "tin xau rieng cua MSB.",
         "sai_khi": None,
         "trang_thai": "da khop",
-        "gia_han_den": None,
-        "ngay_ghi_gia_han": None,
+        # 23/09/2026 — GIA HAN toi het cuoc thi (user quyet). Khong gia han thi
+        # ky soat 01/10 lay lai quyen va allocator mua lai 350 MSB (so 2 + so 3)
+        # — chi con ~11 phien toi 17/10, chiu phi khu hoi. 17/10 la ngay
+        # het_hieu_luc_sau cua LICH_SOAT (thu Bay; phien cuoi 16/10).
+        # Hop le: ngay_ghi_gia_han 23/09 < ngay soat 01/10.
+        # ⚠️ Ghi nhan trung thuc: quyet dinh gia han dua ra SAU KHI da thay MSB
+        # tang 13.050 (21/09) -> 13.500 (22/09) -> 14.100 (trua 23/09, +8,0%)
+        # trong khi VNINDEX chi +1,1%. Tuc la gia han sau khi da biet cam quan
+        # dang bat loi ~225.000 d (~0,37% NAV DM2) — ghi lai de bao cao cuoi ky
+        # doc duoc, khong phai de bao chua.
+        "gia_han_den": "2026-10-17",
+        "ngay_ghi_gia_han": "2026-09-23",
         # ⚠️ Ghi nhan trung thuc: ban ghi nay duoc lap SAU KHI lenh da khop,
         # cung mot le sai quy trinh nhu ban ghi so 1 (BSR 16/09).
     },
@@ -440,8 +450,9 @@ LENH_QUY_TAC_5 = [
                     "gia trong cung phien.",
         "sai_khi": None,
         "trang_thai": "da khop",
-        "gia_han_den": None,
-        "ngay_ghi_gia_han": None,
+        # 23/09/2026 — GIA HAN cung quyet dinh voi lenh so 2 (xem ghi chu o do).
+        "gia_han_den": "2026-10-17",
+        "ngay_ghi_gia_han": "2026-09-23",
         # ⚠️ Ghi nhan trung thuc: ban ghi nay duoc lap SAU KHI lenh da khop,
         # cung mot le sai quy trinh nhu ban ghi so 1 va so 2.
     },
