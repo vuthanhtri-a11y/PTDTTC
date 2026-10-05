@@ -1,0 +1,76 @@
+NGAY CHAY 2026-10-05 — nhip HANG NGAY (chi luat moi phien, khong mua)
+CHE DO THI TRUONG (2026-10-02): GIAM — tran co phieu 0%  (VNINDEX 1,737.71, MA200 1,795.65, vao GIAM < 1,741.78, ra GIAM > 1,795.65)
+
+RO CO BAN CHUA CHOT (_ro_co_ban.ngay_chot trong data/tham_dinh.json): KHONG mua; van sinh lenh BAN theo luat gia/che do. Quy tac 4 chua xet duoc -> moi vi the hien PHAI CHAM TAY.
+
+MA DUOC PHEP GIAI NGAN (giao diem + Buoc 4 + phieu Dat + bien an toan), theo uu tien ro roi ATR thap
+
+Ma      UT San       Bien   ATR%    Ty/ph    B4 Nganh       
+------------------------------------------------------------------------
+(khong co ma nao — xem ghi chu ben duoi)
+
+-> Excel: data\bao_cao_dau_tu_20261005.xlsx
+Tong tai san 2 danh muc: 61,805,397 d
+
+==============================================================================
+DM1 — Danh muc 1 — tien that
+KHONG CO DU LIEU VON (HOLDINGS rong va TIEN_MAT = 0).
+Bo qua phan bo. Cap nhat lt_config.py roi chay lai; ban ghi cu o data/lt_config_backup_20260825.py.
+==============================================================================
+
+==============================================================================
+DM2 — Danh muc 2 — tai khoan du thi
+Von ban dau 60,000,000  |  NAV hien tai 61,805,397  |  0/8 o co ung vien
+==============================================================================
+Ma       UT  ATR%      w      Gia      KL       Gia tri   %NAV  Ghi chu
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+MUC TIEU CP                                            0   0.0%
+MUC TIEU TM                                   61,805,397 100.0%
+  (danh muc MUC TIEU cua cac o DA co ma o giao diem + Buoc 4 — khong phai trang thai hien tai)
+
+PHAI CHAM TAY — khong tu dong ban, sua du lieu roi chay lai:
+  [?]      100 BSR   gia von   27,000 — quy tac 4 chua ro — ro co ban chua chot
+  [?]      200 DHC   gia von   36,600 — quy tac 4 chua ro — ro co ban chua chot
+  [?]      440 MSB   gia von   13,333 — quy tac 4 chua ro — ro co ban chua chot
+
+LENH BAN (che do GIAM | quy tac 1, 4 | cham co so | chan cung -25% | cat ve tran):
+  BAN      100 BSR   x   30,450 =     3,045,000  phi     5,481  — cham_co_so, che do GIAM (2026-10-02)  [phieu so 2, ghi 2026-10-04 18:57]
+  BAN      200 DHC   x   39,000 =     7,800,000  phi    14,040  — che do GIAM (2026-10-02)  [phieu so 3, ghi 2026-10-04 18:57]
+  BAN      440 MSB   x   14,050 =     6,182,000  phi    11,128  — che do GIAM (2026-10-02)  [phieu so 1, ghi 2026-10-04 18:57]
+
+LENH MUA (o trong sau khi ban, theo uu tien ro roi ATR thap):
+  [KHONG MUA] che do GIAM — khoa mua moi; ro co ban chua chot; nhip hang ngay — lenh mua chi dat o ky soat
+  => 3 lenh, tong phi 30,649 d (0.05% NAV)
+
+SAU KHI DAT LENH: 0 ma (khong con ma nao)
+  co phieu             0 ( 0.0%)   tien mat    61,774,748 (100.0%)   NAV 61,774,748
+  tran che do GIAM: 0% co phieu
+
+
+SO LENH NGOAI LUAT — nguoi quyet, he thong KHONG sinh ra:
+  #1  2026-09-07  VHM  [da khop]
+      ten      : Lenh chot lai mot phan theo yeu cau nguoi gop von
+      viec     : BAN 50/100 VHM @77.700 (+12,6% tren gia von 69.000)
+      ket thuc : 04/10/2026: ke hoach mua lai HET CAN CU — VHM phu quyet Buoc 3 va che do GIAM khoa mua moi (CHIEN_LUOC_DAI_HAN.md muc 14). Khong mua lai.
+      so hoc   : Khop -> +109.648 d (+0,18% NAV). Khong khop ma VHM len 80.000/85.000 -> -124.712/-374.712 d (-0,21%/-0,62% NAV). Xac suat khop phai dat 53,2%/77,4% moi hoa von.
+      [NGUOC]  : Luat A (chot lai tai muc tieu) co alpha AM tren 56.496 lenh mo phong — xem memory luat-thoat-va-cuoc-thi-dau-tu.
+
+SO LENH QUY TAC 5 — Ban theo cam quan thi truong cua quy (tuy nghi, tu 2026-09-11; DA BO tu 2026-10-05 — chi con la ho so):
+  #1  2026-09-16  DM2  BSR  [da khop]
+      ban      : 100/200 CP @31,300
+      cam quan : Lo ngai chung ve thi truong/nhom nganh dau khi noi rieng, khong phai vi tin xau rieng cua BSR. BSR da tang 27.000 -> 31.300 (+15,9%) tu gia von.
+      hieu luc : gia han den 2026-09-30 (ghi ngay 2026-09-16)
+  #2  2026-09-22  DM2  MSB  [da khop]
+      ban      : 300/840 CP @13,450
+      cam quan : Lo ngai chung ve nganh ngan hang/thi truong, khong phai vi tin xau rieng cua MSB.
+      hieu luc : gia han den 2026-10-17 (ghi ngay 2026-09-23)
+  #3  2026-09-22  DM2  MSB  [da khop]
+      ban      : 50/540 CP @13,500
+      cam quan : Lo ngai chung ve nganh ngan hang/thi truong, khong phai vi tin xau rieng cua MSB — cung ly do voi lenh so 2, khop rieng gia trong cung phien.
+      hieu luc : gia han den 2026-10-17 (ghi ngay 2026-09-23)
+  #4  2026-10-01  DM2  MSB  [da khop]
+      ban      : 50/490 CP @14,200
+      cam quan : Co cau danh muc an toan truoc bien dong cua thi truong, can lai so co phieu dang nam thanh lo chan.
+      hieu luc : toi ky soat ke tiep — allocator duoc mua lai neu ma con qua bon quy tac
+

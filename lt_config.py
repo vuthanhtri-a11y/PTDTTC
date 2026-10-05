@@ -8,10 +8,28 @@ Thay the hoan toan khung "P(ve nhat)" cu:
     uu tien (a) chon ma manh hon thi truong ben vung, (b) khong de mot ma lam
     hong danh muc, (c) chi phi giao dich thap vi vong quay cham.
 
-Ba tru cot:
-  1. LOC (hard filter)   — chi choi trong xu huong tang dai han + du thanh khoan.
-  2. XEP HANG (RS score) — suc manh tuong doi so voi VNINDEX, nhieu khung thoi gian.
-  3. PHAN BO (risk parity) — ty trong ~ 1/bien dong, co tran ma va tran nganh.
+Tu 01/10/2026 — KHUNG TOP-DOWN, HAI NHANH SONG SONG (CHIEN_LUOC_DAI_HAN.md muc 13):
+  1. NHANH MAY  — LOC (hard filter) tren TOAN THI TRUONG (HOSE+HNX+UPCoM,
+                  lt_scan_vietcap.py) -> "ro xu huong".
+  2. NHANH NGUOI — RO CO BAN top-down: vi mo -> nganh -> doanh nghiep (V1-V5),
+                  nhap tay trong THAM_DINH_FILE.
+  3. GIAO DIEM hai ro + Buoc 4 dinh gia = lua chon cua Quy. Thu tu mua theo
+     `uu_tien` nguoi gan, pha hoa bang ATR thap truoc.
+  4. PHAN BO (risk parity) — ty trong ~ 1/bien dong, co tran ma va tran nganh.
+Buoc 2 (xep hang RS) DA BO 01/10/2026 — ban cu: data/lt_config_backup_20261001.py
+
+Tu 05/10/2026 — KHUNG GIAI DOAN 2 (CHIEN_LUOC_DAI_HAN.md muc 14), dung khung da
+cong bo o Muc 9 bao cao giai doan 1 (tr.69-73):
+  "Doanh nghiep tot la dieu kien (Fisher), gia hop ly la nguyen tac (Graham),
+   xu huong xac nhan la ky luat (Medici)."
+  * TRU 1 — CHE_DO thi truong (lt_che_do.py): VNINDEX so voi MA50/MA200 + phien
+    phan phoi -> TANG / DIEU_CHINH / GIAM; dat TRAN ty trong co phieu. GIAM =
+    ban toan bo, khoa mua moi.
+  * TRU 2 — nam cong V1-V5 + ba truc (phieu Dat) + bien an toan kep: mua khi
+    gia <= (1 - BIEN_AN_TOAN_MIN) x than_trong; ban khi gia cham co_so.
+  * Xac nhan xu huong o dau vao: gia > MA200, MA50 > MA200 (RS va ATR da bo).
+  * Quy tac 5 (ban theo cam quan) BO tu 05/10; moi lenh can PHIEU_LENH ghi truoc.
+Ban truoc 04/10/2026: data/lt_config_backup_20261004b.py
 
 Chay: PYTHONIOENCODING=utf-8 python lt_screener.py
 """
@@ -144,7 +162,17 @@ HOLDINGS = {
     #   Thu ve: 300 x 13.450 = 4.035.000 - phi/thue (7.263) = 4.027.737;
     #           50 x 13.500 = 675.000 - phi/thue (1.215) = 673.785.
     #   Sao luu truoc khi sua: data/lt_config_backup_20260922.py
-    "DM2": [("MSB", 490, 13_333), ("BSR", 100, 27_000),
+    # 01/10/2026 — BAN 50 MSB @14.200 theo QUY TAC THU NAM (LENH_QUY_TAC_5 so 4).
+    #   cam_quan (loi user): co cau danh muc an toan truoc bien dong thi truong,
+    #   can lai so CP dang nam thanh lo chan. 50/490 = 10,2% vi the, duoi tran.
+    #   Khop ngay ky soat 01/10, GHI SO NGAY 04/10 — sau khi khop (le sai quy
+    #   trinh nhu so 1-3). Con 440 CP, gia von khong doi 13.333.
+    #   Thu ve: 710.000 - phi/thue (1.278) = 708.722.
+    #   Sao luu truoc khi sua: data/lt_config_backup_20261004.py
+    # 05/10/2026 (KE HOACH, chua khop) — BAN TOAN BO theo che do GIAM (PHIEU_LENH
+    #   so 1-3, ghi 04/10 18:57). Sua dong duoi + TIEN_MAT SAU KHI KHOP, theo gia
+    #   khop that; khong sua truoc.
+    "DM2": [("MSB", 440, 13_333), ("BSR", 100, 27_000),
             ("DHC", 200, 36_600)],
 }
 # DM2: 15.826.732 - 7.330.980 (mua DHC 03/09) = 8.495.752
@@ -167,7 +195,8 @@ HOLDINGS = {
 # 22/09/2026 — 35.924.363 + 3.443.790 (ban 50 VHM, phu_quyet) = 39.368.153
 #              39.368.153 + 4.027.737 (ban 300 MSB, quy tac 5) = 43.395.890
 #              43.395.890 + 673.785 (ban 50 MSB, quy tac 5) = 44.069.675
-TIEN_MAT = {"DM1": 0, "DM2": 44_069_675}
+# 01/10/2026 — 44.069.675 + 708.722 (ban 50 MSB, quy tac 5 so 4) = 44.778.397
+TIEN_MAT = {"DM1": 0, "DM2": 44_778_397}
 
 # ------------------------------------------------- Lenh ngoai luat (co y thuc)
 # Quy dinh: nhung quyet dinh KHONG sinh ra tu bon quy tac thoat / bang xep hang
@@ -205,6 +234,13 @@ LENH_NGOAI_LUAT = [
                         "Xac suat khop phai dat 53,2%/77,4% moi hoa von.",
         "bang_chung_nguoc": "Luat A (chot lai tai muc tieu) co alpha AM tren "
                             "56.496 lenh mo phong — xem memory luat-thoat-va-cuoc-thi-dau-tu.",
+        # 04/10/2026 — he qua cua luat da chot, khong phai quyet dinh moi: VHM
+        # bi phu quyet Buoc 3 (13/09; chi phieu Dat duoc mua — quyet dinh 9) va
+        # che do GIAM khoa moi lenh mua (quyet dinh 1). Ke hoach mua lai khong
+        # con duong nao de thuc hien. Giu cac truong tren lam ho so.
+        "ket_thuc": "04/10/2026: ke hoach mua lai HET CAN CU — VHM phu quyet Buoc 3 "
+                    "va che do GIAM khoa mua moi (CHIEN_LUOC_DAI_HAN.md muc 14). "
+                    "Khong mua lai.",
     },
 ]
 
@@ -240,12 +276,46 @@ LOC = {
     "thanh_khoan_min": 10e9,   # Gia tri khop lenh TB 20 phien >= 10 ty/phien
     "gia_tren_ma200": True,    # Close > MA200
     "ma50_tren_ma200": True,   # MA50 > MA200 (cau truc tang dai han)
-    "rs_252_duong": True,      # Phai vuot VNINDEX 12 thang qua
-    # ATR chi la CHAN AN TOAN (loai ma qua dau co), khong phai tieu chi chon.
-    # Bien dong duoc xu ly o khau PHAN BO (ty trong ~ 1/ATR), khong o khau loc —
-    # neu loc bang ATR ta se vut bo nhung ma manh nhat chi vi chung dong manh.
-    "atr_max": 0.060,
+    # 04/10/2026 — BO (muc 14, quyet dinh 5). RS la da tang TUONG DOI: no loai
+    # dung nhom ma Tru 2 can tim (gia tang deu nhung cham hon chi so — ban quet
+    # 01/10: AAA, NTP, QNS, SBT, VEA, VTZ). Chu L (RS 12T) trong phep do dang ky
+    # truoc cua Quy co DAU NGUOC (-2,0%, t -1,42; muc 12.2). Doi xung voi viec bo
+    # luat ban RS (quyet dinh 4). Ban cu: True.
+    "rs_252_duong": False,
+    # 04/10/2026 — BO (cam ket #2 tr.70 bao cao giai doan 1: ATR chua loai ma nao
+    # trong 9 ky quet; ban quet 01/10 cung vay). None = tat. Ma dong manh van
+    # bi thu nho o khau PHAN BO (1/ATR) va phai qua Tru 2. Ban cu: 0.060.
+    "atr_max": None,
 }
+
+# ------------------------------------- Tru 1: che do thi truong (chot 04/10/2026)
+# Quyet dinh 1-3 (muc 14). Bang 9.2 bao cao giai doan 1 + hai cho lam ro:
+#   * GIAM khi VNINDEX dong cua < nguong_vao_giam x MA200 (tinh lai MOI PHIEN).
+#     Chi RA khoi GIAM khi dong cua > nguong_ra_giam x MA200 (do tre: dung khoang
+#     lech 3% Quy dung cho tung ma). Do tren VNINDEX 10/2014-10/2026: doi xung
+#     cho 35 lan vao Giam, 24 lan ngan < 10 phien; do tre con 15 lan, 5 lan ngan.
+#   * Ngoai GIAM: TANG khi dong cua > MA200 va MA50 > MA200 va phien phan phoi
+#     < nguong; DIEU_CHINH khi MA50 < MA200 hoac phien phan phoi >= nguong. Vung
+#     giua (0,97-1,00 x MA200) GIU trang thai truoc do, chi duoc XAU DI (sang
+#     DIEU_CHINH), khong duoc tot len.
+#   * Dai ty trong la TRAN, khong phai muc tieu (quyet dinh 3 — cuoc thi chi cho
+#     mua co phieu, nen khong co ETF de lap san). Thieu ma dat Tru 2 -> nam tien.
+#   * Phien phan phoi (O'Neil): VNINDEX giam >= giam_toi_thieu VA khoi luong cao
+#     hon phien truoc; dem trong cua_so phien gan nhat.
+CHE_DO = {
+    "hieu_luc_tu": "2026-10-04",          # ngay chot; lenh dau tien dat 05/10
+    "nguong_vao_giam": 0.97,
+    "nguong_ra_giam": 1.00,
+    "tran_co_phieu": {"TANG": 1.00, "DIEU_CHINH": 0.60, "GIAM": 0.00},
+    "phan_phoi": {"giam_toi_thieu": 0.002, "cua_so": 25, "nguong_dieu_chinh": 5},
+}
+
+# ------------------------------------- Tru 2: bien an toan kep (chot 04/10/2026)
+# Quyet dinh 6-7 (muc 14). Moi ma trong THAM_DINH_FILE co dinh_gia.than_trong va
+# dinh_gia.co_so (nghin dong/CP). Mua khi gia <= (1 - BIEN_AN_TOAN_MIN) x
+# than_trong; thieu mot trong hai, than_trong > co_so, hoac dinh_gia.can_dung_lai
+# = true -> KHONG mua. Ban toan bo khi gia dong cua >= co_so.
+BIEN_AN_TOAN_MIN = 0.15
 
 # ------------------------------------------------ Quy trinh 4 buoc (Triet_ly_dau_tu_FF5)
 # 25/08/2026 — dong bo voi Triet_ly_dau_tu_FF5.docx, ban da chot. Ba thay doi:
@@ -268,6 +338,36 @@ LOC = {
 #     ma chinh tai lieu canh bao ("Quy se tu khen minh vi nhung thu von chi la
 #     phoi nhiem rui ro").
 THAM_DINH_FILE = "data/tham_dinh.json"
+
+# ------------------------------------------ Ro co ban top-down (chot 01/10/2026)
+# Nhanh NGUOI cua khung moi. Nam trong THAM_DINH_FILE:
+#   "_ro_co_ban": {
+#       "ngay_chot": "YYYY-MM-DD",   # ro chi co hieu luc khi da chot
+#       "vi_mo":  {"ket_luan": "...", "ngay": "..."},
+#       "nganh":  {"<ten nganh>": {"trong_ro": true|false, "ly_do": "...", "ngay": "..."}}
+#   }
+#   va o tung ma: "trong_ro", "nganh", "uu_tien", "ngay_vao_ro", "ly_do_ro".
+#
+# Mot ma NAM TRONG RO khi va chi khi: ro da chot, vi mo co ket luan, nganh cua ma
+# co trong ro nganh voi trong_ro = true, ma co trong_ro = true, buoc3 = "dat"
+# (V1-V5 o tang doanh nghiep) va luan_diem_con_nguyen khong phai false.
+# Ba trang thai, KHONG PHAI HAI:
+#   True  — trong ro: duoc mua (neu qua Tang 1 va Buoc 4 dat)
+#   False — bi loai o tang nao do: quy tac thoat 4 -> BAN toan bo
+#   None  — thieu ket luan hoac nhap sai (vd nganh khong co trong ro nganh):
+#           KHONG mua, KHONG tu dong ban, in PHAI CHAM TAY. Quy ve False thi mot
+#           loi go nham se ban vi the; quy ve True thi thieu phieu van duoc mua.
+# Hang rao thoi diem (quyet dinh 4): moi thay doi ro phai chot TRUOC ban quet
+# cua ky do. lt_screener.py canh bao neu THAM_DINH_FILE sua sau file quet.
+RO_CO_BAN_KHOA = "_ro_co_ban"
+
+# Hieu luc luat moi va han chot lenh mua cua ky dau tien (quyet dinh 9, 11).
+# Ky 01/10 la lan doi luat thu tu giua cuoc thi, do Quy chon. Qua han chot ma
+# phieu V1-V5 + Buoc 4 chua xong -> phan von do nam tien toi ky 01/11.
+TOP_DOWN = {
+    "hieu_luc_tu": "2026-10-01",
+    "han_chot_lenh_mua": {"2026-10-01": "2026-10-05"},   # ky soat -> han chot
+}
 
 # Gia tri hop le cho ket luan tham dinh thu cong.
 THAM_DINH_TRANG_THAI = ("dat", "loai", "cho", "chua")
@@ -322,14 +422,20 @@ CANSLIM_CHAN_MUA = False
 # Gia tri: "chua_do" | "chap_nhan" | "chua_ket_luan" | "bac_bo"
 CANSLIM_KET_QUA = "bac_bo"
 
-# Bang CL.4 — bon quy tac thoat, ra soat dau moi thang. Chi can MOT cau tra loi
+# Bang CL.4 — quy tac thoat, ra soat dau moi thang. Chi can MOT cau tra loi
 # phu dinh la ban toan bo vi the.
+# 01/10/2026: BO quy tac 3 (thu hang <= 40% ro da loc) cung voi Buoc 2. Muc 8 da
+# do: tac dong cua no la nhieu (+2,44/-2,71/-2,52/+3,06 diem %, TB +0,07).
+# Quy tac 4 doi nghia: "ma khong con trong ro co ban" (loai o tang nao cung vay).
+# 04/10/2026 (muc 14): BO quy tac 2 (RS 12T < -5%) — quyet dinh 4. THEM ban khi
+# gia cham gia tri co so (quyet dinh 6) va che do GIAM (quyet dinh 1). So hieu
+# cu giu de doi chieu.
 SELL_CHECKLIST = {
     "close_below_97pct_ma200": True,   # 1. Gia con tren MA200 sau khi tru dem 3%?
-    "rs_12m_below_minus_5pct": True,   # 2. Con manh hon VNINDEX khung 12 thang?
-    "rank_below_40pct": True,          # 3. Con trong nhom dan dau bang xep hang?
-    "luan_diem_gay": True,             # 4. Luan diem doanh nghiep con nguyen ven?
-    "stop_loss_25pct": True,           # ngoai le duy nhat giua hai ky ra soat
+    "ngoai_ro_co_ban": True,           # 4. Con nam trong ro co ban top-down?
+    "cham_co_so": True,                # 6. Gia dong cua da cham gia tri co so?
+    "che_do_giam": True,               # Tru 1: thi truong sang che do GIAM?
+    "stop_loss_25pct": True,           # chan cung -25% so voi gia von
 }
 
 # --------------------------------- Quy tac thu nam — ban theo cam quan cua quy
@@ -456,6 +562,70 @@ LENH_QUY_TAC_5 = [
         # ⚠️ Ghi nhan trung thuc: ban ghi nay duoc lap SAU KHI lenh da khop,
         # cung mot le sai quy trinh nhu ban ghi so 1 va so 2.
     },
+    {
+        "so": 4,
+        "ngay": "2026-10-01",
+        "dm": "DM2",
+        "ma": "MSB",
+        "kl_truoc": 490,
+        "kl_ban": 50,
+        "gia": 14_200,
+        "cam_quan": "Co cau danh muc an toan truoc bien dong cua thi truong, can "
+                    "lai so co phieu dang nam thanh lo chan.",
+        "sai_khi": None,
+        "trang_thai": "da khop",
+        # Khong gia han: hieu luc toi ky soat ke tiep 01/11. MSB van bi so 2-3
+        # khoa mua lai toi 17/10 va Buoc 4 dang "cho" nen allocator khong mua.
+        "gia_han_den": None,
+        "ngay_ghi_gia_han": None,
+        # ⚠️ Ghi nhan trung thuc: khop 01/10 (chinh ngay ky soat, TRUOC khi ro
+        # co ban chot), ban ghi lap ngay 04/10 — SAU KHI khop, le sai quy trinh
+        # thu tu (so 1-4 deu vay). Phan "lo chan" la ly do van hanh, khong phai
+        # cam quan; ghi nguyen loi user.
+    },
+]
+# 04/10/2026 — QUY TAC 5 BI BO HAN tu 05/10/2026 (CHIEN_LUOC_DAI_HAN.md muc 14,
+# quyet dinh 11; dung cam ket #5 tr.70 bao cao giai doan 1: "bo han quy tac ban
+# theo cam quan"). So tren giu lai lam ho so; khong ghi them lenh nao. Hai gia
+# han so 2-3 (MSB, toi 17/10) van het hieu luc dung ngay da ghi.
+QUY_TAC_5["het_hieu_luc_tu"] = "2026-10-05"
+
+# ------------------------------------------- Phieu lenh (chot 04/10/2026)
+# Cam ket #5 tr.70 bao cao giai doan 1: "lenh nao thieu ly do ghi truoc gio dat
+# thi nguoi phe duyet tu choi". Moi lenh — trong luat hay khong — phai co mot
+# phieu o day, ghi_luc TRUOC gio dat. lt_allocator.py in phieu cua ngay chay va
+# gan co [CHUA CO PHIEU] cho moi lenh no sinh ra ma chua co phieu.
+# Sau khi khop: doi trang_thai, ghi gia khop vao data/so_giao_dich.json va sua
+# HOLDINGS / TIEN_MAT. Mau:
+#   {"so": 1, "ghi_luc": "YYYY-MM-DD HH:MM", "ngay_dat": "YYYY-MM-DD",
+#    "dm": "DM2", "chieu": "BAN" | "MUA", "ma": "XYZ", "kl": 100,
+#    "loai_lenh": "...", "can_cu": "luat nao, so lieu nao",
+#    "trang_thai": "cho dat" | "da khop" | "khop mot phan" | "huy", "ghi_chu": ""}
+_CAN_CU_GIAM_0510 = ("CHE DO GIAM (muc 14, quyet dinh 1): VNINDEX dong cua 02/10/2026 "
+                     "1.737,71 < 0,97 x MA200 1.795,65 = 1.741,78, va < nguong "
+                     "1.738,84 da cong bo tr.72 bao cao giai doan 1 ('Quy chuyen "
+                     "toan bo sang tien mat'). Ban toan bo vi the, khoa mua moi.")
+PHIEU_LENH = [
+    {"so": 1, "ghi_luc": "2026-10-04 18:57", "ngay_dat": "2026-10-05", "dm": "DM2",
+     "chieu": "BAN", "ma": "MSB", "kl": 440,
+     "loai_lenh": "phien sang 05/10; nguoi dat chon ATO/LO, ghi gia khop vao so",
+     "can_cu": _CAN_CU_GIAM_0510,
+     "trang_thai": "cho dat",
+     "ghi_chu": "KIEM TRUOC KHI DAT: 140 CP thuong (GDKHQ 28/08) da ve tai khoan "
+                "chua — so_giao_dich chua xac nhan. Chua ve thi chi ban duoc 300; "
+                "140 CP con lai ban ngay khi ve. 40 CP la lo le (bang lo le)."},
+    {"so": 2, "ghi_luc": "2026-10-04 18:57", "ngay_dat": "2026-10-05", "dm": "DM2",
+     "chieu": "BAN", "ma": "BSR", "kl": 100,
+     "loai_lenh": "phien sang 05/10; nguoi dat chon ATO/LO, ghi gia khop vao so",
+     "can_cu": _CAN_CU_GIAM_0510,
+     "trang_thai": "cho dat", "ghi_chu": ""},
+    {"so": 3, "ghi_luc": "2026-10-04 18:57", "ngay_dat": "2026-10-05", "dm": "DM2",
+     "chieu": "BAN", "ma": "DHC", "kl": 200,
+     "loai_lenh": "phien sang 05/10; nguoi dat chon ATO/LO, ghi gia khop vao so",
+     "can_cu": _CAN_CU_GIAM_0510,
+     "trang_thai": "cho dat",
+     "ghi_chu": "DHC la ma duy nhat phieu Dat (5/6) — van ban: che do Giam ban "
+                "toan bo, khong mien tru theo ma (tr.72)."},
 ]
 
 # ------------------------------------------------- Lich ra soat (chot 16/09/2026)
@@ -543,10 +713,12 @@ BAO_LUU_TIN_HIEU = {
     },
 }
 
-# --------------------------------------------------------- Diem suc manh RS
-# Trong so cho tung khung. Bo qua 21 phien gan nhat trong khung 12 thang
-# (skip-month) vi dao chieu ngan han lam nhieu tin hieu momentum.
-RS_WEIGHTS = {"rs_252_skip21": 0.40, "rs_126": 0.30, "rs_63": 0.20, "trend_r2": 0.10}
+# --------------------------------------------------------- Diem suc manh RS: DA BO
+# 01/10/2026 — Buoc 2 (xep hang RS) bi xoa theo quyet dinh cua user. Ban cu:
+#   RS_WEIGHTS = {"rs_252_skip21": 0.40, "rs_126": 0.30, "rs_63": 0.20, "trend_r2": 0.10}
+# Viec chon ma nao truoc chuyen sang `uu_tien` cua ro co ban (nguoi), pha hoa
+# bang ATR. 04/10/2026: RS 12T (bo 1T) cung bi bo o Tang 1 va o quy tac thoat 2
+# (muc 14, quyet dinh 4-5) — chi con in ra de doi chieu.
 
 # ------------------------------------------------------------- Luat thoat
 # Thay cho trailing 3% / toi da 20 phien cua khung cuoc thi.
@@ -560,21 +732,40 @@ RS_WEIGHTS = {"rs_252_skip21": 0.40, "rs_126": 0.30, "rs_63": 0.20, "trend_r2": 
 # Giu ra soat hang thang vi do la con so DA CHOT trong Triet_ly_dau_tu_FF5.docx
 # ("Quy ra soat toan bo danh muc vao dau moi thang"), khong phai vi du lieu
 # ung ho. Chi tiet: data/backtest_pha_luoi_20260826.json.
+# 04/10/2026 (muc 14, quyet dinh 12) — NHIP XET thay "chi ra soat dau thang":
+#   * MOI PHIEN (gia dong cua, dat lenh phien sau): che do GIAM, chan cung -25%,
+#     cham gia tri co so, va quy tac 4 (nguoi danh luan_diem_con_nguyen = false
+#     khi day bay cham — "xet ngay khi co so lieu"). Chay:
+#     LOAI_KY=hang_ngay python lt_allocator.py, hoac kiem nhanh python lt_che_do.py
+#   * KY SOAT dau thang: them luat MA200, cat ve tran che do, va moi lenh MUA.
+#     Lenh mua van chi dien ra sau mot ky soat (giu nguyen giai doan 1).
 EXIT = {
-    "chu_ky_ra_soat": "thang",   # Ra soat dau moi thang. KHONG theo doi theo phien.
-    "giu_khi": {                 # Con du CA BA thi giu tiep, khong dong vao
+    "chu_ky_ra_soat": "thang",   # Ky soat dau thang; xem nhip xet o tren
+    "giu_khi": {                 # Con du TAT CA thi giu tiep, khong dong vao
         "gia_tren": "0,97 x MA200",       # dem 3% duoi MA200, tranh bi quet nhieu
-        "rs_12t_toi_thieu": -0.05,        # duoc phep thua VNINDEX toi 5% moi bi ban
-        "thu_hang_rs": 0.40,              # con trong top 40% bang xep hang
+        # "rs_12t_toi_thieu": -0.05 — DA BO 04/10/2026 (quyet dinh 4)
+        "trong_ro_co_ban": True,          # quy tac 4 moi (01/10/2026)
+        "duoi_gia_tri_co_so": True,       # quyet dinh 6 (04/10/2026)
+        "che_do_khac_giam": True,         # quyet dinh 1 (04/10/2026)
+        # "thu_hang_rs": 0.40 — DA BO 01/10/2026 cung Buoc 2
     },
-    "khong_co_muc_tieu_chot_lai": True,   # Giu nguyen bai hoc cua luat C
+    # 04/10/2026 — DOI True -> False (quyet dinh 6). Bao cao giai doan 1 da cong
+    # bo "Quy ban khi gia cham gia tri kich ban co so" (tr.72). Bang chung cu cua
+    # "khong chot loi" (56.496 lenh, luat A) do muc tieu +3% trong <= 20 phien —
+    # mot phep do NGAN HAN, khong phai ban khi cham gia tri noi tai; no khong ap
+    # thang vao day. Cai gia da biet: cat som doanh nghiep tang truong (dieu
+    # Fisher se khong lam). Chong doi cot gon: co_so chi duoc NANG bang phieu moi
+    # dua tren BCTC moi, ghi TRUOC khi gia cham.
+    "khong_co_muc_tieu_chot_lai": False,
+    "ban_khi_cham_co_so": True,
+    "xet_hang_ngay": ("che_do_giam", "stop_loss_25pct", "cham_co_so", "ngoai_ro_co_ban"),
+    "xet_ky_soat": ("close_below_97pct_ma200",),
     "bien_khong_giao_dich": 0.03,         # lech ty trong < 3% NAV thi khong dieu chinh
     "stop_tham_hoa": 0.25,                # Chan cung mot chieu: -25% so voi gia von
 }
-# Do nhay nguong "thu_hang_rs" (CAGR, khong co bien khong giao dich):
+# (lich su) Do nhay nguong "thu_hang_rs" (CAGR, khong co bien khong giao dich):
 #   0,25 -> 11,9% | 0,33 -> 12,6% | 0,40 -> 15,4% | 0,50 -> 10,3% | 0,60 -> 8,1%
-# 0,40 la DINH cua be mat nen phai coi la may; dieu dang tin la CA HO 0,25-0,60
-# deu thang VNINDEX (7,5%). Dung 0,40 nhung khong duoc coi con so nay la thieng.
+# Quy tac nay da bo 01/10/2026.
 
 # --------------------------------------------------------------- Chi phi
 # 15/09/2026 — SUA BIEU PHI theo bang phi that cua cong ty chung khoan.
@@ -604,39 +795,9 @@ PHI_LUU_KY_CP_THANG = 0.3
 
 LOT = 100
 
-# --------------------------------------------------------------- Nganh
-# Phan nganh tho de ap tran nganh (khong can chuan ICB, chi can chan tap trung).
-NGANH = {
-    "ACB": "Ngan hang", "BID": "Ngan hang", "CTG": "Ngan hang", "EIB": "Ngan hang",
-    "HDB": "Ngan hang", "LPB": "Ngan hang", "MBB": "Ngan hang", "MSB": "Ngan hang",
-    "NAB": "Ngan hang", "OCB": "Ngan hang", "SHB": "Ngan hang", "SSB": "Ngan hang",
-    "STB": "Ngan hang", "TCB": "Ngan hang", "TPB": "Ngan hang", "VCB": "Ngan hang",
-    "VIB": "Ngan hang", "VPB": "Ngan hang", "EVF": "Ngan hang",
-    "BSI": "Chung khoan", "FTS": "Chung khoan", "HCM": "Chung khoan",
-    "SSI": "Chung khoan", "VCI": "Chung khoan", "VIX": "Chung khoan",
-    "VND": "Chung khoan", "DSE": "Chung khoan",
-    "BVH": "Bao hiem",
-    "BCM": "Bat dong san", "DIG": "Bat dong san", "DXG": "Bat dong san",
-    "HDC": "Bat dong san", "HDG": "Bat dong san", "KBC": "Bat dong san",
-    "KDH": "Bat dong san", "KOS": "Bat dong san", "NLG": "Bat dong san",
-    "NTL": "Bat dong san", "NVL": "Bat dong san", "PDR": "Bat dong san",
-    "SIP": "Bat dong san", "SJS": "Bat dong san", "SZC": "Bat dong san",
-    "VHM": "Bat dong san", "VIC": "Bat dong san", "VRE": "Bat dong san",
-    "CII": "Ha tang", "CTD": "Ha tang", "CTR": "Ha tang", "HHV": "Ha tang",
-    "PC1": "Ha tang", "VCG": "Ha tang", "GEE": "Ha tang", "GEX": "Ha tang",
-    "HPG": "Thep", "HSG": "Thep", "NKG": "Thep",
-    "BSR": "Dau khi", "GAS": "Dau khi", "PLX": "Dau khi", "PVD": "Dau khi",
-    "PVT": "Dau khi", "PVS": "Dau khi", "DCM": "Hoa chat", "DGC": "Hoa chat",
-    "DPM": "Hoa chat", "CSV": "Hoa chat", "PHR": "Cao su", "GVR": "Cao su",
-    "NT2": "Dien", "POW": "Dien", "PPC": "Dien", "REE": "Dien", "BWE": "Nuoc",
-    "GMD": "Cang bien", "HAH": "Cang bien", "VSC": "Cang bien", "TMS": "Cang bien",
-    "SCS": "Hang khong", "HVN": "Hang khong", "VJC": "Hang khong", "VTP": "Chuyen phat",
-    "MWG": "Ban le", "FRT": "Ban le", "DGW": "Ban le", "PNJ": "Ban le",
-    "MSN": "Tieu dung", "SAB": "Tieu dung", "VNM": "Tieu dung", "PAN": "Tieu dung",
-    "KDC": "Tieu dung", "SBT": "Tieu dung", "TLG": "Tieu dung", "MSH": "Det may",
-    "GIL": "Det may", "BAF": "Chan nuoi", "DBC": "Chan nuoi", "HAG": "Nong nghiep",
-    "ANV": "Thuy san", "VHC": "Thuy san", "ASM": "Thuy san", "LSS": "Nong nghiep",
-    "FPT": "Cong nghe", "CMG": "Cong nghe", "ELC": "Cong nghe",
-    "IMP": "Duoc", "DHC": "Giay", "HT1": "Xi mang", "BMP": "Vat lieu",
-    "PTB": "Vat lieu", "VGC": "Vat lieu", "TCH": "Bat dong san", "VPI": "Bat dong san",
-}
+# --------------------------------------------------------------- Nganh: DA BO
+# 01/10/2026 (quyet dinh 8): tran nganh dung NGANH NGUOI GAN trong ro co ban
+# (truong "nganh" cua tung ma, phai trung mot khoa trong _ro_co_ban.nganh).
+# Bang viet tay cu chi phu 112 ma HOSE; ma ICB cap 2 tu Vietcap chi in ra de
+# doi chieu. Ma o giao diem ma thieu nganh -> KHONG mua, in canh bao.
+# Ban cu: data/lt_config_backup_20261001.py

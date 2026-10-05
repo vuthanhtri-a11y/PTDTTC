@@ -382,6 +382,26 @@
     "phi_ban_va_thue": 1215,
     "rong": 6602
    }
+  },
+  {
+   "ngay": "2026-10-01",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 50,
+   "gia": 14200,
+   "gia_tri": 710000,
+   "phi_dich_vu": 568,
+   "thue": 710,
+   "dong_tien": 708722,
+   "du_tien_mat_sau": 44778397,
+   "can_cu": "QUY_TAC_5 (ban theo cam quan thi truong cua quy)",
+   "ghi_chu": "Ban 50/490 CP (10,2% vi the, duoi tran 50%). LENH_QUY_TAC_5 so 4 trong lt_config.py. cam_quan (loi user, 04/10): 'co cau danh muc an toan truoc bien dong cua thi truong, can lai so co phieu dang nam thanh lo chan'. Lenh khop ngay 01/10 (ngay ky soat), GHI SO NGAY 04/10 - sau khi khop, le sai quy trinh nhu so 1-3. Phien 01/10 MSB: O 14.300 H 14.500 L 14.150 C 14.200 (Vietcap). Phi TTLK 0,3d/CP (15d) chua ghi, nhu cac lenh ban 22/09.",
+   "lai_lo": {
+    "gop": 43350,
+    "phi_mua_phan_bo": 533,
+    "phi_ban_va_thue": 1278,
+    "rong": 41539
+   }
   }
  ],
  "su_kien_phi_tien_mat": [
@@ -473,11 +493,11 @@
   },
   {
    "ma": "MSB",
-   "kl": 490,
+   "kl": 440,
    "gia_von": 13333,
-   "von_goc": 6533170,
-   "phi_mua_con_lai": 5227,
-   "ghi_chu": "Con 490/840 CP sau khi ban 300 @13.450 va 50 @13.500 theo QUY_TAC_5 ngay 22/09/2026 (LENH_QUY_TAC_5 so 2, so 3). Gia thi truong/lai_lo o day CHUA cap nhat theo gia 22/09 - can dinh gia lai dong bo o ky soat ke tiep."
+   "von_goc": 5866520,
+   "phi_mua_con_lai": 4694,
+   "ghi_chu": "Con 440/840 CP: ban 300 @13.450 + 50 @13.500 ngay 22/09 (QUY_TAC_5 so 2, 3) va 50 @14.200 ngay 01/10 (QUY_TAC_5 so 4). 440 = 300 CP tu 700 CP goc + 140 CP thuong chua chac da ve TK (neu chua ve thi ban duoc 300 = lo chan). Gia von khong doi 13.333."
   }
  ],
  "tong_ket": {

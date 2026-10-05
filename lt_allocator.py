@@ -5,14 +5,29 @@ Thay the hoan toan allocator.py cu (softmax(ER)). Ly do doi:
   * Backtest 14/08/2026 cho thay tang xep hang theo ER TE HON boc tham (phan vi
     4%) vi p khong co suc phan biet. Softmax khuech dai p theo ham mu -> khuech
     dai nhieu.
-  * Vi vay diem RS chi dung de CHON (vao/khong vao), khong dung de chia ty trong.
-    Chia ty trong theo 1/ATR — moi vi the dong gop rui ro nhu nhau. Day la cau
+  * Chia ty trong theo 1/ATR — moi vi the dong gop rui ro nhu nhau. Day la cau
     tra loi cho phat hien 17/08: trailing % co dinh khong trung tinh voi bien dong.
 
 Tien mat KHONG do canh thi truong ma sinh ra: moi "o" (slot) khong tim duoc ma
 qua duoc bo loc thi o do nam tien mat. It ma manh = it giai ngan.
 
+Tu 01/10/2026 (khung top-down, CHIEN_LUOC_DAI_HAN.md muc 13): ma duoc mua = giao
+diem ro xu huong (may) x ro co ban (nguoi) + Buoc 4. Thu tu chon = `uu_tien`
+nguoi gan, pha hoa bang ATR thap truoc — KHONG con bang xep hang RS.
+
+Tu 05/10/2026 (khung giai doan 2, muc 14):
+  * Che do thi truong (data/che_do_YYYYMMDD.json, lt_screener.py ghi): GIAM ->
+    BAN TOAN BO, khong mua. TANG/DIEU_CHINH -> TRAN ty trong co phieu 100%/60%;
+    vuot tran + bien khong giao dich -> cat theo ty le o ky soat.
+    Khong xac dinh duoc che do -> khong mua, khong ban ep.
+  * Tien mat van sinh ra khi thieu ma dat Tru 2 — dai ty trong chi la TRAN.
+  * LOAI_KY=hang_ngay: chi xet luat moi phien (GIAM, -25%, cham co so, quy tac 4),
+    khong mua, khong cat tran. Mac dinh LOAI_KY=soat (ky soat dau thang).
+  * Ro co ban chua chot: van sinh lenh BAN theo luat gia/che do, khong mua.
+  * Moi lenh phai co PHIEU_LENH ghi truoc gio dat; thieu -> in [CHUA CO PHIEU].
+
 Chay: PYTHONIOENCODING=utf-8 python lt_allocator.py
+      NGAY_CHAY=2026-10-05 LOAI_KY=hang_ngay python lt_allocator.py
 """
 
 import json
@@ -24,11 +39,12 @@ from datetime import datetime
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Border, Side, Alignment
 
-from lt_config import (PORTFOLIOS, HOLDINGS, TIEN_MAT, NGANH,
+from lt_config import (PORTFOLIOS, HOLDINGS, TIEN_MAT,
                        FEE_BUY, FEE_SELL, LOT, EXIT, LENH_NGOAI_LUAT,
-                       QUY_TAC_5, LENH_QUY_TAC_5,
-                       LICH_SOAT, KHOA_WHIPSAW, BAO_LUU_TIN_HIEU)
-from lt_screener import newest
+                       QUY_TAC_5, LENH_QUY_TAC_5, TOP_DOWN,
+                       LICH_SOAT, KHOA_WHIPSAW, BAO_LUU_TIN_HIEU,
+                       CHE_DO, PHIEU_LENH)
+from lt_screener import newest, nap_ro, thu_tu_mua
 
 DEM_PHI = 0.02          # chua 2% cho phi + lam tron lo
 
@@ -37,6 +53,82 @@ DEM_PHI = 0.02          # chua 2% cho phi + lam tron lo
 # lan lenh mua -> phai nhat quan trong mot lan chay. Ghi de bang bien moi truong
 # de chay ca gia lap: NGAY_CHAY=2026-09-21 python lt_allocator.py
 HOM_NAY = os.environ.get("NGAY_CHAY") or datetime.now().strftime("%Y-%m-%d")
+
+# Nhip xet (quyet dinh 12, muc 14): "soat" = ky soat dau thang, du moi luat;
+# "hang_ngay" = chi cac luat trong EXIT["xet_hang_ngay"], khong mua.
+LOAI_KY = os.environ.get("LOAI_KY") or "soat"
+
+
+def nap_che_do(cand_path):
+    """Che do thi truong cung ngay voi file candidates (lt_screener.py ghi).
+
+    Thieu file / file cu khong co che do -> None = KHONG XAC DINH. Khong lui ve
+    mot che do mac dinh: mac dinh TANG thi mot ban quet thieu du lieu se mo
+    khoa mua; mac dinh GIAM thi no se ban ep ca danh muc.
+    """
+    path = cand_path.replace("candidates_", "che_do_")
+    if not os.path.exists(path):
+        return None
+    try:
+        cd = json.load(open(path, encoding="utf-8"))
+    except (OSError, ValueError):
+        return None
+    if not isinstance(cd, dict) or cd.get("che_do") not in CHE_DO["tran_co_phieu"]:
+        return None
+    return cd
+
+
+def gioi_han_tran(mua, ban, holdings, prices, candidates, tran_tien):
+    """Cat lenh mua de tong co phieu sau lenh <= tran che do (theo thu tu mua).
+
+    `tran_tien` = tran_co_phieu x NAV truoc lenh. Chi chan MUA; phan cat bot vi
+    the dang giu nam o cat_ve_tran().
+    """
+    con = sum((qty - ban.get(ma, 0)) * prices[ma] for ma, qty in holdings.items()
+              if qty - ban.get(ma, 0) > 0)
+    room = max(0.0, tran_tien - con)
+    allowed, reduced = {}, {}
+    for ma in sorted(mua, key=lambda m: thu_tu_mua(candidates[m])):
+        q, p = mua[ma], prices[ma]
+        if q * p > room:
+            q = min(q, math.floor(room / p / LOT) * LOT) if p > 0 else 0
+        if q > 0:
+            allowed[ma] = q
+            room -= q * p
+        if q < mua[ma]:
+            reduced[ma] = mua[ma] - q
+    return allowed, reduced
+
+
+def cat_ve_tran(holdings, ban, prices, tran_tien, nav_truoc):
+    """Ky soat: co phieu giu lai vuot tran che do qua bien khong giao dich ->
+    ban bot THEO TY LE moi vi the (giu nguyen cau truc 1/ATR), tron lo xuong.
+
+    Tra ve {ma: kl ban them}. Ap khi thi truong xau di tu TANG sang DIEU_CHINH;
+    GIAM da ban toan bo o buoc truoc.
+    """
+    con = {ma: qty - ban.get(ma, 0) for ma, qty in holdings.items()
+           if qty - ban.get(ma, 0) > 0}
+    gt = sum(q * prices[ma] for ma, q in con.items())
+    thua = gt - tran_tien
+    if gt <= 0 or thua <= EXIT["bien_khong_giao_dich"] * nav_truoc:
+        return {}
+    ty_le = thua / gt
+    out = {}
+    for ma, q in con.items():
+        n = math.floor(q * ty_le / LOT) * LOT
+        if n > 0:
+            out[ma] = n
+    return out
+
+
+def phieu_cua(pk, chieu, ma, ngay):
+    """Phieu lenh ghi TRUOC cho lenh nay (PHIEU_LENH), None neu chua co."""
+    for P in PHIEU_LENH:
+        if (P.get("dm") == pk and P.get("chieu") == chieu and P.get("ma") == ma
+                and P.get("ngay_dat") == ngay and str(P.get("ghi_luc", ""))[:10] <= ngay):
+            return P
+    return None
 
 
 def khoa_quy_tac_5(pk, hom_nay):
@@ -103,27 +195,39 @@ def khoa_whipsaw(pk, hom_nay):
     return khoa
 
 
-def eligible(cands):
-    """Ma duoc phep giai ngan = qua ca 4 buoc, xep theo thu hang Buoc 2.
+def han_chot_mua_da_qua(hom_nay):
+    """Tra ve han chot (chuoi) neu hom nay da QUA han chot lenh mua cua ky soat
+    dang chay, nguoc lai "". Mot ky chi co hieu luc toi truoc ngay 1 thang sau.
+    Ngay dang ISO nen so sanh chuoi la so sanh ngay.
+    """
+    for ky, han in TOP_DOWN["han_chot_lenh_mua"].items():
+        nam, thang = int(ky[:4]), int(ky[5:7])
+        thang_sau = f"{nam + thang // 12:04d}-{thang % 12 + 1:02d}-01"
+        if ky <= hom_nay < thang_sau and hom_nay > han:
+            return han
+    return ""
 
-    25/08/2026: bo `score_ready`/`investment_score`. Thu tu uu tien bay gio do
-    DUY NHAT bang xep hang Buoc 2 quyet dinh — dung nhu tai lieu: "Thu hang
-    quyet dinh ma nao duoc chon truoc, khong quyet dinh mua bao nhieu."
-    `buy_ready` da bao gom ket luan tham dinh B3/B4, nen ma chua tham dinh
-    khong lot vao day.
+
+def eligible(cands):
+    """Ma duoc phep giai ngan = giao diem hai ro + Buoc 4, theo thu tu mua.
+
+    01/10/2026: bang xep hang Buoc 2 da bo. Thu tu = `uu_tien` do nguoi gan
+    trong ro co ban (chot cung luc voi ro, truoc ban quet), pha hoa bang ATR
+    thap truoc (quyet dinh 5). Thu tu quyet dinh ma nao duoc chon truoc, khong
+    quyet dinh mua bao nhieu — phan do van la 1/ATR.
     """
     ok = [dict(c) for c in cands if c.get("buy_ready")]
-    ok.sort(key=lambda c: (c.get("thu", 10**6), c["ma"]))
+    ok.sort(key=thu_tu_mua)
     return ok
 
 
 def top_picks(cands, limit=5):
-    """Tra ve top N ma theo score, san sang mua va danh gia nang luc."""
+    """Tra ve N ma dau tien theo thu tu mua."""
     return eligible(cands)[:limit]
 
 
 def chon(cands, cfg):
-    """Chon toi da N ma theo diem, ton trong tran nganh."""
+    """Chon toi da N ma theo thu tu mua, ton trong tran nganh."""
     N = cfg["so_vi_the"]
     # Khong co nhanh du phong "ha chuan cho du o": o nao khong tim duoc ma dat
     # chuan thi o do nam tien. Do la toan bo co che sinh ra tien mat.
@@ -186,10 +290,10 @@ def gioi_han_mua(mua, ban, holdings, cash, prices, candidates, cfg, total_nav):
                            for ma, qty in ban.items())
     sectors = {}
     for ma, qty in remaining.items():
-        sector = candidates.get(ma, {}).get("nganh", NGANH.get(ma, "Khac"))
+        sector = candidates.get(ma, {}).get("nganh", "Khac")
         sectors[sector] = sectors.get(sector, 0) + qty * prices[ma]
     allowed, reduced = {}, {}
-    for ma in sorted(mua, key=lambda m: (candidates[m].get("thu", 10**6), m)):
+    for ma in sorted(mua, key=lambda m: thu_tu_mua(candidates[m])):
         requested, price = mua[ma], prices[ma]
         sector = candidates[ma]["nganh"]
         current = remaining.get(ma, 0)
@@ -242,7 +346,7 @@ def status_for_signal(c):
         return "Bán"
     if c.get("buy_ready"):
         return "Mua"
-    if c.get("qua_loc_cung") and c.get("buoc3_tham_dinh") == "chua":
+    if c.get("qua_loc_cung") and c.get("trong_ro_co_ban") is None:
         return "Chờ thẩm định"
     return "Cảnh báo"
 
@@ -270,23 +374,30 @@ def export_excel(cands, navs, out_path):
 
     top = eligible(cands)
 
+    def pct(x, fmt):
+        return "" if x is None else format(x * 100, fmt) + "%"
+
+    def dong(c, status):
+        ro = {True: "trong", False: "loai", None: "?"}[c.get("trong_ro_co_ban")]
+        return [
+            c["ma"], c["nganh"], c["gia"], pct(c["atr"], ".2f"),
+            pct(c["rs_252_skip21"], "+.1f"), pct(c["rs_126"], "+.1f"),
+            pct(c["rs_63"], "+.1f"), pct(c["rs_21"], "+.1f"),
+            c.get("san") or "",
+            f"{ro}/{c.get('buoc4_dinh_gia', 'chua')}",
+            "Y" if c.get("buy_ready") else "N",
+            "Y" if c.get("sell_ready") else "N",
+            "" if c.get("uu_tien") is None else c["uu_tien"], status,
+        ]
+
     ws = wb.active
-    ws.title = "Top picks"
-    headers = ["Ma", "Nganh", "Gia", "ATR%", "RS12T", "RS6T", "RS3T", "RS1T", "R2", "B3/B4", "Buy", "Sell", "Diem", "Trang thai"]
+    ws.title = "Giao diem"
+    headers = ["Ma", "Nganh", "Gia", "ATR%", "RS12T", "RS6T", "RS3T", "RS1T", "San", "Ro/B4", "Buy", "Sell", "Uu tien", "Trang thai"]
     ws.append(headers)
     style_header(ws)
     for c in top:
         status = status_for_signal(c)
-        row = [
-            c["ma"], c["nganh"], c["gia"], f"{c['atr'] * 100:.2f}%",
-            f"{c['rs_252_skip21'] * 100:+.1f}%", f"{c['rs_126'] * 100:+.1f}%",
-            f"{c['rs_63'] * 100:+.1f}%", f"{c['rs_21'] * 100:+.1f}%",
-            f"{c['trend_r2']:.2f}",
-            f"{c.get('buoc3_tham_dinh', 'chua')}/{c.get('buoc4_dinh_gia', 'chua')}",
-            "Y" if c.get("buy_ready") else "N",
-            "Y" if c.get("sell_ready") else "N",
-            f"{c['diem']:.2f}", status,
-        ]
+        row = dong(c, status)
         ws.append(row)
         for cell in ws[ws.max_row]:
             cell.border = Border(left=thin, right=thin, top=thin, bottom=thin)
@@ -295,21 +406,11 @@ def export_excel(cands, navs, out_path):
                 cell.alignment = Alignment(horizontal="right")
 
     ws2 = wb.create_sheet("All candidates")
-    headers2 = ["Ma", "Nganh", "Gia", "ATR%", "RS12T", "RS6T", "RS3T", "RS1T", "R2", "B3/B4", "Buy", "Sell", "Diem", "Trang thai"]
-    ws2.append(headers2)
+    ws2.append(headers)
     style_header(ws2)
     for c in sorted(cands, key=lambda x: x["ma"]):
         status = status_for_signal(c)
-        row = [
-            c["ma"], c["nganh"], c["gia"], f"{c['atr'] * 100:.2f}%",
-            f"{c['rs_252_skip21'] * 100:+.1f}%", f"{c['rs_126'] * 100:+.1f}%",
-            f"{c['rs_63'] * 100:+.1f}%", f"{c['rs_21'] * 100:+.1f}%",
-            f"{c['trend_r2']:.2f}",
-            f"{c.get('buoc3_tham_dinh', 'chua')}/{c.get('buoc4_dinh_gia', 'chua')}",
-            "Y" if c.get("buy_ready") else "N",
-            "Y" if c.get("sell_ready") else "N",
-            f"{c['diem']:.2f}", status,
-        ]
+        row = dong(c, status)
         ws2.append(row)
         for cell in ws2[ws2.max_row]:
             cell.border = Border(left=thin, right=thin, top=thin, bottom=thin)
@@ -336,18 +437,19 @@ def export_excel(cands, navs, out_path):
                 if cell.column in (3, 4, 5, 6, 7):
                     cell.alignment = Alignment(horizontal="right")
 
-    ws4 = wb.create_sheet("Quy trinh 4 buoc")
-    headers4 = ["Ma", "B1 bo loc cung", "B2 thu hang", "B2 diem", "B3 tham dinh",
+    ws4 = wb.create_sheet("Quy trinh top-down")
+    headers4 = ["Ma", "Tang 1 (may)", "Ro co ban", "Ly do ro", "V1-V5",
                 "B4 dinh gia", "Ly do loai / luan diem", "Ngay tham dinh",
                 "BuyReady", "SellReady", "Status", "Nganh"]
     ws4.append(headers4)
     style_header(ws4)
-    for c in sorted(cands, key=lambda x: x.get("thu", 10**6)):
+    for c in sorted(cands, key=thu_tu_mua):
         status = status_for_signal(c)
         row = [
             c["ma"],
             "dat" if c.get("qua_loc_cung") else "loai",
-            c.get("thu", ""), round(c.get("diem", 0), 3),
+            {True: "trong", False: "loai", None: "?"}[c.get("trong_ro_co_ban")],
+            c.get("ly_do_ro", ""),
             c.get("buoc3_tham_dinh", "chua"), c.get("buoc4_dinh_gia", "chua"),
             c.get("tham_dinh_ly_do") or c.get("luan_diem", ""),
             c.get("tham_dinh_ngay", ""),
@@ -371,29 +473,53 @@ def export_excel(cands, navs, out_path):
 
 
 def main():
-    cands = json.load(open(newest("candidates_"), encoding="utf-8"))
+    cand_path = newest("candidates_")
+    cands = json.load(open(cand_path, encoding="utf-8"))
     gia = {c["ma"]: c["gia"] for c in cands}
-    diem = {c["ma"]: c["diem"] for c in cands}
+    cd = nap_che_do(cand_path)
+    hang_ngay = LOAI_KY == "hang_ngay"
+
+    print(f"NGAY CHAY {HOM_NAY} — nhip "
+          + ("HANG NGAY (chi luat moi phien, khong mua)" if hang_ngay else "KY SOAT"))
+    if cd is None:
+        print("CHE DO THI TRUONG: KHONG XAC DINH — thieu data/che_do_*.json cung ngay "
+              "voi candidates. Khong mua, khong ban ep. Quet lai bang lt_scan_vietcap.py "
+              "roi chay lt_screener.py.\n")
+    else:
+        print(f"CHE DO THI TRUONG ({cd['ngay']}): {cd['che_do']} — tran co phieu "
+              f"{CHE_DO['tran_co_phieu'][cd['che_do']]:.0%}  (VNINDEX {cd['dong_cua']:,.2f}, "
+              f"MA200 {cd['ma200']:,.2f}, vao GIAM < {cd['nguong_vao_giam']:,.2f}, "
+              f"ra GIAM > {cd['nguong_ra_giam']:,.2f})\n")
+
+    # 01/10/2026: ro chua chot thi allocator DUNG HAN. 04/10/2026 (muc 14): van
+    # dung lenh MUA, nhung lenh BAN theo luat gia va che do thi truong khong phu
+    # thuoc ro — che do GIAM phai ban duoc ca khi ro chua chot.
+    ro_chua_chot = not nap_ro()["ngay_chot"]
+    if ro_chua_chot:
+        print("RO CO BAN CHUA CHOT (_ro_co_ban.ngay_chot trong data/tham_dinh.json): "
+              "KHONG mua; van sinh lenh BAN theo luat gia/che do. Quy tac 4 chua xet "
+              "duoc -> moi vi the hien PHAI CHAM TAY.\n")
 
     top = top_picks(cands, limit=5)
-    qua_b1 = [c for c in cands if c.get("qua_loc_cung")]
-    cho_td = [c for c in qua_b1 if c.get("buoc3_tham_dinh") == "chua"]
-    print("TOP 5 MA DUOC PHEP GIAI NGAN (qua ca 4 buoc), xep theo thu hang Buoc 2\n")
-    print(f"{'Ma':<5} {'Hang':>5} {'Diem':>6} {'RS12T':>8} {'R2':>6} {'ATR%':>6} "
-          f"{'Ty/ph':>8} {'B3':>5} {'B4':>5} {'Nganh':<12}")
-    print("-" * 88)
+    giao = [c for c in cands if c.get("giao_diem")]
+    chua_b4 = [c for c in giao if c.get("buoc4_dinh_gia") != "dat"]
+    print("MA DUOC PHEP GIAI NGAN (giao diem + Buoc 4 + phieu Dat + bien an toan), "
+          "theo uu tien ro roi ATR thap\n")
+    print(f"{'Ma':<5} {'UT':>4} {'San':<6} {'Bien':>7} {'ATR%':>6} "
+          f"{'Ty/ph':>8} {'B4':>5} {'Nganh':<12}")
+    print("-" * 72)
     if not top:
         print("(khong co ma nao — xem ghi chu ben duoi)")
     for c in top:
-        print(f"{c['ma']:<5} {c.get('thu', 0):>5} {c['diem']:>6.2f} "
-              f"{c['rs_252_skip21']*100:>+7.1f}% {c['trend_r2']:>6.2f} {c['atr']*100:>6.2f} "
-              f"{c['tov']/1e9:>8.1f} {c.get('buoc3_tham_dinh', 'chua'):>5} "
-              f"{c.get('buoc4_dinh_gia', 'chua'):>5} {c['nganh']:<12}")
-    if cho_td:
-        print(f"\n{len(qua_b1)} ma qua Buoc 1, nhung {len(cho_td)} ma CHUA co ket luan "
-              f"tham dinh Buoc 3/4 nen chua duoc phep mua:")
-        print("  " + ", ".join(f"{c['ma']}(#{c.get('thu', '?')})" for c in cho_td))
-        print("  -> nhap ket luan vao data/tham_dinh.json roi chay lai.")
+        bien = c.get("bien_an_toan")
+        print(f"{c['ma']:<5} {c['uu_tien'] if c.get('uu_tien') is not None else '-':>4} "
+              f"{c.get('san') or '?':<6} "
+              f"{'?' if bien is None else format(bien * 100, '+.1f') + '%':>7} "
+              f"{c['atr']*100:>6.2f} "
+              f"{c['tov']/1e9:>8.1f} {c.get('buoc4_dinh_gia', 'chua'):>5} {c['nganh']:<12}")
+    if chua_b4:
+        print(f"\n{len(giao)} ma o giao diem, nhung {len(chua_b4)} ma CHUA dat Buoc 4 "
+              f"nen chua duoc phep mua: {', '.join(c['ma'] for c in chua_b4)}")
     print()
 
     navs = {pk: nav(pk, gia) for pk in PORTFOLIOS}
@@ -443,7 +569,7 @@ def main():
         print(f"Von ban dau {cfg['von_ban_dau']:,.0f}  |  NAV hien tai {NAV:,.0f}  "
               f"|  {len(P['chosen'])}/{cfg['so_vi_the']} o co ung vien")
         print("=" * 78)
-        print(f"{'Ma':<5} {'Diem':>5} {'ATR%':>5} {'w':>6} {'Gia':>8} "
+        print(f"{'Ma':<5} {'UT':>5} {'ATR%':>5} {'w':>6} {'Gia':>8} "
               f"{'KL':>7} {'Gia tri':>13} {'%NAV':>6}  Ghi chu")
         print("-" * 78)
         tong_mua = 0
@@ -462,7 +588,8 @@ def main():
             else:
                 note = (f"1 lo {LOT*c['gia']:,.0f} < ticket toi thieu "
                         f"{cfg['ticket_toi_thieu']:,.0f} -> o nay nam tien")
-            print(f"{ma:<5} {diem[ma]:>5.2f} {c['atr']*100:>5.2f} {P['w'][ma]:>5.1%} "
+            ut = c.get("uu_tien")
+            print(f"{ma:<5} {ut if ut is not None else '-':>5} {c['atr']*100:>5.2f} {P['w'][ma]:>5.1%} "
                   f"{c['gia']:>8,.0f} {kl:>7,} {kl*c['gia']:>13,.0f} "
                   f"{kl*c['gia']/NAV:>6.1%}  {note}")
         print("-" * 78)
@@ -470,7 +597,7 @@ def main():
               f"{tong_mua/NAV:>6.1%}")
         print(f"{'MUC TIEU TM':<11} {'':>13} {'':>8} {'':>7} {NAV-tong_mua:>13,.0f} "
               f"{1-tong_mua/NAV:>6.1%}")
-        print("  (danh muc MUC TIEU cua cac o DA co ma qua du 4 buoc — "
+        print("  (danh muc MUC TIEU cua cac o DA co ma o giao diem + Buoc 4 — "
               "khong phai trang thai hien tai)")
 
         dang_giu = {ma: kl for ma, kl, _ in HOLDINGS[pk]}
@@ -489,30 +616,41 @@ def main():
         #     bo. (Con so cu "13,89% vs 6,95%" da bi thay: do lai tren 4 pha luoi
         #     ngay 26/08/2026 cho 9,05% cho ban quy-tac-thoat. Chieu so sanh giu
         #     nguyen, do lon thi khong.)
-        # --- Giai doan 1: TINH (chua in) lenh ban theo bon quy tac thoat.
+        # --- Giai doan 1: TINH (chua in) lenh ban theo quy tac thoat + che do.
+        giam = cd is not None and cd["che_do"] == "GIAM"
         ban_kl, ly_do_ban, cham_tay, hoan_ban = {}, {}, [], []
         for ma, kl in sorted(dang_giu.items()):
             c = by_ma.get(ma)
             g = gia.get(ma) or von.get(ma, 0)
             if c is None:
-                # 26/08/2026 — doi tu B2 sang B1. Ban cu ban ngay khi ma roi khoi
-                # bo loc cung; do la mot quy tac thoat THU NAM khong co trong Bang
-                # CL.3, ma tai lieu chi cho phep ban theo bon cau hoi. Backtest 4
-                # pha luoi: B1 tot hon B2 o ca 4/4 pha (TB +0,33 diem pt/nam).
-                # `lt_screener.py` chi ghi ra ma qua bo loc, nen ma roi khoi loc
-                # khong co ban ghi -> khong du can cu de ban, phai ra soat tay.
+                # Tu 01/10/2026 screener ghi MOI ma dang giu (ke ca da roi Tang 1),
+                # nen nhanh nay chi con xay ra khi ma khong co trong ban quet (dung
+                # giao dich, huy niem yet, loi tai du lieu) -> phai ra soat tay.
+                # (26/08/2026: roi khoi bo loc cung KHONG phai quy tac thoat — B1.)
                 #
                 # ⚠️ Gom lai in o giai doan 4 chu khong in ngay: giai doan 1 chay
                 # TRUOC tieu de "LENH BAN" nen in tai cho se lac khoi bang lenh.
                 ly_do = ""
-                cham_tay.append((ma, kl))
+                cham_tay.append((ma, kl, "khong co trong ban quet"))
             else:
-                vi_pham = [n for n, ok in c.get("sell_checklist", []) if ok]
+                # Nhip hang ngay chi xet luat trong EXIT["xet_hang_ngay"]; luat
+                # MA200 doi ky soat (quyet dinh 12).
+                vi_pham = [n for n, ok in c.get("sell_checklist", []) if ok
+                           and (not hang_ngay or n in EXIT["xet_hang_ngay"])]
                 ly_do = ", ".join(vi_pham)
+                # Quy tac 4 ba trang thai: None = ro thieu/sai ket luan cho ma nay.
+                # Khong tu ban (mot loi go nham khong duoc ban vi the), nhung phai
+                # hien ra de nguoi sua truoc khi dat lenh.
+                if c.get("trong_ro_co_ban") is None:
+                    cham_tay.append((ma, kl, "quy tac 4 chua ro — " + (c.get("ly_do_ro") or "")))
             # chan cung -25% so voi gia von: ngoai le duy nhat giua hai ky ra soat
             gv = von.get(ma, 0)
             if gv and g <= gv * (1 - EXIT["stop_tham_hoa"]):
                 ly_do = (ly_do + ", " if ly_do else "") + "cham chan cung -25%"
+            # Tru 1 (quyet dinh 1): che do GIAM ban TOAN BO moi vi the — khong
+            # mien tru theo ma (tr.72 bao cao giai doan 1).
+            if giam:
+                ly_do = (ly_do + ", " if ly_do else "") + f"che do GIAM ({cd['ngay']})"
             if not ly_do:
                 continue
             # Dieu khoan bao luu (16/09/2026): tin hieu ban phat sinh TRUOC moc
@@ -524,15 +662,41 @@ def main():
             ban_kl[ma] = kl
             ly_do_ban[ma] = ly_do
 
+        # --- Giai doan 1b: tran che do (quyet dinh 3). Ky soat: co phieu giu lai
+        #     vuot tran qua bien khong giao dich -> cat theo ty le.
+        tran, da_cat = None, {}
+        if cd is not None and not giam:
+            tran = CHE_DO["tran_co_phieu"][cd["che_do"]] * NAV
+            if not hang_ngay:
+                da_cat = cat_ve_tran(dang_giu, ban_kl, {**von, **gia}, tran, NAV)
+                for ma, n in da_cat.items():
+                    ban_kl[ma] = ban_kl.get(ma, 0) + n
+                    ly_do_ban[ma] = ((ly_do_ban[ma] + ", ") if ly_do_ban.get(ma) else "") + \
+                        f"cat ve tran {cd['che_do']} {CHE_DO['tran_co_phieu'][cd['che_do']]:.0%}"
+
         # --- Giai doan 2: TINH lenh mua. `cur` la vi the TRUOC khi tru lenh ban;
         #     phan chong lan duoc bu tru o giai doan 3 chu khong o day.
+        chan_mua = [ly for dk, ly in (
+            (giam, "che do GIAM — khoa mua moi"),
+            (cd is None, "che do thi truong KHONG XAC DINH"),
+            (ro_chua_chot, "ro co ban chua chot"),
+            (hang_ngay, "nhip hang ngay — lenh mua chi dat o ky soat"),
+            (bool(da_cat), "co phieu dang vuot tran che do — cat ve tran, khong mua")) if dk]
         mua_kl = {}
-        for c in P["chosen"]:
+        for c in ([] if chan_mua else P["chosen"]):
             ma = c["ma"]
             cur = dang_giu.get(ma, 0) - ban_kl.get(ma, 0)
             d = P["kl"].get(ma, 0) - cur
             if d > 0:
                 mua_kl[ma] = d
+
+        # --- Giai doan 2a: han chot lenh mua cua ky (quyet dinh 11, 01/10/2026).
+        #     Qua han ma phieu V1-V5 + Buoc 4 moi xong -> phan von nam tien toi ky
+        #     soat sau. Chi ap trong thang cua ky do.
+        qua_han = han_chot_mua_da_qua(HOM_NAY)
+        da_chan_han = dict(mua_kl) if qua_han else {}
+        if qua_han:
+            mua_kl = {}
 
         # --- Giai doan 2b: quy tac 5 da gia han hop le -> khong mua lai phan da
         #     ban. Khong gia han thi ky soat lay lai quyen, khong co gi de lam.
@@ -589,45 +753,63 @@ def main():
         mua_kl, giam_mua = gioi_han_mua(
             mua_kl, ban_kl, dang_giu, TIEN_MAT[pk], {**von, **gia},
             by_ma, cfg, NAV)
+        # Tran che do: tong co phieu sau lenh khong vuot tran x NAV truoc lenh.
+        if tran is not None and mua_kl:
+            mua_kl, giam_tran = gioi_han_tran(mua_kl, ban_kl, dang_giu,
+                                              {**von, **gia}, by_ma, tran)
+            for ma, q in giam_tran.items():
+                giam_mua[ma] = giam_mua.get(ma, 0) + q
 
         # --- Giai doan 4: in bang lenh (da bu tru)
         lenh, phi = 0, 0
         if cham_tay:
-            print("\nPHAI CHAM TAY (roi khoi bo loc cung -> khong co trong bang "
-                  "xep hang, khong du can cu ap quy tac 3):")
-            for ma, kl in cham_tay:
+            print("\nPHAI CHAM TAY — khong tu dong ban, sua du lieu roi chay lai:")
+            for ma, kl, vi_sao in cham_tay:
                 gv = von.get(ma, 0)
-                print(f"  [?]  {kl:>7,} {ma:<5} gia von {gv:>8,.0f} — ra soat tay "
-                      f"theo 4 quy tac thoat truoc khi quyet.")
-            print("       (chan cung -25% KHONG kiem duoc cho nhom nay: "
-                  "candidates_*.json khong co gia cua ma da roi khoi bo loc)")
+                print(f"  [?]  {kl:>7,} {ma:<5} gia von {gv:>8,.0f} — {vi_sao}")
         if la_ky_bo_sung(pk, HOM_NAY):
             print(f"\n*** KY SOAT BO SUNG {HOM_NAY} (moc giai doan 2 "
                   f"cuoc thi, do BTC dat - chot 16/09/2026). Ky dau thang "
                   f"01/10 VAN GIU. Han chot lenh mua: "
                   f"{LICH_SOAT['han_chot_lenh_mua_ky_bo_sung']} ***")
-        print("\nLENH BAN (bon quy tac thoat):")
+        def ghi_phieu(chieu, ma, kl):
+            # Cam ket #5 tr.70: lenh khong co phieu ghi truoc gio dat -> tu choi.
+            P = phieu_cua(pk, chieu, ma, HOM_NAY)
+            if P is None:
+                return "  [CHUA CO PHIEU — ghi PHIEU_LENH truoc gio dat]"
+            lech = f", phieu ghi {P.get('kl'):,} CP" if P.get("kl") != kl else ""
+            return f"  [phieu so {P.get('so')}, ghi {P.get('ghi_luc')}{lech}]"
+
+        print("\nLENH BAN (che do GIAM | quy tac 1, 4 | cham co so | chan cung -25% | "
+              "cat ve tran):")
         for ma in sorted(ban_kl):
             kl = ban_kl[ma]
             g = gia.get(ma) or von.get(ma, 0)
             lenh += 1
             phi += kl * g * FEE_SELL
             print(f"  BAN  {kl:>7,} {ma:<5} x {g:>8,.0f} = {kl*g:>13,.0f}  "
-                  f"phi {kl*g*FEE_SELL:>9,.0f}  — {ly_do_ban[ma]}")
+                  f"phi {kl*g*FEE_SELL:>9,.0f}  — {ly_do_ban[ma]}"
+                  + ghi_phieu("BAN", ma, kl))
         if not ban_kl:
-            print("  (khong co — moi vi the con tra loi CO cho ca bon cau hoi)")
+            print("  (khong co — moi vi the con tra loi CO cho moi cau hoi)")
 
-        print("\nLENH MUA (o trong sau khi ban, theo thu hang Buoc 2):")
-        for ma in sorted(mua_kl, key=lambda m: by_ma[m].get("thu", 10**6)):
+        print("\nLENH MUA (o trong sau khi ban, theo uu tien ro roi ATR thap):")
+        for ma in sorted(mua_kl, key=lambda m: thu_tu_mua(by_ma[m])):
             d = mua_kl[ma]
             g = gia[ma]
             lenh += 1
             phi += d * g * FEE_BUY
             print(f"  MUA  {d:>7,} {ma:<5} x {g:>8,.0f} = {d*g:>13,.0f}  "
-                  f"phi {d*g*FEE_BUY:>9,.0f}")
-        if not mua_kl:
+                  f"phi {d*g*FEE_BUY:>9,.0f}" + ghi_phieu("MUA", ma, d))
+        if chan_mua:
+            print("  [KHONG MUA] " + "; ".join(chan_mua))
+        elif da_chan_han:
+            print(f"  [QUA HAN CHOT {qua_han}] khong dat lenh mua nao; phan von nay "
+                  f"nam tien toi ky soat sau. Le ra mua: "
+                  + ", ".join(f"{kl:,} {ma}" for ma, kl in sorted(da_chan_han.items())))
+        elif not mua_kl:
             print("  (khong co lenh mua)" if P["chosen"] else
-                  "  (khong co ma nao qua du 4 buoc — phan von nay nam tien "
+                  "  (khong co ma nao o giao diem + Buoc 4 — phan von nay nam tien "
                   "cho toi ky ra soat sau)")
         print("  (khong co lenh)" if lenh == 0 else
               f"  => {lenh} lenh, tong phi {phi:,.0f} d ({phi/NAV*100:.2f}% NAV)")
@@ -638,7 +820,7 @@ def main():
                 g = gia.get(ma) or von.get(ma, 0)
                 tiet_kiem = bu_tru[ma] * g * (FEE_SELL + FEE_BUY)
                 print(f"  {bu_tru[ma]:>7,} {ma:<5} — quy tac thoat doi ban "
-                      f"({ly_do_ban[ma]}), bang xep hang doi mua lai cung so luong. "
+                      f"({ly_do_ban[ma]}), allocator doi mua lai cung so luong. "
                       f"Tranh duoc {tiet_kiem:,.0f} d phi rua.")
 
         if da_khoa:
@@ -687,6 +869,16 @@ def main():
         print(f"  co phieu {gt_cp:>13,.0f} ({gt_cp/nav_sau:>5.1%})   "
               f"tien mat {tien:>13,.0f} ({tien/nav_sau:>5.1%})   "
               f"NAV {nav_sau:,.0f}")
+        if cd is not None:
+            print(f"  tran che do {cd['che_do']}: "
+                  f"{CHE_DO['tran_co_phieu'][cd['che_do']]:.0%} co phieu")
+        # Phieu da ghi cho hom nay ma bang lenh khong sinh ra -> nguoi phai biet.
+        thua = [P for P in PHIEU_LENH if P.get("dm") == pk and P.get("ngay_dat") == HOM_NAY
+                and not ((P.get("chieu") == "BAN" and P.get("ma") in ban_kl)
+                         or (P.get("chieu") == "MUA" and P.get("ma") in mua_kl))]
+        for P in thua:
+            print(f"  [PHIEU KHONG KHOP BANG LENH] so {P.get('so')}: {P.get('chieu')} "
+                  f"{P.get('kl')} {P.get('ma')} — bang lenh hom nay khong sinh lenh nay")
         print()
 
 
@@ -704,7 +896,9 @@ def in_lenh_ngoai_luat():
         print(f"  #{L.get('so', '?')}  {L['ngay']}  {L['ma']}  [{L['trang_thai']}]")
         print(f"      ten      : {L['ten']}")
         print(f"      viec     : {L['viec']}")
-        if L.get("ke_hoach_dao_nguoc"):
+        if L.get("ket_thuc"):
+            print(f"      ket thuc : {L['ket_thuc']}")
+        elif L.get("ke_hoach_dao_nguoc"):
             print(f"      con treo : {L['ke_hoach_dao_nguoc']}  (han {L['han_chot']})")
             print(f"      het han  : {L['neu_khong_khop']}")
         if L.get("so_hoc_da_do"):
@@ -722,7 +916,8 @@ def in_lenh_quy_tac_5():
     (2) ban ghi du truong — nhat la `cam_quan`, ly do bang loi ghi truoc lenh.
     """
     Q = QUY_TAC_5
-    print(f"SO LENH QUY TAC 5 — {Q['ten']} (tuy nghi, tu {Q['hieu_luc_tu']}):")
+    print(f"SO LENH QUY TAC 5 — {Q['ten']} (tuy nghi, tu {Q['hieu_luc_tu']}; "
+          f"DA BO tu {Q.get('het_hieu_luc_tu', '?')} — chi con la ho so):")
     if not LENH_QUY_TAC_5:
         print("  (chua co lenh nao)\n")
         return

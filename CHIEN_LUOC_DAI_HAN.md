@@ -2,9 +2,46 @@
 
 **Chốt ngày 17/08/2026.** Thay thế hoàn toàn khung "tối đa hoá P(về nhất)" của cuộc thi.
 
+> 🔴 **Từ 05/10/2026: KHUNG GIAI ĐOẠN 2** — đúng khung đã công bố ở Mục 9 báo cáo giai đoạn 1 nộp BTC (tr. 69–73): *"Doanh nghiệp tốt là điều kiện (Fisher), giá hợp lý là nguyên tắc (Graham), xu hướng xác nhận là kỷ luật (Medici)."* **Trụ 1 — chế độ thị trường** đặt *trần* tỷ trọng cổ phiếu (Tăng 100% · Điều chỉnh 60% · Giảm 0% = bán hết, khoá mua). **Trụ 2 — năm cổng + ba trục + biên an toàn kép** chọn mã: chỉ phiếu Đạt, giá ≤ 0,85 × Thận trọng, bán khi chạm Cơ sở. RS và ATR bỏ khỏi bộ lọc; quy tắc 5 bỏ; mọi lệnh cần phiếu ghi trước giờ đặt. Mục 0, 2, 6, 7 đã sửa theo; **mục 14** ghi đủ 17 quyết định, bằng chứng, lệnh đầu tiên (bán hết ngày 05/10) và các sai lệch phải công bố. **Phần chọn mã vẫn chưa có backtest; lớp chế độ có phép đo trên VN-Index (mục 14.4).**
+>
+> 🔴 **Từ kỳ soát 01/10/2026: khung TOP-DOWN, hai nhánh song song, quét toàn thị trường, bỏ Bước 2 (xếp hạng).** Máy tìm mọi cổ phiếu HOSE + HNX + UPCoM đang trong xu hướng; Quỹ tự chọn rổ cơ bản theo top-down; **giao điểm hai rổ là lựa chọn của Quỹ.** Mọi mô tả luật đang chạy ở mục 0, 2, 6, 7 đã sửa theo; mục 13 ghi đủ 14 quyết định và lý do. **Hệ thống từ 01/10/2026 chưa có backtest.**
+
 ---
 
-## 0. Triết lý đầu tư tích hợp: Peter Lynch + kỹ thuật
+## 0. Triết lý đầu tư — từ 05/10/2026: Graham + Fisher + kỷ luật xu hướng
+
+> *"Doanh nghiệp tốt là điều kiện (Fisher), giá hợp lý là nguyên tắc (Graham), xu hướng xác nhận là kỷ luật (Medici)."* — Mục 9 báo cáo giai đoạn 1, tr. 71.
+
+Khi phân tích cơ bản và xu hướng giá cho hai tín hiệu ngược nhau, Quỹ **đứng ngoài**: không mua mã chưa được xu hướng xác nhận, và bán mã đang giữ khi xu hướng gãy (giá < 97% MA200, xét ở kỳ soát). Mục tiêu: **tăng trưởng với rủi ro thấp** (tr. 72) — Quỹ chấp nhận đánh đổi tốc độ tăng trưởng lấy sụt giảm nông hơn, và đã đo cái giá đó (mục 14.4).
+
+### Checklist mua — từ 05/10/2026 (đủ tất cả)
+
+- [ ] Chế độ thị trường **không phải Giảm**, và tổng cổ phiếu sau lệnh ≤ trần (Tăng 100%, Điều chỉnh 60%)
+- [ ] Mã nằm trong **rổ cơ bản top-down đã chốt** (vĩ mô → ngành → doanh nghiệp, mục 13)
+- [ ] **Phiếu năm cổng + ba trục kết luận Đạt, còn hạn**: tổng ≥ 4, không trục nào bằng 0, không cổng nào bật. Nhãn "đạt" không có phiếu thì không đủ
+- [ ] Có **hai kịch bản định giá** (Thận trọng, Cơ sở) và giá ≤ **0,85 × Thận trọng**
+- [ ] **Xu hướng xác nhận**: giá > MA200, MA50 > MA200, thanh khoản khớp lệnh ≥ 10 tỷ/phiên
+- [ ] Có **phiếu lệnh** ghi trước giờ đặt (`PHIEU_LENH`); lệnh mua chỉ đặt sau một kỳ soát
+
+### Checklist bán — từ 05/10/2026 (một điều là bán toàn bộ)
+
+- [ ] Chế độ thị trường sang **Giảm** — xét mỗi phiên
+- [ ] Giá đóng cửa **≥ giá trị Cơ sở** — xét mỗi phiên
+- [ ] **Chặn cứng −25%** so với giá vốn — xét mỗi phiên
+- [ ] **Dây bẫy luận điểm** bị chạm, hoặc mã bị loại khỏi rổ (quy tắc 4) — xét ngay khi có số liệu
+- [ ] Giá < **97% MA200** — xét ở kỳ soát đầu tháng
+- Ở kỳ soát: cổ phiếu vượt trần chế độ quá 3% NAV thì **cắt theo tỷ lệ** về trần
+
+### Quy tắc tránh sai lầm
+
+- Không bán theo cảm quan (quy tắc 5 đã bỏ). Không đặt lệnh chưa có phiếu ghi trước.
+- Không nâng giá trị Cơ sở để giữ tiếp: chỉ nâng bằng phiếu mới dựa trên BCTC mới, ghi trước khi giá chạm.
+- Không mua doanh nghiệp mình không hiểu, không mua vì "được khuyên" hay vì đã tăng mạnh.
+- Không miễn trừ theo mã: chế độ Giảm bán cả mã tốt nhất danh mục.
+
+<details><summary>(lịch sử, 17/08–04/10/2026) Triết lý cũ: Peter Lynch + kỹ thuật</summary>
+
+## 0 (cũ). Triết lý đầu tư tích hợp: Peter Lynch + kỹ thuật
 
 Triết lý nền tảng của hệ thống này là kết hợp giữa hai nguyên tắc:
 
@@ -38,8 +75,8 @@ Bán hoặc dừng nắm giữ khi ít nhất một điều kiện sau xảy ra:
 
 - [ ] Giá rơi dưới 97% MA200 (đệm 3% chống nhiễu)
 - [ ] RS 12 tháng suy yếu xuống dưới −5% so với VNINDEX
-- [ ] Cổ phiếu rơi khỏi **top 40% theo THỨ HẠNG VỊ TRÍ** trong rổ đã qua bộ lọc
-- [ ] Luận điểm doanh nghiệp đã gãy (Bước 3 đổi kết luận) — nhập tay ở `data/tham_dinh.json`
+- [ ] ~~Cổ phiếu rơi khỏi top 40% theo thứ hạng vị trí~~ — **ĐÃ BỎ 01/10/2026** cùng Bước 2 (mục 13)
+- [ ] **Mã không còn trong rổ cơ bản** — bị loại ở tầng vĩ mô, ngành hay doanh nghiệp (kể cả phủ quyết V1–V5, luận điểm gãy) — nhập tay ở `data/tham_dinh.json`
 - [ ] Chặn cứng −25% so với giá vốn — ngoại lệ duy nhất giữa hai kỳ rà soát
 
 ### Qui tắc tránh sai lầm
@@ -52,6 +89,8 @@ Bán hoặc dừng nắm giữ khi ít nhất một điều kiện sau xảy ra:
 Kết luận ngắn gọn:
 
 > Mua doanh nghiệp tốt ở giá hợp lý, nhưng chỉ vào khi xu hướng và kỹ thuật đang ủng hộ. Đây là sự kết hợp giữa "đầu tư giá trị" và "đầu tư theo xu hướng" — chặt chẽ về chất lượng, cẩn trọng về thời điểm, và kỷ luật về rủi ro.
+
+</details>
 
 ---
 
@@ -70,6 +109,10 @@ Các file `tournament_sim.py`, `final_sim.py`, `contest_sim.py`, `allocator.py` 
 
 ## 2. Hệ thống ba tầng
 
+> **Từ 05/10/2026 (mục 14):** thêm **Trụ 1 — chế độ thị trường** đứng trên cả ba tầng: tổng cổ phiếu ≤ trần của chế độ, Giảm = bán hết và khoá mua. Tầng 1 bỏ RS và ATR (còn thanh khoản, giá > MA200, MA50 > MA200). Giao điểm phải qua thêm **phiếu Đạt còn hạn** và **biên an toàn ≥ 15% dưới Thận trọng**. Luật thoát: bỏ quy tắc 2 (RS) và quy tắc 5 (cảm quan), thêm bán khi chạm Cơ sở và khi chế độ Giảm.
+>
+> **Từ 01/10/2026:** Tầng 1 chạy trên **toàn thị trường** (HOSE + HNX + UPCoM, `lt_scan_vietcap.py`), điều kiện không đổi, RS luôn so với VNINDEX. **Tầng 2 đã bỏ** — thay bằng giao điểm với rổ cơ bản top-down do người lập. Tầng 3 giữ nguyên, trừ trần ngành dùng ngành người gán trong rổ. Chi tiết mục 13.
+
 ### Tầng 1 — Bộ lọc cứng (mã có được phép mua không)
 
 | Điều kiện | Ngưỡng | Lý do |
@@ -77,12 +120,14 @@ Các file `tournament_sim.py`, `final_sim.py`, `contest_sim.py`, `allocator.py` 
 | Thanh khoản | GTGD TB 20 phiên ≥ 10 tỷ/phiên | 200tr vào/ra không làm lệch giá |
 | Xu hướng dài hạn | Giá đóng cửa > MA200 | Chỉ nắm giữ mã đang ở pha tăng |
 | Cấu trúc | MA50 > MA200 | Loại mã mới hồi kỹ thuật trong xu hướng giảm |
-| **Mạnh hơn thị trường** | RS 12 tháng (bỏ 1 tháng gần nhất) > 0 | Đây chính là điều kiện "mạnh hơn VN-Index" |
-| Chặn an toàn | ATR ≤ 6%/phiên | Loại mã đầu cơ cực đoan |
+| ~~**Mạnh hơn thị trường**~~ | ~~RS 12 tháng (bỏ 1 tháng gần nhất) > 0~~ | **ĐÃ BỎ 04/10/2026** (quyết định 5, mục 14): đà tăng tương đối loại đúng nhóm mã Trụ 2 cần tìm; chữ L có dấu ngược (mục 12.2) |
+| ~~Chặn an toàn~~ | ~~ATR ≤ 6%/phiên~~ | **ĐÃ BỎ 04/10/2026** (cam kết #2 báo cáo giai đoạn 1): chưa loại mã nào trong 9 kỳ quét; biến động vẫn được xử lý ở 1/ATR |
 
 Bỏ 1 tháng gần nhất (skip-month) là chuẩn học thuật: đảo chiều ngắn hạn làm nhiễu tín hiệu momentum.
 
-### Tầng 2 — Điểm xếp hạng (chọn mã nào trong số đạt chuẩn)
+### ~~Tầng 2 — Điểm xếp hạng~~ — ĐÃ BỎ 01/10/2026
+
+> Phần dưới giữ làm hồ sơ. Việc chọn mã nào trước nay do `uu_tien` người gán trong rổ cơ bản quyết định, phá hoà bằng ATR thấp trước (mục 13, quyết định 5).
 
 `Điểm = 0,40 × RS12T(bỏ 1T) + 0,30 × RS6T + 0,20 × RS3T + 0,10 × Chất lượng xu hướng`
 
@@ -99,24 +144,28 @@ Ngoài giá trị điểm, mỗi mã còn có **thứ hạng vị trí** `thu_ha
 - Tỷ trọng ∝ **1 / ATR** (rủi ro ngang nhau giữa các vị thế), không theo điểm xếp hạng.
 - Trần 15%/mã (DM1), 20%/mã (DM2); trần ngành 30% (DM1), 40% (DM2).
 - ~~Trần trùng lặp: một mã ≤ 10% **tổng tài sản hai tài khoản**, áp sau khi làm tròn lô.~~ **ĐÃ BỎ 02/09/2026** — xem mục 9.
-- **Tiền mặt sinh ra tự động**: mỗi "ô" không tìm được mã đạt chuẩn thì ô đó nằm tiền. Không có bất kỳ quy tắc canh chỉ số nào — đã kiểm chứng 17/08 rằng bộ lọc VNINDEX theo MA50 **không** dự báo được hướng chỉ số.
+- **Tiền mặt sinh ra tự động**: mỗi "ô" không tìm được mã đạt chuẩn thì ô đó nằm tiền. ~~Không có bất kỳ quy tắc canh chỉ số nào — đã kiểm chứng 17/08 rằng bộ lọc VNINDEX theo MA50 **không** dự báo được hướng chỉ số.~~ **Từ 05/10/2026:** tổng cổ phiếu còn bị chặn trên bởi **trần chế độ thị trường** (Tăng 100% · Điều chỉnh 60% · Giảm 0%). Dải chỉ là trần — cuộc thi chỉ cho mua cổ phiếu nên không có ETF để lấp sàn — vì vậy tiền mặt vẫn sinh ra khi thiếu mã đạt Trụ 2 (quyết định 3, mục 14). Lớp chế độ không dự báo hướng chỉ số; nó đổi tốc độ tăng trưởng lấy sụt giảm nông hơn (mục 14.4).
 
 Số ô: **DM1 = 10, DM2 = 8** (đo được, xem mục 4).
 
 ### Luật thoát
 
-Rà soát **đầu mỗi tháng**. Giữ tiếp khi còn đủ **cả bốn** (Bảng CL.4 của `Triet_ly_dau_tu_FF5.docx`):
+> **Từ 05/10/2026 (mục 14, quyết định 1, 4, 6, 11, 12):** bán **toàn bộ** khi một trong các điều sau xảy ra — **mỗi phiên:** chế độ Giảm · giá đóng cửa ≥ giá trị Cơ sở · chặn cứng −25% · quy tắc 4 (người đánh `luan_diem_con_nguyen = false` khi dây bẫy chạm, hoặc loại khỏi rổ); **ở kỳ soát đầu tháng:** giá < 0,97 × MA200, và cắt theo tỷ lệ phần cổ phiếu vượt trần chế độ quá 3% NAV. **Quy tắc 2 (RS) và quy tắc 5 (cảm quan) đã bỏ.** Đoạn dưới là luật 01/10–04/10/2026, giữ để đối chiếu.
+
+Rà soát **đầu mỗi tháng**. Giữ tiếp khi còn đủ **cả ba** (sửa 01/10/2026; số hiệu giữ như cũ để đối chiếu):
 
 1. Giá đóng cửa > 0,97 × MA200 (đệm 3% chống nhiễu)
 2. RS 12 tháng so với VNINDEX > −5%
-3. **Thứ hạng vị trí ≤ 40%** trong rổ đã qua bộ lọc — tức `thu_hang ≤ 0,40`. Đây là quy tắc **thay thế**, không phải quy tắc cắt lỗ
-4. **Luận điểm doanh nghiệp còn nguyên vẹn như khi mua** — quy tắc duy nhất không đọc dữ liệu giá; kết luận do người nhập vào `data/tham_dinh.json`, trường `luan_diem_con_nguyen`
+3. ~~Thứ hạng vị trí ≤ 40% trong rổ đã qua bộ lọc~~ — **ĐÃ BỎ 01/10/2026.** Mục 8 đã đo tác động của nó là nhiễu (trung bình +0,07 điểm %)
+4. **Mã còn nằm trong rổ cơ bản** — quy tắc duy nhất không đọc dữ liệu giá. Bị loại ở tầng vĩ mô, ngành hay doanh nghiệp đều là hỏng. Ba trạng thái: trong rổ / bị loại (→ bán) / **thiếu hoặc nhập sai kết luận (→ không tự bán, allocator in PHẢI CHẤM TAY)**
 
-Hỏng bất kỳ điều nào → bán toàn bộ vị thế, tiền chuyển sang mã đứng đầu danh sách chờ; danh sách chờ rỗng thì phần vốn đó nằm tiền. Lệch tỷ trọng < 3% NAV thì **không** điều chỉnh (biên không giao dịch). Chặn cứng một chiều: −25% so với giá vốn — ngoại lệ duy nhất được kích hoạt giữa hai kỳ rà soát, và là quy tắc duy nhất trong hệ thống tham chiếu tới giá vốn.
+Hỏng bất kỳ điều nào → bán toàn bộ vị thế, tiền chuyển sang mã kế tiếp ở giao điểm theo thứ tự `uu_tien` rồi ATR; giao điểm rỗng thì phần vốn đó nằm tiền. Lệch tỷ trọng < 3% NAV thì **không** điều chỉnh (biên không giao dịch). Chặn cứng một chiều: −25% so với giá vốn — ngoại lệ duy nhất được kích hoạt giữa hai kỳ rà soát, và là quy tắc duy nhất trong hệ thống tham chiếu tới giá vốn.
 
-**Lệnh bán CHỈ đến từ bốn quy tắc trên.** Một mã không lọt vào danh mục mục tiêu nhưng vẫn trả lời "có" cho cả bốn câu thì **giữ nguyên** — không bán. Bản `lt_allocator.py` trước 25/08/2026 tính chênh lệch so với danh mục mục tiêu rồi bán phần dư, tức tái cơ cấu toàn bộ mỗi kỳ; backtest cho thấy tái cơ cấu toàn bộ hằng tháng chỉ đạt 6,95%/năm so với 13,89% của bán-theo-quy-tắc-thoát.
+**Lệnh bán CHỈ đến từ các quy tắc trên** (bốn quy tắc tới 30/09/2026, ba quy tắc từ 01/10/2026). Một mã không lọt vào danh mục mục tiêu nhưng vẫn trả lời "có" cho cả bốn câu thì **giữ nguyên** — không bán. Bản `lt_allocator.py` trước 25/08/2026 tính chênh lệch so với danh mục mục tiêu rồi bán phần dư, tức tái cơ cấu toàn bộ mỗi kỳ; backtest cho thấy tái cơ cấu toàn bộ hằng tháng chỉ đạt 6,95%/năm so với 13,89% của bán-theo-quy-tắc-thoát.
 
 ### Quy tắc thứ năm — bán theo cảm quan thị trường của quỹ (đổi ngày 11/09/2026)
+
+> 🔴 **ĐÃ BỎ HẲN từ 05/10/2026** (quyết định 11, mục 14) — đúng cam kết #5 tr. 70 báo cáo giai đoạn 1: *"bỏ hẳn quy tắc bán theo cảm quan; lệnh nào thiếu lý do ghi trước giờ đặt thì người phê duyệt từ chối."* Sổ `LENH_QUY_TAC_5` giữ làm hồ sơ (4 lệnh, cả 4 ghi sau khi khớp). Thay bằng sổ `PHIEU_LENH` cho mọi lệnh. Phần dưới là lịch sử.
 
 **Quyết định của user ngày 11/09/2026:** quy tắc 5 không còn là "bán bớt khi giá quá nóng" mà là **bán theo cảm quan thị trường của quỹ**, dùng để tăng tính chủ động ứng phó với biến động thị trường. Đây là quy tắc **tuỳ nghi**: người quyết, hệ thống không sinh tín hiệu, không có backtest nào đứng sau.
 
@@ -257,11 +306,40 @@ Bảng lệnh cụ thể: `data/ke_hoach_20260817.txt` (sinh bằng `lt_allocato
 
 ## 6. Quy trình vận hành hằng tháng
 
+**Từ 05/10/2026 — hai nhịp** (quyết định 12, mục 14):
+
+*Mỗi phiên, sau 15h:*
+
+1. `PYTHONIOENCODING=utf-8 python lt_che_do.py` → chế độ thị trường + ba luật xét mỗi phiên (Giảm, −25%, chạm Cơ sở) cho từng mã đang giữ. Chỉ báo, không sinh bảng lệnh.
+2. Có tín hiệu bán, hoặc dây bẫy chạm (đặt `luan_diem_con_nguyen = false`) → **ghi `PHIEU_LENH` trong `lt_config.py` kèm giờ ghi** → đặt lệnh phiên sau. Muốn có bảng lệnh: quét → screener → `NGAY_CHAY=<ngày đặt> LOAI_KY=hang_ngay python lt_allocator.py` (nhịp hằng ngày không bao giờ sinh lệnh mua).
+3. Sau khi khớp: `data/so_giao_dich.json`, `HOLDINGS`, `TIEN_MAT`, trạng thái phiếu.
+
+*Kỳ soát đầu tháng* (thứ tự là một phần của luật):
+
+1. **Chốt rổ cơ bản** và **định giá hai kịch bản** (`dinh_gia.than_trong`, `dinh_gia.co_so`) trong `data/tham_dinh.json` **trước** bản quét. Phiếu năm cổng + ba trục hết hạn thì lập lại.
+2. `lt_scan_vietcap.py` → `lt_screener.py` (in chế độ, ghi `data/che_do_YYYYMMDD.json`) → cập nhật `HOLDINGS`/`TIEN_MAT` → `lt_allocator.py` (mặc định `LOAI_KY=soat`: đủ mọi luật, cắt về trần, lệnh mua).
+3. Ghi `PHIEU_LENH` cho từng lệnh trước giờ đặt. Bảng lệnh in `[CHUA CO PHIEU]` cho lệnh thiếu phiếu.
+
+Rổ chưa chốt: allocator **vẫn sinh lệnh bán** theo luật giá và chế độ, chỉ chặn lệnh mua (đổi 04/10/2026 — trước đó dừng hẳn).
+
+**Từ 01/10/2026 tới 04/10/2026** (thứ tự là một phần của luật — rổ phải chốt **trước** bản quét):
+
+1. **Chốt rổ cơ bản** trong `data/tham_dinh.json`: `_ro_co_ban.vi_mo`, `_ro_co_ban.nganh`, và ở từng mã `trong_ro` / `nganh` / `uu_tien` / `ngay_vao_ro` / `ly_do_ro`. Mọi mã **đang giữ** phải có kết luận `trong_ro`. Ghi `_ro_co_ban.ngay_chot`.
+2. `PYTHONIOENCODING=utf-8 python lt_scan_vietcap.py` → `data/scan_YYYYMMDD.json` (toàn thị trường, ~2 phút).
+3. `PYTHONIOENCODING=utf-8 python lt_screener.py` → rổ xu hướng, rổ cơ bản, **giao điểm** + `data/candidates_YYYYMMDD.json`. Đọc dòng `[HANG RAO]` nếu có: rổ bị sửa sau bản quét.
+4. Cập nhật `HOLDINGS` và `TIEN_MAT` trong `lt_config.py` cho khớp sao kê.
+5. `PYTHONIOENCODING=utf-8 python lt_allocator.py` → bảng lệnh. Rổ chưa chốt thì allocator **dừng**, không sinh bảng lệnh.
+6. Đặt lệnh bán ngay. Lệnh mua cho mã mới ra khi phiếu V1–V5 + Bước 4 xong, trong hạn chót của kỳ (`TOP_DOWN.han_chot_lenh_mua`). Trong tháng **không làm gì** trừ khi chạm chặn cứng −25%.
+
+<details><summary>(lịch sử, 17/08–30/09/2026) Quy trình cũ</summary>
+
 1. Mở TradingView Desktop, khung ngày. Dán `lt_scan_tradingview.js` vào `ui_evaluate`, chờ xong (~3–10 phút), kiểm tra trùng dữ liệu, xuất ra `data/scan_YYYYMMDD.json`.
 2. `PYTHONIOENCODING=utf-8 python lt_screener.py` → bảng xếp hạng + `data/candidates_YYYYMMDD.json`.
 3. Cập nhật `HOLDINGS` và `TIEN_MAT` trong `lt_config.py` cho khớp sao kê.
 4. `PYTHONIOENCODING=utf-8 python lt_allocator.py` → bảng lệnh.
 5. Đặt lệnh. Trong tháng **không làm gì** trừ khi chạm chặn cứng −25%.
+
+</details>
 
 ### Lịch rà soát — ngoại lệ một lần cho DM2 (chốt 16/09/2026)
 
@@ -297,10 +375,13 @@ Thẩm định làm **sau** bảng xếp hạng nhưng **trước** bảng lện
 
 | File | Vai trò |
 |---|---|
-| `lt_config.py` | Toàn bộ tham số: vốn, số ô, bộ lọc, luật thoát, phân ngành |
-| `lt_screener.py` | Lọc + xếp hạng RS |
-| `lt_allocator.py` | Phân bổ 1/ATR, trần, làm tròn lô, sinh lệnh |
-| `lt_scan_tradingview.js` | Quét dữ liệu từ TradingView |
+| `lt_config.py` | Toàn bộ tham số: vốn, số ô, bộ lọc, luật thoát, hiệu lực top-down (`TOP_DOWN`), chế độ thị trường (`CHE_DO`), biên an toàn (`BIEN_AN_TOAN_MIN`), sổ phiếu lệnh (`PHIEU_LENH`) |
+| `lt_che_do.py` | **Từ 04/10/2026** — Trụ 1: máy trạng thái chế độ thị trường (một nguồn cho screener, kiểm nhanh mỗi phiên và phép đo); chạy trực tiếp = kiểm nhanh mỗi phiên |
+| `kiem_dinh_che_do_vnindex.py` | **Từ 04/10/2026** — đo lớp chế độ trên VN-Index 2004–2026 (mục 14.4); dữ liệu `data/vnindex_vietcap_20261002.json`, kết quả `data/kiem_dinh_che_do_vnindex_20261004.json` |
+| `lt_scan_vietcap.py` | **Nguồn quét sản xuất từ 01/10/2026** — toàn HOSE + HNX + UPCoM từ Vietcap |
+| `lt_screener.py` | Tầng 1 + rổ cơ bản + giao điểm + phiếu Đạt + biên an toàn + luật thoát; ghi `candidates_*` và `che_do_*` |
+| `lt_allocator.py` | Chế độ thị trường (Giảm = bán hết, trần), phân bổ 1/ATR, trần mã/ngành, làm tròn lô, kiểm phiếu lệnh; nhịp `LOAI_KY=soat` / `hang_ngay` |
+| `lt_scan_tradingview.js` | Quét 112 mã HOSE từ TradingView — từ 01/10/2026 chỉ để đối chiếu |
 | `lt_backtest_tradingview.js` | Backtest, đúng đoạn code đã tạo ra số ở mục 3 |
 | `exit_rules.py`, `regime_test.py` | Bằng chứng cũ cho nguyên tắc "không đặt mục tiêu chốt lời" — vẫn còn giá trị |
 | `archive_khung_cu/` | Khung P(về nhất) đã bỏ, giữ lại để đối chiếu báo cáo |
@@ -428,6 +509,8 @@ Hằng quý tốt hơn hằng tháng ở 3/4 pha và trung bình +2,6 điểm ph
 Lợi nhuận ngang nhau, và 1/ATR cho sụt giảm nhỏ hơn ở **cả 4/4 pha**. Đúng y như lý do đã ghi từ đầu: *chọn 1/ATR vì rủi ro, không vì lợi nhuận*. Đây là chỗ duy nhất trong toàn bộ hệ thống mà lý do ban đầu vẫn đứng vững sau khi đo lại.
 
 ### Con số dùng cho báo cáo từ nay
+
+> 🔴 **01/10/2026: đoạn dưới đo HỆ CŨ** (112 mã HOSE, có xếp hạng RS, có luật thoát 3). Hệ thống từ 01/10/2026 **chưa có backtest**: phần chọn mã do người làm nên không backtest được; phần máy sẽ đo bằng phép thử đăng ký trước P2 (mục 13.4). Trích đoạn dưới chỉ khi ghi rõ là hệ cũ.
 
 > Hệ thống, đo trên 52 tháng (04/2022–08/2026), 112 mã HOSE, đã trừ phí 0,4%/vòng quay, lấy trung bình bốn pha lưới lấy mẫu: **CAGR 9,1%, sụt giảm tối đa −29,5%, vượt VN-Index +0,7 điểm phần trăm/năm với t ≈ 0,2 — không có ý nghĩa thống kê.** VN-Index cùng kỳ 8,3%.
 
@@ -612,7 +695,7 @@ Hai con số này gợi ý rằng chữ A **có thể** có giá trị khi dùng
 
 ### 12.5 Việc còn mở — CHỜ NGƯỜI QUYẾT
 
-1. **Ba trục A/B/C của phiếu cũ.** Quyết định 3 bỏ ba trục **với giả định** 3a sẽ thay phần tăng trưởng. 3a đã bị bác bỏ, nên câu hỏi mở lại: Bước 3 quay về phiếu năm cổng, ba trục như trước, hay chỉ giữ V1–V5? Code chưa đổi gì ở phần này (phiếu là thủ công), nên hiện trạng = phiếu cũ.
+1. **Ba trục A/B/C của phiếu cũ.** Quyết định 3 bỏ ba trục **với giả định** 3a sẽ thay phần tăng trưởng. 3a đã bị bác bỏ, nên câu hỏi mở lại: Bước 3 quay về phiếu năm cổng, ba trục như trước, hay chỉ giữ V1–V5? Code chưa đổi gì ở phần này (phiếu là thủ công), nên hiện trạng = phiếu cũ. → **Đã chốt 04/10/2026 (mục 14, quyết định 8–9): năm cổng + ba trục, chỉ phiếu Đạt còn hạn được mua.**
 2. Có đăng ký phép đo mới "A làm tiêu chí nghiêng tỷ trọng" (12.2, hậu kiểm) hay không.
 
 ### 12.6 Sửa bản nháp mục 9.4 của báo cáo
@@ -626,3 +709,203 @@ Hai con số này gợi ý rằng chữ A **có thể** có giá trị khi dùng
 **Đoạn "Đọc bảng theo đúng phạm vi" thay bằng:** CANSLIM đã cho kết quả tốt ở dạng bộ lọc trên thị trường Mỹ, nhưng các sản phẩm thực chiến xây theo nó lại kém chỉ số. Trên HOSE, kiểm định đăng ký trước của Quỹ **không xác nhận** chữ nào, kể cả L và M. Dùng làm cổng cứng trên rổ 112 mã, CANSLIM để tiền nằm không phần lớn thời gian và bị bác bỏ theo đúng ngưỡng đã chốt trước. Quỹ vì vậy **không** thay Bước 3 bằng CANSLIM. Tín hiệu duy nhất đáng theo dõi là chữ A trong rổ đã qua bộ lọc, và nó sẽ được đo bằng một phép thử đăng ký mới.
 
 **File:** `canslim_data.py`, `canslim.py`, `canslim_backtest.py`, `tests/test_canslim.py`, `data/canslim_cache/`, `data/canslim_20260922.{json,md}`, `data/canslim_backtest_20260922.json`. Sao lưu: `data/CHIEN_LUOC_DAI_HAN_backup_20260922.md`, `data/lt_config_backup_20260922.py`, `data/lt_screener_backup_20260922.py`.
+
+---
+
+## 13. Chuyển sang top-down, quét toàn thị trường, bỏ Bước 2 — ngày 01/10/2026
+
+**Quyết định của user ngày 01/10/2026:** mở rộng phạm vi quét từ 112 mã HOSE ra **toàn thị trường (HOSE, HNX, UPCoM)** và **xoá Bước 2 (xếp hạng)** vì theo đánh giá của user, bước này không đóng góp gì cho chiến lược. Khi được chất vấn, user đổi cả cấu trúc: **chiến lược thành top-down và chạy hai nhánh song song — Quỹ tự chọn rổ cổ phiếu theo cơ bản, máy tìm toàn bộ cổ phiếu đang trong xu hướng, giao điểm là lựa chọn của Quỹ.** Mười bốn quyết định dưới đây được chốt lần lượt, mỗi quyết định trước khi sang câu tiếp.
+
+### 13.1 Bằng chứng có sẵn lúc quyết định — ghi thẳng
+
+- **Bỏ luật thoát 3** có số liệu ủng hộ: mục 8 đo tác động của nó là nhiễu (+2,44 / −2,71 / −2,52 / +3,06 điểm %, trung bình +0,07).
+- **Bỏ xếp hạng để chọn mã khi vào lệnh thì CHƯA từng được đo lại.** Con số duy nhất (13,89% xếp hạng so với 2,43% bốc thăm, mục 3) nằm trong mục đã bị đánh dấu "không trích dẫn". Nói cách khác, chưa có phép đo nào chứng minh bước này có ích, nhưng cũng chưa có phép đo nào chứng minh nó vô ích. Quyết định bỏ là quyết định của người, không phải kết luận từ dữ liệu.
+
+### 13.2 Mười bốn quyết định
+
+| # | Quyết định |
+|---|---|
+| 1 | **Xoá luật thoát 3** (thứ hạng ≤ 40%). Còn: MA200 có đệm 3%, RS12T > −5%, luật 4, chặn cứng −25% |
+| 2 | **Top-down, hai nhánh song song.** Nhánh người → rổ cơ bản; nhánh máy → rổ xu hướng toàn thị trường. **Giao điểm là lựa chọn của Quỹ** |
+| 3 | Rổ cơ bản **chính là** Bước 3 viết lại theo top-down (vĩ mô → ngành → doanh nghiệp); tầng doanh nghiệp vẫn phải qua **V1–V5**. Bước 4 (định giá) chỉ áp ở giao điểm. Rổ lưu trong `tham_dinh.json` |
+| 4 | Luật thoát 4 = **mã không còn trong rổ**, loại ở tầng nào cũng vậy. Mọi thay đổi rổ ghi ngày và lý do, **chốt trước khi chạy quét hoặc allocator** của kỳ đó |
+| 5 | Giao điểm nhiều mã hơn số ô: theo `uu_tien` người gán (chốt cùng lúc với rổ), phá hoà bằng **ATR thấp trước** |
+| 6 | Nguồn quét: **`lt_scan_vietcap.py`**, giữ đúng schema 15 trường; kỳ đầu đối chiếu với TradingView trên 112 mã cũ (13.3) |
+| 7 | Tầng 1 giữ nguyên năm điều kiện cho mọi sàn; RS luôn so với **VNINDEX** |
+| 8 | Trần ngành dùng **ngành người gán trong rổ**; bỏ bảng `NGANH`. Mã ở giao điểm thiếu ngành → không mua, in cảnh báo |
+| 9 | **Hiệu lực ngay từ kỳ soát 01/10/2026** |
+| 10 | Không có ngoại lệ chuyển tiếp: hôm nay chốt vĩ mô, ngành và giữ/loại từng mã đang nắm (MSB, BSR, DHC) **rồi mới** quét và đặt lệnh bán |
+| 11 | Hạn chót lệnh mua kỳ 01/10: **thứ Hai 05/10/2026**. Quá hạn → nằm tiền tới 01/11 |
+| 12 | Khoá whipsaw VHM (tới 01/11), gia hạn quy tắc 5 MSB (tới 17/10) và bản thân quy tắc 5: **giữ nguyên** |
+| 13 | Tài liệu ghi thẳng "hệ thống từ 01/10/2026 chưa có backtest"; sửa các phần mô tả luật đang chạy, giữ nguyên các mục lịch sử |
+| 14 | Đăng ký trước phép đo P2 (13.4) |
+
+**Lần đổi luật thứ tư giữa cuộc thi, và lần thứ ba do Quỹ chọn** (17/08 đổi khung, 11/09 đổi quy tắc 5, 16/09 thêm mốc soát do BTC đặt, 01/10 đổi sang top-down). Báo cáo cuối kỳ phải ghi đúng câu này. Người đề xuất đã khuyến nghị lùi hiệu lực tới 01/11 để không đổi luật giữa cuộc thi và để rổ cơ bản tồn tại trước khi luật dựa vào nó có hiệu lực; user chọn áp ngay.
+
+**Ba trạng thái của luật 4, không phải hai.** Trong rổ → được mua; bị loại → bán toàn bộ; **thiếu hoặc nhập sai** (ví dụ ngành của mã không có trong rổ ngành, chưa có phiếu V1–V5) → không mua, **không tự bán**, allocator in `PHAI CHAM TAY`. Quy về "bị loại" thì một lỗi gõ nhầm sẽ bán vị thế; quy về "trong rổ" thì thiếu phiếu vẫn được mua. Rổ chưa chốt (`_ro_co_ban.ngay_chot` rỗng) thì allocator dừng hẳn, không sinh bảng lệnh.
+
+**Hàng rào thời điểm được cưỡng chế bằng máy:** `lt_screener.py` in `[HANG RAO]` khi `ngay_chot` của rổ sau ngày bản quét, hoặc khi `tham_dinh.json` được sửa sau file quét.
+
+**Lỗ hổng mục 10.3 đóng luôn:** screener nay ghi bản ghi cho **mọi mã đang giữ** kể cả đã rớt Tầng 1, nên chặn cứng −25% kiểm được bằng giá thật thay vì lùi về giá vốn. Có test hồi quy.
+
+### 13.3 Đối chiếu nguồn quét — Vietcap với TradingView, trên bản quét 21/09/2026
+
+Dựng lại đúng ngày 21/09 bằng tham số `to` của Vietcap trên 113 mã của `scan_20260921.json` (`data/scan_vietcap_doi_chieu_20260921.json`):
+
+| Trường | Trung vị lệch | Ghi chú |
+|---|---|---|
+| Giá, r21, MA50, ATR | 0 | Lệch lớn chỉ ở mã có sự kiện quyền |
+| r252 | 1,3 điểm % | Vietcap điều chỉnh cổ tức, TradingView không |
+| **Giá trị giao dịch** | **8,7%** (p90 47%) | **TradingView cộng cả giao dịch thoả thuận.** KDC: một phiên TradingView ghi 253 nghìn CP, Vietcap 41 nghìn; các phiên khác trùng |
+
+- Ngưỡng ở `LOC` là "giá trị **khớp lệnh**" — Vietcap đo đúng định nghĩa, TradingView đo thừa. Mọi con số thanh khoản trong các bản quét cũ đều cao hơn định nghĩa.
+- DGC: bước −20% ngày giao dịch không hưởng quyền, TradingView **không** điều chỉnh (r21 lệch 17 điểm %). Vietcap có.
+- **Tầng 1 hai nguồn cho cùng kết quả**, trừ LPB (Vietcap cho qua, TradingView loại).
+
+Chạy toàn thị trường thử ngày 01/10 (ra thư mục nháp, **không** ghi vào `data/` để giữ hàng rào): 1.522 mã yêu cầu, 1.238 mã ghi được, 280 mã ngừng giao dịch > 10 ngày bị bỏ, 5 mã mới niêm yết thiếu dữ liệu; **100 giây**. Rổ xu hướng trên dữ liệu 30/09: **21 mã (HOSE 17/402, HNX 1/269, UPCoM 3/566)** — HNX và UPCoM chỉ thêm 4 mã, không phải hàng trăm. Ngưỡng 10 tỷ khớp lệnh là nguyên nhân chính.
+
+### 13.4 Đăng ký trước — phép đo P2 (chốt 01/10/2026, TRƯỚC khi chạy)
+
+| Hạng mục | Nội dung |
+|---|---|
+| Câu hỏi | Bộ lọc xu hướng Tầng 1 trên **toàn thị trường**, **không có** phần chọn của người, có vượt VN-Index không? |
+| Biến thể chính | Mỗi kỳ tháng rút **ngẫu nhiên 8 mã** từ danh sách qua Tầng 1 (1.000 lần rút), 1/ATR, trần mã 20%, thoát theo **hai luật xu hướng** (MA200 đệm 3%, RS12T > −5%) + chặn cứng −25%. Biên không giao dịch 3%, phí 0,4%, khớp phiên sau. Luật 4 không mô phỏng được nên bỏ trống |
+| Đối chứng phụ | Cùng biến thể, chỉ trên rổ 112 mã HOSE cũ — đo riêng phần đóng góp của việc mở rộng rổ |
+| Dữ liệu | Giá đã điều chỉnh từ Vietcap, cửa sổ dài nhất có được, 4 pha lưới |
+| Thiên lệch sống sót | `getAll` có 232 mã đã huỷ niêm yết; đưa vào nếu gap-chart còn trả dữ liệu, không thì ghi thành giới hạn. **Chưa kiểm chứng** |
+| Ngưỡng | Như P1: **chấp nhận** khi ≥ 3/4 pha dương và t Newey-West ≥ 2; **chưa kết luận** khi 1 ≤ t < 2; **bác bỏ** khi t < 1 |
+| Hệ quả nếu bác bỏ | Báo cáo ghi phần máy không có bằng chứng tạo giá trị, toàn bộ gánh nặng chọn mã nằm ở rổ cơ bản. **Không** tự động đổi luật |
+| Lịch | Chạy sau 17/10/2026, xong trước kỳ soát 01/11/2026 |
+
+### 13.5 Việc còn mở — CHỜ NGƯỜI
+
+1. **Hôm nay, trước khi quét:** điền `_ro_co_ban` (vĩ mô, ngành, `ngay_chot`) và kết luận `trong_ro` / `nganh` / `uu_tien` cho MSB, BSR, DHC trong `data/tham_dinh.json`.
+2. Phiếu V1–V5 + Bước 4 cho mã mới ở giao điểm, hạn **05/10/2026**.
+3. Câu hỏi mở từ mục 12.5 (ba trục A/B/C) nay trả lời một phần: tầng doanh nghiệp của rổ dùng **V1–V5**. Ba trục có còn là điều kiện hay không vẫn chưa chốt. → **Đã chốt 04/10/2026: ba trục là điều kiện (mục 14, quyết định 9).**
+4. Gộp quy tắc 5 vào luật 4 mới (rút mã khỏi rổ) — xét ở kỳ 01/11, không phải hôm nay. → **Đã giải quyết 04/10/2026: quy tắc 5 bỏ hẳn từ 05/10 (mục 14, quyết định 11).**
+
+⚠️ **Sai lệch quy trình đã biết, ghi cùng ngày:** bản quét sản xuất `data/scan_20261001.json` (chạy 02:47 ngày 01/10) được chạy **trước** khi rổ cơ bản chốt, theo yêu cầu của user, trái với quyết định 4 và 10 vừa chốt cùng ngày. Rổ lập cho kỳ 01/10 vì vậy là rổ lập **sau khi đã thấy rổ xu hướng** 21 mã. Ghi lại để kỳ sau đối chiếu, không phải để bào chữa. Báo cáo: https://claude.ai/artifact/EN4YUxHdLVuK3ReG8fsbbc
+
+**File:** `lt_scan_vietcap.py` (mới), `lt_config.py`, `lt_screener.py`, `lt_allocator.py`, `tests/test_portfolio.py`, `tests/test_canslim.py`, `data/tham_dinh.json` (khung `_ro_co_ban` rỗng). 40/40 test đạt. Sao lưu: `data/CHIEN_LUOC_DAI_HAN_backup_20261001.md`, `data/lt_config_backup_20261001.py`, `data/lt_screener_backup_20261001.py`, `data/lt_allocator_backup_20261001.py`, `data/tham_dinh_backup_20261001.json`.
+
+---
+
+## 14. Khung Giai đoạn 2 — chốt 04/10/2026, hiệu lực từ 05/10/2026
+
+**Nguồn:** báo cáo giai đoạn 1 đã nộp BTC (`medici - mid term report.pdf`, 83 trang, xuất từ Canva ngày 27/09/2026 theo metadata), **Mục 9 "Bài học kinh nghiệm và định hướng giai đoạn 2"** (tr. 69–73). Toàn bộ khung GĐ2 đã công bố ở đó — kể cả câu *"Nếu VN-Index đóng cửa dưới 1,738.84 điểm, Quỹ chuyển toàn bộ sang tiền mặt"* (tr. 72). Ngày 04/10 user cho chất vấn khung này; 17 quyết định dưới đây được chốt (1–5 từng câu một, 6–17 duyệt một lần theo bảng đề xuất). Bản phân tích "góc nhìn giám khảo" (`khung-chien-luoc-giai-doan-2-medici.md`) là tóm tắt của chính Mục 9.
+
+### 14.1 Đối chiếu trước khi quyết — những gì kiểm được
+
+| Báo cáo GĐ1 ghi | Kiểm được (dữ liệu tới 02/10/2026) |
+|---|---|
+| VN-Index 1.815,66, trên MA200 1,29% → Điều chỉnh | Đó là phiên **18/09**. Đóng cửa 02/10: **1.737,71**; MA200 1.795,65 → ngưỡng 97% = 1.741,78. Dưới cả ngưỡng đó lẫn con số 1.738,84 đã công bố → **chế độ Giảm**. 8 phiên phân phối/25 |
+| "Chạy lại trong hơn 12 năm, lớp này cắt sụt giảm tối đa từ 54% xuống 37%; CAGR 6,3% → 5,7%" | **Không có file, script hay dữ liệu nào đứng sau** (đã gỡ khỏi phần lý do ngày 22/09, mục 12.1). Phép đo đăng ký trước của Quỹ cho cổng gần giống (cổng M): CAGR 10,0% → 8,8%, sụt giảm −41,1% → −30,6%, t = −0,41 → bác bỏ |
+| Bảng 9.3: VHM 5,85% / MSB 17,87% / DHC 12,06% / BSR 4,98% | VHM đã bán hết 22/09; MSB 840 → 440 và BSR 200 → 100 theo quy tắc 5. Ngày 02/10 cổ phiếu chỉ còn **27,5% NAV** — đã dưới dải 40–60% |
+| Hạn 30/09: đối chiếu CASA MSB; lập phiếu BSR | Không có bản ghi nào sau 14/09; BSR chưa có phiếu |
+| V1–V5 (tr. 72) | Đánh số lệch phiếu thật (phiếu: V2 kiểm toán, V3 dòng tiền/V3b, V4 bên liên quan, V5 xử phạt/pha loãng); thiếu luật "có trục = 0 → phủ quyết" |
+| Bán khi chạm kịch bản Cơ sở | Ngược `khong_co_muc_tieu_chot_lai = True` đang chạy |
+| Thận trọng/Cơ sở; DHC mua thêm dưới 35.700 | Dữ liệu chỉ có `co_so`/`upside`; 35.700 = 0,85 × 42,0. DHC 02/10 = 39.000 → biên 7% |
+| "Bỏ hẳn quy tắc bán theo cảm quan" (tr. 70) | Quy tắc 5 vẫn dùng ngày 01/10 (50 MSB), ghi sổ 04/10 sau khi khớp |
+
+### 14.2 Mười bảy quyết định
+
+| # | Quyết định | Lý do / bằng chứng |
+|---|---|---|
+| 1 | **Khung GĐ2 hiệu lực từ 05/10/2026.** Chế độ Giảm bật ở phiên 02/10 → bán toàn bộ MSB/BSR/DHC sáng 05/10, khoá mua mới | Luật và ngưỡng đã công bố trong báo cáo nộp BTC **trước** khi tín hiệu bật → đây là thực hiện cam kết, không phải chọn sau khi thấy kết quả. Người đề xuất ban đầu khuyến nghị lùi tới 01/11; rút lại khi đọc được tr. 72 |
+| 2 | **Thoát Giảm có độ trễ:** vào khi đóng cửa < 0,97 × MA200 (ngưỡng tính lại mỗi phiên), chỉ ra khi đóng cửa > MA200; vùng giữa giữ trạng thái trước | Bảng 9.2 hở ở vùng 97–100% MA200. Trên VN-Index 10/2014–10/2026: đối xứng 35 lần vào Giảm, 24 lần < 10 phiên; độ trễ 15 lần, 5 lần < 10 phiên, sụt giảm thấp hơn (14.4). Cùng khoảng lệch 3% Quỹ dùng cho từng mã |
+| 3 | **Dải tỷ trọng là trần:** Tăng ≤ 100%, Điều chỉnh ≤ 60%, Giảm 0%. Thiếu mã đạt Trụ 2 → tiền mặt | Cuộc thi chỉ cho mua cổ phiếu → không có ETF để lấp sàn. Hệ quả: cách sửa sai lầm #4 ở tr. 70 phải viết lại trong báo cáo GĐ2 |
+| 4 | **Giữ luật bán giá < 97% MA200; bỏ luật RS 12T < −5%** | MA200 là kỷ luật xu hướng, đúng câu "đứng ngoài" tr. 71 và đối xứng với Trụ 1; RS là đà tăng tương đối — bán mã còn rẻ khi chỉ số chạy nhanh hơn, đúng sai lầm #1; chữ L có dấu ngược (−2,0%, t −1,42) |
+| 5 | **Bỏ RS > 0 và ATR ≤ 6% ở đầu vào** | Đối xứng với 4. RS loại AAA, NTP, QNS, SBT, VEA, VTZ trên bản quét 01/10 — mã tăng đều nhưng chậm hơn chỉ số. ATR: cam kết #2 tr. 70, không loại mã nào. Rổ xu hướng 01/10: 21 → 29 mã |
+| 6 | **Bán toàn bộ khi giá đóng cửa chạm Cơ sở**, như đã công bố. Cơ sở chỉ được nâng bằng phiếu mới dựa trên BCTC mới, ghi trước khi giá chạm | Tr. 72. Bằng chứng cũ "không chốt lời" (56.496 lệnh) đo mục tiêu +3% trong ≤ 20 phiên, không áp thẳng vào giá trị nội tại. Cái giá: cắt sớm doanh nghiệp tăng trưởng |
+| 7 | **Hai kịch bản định giá** `than_trong`/`co_so` (nghìn đồng/CP); thiếu một → không mua; Thận trọng ghi rõ từng giả định bất lợi + định giá ngược. **DHC tạm: Thận trọng 42,0 / Cơ sở 51,0, `can_dung_lai = true`** | Báo cáo đã dùng 42,0 làm mốc 35.700 và "biên 13%"; 51,0 là giá mục tiêu phiếu 13/09. Gỡ xung đột 42/51 treo từ 14/09 |
+| 8 | **Năm cổng chuẩn = bộ trong phiếu:** V1 cách kiếm tiền · V2 ý kiến kiểm toán · V3 dòng tiền (V3b ngân hàng) · V4 bên liên quan · V5 xử phạt/pha loãng. "Lợi nhuận cốt lõi" (V4 của báo cáo) gộp vào V3: LNST đem so loại lãi đánh giá lại/bất thường | Cả 5 phiếu đã lập (kể cả 3 phủ quyết VHM, STB, BAF) dùng bộ này; tr. 72 mô tả lệch. V3b trả lời một phần rủi ro "loại hết ngân hàng" của góc nhìn giám khảo |
+| 9 | **Luật kết luận theo phiếu:** Đạt = tổng ≥ 4 **và không trục nào = 0** và không cổng nào bật; Chờ = không mua mới, đang giữ thì giữ; phiếu quá hạn = chưa thẩm định. **Chỉ phiếu Đạt còn hạn được mua** — nhãn không có phiếu không đủ | Tr. 72 thiếu vế "trục = 0", mà phủ quyết VHM dùng đúng vế đó |
+| 10 | **Giữ rổ cơ bản top-down 01/10** làm nhánh người; chốt `ngay_chot` trước bản quét của kỳ đầu tiên thị trường ra khỏi Giảm | Câu kết tr. 73: "vĩ mô sẽ quyết định lợi thế nằm ở ngành nào" |
+| 11 | **Bỏ hẳn quy tắc 5 từ 05/10.** Mọi lệnh cần **phiếu lệnh** (`PHIEU_LENH`) ghi kèm giờ, trước giờ đặt | Cam kết #5 tr. 70 |
+| 12 | **Nhịp xét:** mỗi phiên (đóng cửa, đặt lệnh phiên sau) — chế độ, −25%, chạm Cơ sở, quy tắc 4 (dây bẫy, xét khi có số liệu); kỳ soát đầu tháng — MA200, cắt về trần, lệnh mua | Ba luật đầu là phép so giá đơn giản và là lớp giữ thành quả; MA200 hằng ngày sẽ nhiễu. Mua chỉ sau kỳ soát — giữ nguyên GĐ1 |
+| 13 | **Báo cáo GĐ2 không viết "chiến lược không đổi"**; viết "triết lý và mục tiêu không đổi; GĐ2 thực thi đúng khung đã công bố ở Mục 9" (đoạn mẫu 14.7) | Tr. 71 "triết lý của Quỹ được viết lại", tr. 73 "quyết định đổi chiến lược" — giám khảo đang cầm bản đó. Câu mẫu giữ ý liên tục và kỷ luật mà không mâu thuẫn |
+| 14 | **Tự công bố các sai lệch** (14.6) | Tốt hơn để giám khảo tự đối chiếu sổ |
+| 15 | **Đính chính dòng "12 năm 54% → 37%"**, thay bằng phép đo tái lập được trên VN-Index (14.4), ghi rõ đo trên chỉ số; script vào repo | Mục 12.1 |
+| 16 | **Sau 17/10:** chạy hệ thống cũ trên giấy từ 21/09 và đặt kết quả thật cạnh **E1VFVN30** (chỉ làm thước đo) | Cam kết tr. 73 |
+| 17 | Áp cho cả DM1 (đang rỗng) | — |
+
+**Lần đổi luật thứ năm giữa cuộc thi, lần thứ tư do Quỹ chọn** (17/08 đổi khung, 11/09 đổi quy tắc 5, 16/09 thêm mốc soát do BTC đặt, 01/10 top-down, 05/10 khung GĐ2). Khác bốn lần trước ở một điểm phải nói rõ trong báo cáo: **luật và ngưỡng của lần này đã được công bố trong báo cáo nộp BTC trước khi tín hiệu bật** — tín hiệu 02/10, bản PDF xuất 27/09.
+
+**Lựa chọn hiện thực do người đề xuất đặt, user có thể bác:** (a) vùng 97–100% MA200 chỉ được *xấu đi* sang Điều chỉnh (khi MA50 < MA200 hoặc phiên phân phối ≥ 5), không bao giờ *tốt lên* Tăng; (b) ở kỳ soát, phần cổ phiếu vượt trần quá 3% NAV được cắt **theo tỷ lệ** mọi vị thế, giữ cấu trúc 1/ATR; (c) rổ cơ bản chưa chốt thì allocator vẫn sinh lệnh bán theo luật giá và chế độ (trước 04/10 nó dừng hẳn) — không đổi thì lệnh bán 05/10 không in ra được; (d) mua mới cần **cả** nhãn `buoc4 = "dat"` lẫn biên an toàn máy tính; (e) chế độ không xác định được (bản quét cũ thiếu chuỗi VN-Index) → không mua, không bán ép.
+
+### 14.3 Luật đang chạy từ 05/10/2026 — bản gọn
+
+- **Trụ 1 — chế độ** (`CHE_DO`, `lt_che_do.py`): Giảm khi đóng cửa < 0,97 × MA200, ra khi > MA200. Ngoài Giảm: Tăng khi đóng cửa > MA200, MA50 > MA200 và phiên phân phối < 5/25; còn lại Điều chỉnh. Phiên phân phối: VN-Index giảm ≥ 0,2% với khối lượng cao hơn phiên trước. Trần: 100% / 60% / 0%.
+- **Đầu vào:** thanh khoản ≥ 10 tỷ/phiên, giá > MA200, MA50 > MA200 — toàn HOSE + HNX + UPCoM.
+- **Trụ 2:** rổ cơ bản đã chốt → phiếu Đạt còn hạn → `buoc4 = "dat"` → giá ≤ 0,85 × Thận trọng.
+- **Phân bổ:** 1/ATR, trần mã 20% (DM2) / 15% (DM1), trần ngành 40% / 30%, thứ tự `uu_tien` rồi ATR thấp — như cũ — rồi chặn bởi trần chế độ.
+- **Bán toàn bộ:** chế độ Giảm · chạm Cơ sở · −25% · quy tắc 4 (mỗi phiên) · giá < 0,97 × MA200 (kỳ soát).
+- **Ghi lệnh:** phiếu trước giờ đặt; sau khi khớp ghi sổ. Không còn quy tắc 5.
+
+### 14.4 Bằng chứng: phép đo chế độ trên VN-Index
+
+`kiem_dinh_che_do_vnindex.py` gọi đúng hàm `chuoi_che_do()` đang chạy. Tín hiệu ở giá đóng cửa phiên s, khớp phiên s+1; phí 0,2% mỗi lần đổi tỷ trọng; tiền mặt lãi 0%; VN-Index là chỉ số giá (không gồm cổ tức). Dữ liệu: `data/vnindex_vietcap_20261002.json` (5.660 phiên, 2004–2026). Kết quả: `data/kiem_dinh_che_do_vnindex_20261004.json`.
+
+| 10/2014 – 10/2026 | CAGR | Sụt giảm tối đa | Tỷ trọng TB | Lần vào Giảm | < 10 phiên | Trung vị |
+|---|---|---|---|---|---|---|
+| Mua và giữ VN-Index | 9,1% | −45,3% | 1,00 | — | — | — |
+| **Luật đang chạy: trần 100/60/0, độ trễ** | **6,1%** | **−21,7%** | 0,56 | 15 | 5 | 21 phiên |
+| Chỉ lớp Giảm (100/0), độ trễ | 7,0% | −28,1% | 0,71 | 15 | 5 | 21 phiên |
+| Chỉ lớp Giảm (100/0), đối xứng | 7,1% | −31,7% | 0,78 | 35 | 24 | 3 phiên |
+
+| 10/2004 – 10/2026 | CAGR | Sụt giảm tối đa | Tỷ trọng TB |
+|---|---|---|---|
+| Mua và giữ VN-Index | 9,6% | −79,9% | 1,00 |
+| Luật đang chạy | 8,5% | −63,4% | 0,53 |
+| Chỉ lớp Giảm, độ trễ | 11,3% | −61,9% | 0,67 |
+
+**Đọc đúng phạm vi:**
+
+1. Trên 12 năm, luật đang chạy **cắt sụt giảm tối đa từ −45,3% xuống −21,7%, đổi lại CAGR 9,1% → 6,1%** khi nắm chỉ số theo đúng trần. Đây là con số thay cho "54% → 37%".
+2. Phần lớn chênh lệch CAGR đến từ việc nắm trung bình 56% thay vì 100% — đúng đánh đổi đã công bố ("tăng trưởng với rủi ro thấp"). Riêng trần 60% ở Điều chỉnh tốn khoảng 0,8 điểm CAGR (6,95% → 6,11%) để đổi 6,4 điểm sụt giảm (−28,1% → −21,7%).
+3. Trên cả 22 năm, chỉ lớp Giảm còn **vượt** mua-và-giữ (11,3% so với 9,6%) vì tránh được phần lớn năm 2008; nhưng sụt giảm vẫn −62%: lớp chế độ không chặn được một thị trường giảm kéo dài có nhiều nhịp hồi lên trên MA200.
+4. **Không** phải phép đo hệ thống chọn mã của Quỹ (hệ thống thật thường nắm dưới trần vì thiếu mã đạt Trụ 2); một đường giá, một thị trường, **không đăng ký trước**; không cộng cổ tức (bất lợi cho mua-và-giữ) và không cộng lãi tiền gửi (bất lợi cho lớp chế độ). Là bằng chứng tham khảo, không phải kiểm định.
+
+### 14.5 Lệnh đầu tiên theo khung — 05/10/2026
+
+Bảng lệnh: `data/ke_hoach_20261005.txt` (`NGAY_CHAY=2026-10-05 LOAI_KY=hang_ngay python lt_allocator.py`, bản quét `data/scan_20261004.json`, chế độ `data/che_do_20261004.json`).
+
+| Phiếu | Lệnh | Giá 02/10 | Giá trị | Căn cứ |
+|---|---|---|---|---|
+| 1 | BÁN 440 MSB | 14.050 | 6.182.000 | chế độ Giảm |
+| 2 | BÁN 100 BSR | 30.450 | 3.045.000 | chế độ Giảm + chạm Cơ sở 30.000 |
+| 3 | BÁN 200 DHC | 39.000 | 7.800.000 | chế độ Giảm |
+
+NAV 02/10 là 61.805.397 → sau lệnh 100% tiền ≈ 61.774.748 (phí ≈ 30.649). Ba phiếu ghi 04/10 18:57, trước giờ đặt. **Kiểm trước khi đặt:** 140 CP thưởng MSB (GDKHQ 28/08) đã về tài khoản chưa — chưa về thì chỉ bán được 300, phần còn lại bán ngay khi về; 40 CP là lô lẻ. Ra khỏi Giảm khi VN-Index đóng cửa > 1.795,65 (+3,3% so với 02/10).
+
+Hệ quả kéo theo: kế hoạch mua lại 50 VHM của lệnh ngoài luật #1 (hạn 16/10) **hết căn cứ** — VHM bị phủ quyết và chế độ Giảm khoá mua (`LENH_NGOAI_LUAT[0]["ket_thuc"]`).
+
+### 14.6 Sai lệch phải công bố trong báo cáo GĐ2
+
+1. **Quy tắc 5 vẫn được dùng trong giai đoạn 2**, trái với cách sửa #5 báo cáo công bố: 22/09 (300 + 50 MSB, trước ngày xuất PDF 27/09) và 01/10 (50 MSB, sau ngày xuất). Cả bốn lệnh quy tắc 5 (kể cả BSR 16/09) ghi sổ **sau** khi khớp — lệnh 01/10 ghi ngày 04/10.
+2. **MSB:** tr. 73 ghi "Giữ, dừng mua thêm" cho kỳ 01/10; thực tế đã bán 400/840 CP trước khi chế độ Giảm bật.
+3. **Hai hạn 30/09 không làm:** đối chiếu CASA của MSB, lập phiếu BSR.
+4. **Bảng 9.3 đã cũ ngay lúc xuất PDF:** tỷ trọng ngày 18/09, trong khi VHM đã bán hết và MSB đã bán 350 CP ngày 22/09.
+5. **Con số 12 năm** ở tr. 69 và tr. 72 không tái lập được (14.4 thay thế).
+6. **Đánh số V1–V5** ở tr. 72 lệch phiếu thật; thiếu vế "trục = 0".
+
+### 14.7 Đoạn dùng cho báo cáo giai đoạn 2 (viết cho giám khảo)
+
+> **Kỷ luật đã công bố, thực hiện đúng ngưỡng.** Triết lý và mục tiêu của Quỹ không đổi so với Mục 9 báo cáo giai đoạn 1: doanh nghiệp tốt là điều kiện, giá hợp lý là nguyên tắc, xu hướng xác nhận là kỷ luật; mục tiêu là tăng trưởng với rủi ro thấp. Giai đoạn 2 thực thi đúng khung đã công bố. Ngày 02/10/2026 VN-Index đóng cửa ở 1.737,71 điểm, dưới ngưỡng 1.738,84 điểm đã viết trong báo cáo, và Quỹ chuyển toàn bộ danh mục sang tiền mặt trong phiên 05/10/2026 — kể cả DHC, mã duy nhất đạt 5/6 điểm thẩm định — vì quy tắc không miễn trừ theo mã.
+
+> **Đính chính.** Báo cáo giai đoạn 1 viết rằng lớp chế độ thị trường, chạy lại trong hơn 12 năm, cắt mức sụt giảm tối đa từ 54% xuống 37%. Quỹ không tái lập được con số này từ dữ liệu và mã nguồn của mình, nên rút lại. Phép đo thay thế, tái lập được: nắm VN-Index theo đúng trần của từng chế độ (100% / 60% / 0%) từ 10/2014 đến 10/2026 cắt sụt giảm tối đa từ −45,3% xuống −21,7%, đổi lại tăng trưởng kép giảm từ 9,1% xuống 6,1% một năm. Đây là phép đo trên chỉ số, không phải trên hệ thống chọn cổ phiếu của Quỹ.
+
+> **Làm rõ bốn điểm của khung.** (1) Quỹ chỉ rời chế độ Giảm khi VN-Index đóng cửa trở lại trên MA200, để tránh vào ra liên tục quanh ngưỡng 97%. (2) Dải tỷ trọng là mức trần, không phải mức sàn: cuộc thi chỉ cho phép cổ phiếu, nên khi không đủ mã đạt chuẩn, phần còn lại nằm tiền mặt. Cách sửa sai lầm #4 vì vậy khác điều đã viết ở tr. 70 — bảng chế độ quyết định mức trần, còn tiền mặt dưới trần là lựa chọn đứng ngoài khi thiếu doanh nghiệp đạt chuẩn ở giá hợp lý. (3) Bộ lọc xu hướng giữ điều kiện giá trên MA200 và MA50 trên MA200, bỏ điều kiện sức mạnh tương đối và biến động; mã đang giữ vẫn bị bán khi giá rơi dưới 97% MA200. (4) Năm cổng phủ quyết theo đúng phiếu Quỹ đã lập: cách kiếm tiền, ý kiến kiểm toán, dòng tiền (biến thể riêng cho ngân hàng), bên liên quan, xử phạt và pha loãng; một trục bằng 0 điểm cũng là phủ quyết.
+
+> **Ba rủi ro thực thi.** Bộ lọc quá chặt với ngân hàng: ngân hàng dùng biến thể V3b (lãi và phí phải thu, bao phủ nợ xấu) thay cho phép thử dòng tiền. Độ trễ và nhiễu của đường trung bình: luật ra có độ trễ giảm số lần vào chế độ Giảm trên VN-Index 12 năm từ 35 xuống 15. Tính chủ quan của định giá: mỗi mã có hai kịch bản ghi rõ giả định kèm định giá ngược, và giá trị cơ sở chỉ được nâng khi có báo cáo tài chính mới, ghi trước khi giá chạm.
+
+Kèm bảng sai lệch 14.6.
+
+### 14.8 Việc còn mở
+
+1. **Sau khi khớp 05/10:** ghi giá khớp vào `data/so_giao_dich.json`, sửa `HOLDINGS`/`TIEN_MAT`, đổi trạng thái phiếu 1–3.
+2. **Sau 17/10:** hệ thống cũ chạy trên giấy từ 21/09, đặt cạnh E1VFVN30 (quyết định 16); phép thử P2 (13.4) phải **đăng ký lại** vì Tầng 1 đã bỏ RS/ATR.
+3. **Trước kỳ soát đầu tiên ngoài chế độ Giảm:** chốt rổ cơ bản; dựng lại hai kịch bản DHC; lập phiếu BSR (hiện chỉ có nhãn); BCTC quý III/2026 của MSB (cuối 10/2026) là tài liệu mở lại phiếu Chờ.
+4. Mọi mã trong `tham_dinh.json` trừ DHC chưa có `than_trong` → hiện **không mã nào mua được** dù thị trường có ra khỏi Giảm.
+
+**File:** `lt_che_do.py` (mới), `kiem_dinh_che_do_vnindex.py` (mới), `lt_config.py`, `lt_screener.py`, `lt_allocator.py`, `lt_scan_vietcap.py` (thêm khối `_vnindex`), `tests/test_che_do.py` (mới), `tests/test_portfolio.py`, `tests/test_canslim.py`, `data/tham_dinh.json`; dữ liệu `data/scan_20261004.json`, `data/candidates_20261004.json`, `data/che_do_20261004.json`, `data/ke_hoach_20261005.txt`, `data/vnindex_vietcap_20261002.json`, `data/kiem_dinh_che_do_vnindex_20261004.json`. **55/55 test đạt.** Sao lưu: `data/CHIEN_LUOC_DAI_HAN_backup_20261004.md`, `data/lt_config_backup_20261004b.py`, `data/lt_screener_backup_20261004.py`, `data/lt_allocator_backup_20261004.py`, `data/lt_scan_vietcap_backup_20261004.py`, `data/tham_dinh_backup_20261004.json`, `data/test_portfolio_backup_20261004.py`.

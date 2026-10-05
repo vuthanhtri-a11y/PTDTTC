@@ -1,0 +1,106 @@
+{
+ "_ghi_chu": "kiem_dinh_che_do_vnindex.py — Do lop che do thi truong (Tru 1) tren CHINH VNINDEX.",
+ "du_lieu": "data/vnindex_vietcap_20261002.json",
+ "luat": {
+  "hieu_luc_tu": "2026-10-04",
+  "nguong_vao_giam": 0.97,
+  "nguong_ra_giam": 1.0,
+  "tran_co_phieu": {
+   "TANG": 1.0,
+   "DIEU_CHINH": 0.6,
+   "GIAM": 0.0
+  },
+  "phan_phoi": {
+   "giam_toi_thieu": 0.002,
+   "cua_so": 25,
+   "nguong_dieu_chinh": 5
+  }
+ },
+ "phi_doi": 0.002,
+ "ket_qua": {
+  "12 nam (10/2014-10/2026)": {
+   "Mua va giu VNINDEX": {
+    "tu": "2014-10-01",
+    "den": "2026-10-02",
+    "cagr": 0.0912,
+    "sut_giam_toi_da": -0.4526,
+    "ty_trong_tb": 1.0,
+    "so_lan_vao_giam": null,
+    "giam_ngan_duoi_10_phien": null,
+    "trung_vi_phien_giam": null
+   },
+   "Luat dang chay: tran 100/60/0, do tre": {
+    "tu": "2014-10-01",
+    "den": "2026-10-02",
+    "cagr": 0.0611,
+    "sut_giam_toi_da": -0.2168,
+    "ty_trong_tb": 0.561,
+    "so_lan_vao_giam": 15,
+    "giam_ngan_duoi_10_phien": 5,
+    "trung_vi_phien_giam": 21
+   },
+   "Chi lop GIAM (100/0), do tre": {
+    "tu": "2014-10-01",
+    "den": "2026-10-02",
+    "cagr": 0.0695,
+    "sut_giam_toi_da": -0.2805,
+    "ty_trong_tb": 0.714,
+    "so_lan_vao_giam": 15,
+    "giam_ngan_duoi_10_phien": 5,
+    "trung_vi_phien_giam": 21
+   },
+   "Chi lop GIAM (100/0), doi xung": {
+    "tu": "2014-10-01",
+    "den": "2026-10-02",
+    "cagr": 0.0708,
+    "sut_giam_toi_da": -0.317,
+    "ty_trong_tb": 0.777,
+    "so_lan_vao_giam": 35,
+    "giam_ngan_duoi_10_phien": 24,
+    "trung_vi_phien_giam": 3
+   }
+  },
+  "toan bo (tu khi co MA200)": {
+   "Mua va giu VNINDEX": {
+    "tu": "2004-10-22",
+    "den": "2026-10-02",
+    "cagr": 0.0959,
+    "sut_giam_toi_da": -0.7988,
+    "ty_trong_tb": 1.0,
+    "so_lan_vao_giam": null,
+    "giam_ngan_duoi_10_phien": null,
+    "trung_vi_phien_giam": null
+   },
+   "Luat dang chay: tran 100/60/0, do tre": {
+    "tu": "2004-10-22",
+    "den": "2026-10-02",
+    "cagr": 0.085,
+    "sut_giam_toi_da": -0.6336,
+    "ty_trong_tb": 0.527,
+    "so_lan_vao_giam": 28,
+    "giam_ngan_duoi_10_phien": 8,
+    "trung_vi_phien_giam": 29.0
+   },
+   "Chi lop GIAM (100/0), do tre": {
+    "tu": "2004-10-22",
+    "den": "2026-10-02",
+    "cagr": 0.113,
+    "sut_giam_toi_da": -0.6194,
+    "ty_trong_tb": 0.674,
+    "so_lan_vao_giam": 28,
+    "giam_ngan_duoi_10_phien": 8,
+    "trung_vi_phien_giam": 29.0
+   },
+   "Chi lop GIAM (100/0), doi xung": {
+    "tu": "2004-10-22",
+    "den": "2026-10-02",
+    "cagr": 0.1069,
+    "sut_giam_toi_da": -0.6194,
+    "ty_trong_tb": 0.733,
+    "so_lan_vao_giam": 70,
+    "giam_ngan_duoi_10_phien": 50,
+    "trung_vi_phien_giam": 3.0
+   }
+  }
+ }
+}

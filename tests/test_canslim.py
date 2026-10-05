@@ -147,8 +147,11 @@ class NeweyWest(unittest.TestCase):
 
 
 class ScreenerGate(unittest.TestCase):
+    # 04/10/2026: mua con can phieu Dat + bien an toan (muc 14) — cho dat san de
+    # test chi do cong tac CANSLIM.
     row = dict(tov=20e9, gia=110, ma200=100, ma50=105, rs_252_skip21=0.1, atr=0.02,
-               buoc3_tham_dinh="dat", buoc4_dinh_gia="dat", canslim_3a=False)
+               buoc3_tham_dinh="dat", buoc4_dinh_gia="dat", canslim_3a=False,
+               trong_ro_co_ban=True, phieu_ok=True, bien_an_toan_ok=True)
 
     def test_switch_off_does_not_block(self):
         with patch.object(screener, "CANSLIM_CHAN_MUA", False):
