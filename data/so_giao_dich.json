@@ -402,6 +402,66 @@
     "phi_ban_va_thue": 1278,
     "rong": 41539
    }
+  },
+  {
+   "ngay": "2026-10-05",
+   "loai": "BAN",
+   "ma": "BSR",
+   "kl": 100,
+   "gia": 30350,
+   "gia_tri": 3035000,
+   "phi_dich_vu": 2428,
+   "thue": 3035,
+   "dong_tien": 3029537,
+   "du_tien_mat_sau": 47807934,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 2 ghi 2026-10-04 18:57, truoc gio dat",
+   "ghi_chu": "Ban TOAN BO 100/100 CP (het vi the). Gia khop do user bao 05/10. Phi TTLK 0,3d/CP (30d) chua ghi, nhu cac lenh ban tu 22/09.",
+   "lai_lo": {
+    "gop": 335000,
+    "phi_mua_phan_bo": 2160,
+    "phi_ban_va_thue": 5463,
+    "rong": 327377
+   }
+  },
+  {
+   "ngay": "2026-10-05",
+   "loai": "BAN",
+   "ma": "DHC",
+   "kl": 200,
+   "gia": 38100,
+   "gia_tri": 7620000,
+   "phi_dich_vu": 6096,
+   "thue": 7620,
+   "dong_tien": 7606284,
+   "du_tien_mat_sau": 55414218,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 3 ghi 2026-10-04 18:57, truoc gio dat",
+   "ghi_chu": "Ban TOAN BO 200/200 CP (het vi the). Gia khop do user bao 05/10. Co tuc tien 190.000d ghi rieng o su_kien_phi_tien_mat. Phi TTLK (60d) chua ghi.",
+   "lai_lo": {
+    "gop": 300000,
+    "phi_mua_phan_bo": 5856,
+    "phi_ban_va_thue": 13716,
+    "rong": 280428
+   }
+  },
+  {
+   "ngay": "2026-10-05",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 300,
+   "gia": 14050,
+   "gia_tri": 4215000,
+   "phi_dich_vu": 3372,
+   "thue": 4215,
+   "dong_tien": 4207413,
+   "du_tien_mat_sau": 59621631,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 1 ghi 2026-10-04 18:57, truoc gio dat",
+   "ghi_chu": "KHOP MOT PHAN: ban 300/440 CP. 140 CP con lai = CP thuong (GDKHQ 28/08) — suy ra CHUA VE TK vi chi ban duoc 300 (dung nhanh 'chua ve' trong phieu so 1); user CHUA xac nhan truc tiep. Ban 140 CP ngay khi ve (lo le). Phi mua phan bo 300/840 x 8.960 = 3.200. Phi TTLK (90d) chua ghi.",
+   "lai_lo": {
+    "gop": 215100,
+    "phi_mua_phan_bo": 3200,
+    "phi_ban_va_thue": 7587,
+    "rong": 204313
+   }
   }
  ],
  "su_kien_phi_tien_mat": [
@@ -434,6 +494,14 @@
    "ngay": "19/08,03/09,07/09,14/09,16/09",
    "viec": "Phi chuyen khoan ban CK TTLK 0,3d/CP (90+60+15+30+30)",
    "dong_tien": -225
+  },
+  {
+   "ngay": "2026-10-05",
+   "ma": "DHC",
+   "viec": "Co tuc bang TIEN cho 200 CP DHC (user bao 05/10)",
+   "dong_tien": 190000,
+   "ghi_chu": "190.000 = 950d/CP thuc nhan. Kha nang la 1.000d/CP (200.000) tru 5% thue TNCN khau tru tai nguon — SUY LUAN, chua doi chieu sao ke/ngay GDKHQ. Ngay tien ve TK chua ro; tam ghi 05/10.",
+   "du_tien_mat_sau": 59811631
   }
  ],
  "lenh_khong_khop": [
@@ -465,57 +533,32 @@
  },
  "vi_the_dang_giu": [
   {
-   "ma": "BSR",
-   "kl": 100,
-   "gia_von": 27000,
-   "von_goc": 2700000,
-   "phi_mua_con_lai": 2160,
-   "gia_16_09": 31300,
-   "gia_tri": 3020000,
-   "lai_lo_gop": 320000,
-   "lai_lo_rong": 317840,
-   "ghi_chu": "Con 100/200 CP sau khi ban 100 theo QUY_TAC_5 ngay 16/09. Gia moi nhat 16/09, khac ngay voi ba vi the con lai (van 15/09) - can dinh gia lai dong bo o ky soat ke tiep.",
-   "gia_18_09": 30200,
-   "lai_lo_rong_pct": 11.77
-  },
-  {
-   "ma": "DHC",
-   "kl": 200,
-   "gia_von": 36600,
-   "von_goc": 7320000,
-   "phi_mua_con_lai": 5856,
-   "gia_15_09": 37300,
-   "gia_tri": 7310000,
-   "lai_lo_gop": -10000,
-   "lai_lo_rong": -15856,
-   "gia_18_09": 36550,
-   "lai_lo_rong_pct": -0.22
-  },
-  {
    "ma": "MSB",
-   "kl": 440,
+   "kl": 140,
    "gia_von": 13333,
-   "von_goc": 5866520,
-   "phi_mua_con_lai": 4694,
-   "ghi_chu": "Con 440/840 CP: ban 300 @13.450 + 50 @13.500 ngay 22/09 (QUY_TAC_5 so 2, 3) va 50 @14.200 ngay 01/10 (QUY_TAC_5 so 4). 440 = 300 CP tu 700 CP goc + 140 CP thuong chua chac da ve TK (neu chua ve thi ban duoc 300 = lo chan). Gia von khong doi 13.333."
+   "von_goc": 1866620,
+   "phi_mua_con_lai": 1494,
+   "gia_05_10": 14050,
+   "gia_tri": 1967000,
+   "ghi_chu": "140 CP thuong (GDKHQ 28/08), suy ra chua ve TK 05/10. Che do GIAM: ban ngay khi ve (PHIEU_LENH so 1, phan con lai). BSR va DHC da ban het 05/10."
   }
  ],
  "tong_ket": {
-  "so_luot_lenh": 16,
+  "so_luot_lenh": 23,
   "so_lenh_mua": 9,
-  "so_lenh_ban": 7,
-  "tong_gia_tri_giao_dich": 109885000,
-  "tong_phi_dich_vu": 87908,
+  "so_lenh_ban": 14,
+  "tong_gia_tri_giao_dich": 133625000,
+  "tong_phi_dich_vu": 106900,
   "tong_phi_mua": 53532,
-  "tong_phi_ban": 34376,
-  "tong_thue_tncn": 42970,
-  "tong_chi_phi_giao_dich": 130878,
-  "chi_phi_tren_von_goc_pct": 0.2181,
+  "tong_phi_ban": 53368,
+  "tong_thue_tncn": 66710,
+  "tong_chi_phi_giao_dich": 173610,
+  "chi_phi_tren_von_goc_pct": 0.2893,
   "chi_phi_theo_bieu_cu": 199973,
   "tiet_kiem_so_voi_bieu_cu": 74728,
   "_ghi_chu_bieu_cu": "chi_phi_theo_bieu_cu/tiet_kiem_so_voi_bieu_cu CHUA cap nhat lenh BSR 16/09 - chi la so lieu doi chieu cho 15 lenh dau (den 15/09), giu nguyen de khong lam nhoe bang chung 74.729d da chot.",
-  "lai_lo_da_thuc_hien_gop": 725000,
-  "lai_lo_da_thuc_hien_rong": 613858,
+  "lai_lo_da_thuc_hien_gop": 1661900,
+  "lai_lo_da_thuc_hien_rong": 1489784,
   "lai_lo_chua_thuc_hien_rong": 26264,
   "co_phieu": 24716000,
   "tien_mat": 35924363,
@@ -528,7 +571,17 @@
   "tien_mat_theo_so_cu": 35924122,
   "lai_lo_chua_thuc_hien_gop": 46000,
   "nav_ngay": "2026-09-18",
-  "nav_pct_von_goc": 1.067
+  "nav_pct_von_goc": 1.067,
+  "_ghi_chu_dem": "Cac truong dem/tong phi/lai lo da thuc hien CAP NHAT 05/10 tinh lai tu toan bo giao_dich (truoc do dung o 16 lenh 18/09). Cac truong NAV/co_phieu/tien_mat ben duoi van la CHOT GIUA KY 18/09 — chot moi o chot_05_10.",
+  "chot_05_10": {
+   "tien_mat_so": 59811631,
+   "co_phieu": 1967000,
+   "nav": 61778631,
+   "nav_pct_von_goc": 2.964,
+   "co_tuc_tien_da_nhan": 190000,
+   "gia": "MSB 140 CP danh gia o gia khop 14.050 ngay 05/10",
+   "chua_tru": "Phi TTLK ban tu 22/09 (400+50+600 CP x 0,3 = 315d) va phi luu ky 09/2026 (387d du tinh) chua tru — tong ~700d. Can sao ke de chot."
+  }
  },
  "doi_chieu_sao_ke_18_09": {
   "nguon": "data/Sao_ke_tien.xlsx + data/Sao_ke_chung_khoan.xlsx (TK T676311, den 18/09/2026)",

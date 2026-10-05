@@ -169,11 +169,12 @@ HOLDINGS = {
     #   trinh nhu so 1-3). Con 440 CP, gia von khong doi 13.333.
     #   Thu ve: 710.000 - phi/thue (1.278) = 708.722.
     #   Sao luu truoc khi sua: data/lt_config_backup_20261004.py
-    # 05/10/2026 (KE HOACH, chua khop) — BAN TOAN BO theo che do GIAM (PHIEU_LENH
-    #   so 1-3, ghi 04/10 18:57). Sua dong duoi + TIEN_MAT SAU KHI KHOP, theo gia
-    #   khop that; khong sua truoc.
-    "DM2": [("MSB", 440, 13_333), ("BSR", 100, 27_000),
-            ("DHC", 200, 36_600)],
+    # 05/10/2026 — DA KHOP theo che do GIAM (PHIEU_LENH so 1-3, ghi 04/10 18:57):
+    #   BAN 100 BSR @30.350, 200 DHC @38.100 (het hai vi the), 300/440 MSB @14.050.
+    #   140 MSB con lai = CP thuong GDKHQ 28/08, suy ra chua ve TK (chi ban duoc
+    #   300) — ban ngay khi ve. Gia von khong doi 13.333.
+    #   Sao luu truoc khi sua: data/lt_config_backup_20261005.py
+    "DM2": [("MSB", 140, 13_333)],
 }
 # DM2: 15.826.732 - 7.330.980 (mua DHC 03/09) = 8.495.752
 #      8.495.752 + 12.683.213 (ban GMD+LPB 03/09) = 21.178.965
@@ -196,7 +197,12 @@ HOLDINGS = {
 #              39.368.153 + 4.027.737 (ban 300 MSB, quy tac 5) = 43.395.890
 #              43.395.890 + 673.785 (ban 50 MSB, quy tac 5) = 44.069.675
 # 01/10/2026 — 44.069.675 + 708.722 (ban 50 MSB, quy tac 5 so 4) = 44.778.397
-TIEN_MAT = {"DM1": 0, "DM2": 44_778_397}
+# 05/10/2026 — 44.778.397 + 3.029.537 (ban 100 BSR) = 47.807.934
+#              47.807.934 + 7.606.284 (ban 200 DHC) = 55.414.218
+#              55.414.218 + 4.207.413 (ban 300 MSB) = 59.621.631
+#              59.621.631 + 190.000 (co tuc tien DHC) = 59.811.631
+#   Che do GIAM. Phi TTLK ban tu 22/09 (~315d) + luu ky 09 (~387d) chua tru.
+TIEN_MAT = {"DM1": 0, "DM2": 59_811_631}
 
 # ------------------------------------------------- Lenh ngoai luat (co y thuc)
 # Quy dinh: nhung quyet dinh KHONG sinh ra tu bon quy tac thoat / bang xep hang
@@ -610,7 +616,8 @@ PHIEU_LENH = [
      "chieu": "BAN", "ma": "MSB", "kl": 440,
      "loai_lenh": "phien sang 05/10; nguoi dat chon ATO/LO, ghi gia khop vao so",
      "can_cu": _CAN_CU_GIAM_0510,
-     "trang_thai": "cho dat",
+     "trang_thai": "khop mot phan",
+     "khop": "300 @14.050 ngay 05/10; con 140 CP thuong chua ve TK",
      "ghi_chu": "KIEM TRUOC KHI DAT: 140 CP thuong (GDKHQ 28/08) da ve tai khoan "
                 "chua — so_giao_dich chua xac nhan. Chua ve thi chi ban duoc 300; "
                 "140 CP con lai ban ngay khi ve. 40 CP la lo le (bang lo le)."},
@@ -618,12 +625,12 @@ PHIEU_LENH = [
      "chieu": "BAN", "ma": "BSR", "kl": 100,
      "loai_lenh": "phien sang 05/10; nguoi dat chon ATO/LO, ghi gia khop vao so",
      "can_cu": _CAN_CU_GIAM_0510,
-     "trang_thai": "cho dat", "ghi_chu": ""},
+     "trang_thai": "da khop", "khop": "100 @30.350 ngay 05/10", "ghi_chu": ""},
     {"so": 3, "ghi_luc": "2026-10-04 18:57", "ngay_dat": "2026-10-05", "dm": "DM2",
      "chieu": "BAN", "ma": "DHC", "kl": 200,
      "loai_lenh": "phien sang 05/10; nguoi dat chon ATO/LO, ghi gia khop vao so",
      "can_cu": _CAN_CU_GIAM_0510,
-     "trang_thai": "cho dat",
+     "trang_thai": "da khop", "khop": "200 @38.100 ngay 05/10 (+ co tuc tien 190.000d)",
      "ghi_chu": "DHC la ma duy nhat phieu Dat (5/6) — van ban: che do Giam ban "
                 "toan bo, khong mien tru theo ma (tr.72)."},
 ]
