@@ -381,6 +381,7 @@ Thẩm định làm **sau** bảng xếp hạng nhưng **trước** bảng lện
 | `lt_scan_vietcap.py` | **Nguồn quét sản xuất từ 01/10/2026** — toàn HOSE + HNX + UPCoM từ Vietcap |
 | `lt_screener.py` | Tầng 1 + rổ cơ bản + giao điểm + phiếu Đạt + biên an toàn + luật thoát; ghi `candidates_*` và `che_do_*` |
 | `lt_allocator.py` | Chế độ thị trường (Giảm = bán hết, trần), phân bổ 1/ATR, trần mã/ngành, làm tròn lô, kiểm phiếu lệnh; nhịp `LOAI_KY=soat` / `hang_ngay` |
+| `dashboard/` | **Từ 07/10/2026** — buồng lái vận hành (Streamlit, chỉ đọc): thị trường, vĩ mô, ngành, phễu chọn mã, danh mục & lệnh; nút quét chạy đúng chuỗi trên. Không đổi luật nào. Xem `dashboard/README.md` |
 | `lt_scan_tradingview.js` | Quét 112 mã HOSE từ TradingView — từ 01/10/2026 chỉ để đối chiếu |
 | `lt_backtest_tradingview.js` | Backtest, đúng đoạn code đã tạo ra số ở mục 3 |
 | `exit_rules.py`, `regime_test.py` | Bằng chứng cũ cho nguyên tắc "không đặt mục tiêu chốt lời" — vẫn còn giá trị |

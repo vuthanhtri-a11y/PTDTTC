@@ -1,0 +1,26 @@
+{
+ "_huong_dan": [
+  "SO LIEU VI MO VIET NAM — NHAP TAY. Dashboard chi doc file nay, khong ghi.",
+  "Moi chi so co mot 'chuoi'; moi phan tu la mot ky cong bo:",
+  "  {\"ky\": \"2026-09\", \"gia_tri\": 3.2, \"nguon\": \"GSO 06/10/2026\", \"ngay_nhap\": \"2026-10-07\"}",
+  "  ky       : 'YYYY-MM' cho so thang, 'YYYY-Qn' cho so quy, 'YYYY-MM-DD' cho so theo ngay.",
+  "  gia_tri  : so (khong ghi dau %, don vi o truong don_vi cua chi so).",
+  "  nguon    : noi lay so + ngay cong bo — de doi chieu ve sau.",
+  "  ngay_nhap: ngay GO so vao file. Qua 45 ngay khong co ky moi -> dashboard to vang.",
+  "Them ky moi vao CUOI chuoi, KHONG sua ky cu da cong bo (neu co dieu chinh, ghi them truong 'dieu_chinh').",
+  "Chi so moi: them mot khoa vao chi_so voi ten / don_vi / nguon / chuoi.",
+  "Chua nhap = chuoi rong. Khong tu dien so khi khong co nguon."
+ ],
+ "chi_so": {
+  "cpi_yoy": {"ten": "CPI so với cùng kỳ", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []},
+  "lam_phat_co_ban": {"ten": "Lạm phát cơ bản so với cùng kỳ", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []},
+  "gdp_yoy": {"ten": "Tăng trưởng GDP quý (so với cùng kỳ)", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []},
+  "pmi": {"ten": "PMI sản xuất", "don_vi": "điểm", "nguon": "S&P Global", "chuoi": []},
+  "tin_dung_ytd": {"ten": "Tăng trưởng tín dụng từ đầu năm", "don_vi": "%", "nguon": "NHNN", "chuoi": []},
+  "lai_suat_tai_cap_von": {"ten": "Lãi suất tái cấp vốn", "don_vi": "%/năm", "nguon": "NHNN", "chuoi": []},
+  "lai_suat_qua_dem": {"ten": "Lãi suất liên ngân hàng qua đêm", "don_vi": "%/năm", "nguon": "NHNN", "chuoi": []},
+  "ty_gia_trung_tam": {"ten": "Tỷ giá trung tâm USD/VND", "don_vi": "đồng", "nguon": "NHNN", "chuoi": []},
+  "fdi_giai_ngan": {"ten": "FDI giải ngân lũy kế năm", "don_vi": "tỷ USD", "nguon": "Bộ Tài chính", "chuoi": []},
+  "xuat_khau_yoy": {"ten": "Xuất khẩu so với cùng kỳ", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []}
+ }
+}

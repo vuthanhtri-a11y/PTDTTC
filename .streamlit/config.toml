@@ -1,0 +1,37 @@
+# Medici Terminal — theme Streamlit cho dashboard/ (xem dashboard/ui.py, cung bo token).
+# Mau goc tu bao cao Medici: tim dam #390A5B, tim chinh #682996, tim nhat #BB99FF, kem #FCF9EA.
+
+[theme]
+base = "dark"
+primaryColor = "#8B5CD6"
+backgroundColor = "#110A1A"
+secondaryBackgroundColor = "#20142F"
+textColor = "#FCF9EA"
+borderColor = "#3B2A50"
+linkColor = "#BB99FF"
+font = "'IBM Plex Mono':https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap, monospace"
+headingFont = "'Francois One':https://fonts.googleapis.com/css2?family=Francois+One&display=swap, sans-serif"
+codeFont = "'IBM Plex Mono':https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap, monospace"
+baseFontSize = 14
+baseRadius = "none"
+buttonRadius = "none"
+dataframeBorderColor = "#2A1C3B"
+dataframeHeaderBackgroundColor = "#20142F"
+dataframeHeaderTextColor = "#BB99FF"
+greenColor = "#41D17F"
+redColor = "#FF6B6B"
+violetColor = "#BB99FF"
+showWidgetBorder = true
+showSidebarBorder = true
+chartCategoricalColors = ["#9D7BEA", "#C98500", "#199E70"]
+
+[theme.sidebar]
+backgroundColor = "#0C0613"
+secondaryBackgroundColor = "#20142F"
+borderColor = "#3B2A50"
+
+[client]
+toolbarMode = "minimal"
+
+[browser]
+gatherUsageStats = false

@@ -1,0 +1,9 @@
+# Dashboard Medici Terminal (dashboard/app.py) — Streamlit Community Cloud doc file nay o goc repo.
+# Local: uv venv .venv --python 3.12
+#        uv pip install --python .venv/Scripts/python.exe -r requirements.txt pytest
+streamlit>=1.65
+plotly>=7.1
+pandas>=3.0
+numpy>=2.5
+requests>=2.34
+openpyxl>=3.1     # lt_allocator.py ghi Excel
