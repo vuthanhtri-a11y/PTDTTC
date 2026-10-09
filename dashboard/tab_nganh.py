@@ -24,7 +24,7 @@ def _ro_nganh(ctx):
              .get(v.get("trong_ro")), "Lý do": v.get("ly_do", ""),
              "Mã gán ngành này": ", ".join(sorted(ma_theo_nganh.get(ng, [])))}
             for ng, v in sorted(ro.items())]
-    st.dataframe(pd.DataFrame(rows), hide_index=True, use_container_width=True)
+    st.dataframe(pd.DataFrame(rows), hide_index=True, width="stretch")
 
 
 def ve(ctx):
@@ -39,7 +39,7 @@ def ve(ctx):
                   pt_cot={"1 phiên": 2, "5 phiên": 1, "21 phiên": 1, "63 phiên": 1},
                   pt_khong_dau={"Trên MA200": 0, "MA50 > MA200": 0, "Tỷ trọng GTGD": 1})
     sty = ui.them_mau_delta(sty, ["1 phiên", "5 phiên", "21 phiên", "63 phiên"])
-    st.dataframe(sty, hide_index=True, use_container_width=True, height=36 * len(b) + 40)
+    st.dataframe(sty, hide_index=True, width="stretch", height=36 * len(b) + 40)
     st.caption("Lợi suất = trung vị các mã trong ngành (một mã một phiếu). 'Qua lọc cứng' đếm trên toàn "
                "bộ — lọc cứng đã đòi ≥ 10 tỷ/phiên. Phân ngành ICB của Vietcap khá thô: 8700 gộp mọi công "
                "ty chứng khoán, 1700 gộp thép với cao su.")
@@ -75,7 +75,7 @@ def ve(ctx):
                 th = th.reset_index()
                 th["Xu hướng"] = th["Thay đổi"].map(lambda x: f"▲ {x}" if x > 0 else (f"▼ {-x}" if x < 0 else "—"))
                 st.dataframe(th[["Ngành", "Hạng nay", "Hạng 5 phiên trước", "Xu hướng"]],
-                             hide_index=True, use_container_width=True, height=36 * len(th) + 40)
+                             hide_index=True, width="stretch", height=36 * len(th) + 40)
         with c2:
             tt = nganh.ty_trong_dong_tien(bq.df, ngay).T
             tt = tt.loc[tt.mean(axis=1).sort_values(ascending=False).index]

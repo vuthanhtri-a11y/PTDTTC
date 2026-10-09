@@ -176,6 +176,12 @@ _NGAY_CD = re.compile(r"CHE DO THI TRUONG \((\d{4}-\d{2}-\d{2})\)")
 _NGAY_CHAY = re.compile(r"^NGAY CHAY (\d{4}-\d{2}-\d{2}) — nhip (HANG NGAY|KY SOAT)")
 
 
+def ngay_du_lieu_ke_hoach(f):
+    """Ngay du lieu bang lenh dang chua (dong "CHE DO THI TRUONG (YYYY-MM-DD)"); None neu khong co."""
+    m = _NGAY_CD.search(f.read_text(encoding="utf-8", errors="replace"))
+    return m.group(1) if m else None
+
+
 def danh_sach_ke_hoach():
     """{ngay du lieu: (path, ngay chay, nhip)} — ban chay sau cung cho moi ngay du lieu.
 

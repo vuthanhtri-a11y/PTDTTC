@@ -35,7 +35,7 @@ def ve(ctx):
                   pt_cot={"1 phiên": 2, "5 phiên": 1, "21 phiên": 1, "63 phiên": 1, "So MA200": 1},
                   ngay_cot=["Ngày"])
     st.dataframe(ui.them_mau_delta(sty, ["1 phiên", "5 phiên", "21 phiên", "63 phiên", "So MA200"]),
-                 hide_index=True, use_container_width=True)
+                 hide_index=True, width="stretch")
     st.caption("HNX-Index và UPCoM-Index: Vietcap không trả dữ liệu cho mã chỉ số này. "
                "E1VFVN30 là chứng chỉ quỹ dùng làm thước đo (quyết định 16).")
 
@@ -58,7 +58,7 @@ def ve(ctx):
     dr = thi_truong.do_rong(bq.df, VU_TRU[vu]).reset_index()
     st.dataframe(ui.bang(dr, so_cot={"GTGD TB20 (tỷ)": 0},
                          pt_khong_dau={"Trên MA50": 0, "Trên MA200": 0, "MA50 > MA200": 0}),
-                 hide_index=True, use_container_width=True)
+                 hide_index=True, width="stretch")
     st.caption("Tỷ lệ tính trên mã đủ 200 phiên. 'Không khớp' = không có khớp lệnh ở phiên cuối "
                "(bị loại khỏi đếm tăng/giảm và mọi chuỗi theo thời gian). Vietcap chỉ tính khớp lệnh, "
                "không gồm thoả thuận.")

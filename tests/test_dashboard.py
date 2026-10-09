@@ -177,6 +177,124 @@ class DayGithubTests(unittest.TestCase):
             "data/che_do_20261007.json", "data/ke_hoach_20261007.txt",
             "data/scan_20261007.json", "data/scan_20261008.json"])
 
+    def test_khong_day_file_bi_xoa(self):
+        porcelain = "\n".join([" D data/scan_20261007.json", "D  data/candidates_20261007.json",
+                               "?? data/che_do_20261007.json"])
+        from dashboard import chay
+        self.assertEqual(chay.loc_file_pipeline(porcelain), ["data/che_do_20261007.json"])
+
+
+class BoChayTests(unittest.TestCase):
+    """Bo chay nut quet tren thu muc tam — khong mang, khong dung data/ that."""
+
+    def setUp(self):
+        import tempfile
+        from pathlib import Path
+        from unittest import mock
+        from dashboard import chay
+        self.chay = chay
+        self.tmp = tempfile.TemporaryDirectory()
+        self.data = Path(self.tmp.name)
+        self.cache = self.data / "cache_dashboard"
+        self.cache.mkdir()
+        for ten, gt in (("DATA", self.data), ("CACHE", self.cache),
+                        ("KHOA", self.cache / "dang_chay.lock")):
+            p = mock.patch.object(chay, ten, gt)
+            p.start()
+            self.addCleanup(p.stop)
+        self.addCleanup(self.tmp.cleanup)
+
+    def _ke_hoach(self, ten, ngay_cd):
+        (self.data / ten).write_text(f"NGAY CHAY 2026-10-09 — nhip HANG NGAY\n"
+                                     f"CHE DO THI TRUONG ({ngay_cd}): GIAM\n", encoding="utf-8")
+
+    def test_ke_hoach_bi_chiem_tren_data_that(self):
+        from unittest import mock
+        with mock.patch.object(self.chay, "DATA", nguon.DATA):
+            self.assertEqual(self.chay.ke_hoach_bi_chiem("2026-10-05"), "2026-10-02")
+            self.assertEqual(self.chay.ke_hoach_bi_chiem("2026-08-17"), "?")
+            self.assertIsNone(self.chay.ke_hoach_bi_chiem("2026-10-08"))
+            self.assertIsNone(self.chay.ke_hoach_bi_chiem("2026-10-09"))
+            self.assertIsNone(self.chay.ke_hoach_bi_chiem("2026-12-31"))
+
+    def test_bang_lenh_08_10_da_khoi_phuc(self):
+        kh = nguon.danh_sach_ke_hoach()
+        self.assertEqual(kh["2026-10-08"][0].name, "ke_hoach_20261008.txt")
+        self.assertEqual(kh["2026-10-09"][0].name, "ke_hoach_20261009.txt")
+
+    def test_allocator_dat_ten_theo_ngay_du_lieu_va_khong_de_excel_cu(self):
+        """Chay ngay 09/10 cho phien 08/10: Excel allocator ghi theo ngay chay -> doi ten theo phien,
+        file bao_cao_dau_tu_20261009 cua lan chay khac giu nguyen."""
+        from unittest import mock
+        cu = self.data / "bao_cao_dau_tu_20261009.xlsx"
+        cu.write_bytes(b"phien 09/10")
+
+        def gia_allocator(cmd, env=None, ra=None):
+            (self.data / "bao_cao_dau_tu_20261009.xlsx").write_bytes(b"phien 08/10")
+            ra.write_text("CHE DO THI TRUONG (2026-10-08)\n", encoding="utf-8")
+            return 0, ""
+
+        with mock.patch.object(self.chay, "_chay", gia_allocator):
+            rc, _ = self.chay.chay_allocator(self.data / "candidates_20261008.json", "2026-10-09",
+                                             "2026-10-08")
+        self.assertEqual(rc, 0)
+        self.assertEqual((self.data / "bao_cao_dau_tu_20261008.xlsx").read_bytes(), b"phien 08/10")
+        self.assertEqual(cu.read_bytes(), b"phien 09/10")
+        self.assertTrue((self.data / "ke_hoach_20261008.txt").exists())
+        self.assertEqual(list(self.cache.glob("*.cat")), [])
+
+    def test_allocator_khong_ghi_de_bang_lenh_phien_khac(self):
+        from unittest import mock
+        self._ke_hoach("ke_hoach_20261005.txt", "2026-10-02")
+        gia = mock.Mock(return_value=(0, ""))
+        with mock.patch.object(self.chay, "_chay", gia):
+            rc, _ = self.chay.chay_allocator(self.data / "c.json", "2026-10-05", "2026-10-05")
+        self.assertEqual(rc, 1)
+        gia.assert_not_called()
+
+    def _gia_quet(self, ngay_that):
+        def quet(cmd, env=None, ra=None):
+            out = cmd[cmd.index("--ra") + 1]
+            with open(out, "w", encoding="utf-8") as f:
+                json.dump({"_meta": {"ngay_du_lieu": ngay_that}}, f, separators=(",", ":"))
+            return 0, ""
+        return quet
+
+    def _hom_nay(self, ngay_moi_nhat, ngay_that):
+        from unittest import mock
+        with mock.patch.multiple(self.chay, phien_moi_nhat=mock.Mock(return_value=ngay_moi_nhat),
+                                 _chay=self._gia_quet(ngay_that),
+                                 chay_screener=mock.Mock(return_value=(0, "")),
+                                 chay_allocator=mock.Mock(return_value=(0, "")),
+                                 vi_mo=mock.Mock(return_value=0),
+                                 tai_danh_ba_ma=mock.Mock()):
+            return self.chay.hom_nay()
+
+    def test_quet_dat_ten_theo_phien_that(self):
+        self.assertEqual(self._hom_nay("2026-10-08", "2026-10-09"), 0)
+        self.assertFalse((self.data / "scan_20261008.json").exists())
+        self.assertTrue((self.data / "scan_20261009.json").exists())
+        self.assertEqual(list(self.cache.glob("*.tam.json")), [])
+
+    def test_quet_khong_de_ban_quet_dung_ten(self):
+        """Phien dong cua trong luc quet + scan_<phien that> dang chua phien khac -> dung, khong
+        ghi gi vao data/ (truoc day ban quet sai phien nam lai duoi ten scan_<d>)."""
+        (self.data / "scan_20261009.json").write_text(
+            json.dumps({"_meta": {"ngay_du_lieu": "2026-10-07"}}, separators=(",", ":")),
+            encoding="utf-8")
+        self.assertEqual(self._hom_nay("2026-10-08", "2026-10-09"), 1)
+        self.assertFalse((self.data / "scan_20261008.json").exists())
+        self.assertEqual(list(self.cache.glob("*.tam.json")), [])
+
+    def test_khoa_nguyen_tu(self):
+        self.assertTrue(self.chay.giu_khoa())
+        self.assertFalse(self.chay.giu_khoa())
+        import os
+        import time
+        cu = time.time() - self.chay.KHOA_HET_HAN - 60
+        os.utime(self.chay.KHOA, (cu, cu))          # khoa cua tien trinh da chet
+        self.assertTrue(self.chay.giu_khoa())
+
 
 class ViMoVaDinhDangTests(unittest.TestCase):
     def test_vi_mo_vn_chua_nhap_la_cu(self):

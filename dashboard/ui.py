@@ -136,7 +136,7 @@ def khung(fig, cao=360, chu_y=None, legend=True):
 
 
 def ve(fig, key=None):
-    st.plotly_chart(fig, use_container_width=True, theme=None, key=key,
+    st.plotly_chart(fig, width="stretch", theme=None, key=key,
                     config={"displaylogo": False, "locale": "vi"})
 
 

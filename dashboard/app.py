@@ -149,7 +149,7 @@ def thanh_ben(ds, ngay_gd, local):
     if not local:
         sb.info("Bản cloud — **chỉ đọc**. Số liệu cập nhật khi máy của Quỹ quét rồi bấm "
                 "**Đẩy lên GitHub**.")
-        if sb.button("↻ Tải lại vĩ mô", use_container_width=True):
+        if sb.button("↻ Tải lại vĩ mô", width="stretch"):
             chay_lenh(["vi_mo"], "Tải lại vĩ mô")
         _tra_ma(sb)
         return phien, thieu
@@ -158,7 +158,7 @@ def thanh_ben(ds, ngay_gd, local):
         sb.warning("Đang có một lần quét chạy (khoá data/cache_dashboard/dang_chay.lock).")
     if datetime.now().hour < 15:
         sb.caption("Trước 15:00: phiên đang chạy sẽ bị bỏ — bản quét chỉ tới phiên trước.")
-    if sb.button("▶ Quét phiên hôm nay", type="primary", disabled=dang, use_container_width=True,
+    if sb.button("▶ Quét phiên hôm nay", type="primary", disabled=dang, width="stretch",
                  help="Quét toàn thị trường (Vietcap) → screener → allocator nhịp hằng ngày → vĩ mô. ~2–3 phút."):
         chay_lenh(["hom_nay"], "Quét phiên hôm nay")
     # Phien moi nhat do nut "Quet phien hom nay" lo; phien co ten file bi chiem thi khong bu duoc.
@@ -174,19 +174,19 @@ def thanh_ben(ds, ngay_gd, local):
         chon_bu = sb.multiselect("Quét bù", bu, default=bu, format_func=ui.ngay_vn, key="bu",
                                  label_visibility="collapsed")
         if sb.button(f"⟲ Quét bù {len(chon_bu)} phiên", disabled=dang or not chon_bu,
-                     use_container_width=True,
+                     width="stretch",
                      help="lt_scan_vietcap.py --den + screener cho từng phiên. Không chạy allocator."):
             chay_lenh(["bu", *chon_bu], f"Quét bù {len(chon_bu)} phiên")
     elif ngay_gd is None:
         sb.caption("Không kiểm được lịch phiên (mất mạng?).")
     cho = chay.file_cho_day()
     if sb.button(f"⇪ Đẩy lên GitHub ({len(cho)} file)", disabled=dang or not cho,
-                 use_container_width=True,
+                 width="stretch",
                  help=f"Commit {len(cho)} file pipeline mới trong data/ (scan_, candidates_, che_do_, "
                       f"ke_hoach_, bao_cao_dau_tu_) rồi push lên {chay.NHANH_DAY} — Streamlit Cloud tự "
                       "cập nhật. Không đụng sổ giao dịch, tham_dinh, lt_config."):
         chay_lenh(["day"], "Đẩy lên GitHub")
-    if sb.button("↻ Tải lại vĩ mô", use_container_width=True):
+    if sb.button("↻ Tải lại vĩ mô", width="stretch"):
         chay_lenh(["vi_mo"], "Tải lại vĩ mô")
     if "nhat_ky" in st.session_state:
         gio, nhan_, ok, txt = st.session_state["nhat_ky"]
@@ -201,7 +201,7 @@ def _tra_ma(sb):
     sb.divider()
     with sb.form("tra_ma", clear_on_submit=True, border=False):
         ma = st.text_input("Tra mã", placeholder="vd. DHC").strip().upper()
-        if st.form_submit_button("Xem chi tiết", use_container_width=True) and ma:
+        if st.form_submit_button("Xem chi tiết", width="stretch") and ma:
             st.session_state["_tra_ma"] = ma
 
 

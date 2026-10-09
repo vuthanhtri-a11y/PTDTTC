@@ -27,7 +27,8 @@ Test: `.venv\Scripts\python -m pytest tests -q` (Python hệ thống không có 
   file pipeline mới (`data/scan_|candidates_|che_do_<8 số>.json`, `ke_hoach_<8 số>.txt`,
   `bao_cao_dau_tu_<8 số>.xlsx`) rồi push lên `main` (đổi bằng biến môi trường `DASHBOARD_NHANH`); Streamlit
   Cloud tự cập nhật sau ~1 phút. Sổ giao dịch, `tham_dinh.json`, `lt_config.py`, `vi_mo.json` vẫn commit tay.
-  Chỉ push khi là fast-forward — GitHub có commit mới thì báo `git pull` trước, không ghi đè.
+  Chỉ push khi là fast-forward — GitHub có commit mới thì báo `git pull` trước, không ghi đè. Không bao giờ
+  đẩy một lần **xoá** file; từ chối nếu máy không ở nhánh `main` hoặc còn commit tay chưa push (tự push trước).
 - **Riêng tư:** app từ repo private mặc định private (chỉ developer xem); mời người xem bằng email qua nút
   *Share*. Mỗi tài khoản Community Cloud chỉ có **một** app private.
 - **Tạo app:** share.streamlit.io → *Create app* → repo `vuthanhtri-a11y/PTDTTC`, branch `main`, main file
@@ -58,7 +59,7 @@ Phông: Francois One (tiêu đề — phông của báo cáo), IBM Plex Mono (s�
 
 | Nút | Chạy | Ghi ra |
 |---|---|---|
-| **Quét phiên hôm nay** | quét toàn thị trường → screener → allocator nhịp hằng ngày → vĩ mô → tên công ty | `scan_/candidates_/che_do_<ngày dữ liệu>.json`, `ke_hoach_<ngày chạy>.txt`, `bao_cao_dau_tu_<ngày chạy>.xlsx` |
+| **Quét phiên hôm nay** | quét toàn thị trường → screener → allocator nhịp hằng ngày → vĩ mô → tên công ty | `scan_/candidates_/che_do_<ngày dữ liệu>.json`, `ke_hoach_<ngày dữ liệu>.txt`, `bao_cao_dau_tu_<ngày dữ liệu>.xlsx` |
 | **Quét bù N phiên** | `lt_scan_vietcap.py --den` + screener cho từng phiên thiếu, **không** allocator | `scan_/candidates_/che_do_<ngày>.json` |
 | **Tải lại vĩ mô** | 7 chuỗi Yahoo | `data/cache_dashboard/vi_mo_yahoo.json` |
 
@@ -68,7 +69,10 @@ Cùng chạy được từ dòng lệnh: `.venv\Scripts\python -m dashboard.chay
 (`scan_20261007.json` = phiên 07/10), không theo ngày chạy như quy ước cũ (`scan_20261004.json` chứa
 phiên 02/10). Lý do: bản quét bù `--den D` cũng ghi `scan_D.json`, đặt theo ngày chạy sẽ đè nhau. Bộ chạy
 **không bao giờ ghi đè** file đang chứa phiên khác — phiên đó hiện "không bù được" (01/10/2026:
-`scan_20261001.json` đang chứa phiên 30/09).
+`scan_20261001.json` đang chứa phiên 30/09). Bảng lệnh và Excel của allocator cũng đặt theo ngày dữ liệu
+(ngày chạy ghi ở dòng đầu bảng lệnh): trước 09/10/2026 chúng đặt theo ngày chạy nên lần chạy phiên 09/10
+đè mất bảng lệnh phiên 08/10 (chạy cùng ngày 09/10) — đã khôi phục từ git thành `ke_hoach_20261008.txt`.
+Bảng lệnh cũ `ke_hoach_20261005.txt` vẫn chứa phiên 02/10.
 
 Trước 15:00, phiên đang chạy bị bỏ (logic có sẵn của `lt_scan_vietcap.py`) — bản quét chỉ tới phiên trước.
 Phiên bù tính phễu bằng `tham_dinh.json` và `HOLDINGS` **hiện tại**, không phải trạng thái ngày đó.

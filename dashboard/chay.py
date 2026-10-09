@@ -17,7 +17,9 @@ bao "khong bu duoc" (vd 01/10: scan_20261001.json dang chua phien 30/09).
 Screener va allocator luon chon file MOI NHAT theo ten (newest), nen ca hai chay
 trong tien trinh con co `newest` tro thang vao file cua phien can chay. NGAY_CHAY:
 hom nay cho nhip hang ngay (han phieu, phieu lenh xet theo ngay chay), ngay du lieu
-cho phien bu. Bang lenh allocator ghi data/ke_hoach_<ngay chay>.txt nhu quy uoc cu.
+cho phien bu. Bang lenh va Excel cua allocator cung dat theo NGAY DU LIEU
+(ke_hoach_/bao_cao_dau_tu_<ngay du lieu>) — dat theo ngay chay thi hai lan chay trong mot ngay
+cho hai phien de nhau (da mat bang lenh 08/10 nhu vay). Ngay chay ghi o dong dau bang lenh.
 
 Bao luu: phien bu tinh pheu bang tham_dinh.json VA HOLDINGS HIEN TAI, khong phai
 trang thai cua ngay do.
@@ -37,7 +39,8 @@ import sys
 import time
 from datetime import datetime
 
-from dashboard.nguon import CACHE, DATA, ROOT, doc_meta, lich_su_gia, tai_danh_ba_ma
+from dashboard.nguon import (CACHE, DATA, ROOT, doc_meta, lich_su_gia, ngay_du_lieu_ke_hoach,
+                             tai_danh_ba_ma)
 
 KHOA = CACHE / "dang_chay.lock"
 KHOA_HET_HAN = 30 * 60          # khoa cu hon 30 phut coi nhu tien trinh da chet
@@ -78,17 +81,52 @@ def chay_screener(scan_path, ngay):
     return _chay([sys.executable, "-c", ma], env=_env(NGAY_CHAY=ngay))
 
 
-def chay_allocator(cand_path, ngay_chay):
-    """Allocator nhip hang ngay tren DUNG file candidates; ghi bang lenh nhu quy uoc cu."""
+def chay_allocator(cand_path, ngay_chay, ngay):
+    """Allocator nhip hang ngay tren DUNG file candidates cua phien `ngay`.
+
+    Bang lenh va Excel dat ten theo NGAY DU LIEU: hai lan chay cung mot ngay cho hai phien
+    (09/10 chay cho 08/10 roi cho 09/10) khong con de nhau. Allocator tu ghi Excel theo
+    NGAY_CHAY -> doi ten sau khi chay; file trung ten cua lan chay khac duoc cat tam roi tra lai.
+    """
+    chiem = ke_hoach_bi_chiem(ngay)
+    if chiem:
+        print(f"!! {file_ke_hoach(ngay).name} dang chua phien {chiem} — khong ghi de. Dung.", flush=True)
+        return 1, ""
+    xl_allocator = DATA / f"bao_cao_dau_tu_{ngay_chay.replace('-', '')}.xlsx"
+    xl = DATA / f"bao_cao_dau_tu_{ngay.replace('-', '')}.xlsx"
+    cat = None
+    if xl_allocator != xl and xl_allocator.exists():
+        cat = CACHE / f"{xl_allocator.name}.cat"
+        xl_allocator.replace(cat)
     ma = ("import sys, lt_allocator as a; sys.stdout.reconfigure(encoding='utf-8'); "
           f"a.newest = lambda p: {str(cand_path)!r}; a.main(); a.in_lenh_ngoai_luat(); "
           "a.in_lenh_quy_tac_5()")
-    return _chay([sys.executable, "-c", ma], env=_env(NGAY_CHAY=ngay_chay, LOAI_KY="hang_ngay"),
-                 ra=DATA / f"ke_hoach_{ngay_chay.replace('-', '')}.txt")
+    try:
+        return _chay([sys.executable, "-c", ma], env=_env(NGAY_CHAY=ngay_chay, LOAI_KY="hang_ngay"),
+                     ra=file_ke_hoach(ngay))
+    finally:
+        if xl_allocator != xl and xl_allocator.exists():
+            xl_allocator.replace(xl)
+        if cat is not None:
+            cat.replace(xl_allocator)
 
 
 def file_quet(ngay):
     return DATA / f"scan_{ngay.replace('-', '')}.json"
+
+
+def file_ke_hoach(ngay):
+    return DATA / f"ke_hoach_{ngay.replace('-', '')}.txt"
+
+
+def ke_hoach_bi_chiem(ngay):
+    """Ngay du lieu trong ke_hoach_<ngay>.txt neu file do chua phien KHAC (vd ke_hoach_20261005.txt
+    theo quy uoc cu chua phien 02/10, ban truoc 05/10 khong co dong che do -> "?"); None neu trong/khop."""
+    f = file_ke_hoach(ngay)
+    if not f.exists():
+        return None
+    d = ngay_du_lieu_ke_hoach(f)
+    return None if d == ngay else (d or "?")
 
 
 def ten_bi_chiem(ngay):
@@ -119,25 +157,30 @@ def hom_nay():
     if chiem:
         print(f"!! {file_quet(d).name} dang chua phien {chiem} — khong ghi de. Dung.", flush=True)
         return 1
-    scan = file_quet(d)
-    print(f"Phien du lieu: {d} -> {scan.name}", flush=True)
-    rc, _ = _chay([sys.executable, "lt_scan_vietcap.py", "--ra", str(scan)])
-    if rc or not scan.exists():
+    # Quet ra file tam (ngoai data/) roi moi dat ten theo ngay du lieu THAT: phien co the dong cua
+    # trong luc quet, khi do ghi thang vao scan_<d> se de mot ban quet dung ten bang phien khac.
+    tam = CACHE / f"scan_{d.replace('-', '')}.tam.json"
+    print(f"Phien du lieu: {d} -> {file_quet(d).name}", flush=True)
+    rc, _ = _chay([sys.executable, "lt_scan_vietcap.py", "--ra", str(tam)])
+    if rc or not tam.exists():
         return rc or 1
-    that = (doc_meta(scan) or {}).get("ngay_du_lieu")
-    if that != d:      # phien vua dong cua trong luc quet -> dat lai ten theo du lieu that
-        dich = file_quet(that)
-        if ten_bi_chiem(that) or dich.exists():
-            print(f"!! ban quet ra phien {that}, khac {d}; {dich.name} da co — giu {scan.name}.",
-                  flush=True)
-        else:
-            scan.rename(dich)
-            scan = dich
+    that = (doc_meta(tam) or {}).get("ngay_du_lieu")
+    if that != d:
+        chiem = ten_bi_chiem(that) if that else "?"
+        if chiem:
+            print(f"!! ban quet ra phien {that}, khac {d}; {file_quet(that or '?').name} dang chua "
+                  f"phien {chiem} — khong ghi de. Dung.", flush=True)
+            tam.unlink(missing_ok=True)
+            return 1
+        print(f"Ban quet ra phien {that} (khac {d}) — dat ten theo du lieu that.", flush=True)
+        d = that
+    scan = file_quet(d)
+    tam.replace(scan)
     rc, _ = chay_screener(scan, ngay_chay)
     if rc:
         return rc
     cand = DATA / scan.name.replace("scan_", "candidates_")
-    rc, _ = chay_allocator(cand, ngay_chay)
+    rc, _ = chay_allocator(cand, ngay_chay, d)
     if rc:
         return rc
     vi_mo()
@@ -179,9 +222,12 @@ def vi_mo():
 
 
 def loc_file_pipeline(porcelain):
-    """Tu `git status --porcelain` lay ra file pipeline moi/sua trong data/ — khong gi khac."""
+    """Tu `git status --porcelain` lay ra file pipeline moi/sua trong data/ — khong gi khac.
+    File bi XOA thi khong: nut nay chi them so lieu, khong bao gio day mot lan xoa len cloud."""
     out = []
     for dong in porcelain.splitlines():
+        if "D" in dong[:2]:
+            continue
         p = dong[3:].strip().strip('"')
         if " -> " in p:
             p = p.split(" -> ", 1)[1].strip('"')
@@ -206,6 +252,11 @@ def day_github(nhanh=NHANH_DAY):
         print("Khong co file pipeline moi trong data/ — khong co gi de day.", flush=True)
         return 0
     print(f"{len(files)} file se commit:\n  " + "\n  ".join(files), flush=True)
+    dang_o = _git_ra(["rev-parse", "--abbrev-ref", "HEAD"])
+    if dang_o != nhanh:
+        print(f"!! May dang o nhanh `{dang_o}`, khong phai `{nhanh}` — push HEAD:{nhanh} se day ca "
+              f"code cua nhanh nay len cloud. `git switch {nhanh}` roi bam lai.", flush=True)
+        return 6
     rc, _ = _chay(["git", "fetch", "origin", nhanh])
     if rc:
         return rc
@@ -214,6 +265,12 @@ def day_github(nhanh=NHANH_DAY):
         print(f"!! GitHub ({nhanh}) co commit ma may nay chua co — chay `git pull` truoc roi bam lai."
               " Khong push de khong ghi de.", flush=True)
         return 5
+    chua_day = _git_ra(["rev-list", "--count", f"origin/{nhanh}..HEAD"])
+    if chua_day != "0":
+        print(f"!! {chua_day} commit tren may chua len GitHub — nut nay chi day file quet, khong day "
+              "commit tay (so, tham_dinh, code). Xem `git log origin/" + nhanh + "..HEAD`, tu push "
+              "roi bam lai.", flush=True)
+        return 7
     ngay = sorted({re.search(r"_(\d{8})\.", f).group(1) for f in files})
     nhan = ", ".join(f"{d[6:]}/{d[4:6]}" for d in ngay)
     rc, _ = _chay(["git", "add", "--", *files])
@@ -228,8 +285,32 @@ def day_github(nhanh=NHANH_DAY):
     return rc
 
 
+def _git_ra(args):
+    """Output mot dong cua lenh git (rong neu loi)."""
+    r = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, encoding="utf-8",
+                       timeout=30)
+    return r.stdout.strip() if r.returncode == 0 else ""
+
+
 def dang_chay():
     return KHOA.exists() and time.time() - KHOA.stat().st_mtime < KHOA_HET_HAN
+
+
+def giu_khoa():
+    """Tao khoa nguyen tu (O_EXCL): hai cu bam sat nhau khong cung lot qua buoc kiem roi cung quet.
+    Khoa qua han (tien trinh da chet) -> xoa roi tao lai."""
+    for _ in range(2):
+        try:
+            fd = os.open(KHOA, os.O_CREAT | os.O_EXCL | os.O_WRONLY)
+        except FileExistsError:
+            if dang_chay():
+                return False
+            KHOA.unlink(missing_ok=True)
+            continue
+        with os.fdopen(fd, "w", encoding="utf-8") as f:
+            f.write(f"{os.getpid()} {datetime.now():%Y-%m-%d %H:%M:%S}")
+        return True
+    return False
 
 
 def main(argv):
@@ -238,11 +319,9 @@ def main(argv):
         return 2
     os.chdir(ROOT)
     CACHE.mkdir(parents=True, exist_ok=True)
-    if argv[0] != "vi_mo":
-        if dang_chay():
-            print("Dang co mot lan quet khac chay (data/cache_dashboard/dang_chay.lock).")
-            return 3
-        KHOA.write_text(f"{os.getpid()} {datetime.now():%Y-%m-%d %H:%M:%S}", encoding="utf-8")
+    if argv[0] != "vi_mo" and not giu_khoa():
+        print("Dang co mot lan quet khac chay (data/cache_dashboard/dang_chay.lock).")
+        return 3
     t0 = time.time()
     try:
         if argv[0] == "hom_nay":

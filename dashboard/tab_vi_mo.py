@@ -80,7 +80,7 @@ def ve(ctx):
         return ["background-color: rgba(250,178,25,.18)" if cu else "" for _ in row]
     sty = ui.bang(hien, so_cot={"Giá trị": 2, "Kỳ trước": 2, "Số ngày từ khi nhập": 0},
                   ngay_cot=["Ngày nhập"]).apply(to_cu, axis=1)
-    st.dataframe(sty, hide_index=True, use_container_width=True)
+    st.dataframe(sty, hide_index=True, width="stretch")
     st.caption(f"Tô vàng: chưa nhập hoặc nhập cách đây hơn {vi_mo.NGAY_CU} ngày. Dashboard chỉ đọc — "
                "thêm kỳ mới vào cuối `chuoi` trong data/vi_mo.json (hướng dẫn ở `_huong_dan`).")
     co_chuoi = [k for k in b["khoa"] if (s := vi_mo.chuoi_vi_mo_vn(raw_vn, k)) is not None and len(s) > 1]

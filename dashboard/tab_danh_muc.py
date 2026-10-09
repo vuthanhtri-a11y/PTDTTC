@@ -83,7 +83,7 @@ def _bang_lenh(ctx):
     if L["cham_tay"]:
         st.markdown("**PHẢI CHẤM TAY** — không tự động bán, sửa dữ liệu rồi chạy lại:")
         st.dataframe(ui.bang(pd.DataFrame(L["cham_tay"]), so_cot={"KL": 0, "Giá vốn": 0}),
-                     hide_index=True, use_container_width=True)
+                     hide_index=True, width="stretch")
     with st.expander("Toàn văn bảng lệnh"):
         st.code(kh["path"].read_text(encoding="utf-8", errors="replace"), language=None)
 
@@ -136,7 +136,7 @@ def ve(ctx):
         df = df[cot].rename(columns={"so": "Số", "ghi_luc": "Ghi lúc", "ngay_dat": "Ngày đặt", "dm": "DM",
                                      "chieu": "Chiều", "ma": "Mã", "kl": "KL", "trang_thai": "Trạng thái",
                                      "khop": "Khớp", "can_cu": "Căn cứ", "ghi_chu": "Ghi chú"})
-        st.dataframe(df, hide_index=True, use_container_width=True)
+        st.dataframe(df, hide_index=True, width="stretch")
     else:
         st.caption("Chưa có phiếu lệnh.")
 
@@ -155,7 +155,7 @@ def ve(ctx):
                            "dong_tien", "du_tien_mat_sau", "can_cu", "ghi_chu"] if c in df.columns]
         st.dataframe(ui.bang(df[cot], so_cot={c: 0 for c in ["kl", "gia", "gia_tri", "phi_dich_vu", "thue",
                                                             "dong_tien", "du_tien_mat_sau"]}),
-                     hide_index=True, use_container_width=True)
+                     hide_index=True, width="stretch")
         tk = so["tong_ket"]
         st.caption(f"Phí dịch vụ {ui.so(tk['tong_phi_dich_vu'])} · thuế TNCN {ui.so(tk['tong_thue_tncn'])} · "
                    f"phí lưu ký ước tính {ui.so(so.get('phi_luu_ky', {}).get('cong'))} (chưa trừ khỏi sổ).")
@@ -166,4 +166,4 @@ def ve(ctx):
     with st.expander(f"Sổ lệnh quy tắc 5 ({len(lt_config.LENH_QUY_TAC_5)}) — đã bỏ từ "
                      f"{ui.ngay_vn(lt_config.QUY_TAC_5.get('het_hieu_luc_tu'))}, chỉ còn là hồ sơ"):
         df = pd.DataFrame(lt_config.LENH_QUY_TAC_5)
-        st.dataframe(df, hide_index=True, use_container_width=True)
+        st.dataframe(df, hide_index=True, width="stretch")

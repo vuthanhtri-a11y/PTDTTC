@@ -17,7 +17,13 @@
       ]
     }
   },
-  "updateContentCommand": "[ -f packages.txt ] && sudo apt update && sudo apt upgrade -y && sudo xargs apt install -y <packages.txt; [ -f requirements.txt ] && pip3 install --user -r requirements.txt; pip3 install --user streamlit; echo '✅ Packages installed and Requirements met'",
+  // Container tam: o dia mat khi dung lai, va cong 8501 duoc chuyen tiep ve "localhost" nen la_may_local()
+  // se hien nut Quet / Day GitHub -> ep chi doc. Gio VN cho shell (app tu dat trong dashboard/__init__.py).
+  "containerEnv": {
+    "DASHBOARD_CHI_DOC": "1",
+    "TZ": "<+07>-7"
+  },
+  "updateContentCommand": "[ -f packages.txt ] && sudo apt update && sudo apt upgrade -y && sudo xargs apt install -y <packages.txt; [ -f requirements.txt ] && pip3 install --user -r requirements.txt; echo '✅ Packages installed and Requirements met'",
   "postAttachCommand": {
     "server": "streamlit run dashboard/app.py --server.enableCORS false --server.enableXsrfProtection false"
   },

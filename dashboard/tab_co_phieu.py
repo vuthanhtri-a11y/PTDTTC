@@ -104,7 +104,7 @@ def ve(ctx):
             with st.expander(f"{len(rot)} mã dừng ở tầng này — vì sao chưa sang '{tang[i + 1][0]}'"):
                 df = pd.DataFrame([{"Mã": c["ma"], "Vì sao": pheu.ly_do_rot(c, i + 1, cd)}
                                    for c in rot])
-                st.dataframe(df, hide_index=True, use_container_width=True)
+                st.dataframe(df, hide_index=True, width="stretch")
 
     with st.expander("Vì sao các mã rớt lọc cứng (toàn thị trường)"):
         lydo = pheu.ly_do_loc_cung(ctx.bq)

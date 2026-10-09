@@ -35,7 +35,7 @@ def bang_chon(df, key, sty=None, cao=None, cot_ma="Mã", ctx=None, **kw):
         kw["height"] = int(cao)
     ev = st.dataframe(sty if sty is not None else df, key=key, on_select="rerun",
                       selection_mode="single-row", hide_index=True,
-                      use_container_width=True, **kw)
+                      width="stretch", **kw)
     rows = ev.selection.rows if ev is not None else []
     mo_key = f"_da_mo_{key}"
     if not rows:
@@ -121,7 +121,7 @@ def _phieu(ma, td):
                             {"BAT": "⛔ BẬT", "KHONG BAT": "✓ không bật"}.get(t, "?"),
                             "Ghi chú": v[:220] + ("…" if len(v) > 220 else "")}
                            for k, t, v in cg])
-        st.dataframe(df, hide_index=True, use_container_width=True)
+        st.dataframe(df, hide_index=True, width="stretch")
     dg = td.get("dinh_gia") or {}
     st.markdown(
         f"**Định giá (nghìn đ/CP):** Thận trọng {ui.so(dg.get('than_trong'), 1)} · "
@@ -134,7 +134,7 @@ def _phieu(ma, td):
     if db:
         import pandas as pd
         st.markdown("**Dây bẫy luận điểm** — chạm ngưỡng nghĩa là luận điểm gãy:")
-        st.dataframe(pd.DataFrame(db), hide_index=True, use_container_width=True)
+        st.dataframe(pd.DataFrame(db), hide_index=True, width="stretch")
     with st.expander("Toàn bộ bản ghi thẩm định (JSON)"):
         st.code(json.dumps(td, ensure_ascii=False, indent=1), language="json")
 
