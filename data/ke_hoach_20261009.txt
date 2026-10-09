@@ -1,5 +1,5 @@
 NGAY CHAY 2026-10-09 — nhip HANG NGAY (chi luat moi phien, khong mua)
-CHE DO THI TRUONG (2026-10-08): GIAM — tran co phieu 0%  (VNINDEX 1,738.97, MA200 1,797.12, vao GIAM < 1,743.21, ra GIAM > 1,797.12)
+CHE DO THI TRUONG (2026-10-09): GIAM — tran co phieu 0%  (VNINDEX 1,735.09, MA200 1,797.40, vao GIAM < 1,743.48, ra GIAM > 1,797.40)
 
 RO CO BAN CHUA CHOT (_ro_co_ban.ngay_chot trong data/tham_dinh.json): KHONG mua; van sinh lenh BAN theo luat gia/che do. Quy tac 4 chua xet duoc -> moi vi the hien PHAI CHAM TAY.
 
@@ -10,7 +10,7 @@ Ma      UT San       Bien   ATR%    Ty/ph    B4 Nganh
 (khong co ma nao — xem ghi chu ben duoi)
 
 -> Excel: data\bao_cao_dau_tu_20261009.xlsx
-Tong tai san 2 danh muc: 61,876,631 d
+Tong tai san 2 danh muc: 61,855,631 d
 
 ==============================================================================
 DM1 — Danh muc 1 — tien that
@@ -20,27 +20,27 @@ Bo qua phan bo. Cap nhat lt_config.py roi chay lai; ban ghi cu o data/lt_config_
 
 ==============================================================================
 DM2 — Danh muc 2 — tai khoan du thi
-Von ban dau 60,000,000  |  NAV hien tai 61,876,631  |  0/8 o co ung vien
+Von ban dau 60,000,000  |  NAV hien tai 61,855,631  |  0/8 o co ung vien
 ==============================================================================
 Ma       UT  ATR%      w      Gia      KL       Gia tri   %NAV  Ghi chu
 ------------------------------------------------------------------------------
 ------------------------------------------------------------------------------
 MUC TIEU CP                                            0   0.0%
-MUC TIEU TM                                   61,876,631 100.0%
+MUC TIEU TM                                   61,855,631 100.0%
   (danh muc MUC TIEU cua cac o DA co ma o giao diem + Buoc 4 — khong phai trang thai hien tai)
 
 PHAI CHAM TAY — khong tu dong ban, sua du lieu roi chay lai:
   [?]      140 MSB   gia von   13,333 — quy tac 4 chua ro — ro co ban chua chot
 
 LENH BAN (che do GIAM | quy tac 1, 4 | cham co so | chan cung -25% | cat ve tran):
-  BAN      140 MSB   x   14,750 =     2,065,000  phi     3,717  — che do GIAM (2026-10-08)  [CHUA CO PHIEU — ghi PHIEU_LENH truoc gio dat]
+  BAN      140 MSB   x   14,600 =     2,044,000  phi     3,679  — che do GIAM (2026-10-09)  [CHUA CO PHIEU — ghi PHIEU_LENH truoc gio dat]
 
 LENH MUA (o trong sau khi ban, theo uu tien ro roi ATR thap):
   [KHONG MUA] che do GIAM — khoa mua moi; ro co ban chua chot; nhip hang ngay — lenh mua chi dat o ky soat
-  => 1 lenh, tong phi 3,717 d (0.01% NAV)
+  => 1 lenh, tong phi 3,679 d (0.01% NAV)
 
 SAU KHI DAT LENH: 0 ma (khong con ma nao)
-  co phieu             0 ( 0.0%)   tien mat    61,872,914 (100.0%)   NAV 61,872,914
+  co phieu             0 ( 0.0%)   tien mat    61,851,952 (100.0%)   NAV 61,851,952
   tran che do GIAM: 0% co phieu
 
 
