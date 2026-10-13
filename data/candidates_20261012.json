@@ -1,0 +1,2722 @@
+[
+ {
+  "ma": "NAF",
+  "gia": 48000.0,
+  "atr": 0.004,
+  "tov": 13400000000.0,
+  "ma50": 48139,
+  "ma200": 46731,
+  "r252": 0.4873,
+  "rs_252_skip21": 0.4285746427453845,
+  "rs_126": -0.011400000000000002,
+  "rs_63": 0.043300000000000005,
+  "rs_21": 0.0413,
+  "san": "HSX",
+  "icb": "3500",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "VTZ",
+  "gia": 20200.0,
+  "atr": 0.0109,
+  "tov": 21100000000.0,
+  "ma50": 20326,
+  "ma200": 20198,
+  "r252": 0.0978,
+  "rs_252_skip21": 0.0390746427453843,
+  "rs_126": 0.013999999999999999,
+  "rs_63": 0.0489,
+  "rs_21": 0.0413,
+  "san": "HNX",
+  "icb": "1300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "VEA",
+  "gia": 38300.0,
+  "atr": 0.0133,
+  "tov": 14900000000.0,
+  "ma50": 36000,
+  "ma200": 34935,
+  "r252": 0.0833,
+  "rs_252_skip21": -0.043353719800308665,
+  "rs_126": 0.1592,
+  "rs_63": 0.15610000000000002,
+  "rs_21": 0.1082,
+  "san": "UPCOM",
+  "icb": "2700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "ABB",
+  "gia": 17600.0,
+  "atr": 0.0137,
+  "tov": 17200000000.0,
+  "ma50": 17296,
+  "ma200": 14442,
+  "r252": 0.7438,
+  "rs_252_skip21": 0.6453692386605607,
+  "rs_126": 0.3952,
+  "rs_63": 0.0587,
+  "rs_21": 0.0646,
+  "san": "UPCOM",
+  "icb": "8300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "SBT",
+  "gia": 22900.0,
+  "atr": 0.016,
+  "tov": 27200000000.0,
+  "ma50": 22641,
+  "ma200": 21783,
+  "r252": 0.0072,
+  "rs_252_skip21": -0.05152535725461549,
+  "rs_126": 0.1225,
+  "rs_63": 0.1338,
+  "rs_21": 0.0413,
+  "san": "HSX",
+  "icb": "3500",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": true,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "BAF",
+  "gia": 31200.0,
+  "atr": 0.0191,
+  "tov": 51800000000.0,
+  "ma50": 31659,
+  "ma200": 30406,
+  "r252": 0.0698,
+  "rs_252_skip21": 0.04019606031086975,
+  "rs_126": 0.0712,
+  "rs_63": 0.097,
+  "rs_21": 0.014800000000000004,
+  "san": "HSX",
+  "icb": "3500",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": true,
+  "buoc3_tham_dinh": "loai",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "PHU QUYET BUOC 3 — phieu tham dinh 16/09/2026, het han 15/12/2026. BON can cu DOC LAP, chi can mot la du: (1) V3 BAT voi bien do lon nhat ca bo phieu: dong tien HD cong don 2023-2025 la -2.091,4 ty tren LNST 476,4 ty = -439,0% (nguong +50%); cua so thay the 2024-6T/2026 = -199,3%; 12T truot = -827,1%. Cua thoat khong mo: tien di vao dan nai va tien thue dat tra truoc (von dau tu dinh tuyen qua dong HD, khong phai vong quay von luu dong), 375,3 ty ung cho CA NHAN mua cong ty con chua hoan tat, va dong tien o DAY CHU KY (H2/2025) la -943,2 ty. 6T/2026 duong 164,8 ty lan dau nhung nho +456,4 ty khoan phai tra; tru ra con -291,6 ty. (2) TRUC A = 0: ROIC 3,50% / 10,94% / 4,48% (FY2023-25), 12T truot 4,15%, H2/2025 (day) -3,59%, so voi WACC ~9%; hai trong ba ky duoi chi phi von tren CA HAI cua so; FY2024 bo 103,9 ty loi nhuan khac khong lap lai con 9,07% = dung WACC. (3) TRUC C = 0: ~1.075,6 ty khoan muc khong dinh danh doi tac = 24,6% VCSH (tam ung nhan vien mua cong ty con 227,7 ty tang 17,4 lan trong 6 thang; tra truoc nhom ca nhan 147,6 ty dung tren so >= 18 thang; dat coc thue trai 426,2 ty; tra truoc 'cac ben khac' 274,1 ty), khong trich lap cho khoan ung ca nhan, LNTT 2025 dat 12,9% ke hoach DHDCD, hai an phat quanh bao cao M&A. (4) TONG BA TRUC 0+1+0 = 1/6. Ghi ro cho cong bang: BAF KHONG truot vi gian doi — V1/V2/V4 deu khong bat, EY ky sach 4 nam, ben lien quan theo cong chi 2,58% VCSH va dang giam, san luong +61% la thuc thi that. No truot vi CHUA CO KY NAO chung minh mo hinh sinh tien va sinh loi tren von khi gia heo ve day — va day gan nhat moi cach chin thang.",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-16",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": true,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "phieu ket luan PHU QUYET (chi DAT duoc mua)",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "QNS",
+  "gia": 50900.0,
+  "atr": 0.0203,
+  "tov": 15600000000.0,
+  "ma50": 48519,
+  "ma200": 46283,
+  "r252": 0.17,
+  "rs_252_skip21": 0.07907489558988501,
+  "rs_126": 0.1517,
+  "rs_63": 0.13119999999999998,
+  "rs_21": 0.0696,
+  "san": "UPCOM",
+  "icb": "3500",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "HHP",
+  "gia": 17650.0,
+  "atr": 0.0225,
+  "tov": 16800000000.0,
+  "ma50": 16247,
+  "ma200": 13597,
+  "r252": 0.8834,
+  "rs_252_skip21": 0.765921029104617,
+  "rs_126": 0.531,
+  "rs_63": 0.355,
+  "rs_21": 0.07350000000000001,
+  "san": "HSX",
+  "icb": "1700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "MST",
+  "gia": 9500.0,
+  "atr": 0.0247,
+  "tov": 10300000000.0,
+  "ma50": 9832,
+  "ma200": 8390,
+  "r252": 0.6102,
+  "rs_252_skip21": 0.5853424393555537,
+  "rs_126": 0.1675,
+  "rs_63": 0.0587,
+  "rs_21": 0.020700000000000003,
+  "san": "HNX",
+  "icb": "2300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "AAA",
+  "gia": 7210.0,
+  "atr": 0.0248,
+  "tov": 14900000000.0,
+  "ma50": 7201,
+  "ma200": 7106,
+  "r252": -0.0945,
+  "rs_252_skip21": -0.1582679189093491,
+  "rs_126": 0.0673,
+  "rs_63": 0.0966,
+  "rs_21": 0.046900000000000004,
+  "san": "HSX",
+  "icb": "1300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "TLG",
+  "gia": 54700.0,
+  "atr": 0.025,
+  "tov": 13700000000.0,
+  "ma50": 52032,
+  "ma200": 49227,
+  "r252": 0.2157,
+  "rs_252_skip21": 0.0480663397592227,
+  "rs_126": 0.1269,
+  "rs_63": 0.2053,
+  "rs_21": 0.1397,
+  "san": "HSX",
+  "icb": "3700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "GMD",
+  "gia": 54100.0,
+  "atr": 0.0258,
+  "tov": 57500000000.0,
+  "ma50": 51790,
+  "ma200": 48886,
+  "r252": 0.228,
+  "rs_252_skip21": 0.07026241510908782,
+  "rs_126": 0.14350000000000002,
+  "rs_63": 0.1363,
+  "rs_21": 0.129,
+  "san": "HSX",
+  "icb": "2700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": 78400.0,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": false
+ },
+ {
+  "ma": "HDB",
+  "gia": 22600.0,
+  "atr": 0.026,
+  "tov": 300800000000.0,
+  "ma50": 20998,
+  "ma200": 20626,
+  "r252": 0.2096,
+  "rs_252_skip21": 0.04462226657097945,
+  "rs_126": 0.13690000000000002,
+  "rs_63": 0.1469,
+  "rs_21": 0.1376,
+  "san": "HSX",
+  "icb": "8300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "VPB",
+  "gia": 24400.0,
+  "atr": 0.0274,
+  "tov": 509400000000.0,
+  "ma50": 21549,
+  "ma200": 21375,
+  "r252": -0.0079,
+  "rs_252_skip21": -0.18930111748597134,
+  "rs_126": 0.164,
+  "rs_63": 0.2105,
+  "rs_21": 0.1824,
+  "san": "HSX",
+  "icb": "8300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "MSB",
+  "gia": 14500.0,
+  "atr": 0.0278,
+  "tov": 148200000000.0,
+  "ma50": 13495,
+  "ma200": 11709,
+  "r252": 0.2842,
+  "rs_252_skip21": 0.08818899480397158,
+  "rs_126": 0.4471,
+  "rs_63": 0.16,
+  "rs_21": 0.161,
+  "san": "HSX",
+  "icb": "8300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "GHI HOI TO 14/09/2026. LY DO MUA (17-19/08/2026): MSB qua bo loc MA200 + RS va giu suat cuoi bang xep hang top-40%, voi loi the co cau duoc goi ten la CASA 28,94% thuoc nhom cao nhat he thong va DANG DI LEN (26,54% -> 26,42% -> 28,94%), keo theo NIM 3,22% cao hon binh quan nganh 2,87% khoang 35 diem co ban, va CIR cai thien deu 41,39% (2022) -> 36,14% (2025). Do la luan diem 'ngan hang co nen tien gui re va bo may dang re di'. Phieu 14/09 KHONG bac luan diem nay — cac su kien van dung — nhung do duoc rang loi the do CHUA BAO VE DUOC BIEN: CASA phuc hoi trong 2025 ma NIM van roi 3,57% -> 3,22% trong dung nam do.",
+  "tham_dinh_ngay": "2026-09-14",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "phieu ket luan CHO (chi DAT duoc mua)",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "VIC",
+  "gia": 219000.0,
+  "atr": 0.0287,
+  "tov": 793400000000.0,
+  "ma50": 226380,
+  "ma200": 192610,
+  "r252": 1.4374,
+  "rs_252_skip21": 1.6491959848184878,
+  "rs_126": 0.4768,
+  "rs_63": 0.0408,
+  "rs_21": -0.0586,
+  "san": "HSX",
+  "icb": "8600",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "loai",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "Loai khoi danh muc do van de co ban (nguoi tham dinh phu quyet o buoc 3, ngay 01/09/2026). Phu quyet dinh tinh thang moi tin hieu ky thuat, ke ca 7/7 checklist ngay 25/08.",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": true,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "STB",
+  "gia": 66900.0,
+  "atr": 0.0288,
+  "tov": 209100000000.0,
+  "ma50": 73910,
+  "ma200": 67753,
+  "r252": 0.1187,
+  "rs_252_skip21": 0.23382230305734297,
+  "rs_126": 0.018,
+  "rs_63": 0.0131,
+  "rs_21": -0.0932,
+  "san": "HSX",
+  "icb": "8300",
+  "ly_do_loai_b1": "duoi MA200",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "loai",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "PHU QUYET BUOC 3 — phieu tham dinh 13/09/2026, het han 12/12/2026. Nam cong phu quyet DEU KHONG bat; phieu chet o DIEM: truc A 0 + truc B 1 + truc C 0 = 1/6, vua duoi tran 2 vua co truc bang 0 (thoa ca hai dieu kien phu quyet). TRUC A = 0: ROE 2025 10,34% va TTM den 30/06/2026 ~5,2% deu duoi COE 15,38% — hai trong ba ky do gan nhat duoi chi phi von. Nam duy nhat vuot la 2024 (20,03%) va no vuot nho chi phi tin dung 0,39% tren du no binh quan (so 1,95% cua 2025), dung nam ma NHNN ket luan trich lap du phong chua dung quy dinh — diem quan sat duy nhat chong lai muc 0 lai la diem quan sat da bi co quan quan ly dat dau hoi. TRUC C = 0: QD 1869 (cong bo 16-17/08/2025, phat 975 trieu, 6 vi pham, 28 kien nghi) ket luan PHAN LOAI TAI SAN CO va TRICH LAP DU PHONG chua dung quy dinh — ben co toan bo ho so tin dung noi rang so lieu dau vao sai, la dang bang chung nguoc nang nhat co the co cho mot truc cham chat luong cong bo. Cong them 3.789 ty 'dich vu khac' (21,7% tong thu nhap hoat dong 6T/2026, +2.408 ty YoY) khong co thuyet minh. TRUC B = 1: nen tien gui ban le 647.939 ty voi LDR 98,2% la loi the cau truc that, nhung CHUA quy doi duoc thanh bien co loi — CASA 18,9% (2022) -> 16,5%, chi phi von tren tai san sinh loi 3,81% (2024) -> 4,42%, NIM 2,81% da THAP HON binh quan nganh 2,87%, nhan su 18.659 -> 13.078. Thay doi cau truc nganh bat loi nhung do duoc nen khong roi xuong 0. DO BEN KET LUAN: doc rong tay nhat cho truc A (chi lay 3 nam tai chinh 2023-2025, vut bo ky soat xet moi nhat) van ra 2/6 = VAN PHU QUYET. Phai dong thoi bo qua ky soat xet moi nhat VA ket luan thanh tra VA cham truc B muc 2 (du CASA/NIM deu di xuong) moi ra duoc 'Dat'.",
+  "luan_diem": "GHI HOI TO 14/09/2026 — khong phai ban ghi lap tai thoi diem mua, va ghi ro nhu vay vi file nay cam viet lai luan diem. LY DO MUA (17-19/08/2026): quy mua STB dua tren THONG TIN SO BO tu bao cao phan tich cua cac cong ty chung khoan, CHUA tu tham dinh doc lap tu BCTC. Do la toan bo nen tang cua luan diem ban dau.",
+  "tham_dinh_ngay": "2026-09-14",
+  "luan_diem_con_nguyen": false,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": true,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "phieu ket luan PHU QUYET (chi DAT duoc mua)",
+  "co_so": 59500.0,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    false
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": false,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    true
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": false
+ },
+ {
+  "ma": "VPI",
+  "gia": 54600.0,
+  "atr": 0.03,
+  "tov": 91900000000.0,
+  "ma50": 58929,
+  "ma200": 55102,
+  "r252": 0.0725,
+  "rs_252_skip21": 0.11199836286327547,
+  "rs_126": 0.0645,
+  "rs_63": 0.021200000000000004,
+  "rs_21": -0.0426,
+  "san": "HSX",
+  "icb": "8600",
+  "ly_do_loai_b1": "duoi MA200",
+  "canslim_3a": false,
+  "canslim_co_v3": true,
+  "buoc3_tham_dinh": "loai",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "Loai khoi danh muc do van de co ban (nguoi tham dinh phu quyet o buoc 3, ngay 01/09/2026). Thang tin hieu ky thuat 7/7 checklist ngay 25/08.",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": true,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    false
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": false,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "HCM",
+  "gia": 23200.0,
+  "atr": 0.0315,
+  "tov": 66599999999.99999,
+  "ma50": 25173,
+  "ma200": 22760,
+  "r252": -0.0175,
+  "rs_252_skip21": 0.02118231476121224,
+  "rs_126": 0.0768,
+  "rs_63": 0.026600000000000006,
+  "rs_21": -0.0489,
+  "san": "HSX",
+  "icb": "8700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": true,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "DHC",
+  "gia": 36550.0,
+  "atr": 0.0331,
+  "tov": 19500000000.0,
+  "ma50": 35694,
+  "ma200": 32093,
+  "r252": 0.2358,
+  "rs_252_skip21": 0.11912443306181619,
+  "rs_126": 0.1731,
+  "rs_63": 0.2291,
+  "rs_21": 0.0905,
+  "san": "HSX",
+  "icb": "1700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "dat",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "BA LUAN DIEM — phieu 13/09/2026, nhip C. Chi viet duoc vi nhip B DAT; day la ma DUY NHAT trong bon phieu di het quy trinh. (1) CU SOC PHONG KHE LA CU SOC CUNG VA DA CHUYEN THANH BIEN LOI NHUAN, khong dung o tin tuc: ~200 co so dong cua tu dau 2025 rut ~2 trieu tan/nam = 22-26% nang luc nganh, thieu hut 601.000 tan trong 7 thang dau 2026. Gia ban giay cua DHC di tu ~9.002 d/kg (Q2/2025) len 10.442 d/kg (Q2/2026), +16%. Co che: DHC song bang CHENH LECH gia, gia OCC ton kho dung o 4.800 d/kg trong khi gia ban tang 1.440 d/kg, nen gan nhu toan bo muc tang roi thang xuong bien — bien gop 11,8% (2024) -> 24,2% (6T/2026). Noi vao dinh gia: bien gop 23,5% cua 2026F la GIA DINH TRUNG TAM cua toan bo mo hinh. (2) DHC CHUYEN LOI NHUAN THANH TIEN TOT HON MOI MA TRONG NHOM SO SANH, VA DIEU DO DA DUOC KIEM O DAY CHU KY CHU KHONG PHAI O DINH: dong tien HD cong don 2023-2025 = 144,2% LNST cong don; nam te nhat 2024 khi bien gop roi xuong 11,8% dong tien van 656,2 ty = 2,7 lan LNST 242,2 ty; no rong AM 339 ty tai 30/06/2026. Co che: vong quay ngan vi mua va ban deu giao ngay, khau hao 111,1 ty/nam chay tren day chuyen DA TRA XONG, va khong mot dong phai thu ben lien quan nao phai cho thu. Noi vao dinh gia: day la thu cho phep tai tro 1.814 ty con lai cua Giao Long 3 MA KHONG CAN TANG VON — tuc khong pha loang nguoi dang cam co phieu. (3) UU DAI THUE HET HAN LA BUOC NHAY CHI PHI VINH VIEN phai neo vao MOI nam du phong, khong phai bien dong mot lan: uu dai giam 50% cua Giao Long giai doan 2 het hieu luc 31/12/2025; thue suat hieu dung di tu 14,0% (2025) len 19,5% (6T/2026), chi phi thue hien hanh +193,7% so cung ky. Tren nen LNTT 457 ty cua 2025, moi 5,5 diem thue ~ 25 ty LNST moi nam. Noi vao dinh gia: mo hinh da neo 19,5% tu 2026 tro di; ai con dung 14% lich su se thoi LNST 2027F len ~8%.",
+  "tham_dinh_ngay": "2026-09-14",
+  "luan_diem_con_nguyen": true,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": true,
+  "ly_do_phieu": "",
+  "co_so": 51000.0,
+  "than_trong": 42000.0,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": 0.12976190476190474,
+  "ly_do_bien": "dinh gia danh dau can_dung_lai",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": false
+ },
+ {
+  "ma": "VHM",
+  "gia": 63900.0,
+  "atr": 0.0331,
+  "tov": 607900000000.0,
+  "ma50": 71063,
+  "ma200": 64586,
+  "r252": 0.2922,
+  "rs_252_skip21": 0.3972746427453846,
+  "rs_126": 0.0968,
+  "rs_63": -0.07189999999999999,
+  "rs_21": -0.0712,
+  "san": "HSX",
+  "icb": "8600",
+  "ly_do_loai_b1": "duoi MA200",
+  "canslim_3a": false,
+  "canslim_co_v3": true,
+  "buoc3_tham_dinh": "loai",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "PHU QUYET BUOC 3 — phieu tham dinh 13/09/2026, het han 12/12/2026. Khac STB (chet vi DIEM), VHM chet vi CONG: ba can cu doc lap, chi can mot la du. (1) V3 BAT: dong tien hoat dong cong don 3 nam 2023-2025 la 20.306 ty tren LNST 111.940 ty = 18,1%, nguong cong la 50%. Cua thoat 'giai thich bang vong quay von luu dong' KHONG mo duoc: trong 219.950 ty phai thu ngan han cuoi 2025 chi 23.488 ty (10,7%) la phai thu KHACH HANG; khoan lon nhat la 91.066 ty 'tam ung tien giai phong mat bang' cho CA NHAN KHONG TEN, cho du an 'TIEM NANG' khong ten, the chap bang co phieu cua chinh cac cong ty trong tap doan. Do khong phai von luu dong — von luu dong quay ve khi ban giao. (2) V4 BAT DUT KHOAT, khong co vung xam: tai san voi ben lien quan 185.680 ty = 67,8% VCSH tai 30/06/2026 (nguong 30%). Moi cach tinh, moi moc thoi gian, moi co so trinh bay deu vuot tu 1,4 den 2,3 lan; va TANG lien tiep qua hai ky (co so A 48,0% -> 52,9%; co so B 42,9% -> 53,0%), nen ca hai ve 'vuot 30% VA khong giam qua hai ky' deu thoa. (3) TRUC C = 0: 6T/2026 chi 163.565 ty 'dau tu gop von vao don vi khac' — nhieu hon TOAN BO dong tien hoat dong 89.468 ty — tai tro bang 100.993 ty vay moi; dat coc 60.731 ty voi cong ty me Vingroup khong thuyet minh mua cai gi, gia bao nhieu, khi nao xong; no xau gia goc chi 345,9 ty tren ~346 nghin ty phai thu cac loai, tuc gan nhu khong trich lap gi cho cac khoan cho vay 12% KHONG TAI SAN DAM BAO voi VinBus/VinRobotics/VinSmart Future va phai thu thue tai chinh 22.869 ty voi VinFast. TONG BA TRUC 1+2+0 = 3/6. Ghi ro cho cong bang: co may van hanh cua VHM la TOT NHAT NGANH (truc B duoc 2 diem tuyet doi — bien gop 30,2% va ROE ~30,7% so voi 1,3-10,7% cua NVL/KDH/NLG/DXG/PDR/HDG), V2 la pass SACH NHAT trong ca bo phieu (EY, chap nhan toan phan, khong doan nhan manh), va VHM co mua lai ~247 trieu co phieu quy 2024. Van de cua VHM KHONG nam o cho no kinh doanh kem; no nam o cho TIEN DI DAU SAU KHI KIEM DUOC.",
+  "luan_diem": "GHI HOI TO 14/09/2026 — khong phai ban ghi lap tai thoi diem mua. LY DO MUA (17-19/08/2026): VHM la doanh nghiep bat dong san co bien gop va ROE cao nhat san, quy dat lon, qua ca 4 quy tac thoat va dung hang 2/11 bang xep hang sau ky soat 01/09. Luan diem dua tren SUC MANH VAN HANH cua doanh nghiep — chua tung kiem 'tien di dau sau khi kiem duoc', tuc chua doc bang can doi va thuyet minh ben lien quan. Do la lo hong ma phieu 13/09 vach ra.",
+  "tham_dinh_ngay": "2026-09-14",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": true,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "phieu ket luan PHU QUYET (chi DAT duoc mua)",
+  "co_so": 80600.0,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    false
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": false,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": false
+ },
+ {
+  "ma": "DGW",
+  "gia": 46950.0,
+  "atr": 0.0369,
+  "tov": 77500000000.0,
+  "ma50": 42409,
+  "ma200": 41641,
+  "r252": 0.1776,
+  "rs_252_skip21": 0.030535580678970664,
+  "rs_126": 0.07319999999999999,
+  "rs_63": 0.3055,
+  "rs_21": 0.12240000000000001,
+  "san": "HSX",
+  "icb": "5300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": true,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "FRT",
+  "gia": 149500.0,
+  "atr": 0.0369,
+  "tov": 95900000000.0,
+  "ma50": 140082,
+  "ma200": 137215,
+  "r252": 0.2538,
+  "rs_252_skip21": 0.09028490667500333,
+  "rs_126": 0.0555,
+  "rs_63": 0.37129999999999996,
+  "rs_21": 0.1325,
+  "san": "HSX",
+  "icb": "5300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "LPB",
+  "gia": 40250.0,
+  "atr": 0.0387,
+  "tov": 90400000000.0,
+  "ma50": 48156,
+  "ma200": 45804,
+  "r252": -0.1777,
+  "rs_252_skip21": -0.10467036247563888,
+  "rs_126": -0.1037,
+  "rs_63": -0.1876,
+  "rs_21": -0.0968,
+  "san": "HSX",
+  "icb": "8300",
+  "ly_do_loai_b1": "duoi MA200",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "cho",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": 46900.0,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    false
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": false,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    true
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": false
+ },
+ {
+  "ma": "BSR",
+  "gia": 30600.0,
+  "atr": 0.0403,
+  "tov": 400100000000.0,
+  "ma50": 28275,
+  "ma200": 26139,
+  "r252": 0.8341,
+  "rs_252_skip21": 0.5925756241084885,
+  "rs_126": 0.2469,
+  "rs_63": 0.2723,
+  "rs_21": 0.15200000000000002,
+  "san": "HSX",
+  "icb": "0500",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "dat",
+  "buoc4_dinh_gia": "dat",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "2026-09-01",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": 30000.0,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    true
+   ]
+  ],
+  "sell_ready": true,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": false
+ },
+ {
+  "ma": "VVS",
+  "gia": 80400.0,
+  "atr": 0.0408,
+  "tov": 11800000000.0,
+  "ma50": 90404,
+  "ma200": 73518,
+  "r252": 2.6439,
+  "rs_252_skip21": 2.8569204626465234,
+  "rs_126": 0.35250000000000004,
+  "rs_63": 0.0344,
+  "rs_21": -0.0281,
+  "san": "HSX",
+  "icb": "3300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "PHP",
+  "gia": 50900.0,
+  "atr": 0.0425,
+  "tov": 12200000000.0,
+  "ma50": 44886,
+  "ma200": 37551,
+  "r252": 0.5009,
+  "rs_252_skip21": 0.282921196781319,
+  "rs_126": 0.5873,
+  "rs_63": 0.3982,
+  "rs_21": 0.16,
+  "san": "UPCOM",
+  "icb": "2700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "PVT",
+  "gia": 25150.0,
+  "atr": 0.0455,
+  "tov": 201500000000.0,
+  "ma50": 21524,
+  "ma200": 20199,
+  "r252": 0.52,
+  "rs_252_skip21": 0.2769512684044355,
+  "rs_126": 0.2839,
+  "rs_63": 0.38939999999999997,
+  "rs_21": 0.17930000000000001,
+  "san": "HSX",
+  "icb": "2700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "DRI",
+  "gia": 16800.0,
+  "atr": 0.0495,
+  "tov": 26500000000.0,
+  "ma50": 13796,
+  "ma200": 12782,
+  "r252": 0.5671,
+  "rs_252_skip21": 0.20211622292078046,
+  "rs_126": 0.406,
+  "rs_63": 0.41369999999999996,
+  "rs_21": 0.2842,
+  "san": "UPCOM",
+  "icb": "1300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "SSB",
+  "gia": 16250.0,
+  "atr": 0.0518,
+  "tov": 72400000000.0,
+  "ma50": 17440,
+  "ma200": 15228,
+  "r252": -0.0058,
+  "rs_252_skip21": 0.060869237339979065,
+  "rs_126": 0.151,
+  "rs_63": 0.0587,
+  "rs_21": -0.0707,
+  "san": "HSX",
+  "icb": "8300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": false,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "PVP",
+  "gia": 23800.0,
+  "atr": 0.0557,
+  "tov": 33000000000.0,
+  "ma50": 18681,
+  "ma200": 16262,
+  "r252": 0.7884,
+  "rs_252_skip21": 0.2887731358134977,
+  "rs_126": 0.751,
+  "rs_63": 0.5518,
+  "rs_21": 0.3685,
+  "san": "HSX",
+  "icb": "2700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "MSR",
+  "gia": 67600.0,
+  "atr": 0.058,
+  "tov": 138000000000.0,
+  "ma50": 47800,
+  "ma200": 40318,
+  "r252": 1.9129,
+  "rs_252_skip21": 0.9666535886499874,
+  "rs_126": 0.5296,
+  "rs_63": 0.9605,
+  "rs_21": 0.4795,
+  "san": "UPCOM",
+  "icb": "1700",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "PET",
+  "gia": 50400.0,
+  "atr": 0.0636,
+  "tov": 42600000000.0,
+  "ma50": 42041,
+  "ma200": 33308,
+  "r252": 1.3179,
+  "rs_252_skip21": 0.7027306804382181,
+  "rs_126": 0.4838,
+  "rs_63": 0.40990000000000004,
+  "rs_21": 0.3572,
+  "san": "HSX",
+  "icb": "5300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ },
+ {
+  "ma": "NVB",
+  "gia": 16500.0,
+  "atr": 0.0675,
+  "tov": 27400000000.0,
+  "ma50": 12714,
+  "ma200": 12268,
+  "r252": 0.0855,
+  "rs_252_skip21": -0.2890309659903456,
+  "rs_126": 0.5228,
+  "rs_63": 0.2544,
+  "rs_21": 0.4516,
+  "san": "HNX",
+  "icb": "8300",
+  "ly_do_loai_b1": "",
+  "canslim_3a": null,
+  "canslim_co_v3": false,
+  "buoc3_tham_dinh": "chua",
+  "buoc4_dinh_gia": "chua",
+  "tham_dinh_ly_do": "",
+  "luan_diem": "",
+  "tham_dinh_ngay": "",
+  "luan_diem_con_nguyen": null,
+  "trong_ro_co_ban": null,
+  "ly_do_ro": "ro co ban chua chot",
+  "nganh": "Khac",
+  "uu_tien": null,
+  "bi_phu_quyet": false,
+  "trong_danh_sach_cho": false,
+  "phieu_ok": false,
+  "ly_do_phieu": "chua co phieu V1-V5 + ba truc",
+  "co_so": null,
+  "than_trong": null,
+  "bien_an_toan_ok": false,
+  "bien_an_toan": null,
+  "ly_do_bien": "thieu than_trong/co_so",
+  "buy_checklist": [
+   [
+    "liquidity",
+    true
+   ],
+   [
+    "close_above_ma200",
+    true
+   ],
+   [
+    "ma50_above_ma200",
+    true
+   ],
+   [
+    "rs_12m_positive",
+    true
+   ],
+   [
+    "atr_max",
+    true
+   ]
+  ],
+  "qua_loc_cung": true,
+  "giao_diem": false,
+  "buy_ready": false,
+  "sell_checklist": [
+   [
+    "close_below_97pct_ma200",
+    false
+   ],
+   [
+    "ngoai_ro_co_ban",
+    false
+   ],
+   [
+    "cham_co_so",
+    false
+   ]
+  ],
+  "sell_ready": false,
+  "thieu_ra_soat_ro": true,
+  "thieu_lich_su": false,
+  "thieu_co_so": true
+ }
+]
