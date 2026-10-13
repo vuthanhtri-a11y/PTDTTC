@@ -13,14 +13,17 @@ uv venv .venv --python 3.12
 uv pip install --python .venv/Scripts/python.exe -r requirements.txt pytest
 ```
 
-Mỗi lần: nhấp đúp `chay_dashboard.bat` → mở http://localhost:8501 (chỉ nghe localhost).
+Mỗi lần: nhấp đúp `chay_dashboard.bat` → mở http://medici-ptdttc (cổng 80, chỉ nghe 127.0.0.1). Lần đầu bat tự
+thêm dòng `127.0.0.1 medici-ptdttc` vào file hosts (hỏi quyền admin một lần).
 
 Test: `.venv\Scripts\python -m pytest tests -q` (Python hệ thống không có streamlit sẽ tự bỏ qua
 `tests/test_dashboard.py`).
 
 ## Bản cloud — Streamlit Community Cloud (repo private `vuthanhtri-a11y/PTDTTC`, nhánh `main`)
 
-- **Chỉ đọc.** Nút Quét / Quét bù / Đẩy lên GitHub chỉ hiện khi mở từ chính máy (`localhost`). Mọi truy cập
+Link: https://medici-ptdttc.streamlit.app (HTTPS, chỉ người được mời xem — giữ riêng tới hết cuộc thi 23/10/2026).
+
+- **Chỉ đọc.** Nút Quét / Quét bù / Đẩy lên GitHub chỉ hiện khi mở từ chính máy (`medici-ptdttc` / `localhost`). Mọi truy cập
   khác là bản chỉ đọc: ổ đĩa cloud bị xoá mỗi lần app khởi động lại nên bản quét chạy trên đó không bao giờ
   về GitHub, và người được mời xem không được kích một lần quét 1.500 request.
 - **Số liệu lên cloud:** máy local bấm *Quét phiên hôm nay* → *Đẩy lên GitHub*. Nút này commit **đúng** các

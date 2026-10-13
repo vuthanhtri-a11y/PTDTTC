@@ -98,7 +98,8 @@ def la_may_local():
         host = (st.context.headers.get("Host") or "").rsplit(":", 1)[0].strip("[]").lower()
     except Exception:
         return False
-    return host in ("localhost", "127.0.0.1", "::1") or host.endswith(".localhost")
+    # medici-ptdttc: ten mien local trong file hosts -> 127.0.0.1 (xem chay_dashboard.bat)
+    return host in ("localhost", "127.0.0.1", "::1", "medici-ptdttc") or host.endswith(".localhost")
 
 
 @st.cache_data(show_spinner=False)
