@@ -124,9 +124,16 @@ class DanhMucTests(unittest.TestCase):
 
     def test_vi_the_cuoi_khop_holdings(self):
         import lt_config
-        vt, tien = danh_muc.trang_thai("2026-10-07", self.so)
+        cuoi = danh_muc.su_kien_theo_ngay(self.so)[-1][0]
+        vt, tien = danh_muc.trang_thai(cuoi, self.so)
         self.assertEqual(vt, {ma: kl for ma, kl, _ in lt_config.HOLDINGS["DM2"]})
         self.assertEqual(tien, lt_config.TIEN_MAT["DM2"])
+
+    def test_nav_16_10_het_vi_the_msb(self):
+        vt, tien = danh_muc.trang_thai("2026-10-16", self.so)
+        self.assertEqual(vt, {})
+        self.assertEqual(tien, self.so["tong_ket"]["chot_16_10"]["nav"])
+        self.assertEqual(danh_muc.nav_tai("2026-10-16", {}, self.so), 61_870_918)
 
     def test_lai_lo_da_thuc_hien_gan_so(self):
         ll = danh_muc.lai_lo_da_thuc_hien(self.so)
@@ -298,8 +305,9 @@ class BoChayTests(unittest.TestCase):
 
 class ViMoVaDinhDangTests(unittest.TestCase):
     def test_vi_mo_vn_chua_nhap_la_cu(self):
-        b = vi_mo.bang_vi_mo_vn(vi_mo.doc_vi_mo_vn())
-        self.assertGreater(len(b), 0)
+        raw = {"chi_so": {"cpi": {"ten": "CPI", "chuoi": []}, "pmi": {"ten": "PMI"}}}
+        b = vi_mo.bang_vi_mo_vn(raw)
+        self.assertEqual(len(b), 2)
         self.assertTrue(b["Cũ"].all())
 
     def test_vi_mo_vn_tuoi_nhap(self):

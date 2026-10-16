@@ -174,7 +174,12 @@ HOLDINGS = {
     #   140 MSB con lai = CP thuong GDKHQ 28/08, suy ra chua ve TK (chi ban duoc
     #   300) — ban ngay khi ve. Gia von khong doi 13.333.
     #   Sao luu truoc khi sua: data/lt_config_backup_20261005.py
-    "DM2": [("MSB", 140, 13_333)],
+    # 16/10/2026 — DA KHOP theo che do GIAM (ke_hoach_20261015: VNINDEX 1.698,35
+    #   < 1.743,66): BAN 40 MSB @14.700 + 100 MSB @14.750 = het 140 CP. 140 CP
+    #   thuong GDKHQ 28/08 DA VE TK (ban duoc du). Khong con vi the nao.
+    #   Thu ve: 586.942 + 1.472.345 = 2.059.287 (sau phi 0,08% + thue 0,1%).
+    #   Sao luu truoc khi sua: data/lt_config_backup_20261016.py
+    "DM2": [],
 }
 # DM2: 15.826.732 - 7.330.980 (mua DHC 03/09) = 8.495.752
 #      8.495.752 + 12.683.213 (ban GMD+LPB 03/09) = 21.178.965
@@ -202,7 +207,11 @@ HOLDINGS = {
 #              55.414.218 + 4.207.413 (ban 300 MSB) = 59.621.631
 #              59.621.631 + 190.000 (co tuc tien DHC) = 59.811.631
 #   Che do GIAM. Phi TTLK ban tu 22/09 (~315d) + luu ky 09 (~387d) chua tru.
-TIEN_MAT = {"DM1": 0, "DM2": 59_811_631}
+# 16/10/2026 — 59.811.631 + 586.942 (ban 40 MSB @14.700) = 60.398.573
+#              60.398.573 + 1.472.345 (ban 100 MSB @14.750) = 61.870.918
+#   100% tien mat, NAV 61.870.918 (+3,12% von goc). Phi TTLK ban tu 22/09 (~315d)
+#   + luu ky 09 (~387d) chua tru.
+TIEN_MAT = {"DM1": 0, "DM2": 61_870_918}
 
 # ------------------------------------------------- Lenh ngoai luat (co y thuc)
 # Quy dinh: nhung quyet dinh KHONG sinh ra tu bon quy tac thoat / bang xep hang
@@ -233,6 +242,8 @@ LENH_NGOAI_LUAT = [
         "trang_thai": "da khop",
         "ke_hoach_dao_nguoc": "MUA LAI 50 CP khi gia <= 75.200",
         "han_chot": "2026-10-16",   # phien cuoi truoc khi cuoc thi ket thuc ~17/10
+                                    # (14/10: cuoc thi thuc ra ket thuc 23/10; KHONG
+                                    # sua han — ke hoach da het can cu tu 04/10)
         "neu_khong_khop": "HET HIEU LUC sau han chot; KHONG duoc nang gia mua lai. "
                           "Nang gia = doi luat sau khi biet ket qua.",
         "so_hoc_da_do": "Khop -> +109.648 d (+0,18% NAV). Khong khop ma VHM len "
@@ -544,6 +555,9 @@ LENH_QUY_TAC_5 = [
         # trong khi VNINDEX chi +1,1%. Tuc la gia han sau khi da biet cam quan
         # dang bat loi ~225.000 d (~0,37% NAV DM2) — ghi lai de bao cao cuoi ky
         # doc duoc, khong phai de bao chua.
+        # 14/10/2026 — dinh chinh the le: cuoc thi ket thuc 23/10, khong phai
+        # 17/10. KHONG doi gia_han_den: sua gia han da ghi sau khi biet ket qua la
+        # dung loi dieu khoan nay chan; va khong co ky soat nao giua 17/10 va 01/11.
         "gia_han_den": "2026-10-17",
         "ngay_ghi_gia_han": "2026-09-23",
         # ⚠️ Ghi nhan trung thuc: ban ghi nay duoc lap SAU KHI lenh da khop,
@@ -633,6 +647,17 @@ PHIEU_LENH = [
      "trang_thai": "da khop", "khop": "200 @38.100 ngay 05/10 (+ co tuc tien 190.000d)",
      "ghi_chu": "DHC la ma duy nhat phieu Dat (5/6) — van ban: che do Giam ban "
                 "toan bo, khong mien tru theo ma (tr.72)."},
+    {"so": 4, "ghi_luc": "2026-10-16 (ghi SAU khi khop)", "ngay_dat": "2026-10-16", "dm": "DM2",
+     "chieu": "BAN", "ma": "MSB", "kl": 140,
+     "loai_lenh": "2 lenh LO rieng: 40 @14.700 va 100 @14.750 (gia user bao)",
+     "can_cu": "CHE DO GIAM (muc 14): ke_hoach_20261015 — VNINDEX dong cua 15/10 "
+               "1.698,35 < nguong vao GIAM 1.743,66, tran co phieu 0%. Ban het phan "
+               "con lai (140 CP thuong GDKHQ 28/08).",
+     "trang_thai": "da khop", "khop": "40 @14.700 + 100 @14.750 ngay 16/10",
+     "ghi_chu": "⚠️ Phieu lap SAU khi khop (user bao ket qua), khong phai truoc gio dat "
+                "— le sai quy trinh cam ket #5 tr.70, ghi lai trung thuc nhu LENH_QUY_TAC_5. "
+                "Bang lenh 15/10 da sinh lenh BAN 140 MSB @14.650 [CHUA CO PHIEU]; khop o "
+                "gia cao hon 50-100 d/CP. 140 CP thuong da ve TK."},
 ]
 
 # ------------------------------------------------- Lich ra soat (chot 16/09/2026)
@@ -641,7 +666,7 @@ PHIEU_LENH = [
 #
 # NGOAI LE MOT LAN, CHI CHO DM2 — ban to chuc cuoc thi chia lam 2 giai doan,
 # giai doan 2 bat dau 21/09/2026. Do la moc BAO CAO: khong reset diem (return
-# tinh lien tuc 17/08 -> ~17/10), khong doi luat dau tu, khong doi von. Vi cuoc
+# tinh lien tuc 17/08 -> 23/10), khong doi luat dau tu, khong doi von. Vi cuoc
 # thi khong bat dau vao dau thang nen lich soat dau thang lech pha voi lich cuoc
 # thi; them mot ky soat tai 21/09 de danh muc nop bao cao giai doan 2 la danh
 # muc da duoc soat. Ky 01/10 VAN GIU.
@@ -661,7 +686,8 @@ LICH_SOAT = {
     "chu_ky": "thang",                      # dau moi thang, nhu cu
     "ngay_bo_sung": ("2026-09-21",),         # ky soat them, chi DM2
     "dm_bo_sung": ("DM2",),
-    "het_hieu_luc_sau": "2026-10-17",        # cuoc thi ket thuc -> ve nhip dau thang
+    # Dinh chinh 14/10/2026: cuoc thi ket thuc thu Sau 23/10 (truoc ghi 17/10).
+    "het_hieu_luc_sau": "2026-10-23",        # cuoc thi ket thuc -> ve nhip dau thang
     "han_chot_lenh_mua_ky_bo_sung": "2026-09-25",
 }
 

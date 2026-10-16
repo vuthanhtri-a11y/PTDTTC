@@ -462,6 +462,46 @@
     "phi_ban_va_thue": 7587,
     "rong": 204313
    }
+  },
+  {
+   "ngay": "2026-10-16",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 40,
+   "gia": 14700,
+   "gia_tri": 588000,
+   "phi_dich_vu": 470,
+   "thue": 588,
+   "dong_tien": 586942,
+   "du_tien_mat_sau": 60208573,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 4 (ghi SAU khi khop); bang lenh data/ke_hoach_20261015.txt: VNINDEX 1.698,35 < 1.743,66",
+   "ghi_chu": "Ban 40/140 CP (user bao 16/10). Cung ly do che do GIAM voi lenh 100 CP khop gia 14.750 cung phien. 140 CP thuong GDKHQ 28/08 DA VE TK (ban duoc du 140) — het nhanh 'chua ve' trong ghi chu 05/10. Phi mua phan bo 40/840 x 8.960. Phi TTLK (40 CP) chua ghi.",
+   "lai_lo": {
+    "gop": 54680,
+    "phi_mua_phan_bo": 427,
+    "phi_ban_va_thue": 1058,
+    "rong": 53195
+   }
+  },
+  {
+   "ngay": "2026-10-16",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 100,
+   "gia": 14750,
+   "gia_tri": 1475000,
+   "phi_dich_vu": 1180,
+   "thue": 1475,
+   "dong_tien": 1472345,
+   "du_tien_mat_sau": 61680918,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 4 (ghi SAU khi khop); bang lenh data/ke_hoach_20261015.txt: VNINDEX 1.698,35 < 1.743,66",
+   "ghi_chu": "Ban 100/140 CP, het vi the MSB. Khop rieng gia trong cung phien 16/10 (user bao). Phi mua phan bo 100/840 x 8.960. Phi TTLK (100 CP) chua ghi. Ngay khop 16/10 la gia dinh tu ngay hom nay — user chua noi ro ngay.",
+   "lai_lo": {
+    "gop": 141700,
+    "phi_mua_phan_bo": 1067,
+    "phi_ban_va_thue": 2655,
+    "rong": 137978
+   }
   }
  ],
  "su_kien_phi_tien_mat": [
@@ -531,34 +571,23 @@
   "cong": 819.0,
   "ghi_chu": "CHUA tru khoi so du tien mat trong so nay. Bang chung: neu da tru, NAV dung lai se thap hon sao ke 1.090 d thay vi 271 d. Khi cong ty chung khoan thuc su thu, ghi mot dong chi rieng vao day."
  },
- "vi_the_dang_giu": [
-  {
-   "ma": "MSB",
-   "kl": 140,
-   "gia_von": 13333,
-   "von_goc": 1866620,
-   "phi_mua_con_lai": 1494,
-   "gia_05_10": 14050,
-   "gia_tri": 1967000,
-   "ghi_chu": "140 CP thuong (GDKHQ 28/08), suy ra chua ve TK 05/10. Che do GIAM: ban ngay khi ve (PHIEU_LENH so 1, phan con lai). BSR va DHC da ban het 05/10."
-  }
- ],
+ "vi_the_dang_giu": [],
  "tong_ket": {
-  "so_luot_lenh": 23,
+  "so_luot_lenh": 25,
   "so_lenh_mua": 9,
-  "so_lenh_ban": 14,
-  "tong_gia_tri_giao_dich": 133625000,
-  "tong_phi_dich_vu": 106900,
+  "so_lenh_ban": 16,
+  "tong_gia_tri_giao_dich": 135688000,
+  "tong_phi_dich_vu": 108550,
   "tong_phi_mua": 53532,
-  "tong_phi_ban": 53368,
-  "tong_thue_tncn": 66710,
-  "tong_chi_phi_giao_dich": 173610,
-  "chi_phi_tren_von_goc_pct": 0.2893,
+  "tong_phi_ban": 55018,
+  "tong_thue_tncn": 68773,
+  "tong_chi_phi_giao_dich": 177323,
+  "chi_phi_tren_von_goc_pct": 0.2955,
   "chi_phi_theo_bieu_cu": 199973,
   "tiet_kiem_so_voi_bieu_cu": 74728,
   "_ghi_chu_bieu_cu": "chi_phi_theo_bieu_cu/tiet_kiem_so_voi_bieu_cu CHUA cap nhat lenh BSR 16/09 - chi la so lieu doi chieu cho 15 lenh dau (den 15/09), giu nguyen de khong lam nhoe bang chung 74.729d da chot.",
-  "lai_lo_da_thuc_hien_gop": 1661900,
-  "lai_lo_da_thuc_hien_rong": 1489784,
+  "lai_lo_da_thuc_hien_gop": 1858280,
+  "lai_lo_da_thuc_hien_rong": 1680957,
   "lai_lo_chua_thuc_hien_rong": 26264,
   "co_phieu": 24716000,
   "tien_mat": 35924363,
@@ -572,7 +601,7 @@
   "lai_lo_chua_thuc_hien_gop": 46000,
   "nav_ngay": "2026-09-18",
   "nav_pct_von_goc": 1.067,
-  "_ghi_chu_dem": "Cac truong dem/tong phi/lai lo da thuc hien CAP NHAT 05/10 tinh lai tu toan bo giao_dich (truoc do dung o 16 lenh 18/09). Cac truong NAV/co_phieu/tien_mat ben duoi van la CHOT GIUA KY 18/09 — chot moi o chot_05_10.",
+  "_ghi_chu_dem": "Cac truong dem/tong phi/lai lo da thuc hien CAP NHAT 16/10 tinh lai tu toan bo giao_dich (truoc do dung o 16 lenh 18/09; 05/10: 23 lenh; 16/10: them 2 lenh ban MSB). Cac truong NAV/co_phieu/tien_mat ben duoi van la CHOT GIUA KY 18/09 — chot moi o chot_05_10.",
   "chot_05_10": {
    "tien_mat_so": 59811631,
    "co_phieu": 1967000,
@@ -581,6 +610,15 @@
    "co_tuc_tien_da_nhan": 190000,
    "gia": "MSB 140 CP danh gia o gia khop 14.050 ngay 05/10",
    "chua_tru": "Phi TTLK ban tu 22/09 (400+50+600 CP x 0,3 = 315d) va phi luu ky 09/2026 (387d du tinh) chua tru — tong ~700d. Can sao ke de chot."
+  },
+  "chot_16_10": {
+   "tien_mat_so": 61870918,
+   "co_phieu": 0,
+   "nav": 61870918,
+   "nav_pct_von_goc": 3.118,
+   "co_tuc_tien_da_nhan": 190000,
+   "gia": "Khong con co phieu — NAV = tien mat. MSB 140 CP ban het 16/10 @14.700 (40) va @14.750 (100).",
+   "chua_tru": "Phi TTLK ban tu 22/09 (1.050 CP x 0,3 ~ 315d, gom 140 CP 16/10 ~ 42d) va phi luu ky 09/2026 (387d du tinh) chua tru; phi luu ky 10/2026 = 0 neu cuoi thang khong con CP. Can sao ke de chot."
   }
  },
  "doi_chieu_sao_ke_18_09": {
@@ -603,5 +641,6 @@
    "Chung khoan sao ke cuoi ky 1.050 CP = MSB 700 + BSR 100 + VHM 50 + DHC 200. MSB 140 CP thuong CHUA VE TK (sao ke van 700). So sach giu 840 vi da co quyen tu GDKHQ 28/08.",
    "TK T676318 co lenh POW 1 CP mua 17/08 ban 19/08 - tai khoan khac, khong thuoc DM2."
   ]
- }
+ },
+ "_ghi_chu_vi_the": "16/10/2026: ban het 140 MSB (che do GIAM) -> khong con vi the. Lich su: 05/10 con 140 MSB (CP thuong chua ve TK)."
 }
