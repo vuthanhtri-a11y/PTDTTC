@@ -1,0 +1,69 @@
+NGAY CHAY 2026-10-20 — nhip HANG NGAY (chi luat moi phien, khong mua)
+CHE DO THI TRUONG (2026-10-20): GIAM — tran co phieu 0%  (VNINDEX 1,691.97, MA200 1,796.54, vao GIAM < 1,742.64, ra GIAM > 1,796.54)
+
+MA DUOC PHEP GIAI NGAN (giao diem + Buoc 4 + phieu Dat/Cho + bien an toan), theo uu tien ro roi ATR thap
+
+Ma      UT San       Bien   ATR%    Ty/ph    B4 Nganh       
+------------------------------------------------------------------------
+(khong co ma nao — xem ghi chu ben duoi)
+
+2 ma o giao diem, nhung 2 ma CHUA dat Buoc 4 nen chua duoc phep mua: DGW, PVT
+
+-> Excel: data\bao_cao_dau_tu_20261020.xlsx
+Tong tai san 2 danh muc: 61,695,686 d
+
+==============================================================================
+DM1 — Danh muc 1 — tien that
+KHONG CO DU LIEU VON (HOLDINGS rong va TIEN_MAT = 0).
+Bo qua phan bo. Cap nhat lt_config.py roi chay lai; ban ghi cu o data/lt_config_backup_20260825.py.
+==============================================================================
+
+==============================================================================
+DM2 — Danh muc 2 — tai khoan du thi
+Von ban dau 60,000,000  |  NAV hien tai 61,695,686  |  0/8 o co ung vien
+==============================================================================
+Ma       UT  ATR%      w      Gia      KL       Gia tri   %NAV  Ghi chu
+------------------------------------------------------------------------------
+------------------------------------------------------------------------------
+MUC TIEU CP                                            0   0.0%
+MUC TIEU TM                                   61,695,686 100.0%
+  (danh muc MUC TIEU cua cac o DA co ma o giao diem + Buoc 4 — khong phai trang thai hien tai)
+
+LENH BAN (che do GIAM | quy tac 1, 4 | cham co so | chan cung -25% | cat ve tran):
+  (khong co — moi vi the con tra loi CO cho moi cau hoi)
+
+LENH MUA (o trong sau khi ban, theo uu tien ro roi ATR thap):
+  [KHONG MUA] che do GIAM — khoa mua moi; nhip hang ngay — lenh mua chi dat o ky soat
+  (khong co lenh)
+
+SAU KHI DAT LENH: 0 ma (khong con ma nao)
+  co phieu             0 ( 0.0%)   tien mat    61,695,686 (100.0%)   NAV 61,695,686
+  tran che do GIAM: 0% co phieu
+
+
+SO LENH NGOAI LUAT — nguoi quyet, he thong KHONG sinh ra:
+  #1  2026-09-07  VHM  [da khop]
+      ten      : Lenh chot lai mot phan theo yeu cau nguoi gop von
+      viec     : BAN 50/100 VHM @77.700 (+12,6% tren gia von 69.000)
+      ket thuc : 04/10/2026: ke hoach mua lai HET CAN CU — VHM phu quyet Buoc 3 va che do GIAM khoa mua moi (CHIEN_LUOC_DAI_HAN.md muc 14). Khong mua lai.
+      so hoc   : Khop -> +109.648 d (+0,18% NAV). Khong khop ma VHM len 80.000/85.000 -> -124.712/-374.712 d (-0,21%/-0,62% NAV). Xac suat khop phai dat 53,2%/77,4% moi hoa von.
+      [NGUOC]  : Luat A (chot lai tai muc tieu) co alpha AM tren 56.496 lenh mo phong — xem memory luat-thoat-va-cuoc-thi-dau-tu.
+
+SO LENH QUY TAC 5 — Ban theo cam quan thi truong cua quy (tuy nghi, tu 2026-09-11; DA BO tu 2026-10-05 — chi con la ho so):
+  #1  2026-09-16  DM2  BSR  [da khop]
+      ban      : 100/200 CP @31,300
+      cam quan : Lo ngai chung ve thi truong/nhom nganh dau khi noi rieng, khong phai vi tin xau rieng cua BSR. BSR da tang 27.000 -> 31.300 (+15,9%) tu gia von.
+      hieu luc : gia han den 2026-09-30 (ghi ngay 2026-09-16)
+  #2  2026-09-22  DM2  MSB  [da khop]
+      ban      : 300/840 CP @13,450
+      cam quan : Lo ngai chung ve nganh ngan hang/thi truong, khong phai vi tin xau rieng cua MSB.
+      hieu luc : gia han den 2026-10-17 (ghi ngay 2026-09-23)
+  #3  2026-09-22  DM2  MSB  [da khop]
+      ban      : 50/540 CP @13,500
+      cam quan : Lo ngai chung ve nganh ngan hang/thi truong, khong phai vi tin xau rieng cua MSB — cung ly do voi lenh so 2, khop rieng gia trong cung phien.
+      hieu luc : gia han den 2026-10-17 (ghi ngay 2026-09-23)
+  #4  2026-10-01  DM2  MSB  [da khop]
+      ban      : 50/490 CP @14,200
+      cam quan : Co cau danh muc an toan truoc bien dong cua thi truong, can lai so co phieu dang nam thanh lo chan.
+      hieu luc : toi ky soat ke tiep — allocator duoc mua lai neu ma con qua bon quy tac
+
