@@ -39,7 +39,7 @@ def _ro_co_ban(ctx):
     df = pd.DataFrame(rows)
     sty = ui.bang(df, so_cot={"Thận trọng": 1, "Cơ sở": 1, "Giá": 0, "Điểm": 0}, ngay_cot=["Hết hạn"])
     chi_tiet.bang_chon(df, "cp_ro", sty=sty, ctx=ctx)
-    st.caption("Định giá tính bằng nghìn đồng/CP. Chỉ phiếu **Đạt còn hạn** + Bước 4 `dat` + giá ≤ 0,85 × "
+    st.caption("Định giá tính bằng nghìn đồng/CP. Chỉ phiếu **qua (Đạt/Chờ) còn hạn** + Bước 4 `dat` + giá ≤ 0,85 × "
                "Thận trọng mới mua được (mục 14). Nhãn không có phiếu không đủ.")
 
 

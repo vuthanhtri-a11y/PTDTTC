@@ -50,10 +50,11 @@ class ScreenerTests(unittest.TestCase):
         return screener.buy_checklist(r)
 
     def test_buy_needs_phieu_dat_and_margin_of_safety(self):
-        # Quyet dinh 6-9: chi phieu DAT con han; gia <= 0,85 x than_trong.
+        # Quyet dinh 6-9 (sua 18/10, muc 15.8): phieu DAT/CHO con han; gia <= 0,85 x than_trong.
         self.assertTrue(self.tru2(35_700)['buy_ready'])          # = 0,85 x 42.000
         self.assertFalse(self.tru2(35_800)['buy_ready'])         # bien < 15%
-        self.assertFalse(self.tru2(30_000, phieu_ket_qua='CHO')['buy_ready'])
+        self.assertTrue(self.tru2(30_000, phieu_ket_qua='CHO')['buy_ready'])
+        self.assertFalse(self.tru2(30_000, phieu_ket_qua='PHU QUYET')['buy_ready'])
         self.assertFalse(self.tru2(30_000, phieu_het_han='2026-10-04')['buy_ready'])
         self.assertFalse(self.tru2(30_000, phieu_ket_qua=None)['buy_ready'])
         self.assertFalse(self.tru2(30_000, than_trong=None)['buy_ready'])

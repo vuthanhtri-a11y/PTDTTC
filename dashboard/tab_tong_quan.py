@@ -13,19 +13,23 @@ from lt_config import CHE_DO
 def viec_phai_lam(ctx):
     """[(muc do, noi dung)] — muc do: 'nang' | 'vua' | 'nhe'."""
     out = []
-    kh = ctx.ke_hoach
-    if kh:
-        for l in kh["lenh"]["lenh"]:
-            out.append(("nang", f"**{l['Chiều']} {ui.so(l['KL'])} {l['Mã']}** × {ui.so(l['Giá'])} "
-                                f"({l['DM']}) — {l['Lý do']}"
-                                + (f" · {l['Phiếu']}" if l["Phiếu"] else "")))
-        for c in kh["lenh"]["cham_tay"]:
-            out.append(("vua", f"PHẢI CHẤM TAY: {ui.so(c['KL'])} {c['Mã']} ({c['DM']}) — {c['Vì sao']}"))
+    giu = danh_muc.vi_the_dang_giu()
+    chua = danh_muc.lenh_chua_thuc_hien(ctx.ke_hoach, ctx.phien.ngay)
+    for l in chua["lenh"]:
+        out.append(("nang", f"**{l['Chiều']} {ui.so(l['KL'])} {l['Mã']}** × {ui.so(l['Giá'])} "
+                            f"({l['DM']}) — {l['Lý do']}"
+                            + (f" · {l['Phiếu']}" if l["Phiếu"] else "")))
+    for c in chua["cham_tay"]:
+        out.append(("vua", f"PHẢI CHẤM TAY: {ui.so(c['KL'])} {c['Mã']} ({c['DM']}) — {c['Vì sao']}"))
     for p in lt_config.PHIEU_LENH:
-        if str(p.get("trang_thai", "")).lower() not in ("da khop", "huy", "da huy"):
-            out.append(("vua", f"Phiếu lệnh số {p.get('so')} ({p.get('chieu')} {p.get('kl')} "
-                               f"{p.get('ma')}) đang **{p.get('trang_thai')}**"
-                               + (f": {p.get('khop')}" if p.get("khop") else "")))
+        tt = str(p.get("trang_thai", "")).lower()
+        if tt in ("da khop", "huy", "da huy"):
+            continue
+        if p.get("chieu") == "BAN" and giu.get((p.get("dm"), p.get("ma")), 0) == 0:
+            continue
+        out.append(("vua", f"Phiếu lệnh số {p.get('so')} ({p.get('chieu')} {p.get('kl')} "
+                           f"{p.get('ma')}) đang **{p.get('trang_thai')}**"
+                           + (f": {p.get('khop')}" if p.get("khop") else "")))
     bu_duoc = [d for d in ctx.thieu if not chay.ten_bi_chiem(d)]
     if bu_duoc:
         out.append(("vua", f"Thiếu bản quét {len(bu_duoc)} phiên: "

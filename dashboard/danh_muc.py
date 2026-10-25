@@ -232,3 +232,32 @@ def doc_bang_lenh(path):
         if m:
             khong_mua.append({"DM": dm, "Lý do": m.group(1)})
     return {"lenh": lenh, "cham_tay": cham_tay, "khong_mua": khong_mua}
+
+
+def vi_the_dang_giu():
+    """{(dm, ma): kl} tu lt_config.HOLDINGS cho cac vi the con kl > 0."""
+    return {(dm, ma): kl for dm, rows in lt_config.HOLDINGS.items() for ma, kl, _ in rows if kl > 0}
+
+
+def lenh_chua_thuc_hien(ke_hoach, ngay_phien=None):
+    """Loc bang lenh allocator: bo lenh/vi the da khop trong PHIEU_LENH hoac da ban het khoi HOLDINGS."""
+    if not ke_hoach or "lenh" not in ke_hoach:
+        return {"lenh": [], "cham_tay": []}
+    giu = vi_the_dang_giu()
+    da_khop = {
+        (p.get("dm"), p.get("chieu"), p.get("ma"))
+        for p in lt_config.PHIEU_LENH
+        if str(p.get("trang_thai", "")).lower() == "da khop"
+        and (not ngay_phien or str(p.get("ngay_dat", "")) >= ngay_phien)
+    }
+    lenh = [
+        l for l in ke_hoach["lenh"].get("lenh", [])
+        if (l["DM"], l["Chiều"], l["Mã"]) not in da_khop
+        and not (l["Chiều"] == "BAN" and giu.get((l["DM"], l["Mã"]), 0) == 0)
+    ]
+    cham_tay = [
+        c for c in ke_hoach["lenh"].get("cham_tay", [])
+        if giu.get((c["DM"], c["Mã"]), 0) > 0
+        and (c["DM"], "BAN", c["Mã"]) not in da_khop
+    ]
+    return {"lenh": lenh, "cham_tay": cham_tay}

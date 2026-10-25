@@ -61,7 +61,7 @@ def _bieu_do_nav(ctx):
                   "kiện cổ phiếu sau khi Quỹ bán — tỷ lệ đo từ giá khớp trong sổ)"
                   for ma, (k, d) in nav.attrs.get("he_so", {}).items())
         + "; cổ tức tiền (DHC) làm giá trước ngày GDKHQ thấp hơn giá thô vài phần trăm. Tiền mặt theo "
-        "sổ (không gồm lãi tiền gửi/phí lặt vặt, lệch sao kê 241 đ ngày 18/09).")
+        "sổ (đã đối chiếu khớp 100% sao kê cuối kỳ 21/10/2026: 61.625.643 đ, 0 CP).")
 
 
 def _bang_lenh(ctx):
@@ -72,10 +72,13 @@ def _bang_lenh(ctx):
         return
     st.caption(f"`{kh['path'].name}` — chạy {ui.ngay_vn(kh['ngay_chay'])}, nhịp {ui.NHIP.get(kh['nhip'], kh['nhip'])}.")
     L = kh["lenh"]
+    chua = danh_muc.lenh_chua_thuc_hien(kh, ctx.phien.ngay)
     if L["lenh"]:
         df = pd.DataFrame(L["lenh"])
         chi_tiet.bang_chon(df, "dm_lenh", sty=ui.bang(df, so_cot={"KL": 0, "Giá": 0, "Giá trị": 0,
                                                                   "Phí": 0}), ctx=ctx)
+        if not chua["lenh"]:
+            st.caption("✓ Các lệnh trong bảng kế hoạch này đã khớp / tất toán theo sổ giao dịch & `PHIEU_LENH`.")
     else:
         st.success("Không có lệnh.")
     for k in L["khong_mua"]:
@@ -84,6 +87,8 @@ def _bang_lenh(ctx):
         st.markdown("**PHẢI CHẤM TAY** — không tự động bán, sửa dữ liệu rồi chạy lại:")
         st.dataframe(ui.bang(pd.DataFrame(L["cham_tay"]), so_cot={"KL": 0, "Giá vốn": 0}),
                      hide_index=True, width="stretch")
+        if not chua["cham_tay"]:
+            st.caption("✓ Vị thế cần chấm tay ở phiên này hiện đã bán hết khỏi `lt_config.HOLDINGS`.")
     with st.expander("Toàn văn bảng lệnh"):
         st.code(kh["path"].read_text(encoding="utf-8", errors="replace"), language=None)
 
@@ -158,7 +163,31 @@ def ve(ctx):
                      hide_index=True, width="stretch")
         tk = so["tong_ket"]
         st.caption(f"Phí dịch vụ {ui.so(tk['tong_phi_dich_vu'])} · thuế TNCN {ui.so(tk['tong_thue_tncn'])} · "
-                   f"phí lưu ký ước tính {ui.so(so.get('phi_luu_ky', {}).get('cong'))} (chưa trừ khỏi sổ).")
+                   f"phí lưu ký ước tính {ui.so(so.get('phi_luu_ky', {}).get('cong'))}.")
+    dc_ck = so.get("doi_chieu_sao_ke_cuoi_ky")
+    if dc_ck:
+        with st.expander("Đối chiếu sao kê tiền & chứng khoán cuối kỳ (21/09–21/10/2026)"):
+            st.markdown(
+                f"**Nguồn:** `{dc_ck['nguon']}`  \n"
+                f"**Sao kê tiền:** Đầu kỳ **{ui.so(dc_ck['so_du_dau_ky_tien'])} đ** · "
+                f"Tăng **+{ui.so(dc_ck['tong_tang_tien'])} đ** · "
+                f"Giảm **−{ui.so(dc_ck['tong_giam_tien'])} đ** → "
+                f"Cuối kỳ (21/10): **{ui.so(dc_ck['tien_mat_sao_ke_21_10'])} đ** "
+                f"(lệch sổ: **{ui.so(dc_ck['lech_sao_ke'])} đ**)  \n"
+                f"**Sao kê chứng khoán:** Đầu kỳ **{ui.so(dc_ck['so_du_dau_ky_ck'])} CP** · "
+                f"Tăng **+{ui.so(dc_ck['tong_tang_ck'])} CP** · "
+                f"Giảm **−{ui.so(dc_ck['tong_giam_ck'])} CP** → "
+                f"Cuối kỳ (21/10): **{ui.so(dc_ck['chung_khoan_sao_ke_cuoi_ky'])} CP**  \n"
+                f"**Công thức khớp sổ:** `{dc_ck['cong_thuc']}`"
+            )
+            sk_rows = [
+                {"Ngày": e.get("ngay", ""), "Mã / Mục": e.get("ma", "—"), "Sự kiện": e.get("viec", ""),
+                 "Dòng tiền (đ)": e.get("dong_tien", 0), "Ghi chú": e.get("ghi_chu", "")}
+                for e in so.get("su_kien_phi_tien_mat", [])
+            ]
+            if sk_rows:
+                df_sk = pd.DataFrame(sk_rows)
+                st.dataframe(ui.bang(df_sk, so_cot={"Dòng tiền (đ)": 0}), hide_index=True, width="stretch")
     with st.expander(f"Sổ lệnh ngoài luật ({len(lt_config.LENH_NGOAI_LUAT)}) — người quyết, hệ thống không sinh"):
         for L in lt_config.LENH_NGOAI_LUAT:
             st.markdown(f"**#{L.get('so')} {ui.ngay_vn(L.get('ngay'))} {L.get('ma')}** [{L.get('trang_thai')}] — "

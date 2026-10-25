@@ -8,7 +8,7 @@ Tang:
   0 Toan thi truong         moi ma trong ban quet
   1 Qua loc cung            thanh khoan, gia > MA200, MA50 > MA200 (nhanh MAY)
   2 Giao diem voi ro        trong_ro_co_ban = True (nhanh NGUOI)
-  3 Phieu Dat con han       V1-V5 + ba truc ket luan DAT, chua het han
+  3 Phieu qua con han       V1-V5 + ba truc ket luan DAT/CHO, chua het han
   4 Buoc 4 + bien an toan   buy_ready: buoc4 'dat', gia <= 0,85 x Than trong
   5 Che do cho mua          che do khac GIAM va xac dinh duoc
 """
@@ -20,7 +20,7 @@ from dashboard import nguon  # noqa: F401  dat ROOT vao sys.path truoc lt_*
 import lt_screener          # noqa: E402
 
 TANG = ["Toàn thị trường", "Qua lọc cứng", "Giao điểm với rổ cơ bản",
-        "Phiếu Đạt còn hạn", "Bước 4 + biên an toàn", "Chế độ cho mua"]
+        "Phiếu qua còn hạn", "Bước 4 + biên an toàn", "Chế độ cho mua"]
 
 
 def ly_do_loc_cung(bq):

@@ -12,15 +12,265 @@
   "Chua nhap = chuoi rong. Khong tu dien so khi khong co nguon."
  ],
  "chi_so": {
-  "cpi_yoy": {"ten": "CPI so với cùng kỳ", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []},
-  "lam_phat_co_ban": {"ten": "Lạm phát cơ bản so với cùng kỳ", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []},
-  "gdp_yoy": {"ten": "Tăng trưởng GDP quý (so với cùng kỳ)", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []},
-  "pmi": {"ten": "PMI sản xuất", "don_vi": "điểm", "nguon": "S&P Global", "chuoi": []},
-  "tin_dung_ytd": {"ten": "Tăng trưởng tín dụng từ đầu năm", "don_vi": "%", "nguon": "NHNN", "chuoi": []},
-  "lai_suat_tai_cap_von": {"ten": "Lãi suất tái cấp vốn", "don_vi": "%/năm", "nguon": "NHNN", "chuoi": []},
-  "lai_suat_qua_dem": {"ten": "Lãi suất liên ngân hàng qua đêm", "don_vi": "%/năm", "nguon": "NHNN", "chuoi": []},
-  "ty_gia_trung_tam": {"ten": "Tỷ giá trung tâm USD/VND", "don_vi": "đồng", "nguon": "NHNN", "chuoi": []},
-  "fdi_giai_ngan": {"ten": "FDI giải ngân lũy kế năm", "don_vi": "tỷ USD", "nguon": "Bộ Tài chính", "chuoi": []},
-  "xuat_khau_yoy": {"ten": "Xuất khẩu so với cùng kỳ", "don_vi": "%", "nguon": "Cục Thống kê (GSO)", "chuoi": []}
+  "cpi_yoy": {
+   "ten": "CPI so với cùng kỳ",
+   "don_vi": "%",
+   "nguon": "Cục Thống kê (GSO)",
+   "chuoi": [
+    {
+     "ky": "2026-08",
+     "gia_tri": 4.89,
+     "nguon": "GSO (ky truoc, theo thong cao 03/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://www.nso.gov.vn/wp-content/uploads/2026/10/2.-Thong-cao-bao-chi-ve-tinh-hinh-gia-thang-9-quy-III-va-9-thang-nam-2026.pdf"
+    },
+    {
+     "ky": "2026-09",
+     "gia_tri": 5.08,
+     "nguon": "GSO 03/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://www.nso.gov.vn/wp-content/uploads/2026/10/2.-Thong-cao-bao-chi-ve-tinh-hinh-gia-thang-9-quy-III-va-9-thang-nam-2026.pdf",
+     "ghi_chu": "CPI T9 +0,62% so voi thang truoc; binh quan 9T +4,52%. So uoc tinh lan dau."
+    }
+   ]
+  },
+  "lam_phat_co_ban": {
+   "ten": "Lạm phát cơ bản so với cùng kỳ",
+   "don_vi": "%",
+   "nguon": "Cục Thống kê (GSO)",
+   "chuoi": [
+    {
+     "ky": "2026-08",
+     "gia_tri": 4.55,
+     "nguon": "GSO (ky truoc, theo thong cao 03/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thitruongtaichinhtiente.vn/9-thang-nam-2026-cpi-tang-4-52-lam-phat-co-ban-tang-4-26-86005.html"
+    },
+    {
+     "ky": "2026-09",
+     "gia_tri": 4.45,
+     "nguon": "GSO 03/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thitruongtaichinhtiente.vn/9-thang-nam-2026-cpi-tang-4-52-lam-phat-co-ban-tang-4-26-86005.html",
+     "ghi_chu": "Binh quan 9T +4,26% (8T: +4,24%)."
+    }
+   ]
+  },
+  "gdp_yoy": {
+   "ten": "Tăng trưởng GDP quý (so với cùng kỳ)",
+   "don_vi": "%",
+   "nguon": "Cục Thống kê (GSO)",
+   "chuoi": [
+    {
+     "ky": "2026-Q1",
+     "gia_tri": 8.15,
+     "nguon": "GSO (theo thong cao 03/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://www.nso.gov.vn/?p=62592"
+    },
+    {
+     "ky": "2026-Q2",
+     "gia_tri": 8.81,
+     "nguon": "GSO (theo thong cao 03/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://www.nso.gov.vn/?p=62592"
+    },
+    {
+     "ky": "2026-Q3",
+     "gia_tri": 9.95,
+     "nguon": "GSO 03/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://www.nso.gov.vn/?p=62592",
+     "ghi_chu": "So uoc tinh. GDP 9T +9,01%."
+    }
+   ]
+  },
+  "pmi": {
+   "ten": "PMI sản xuất",
+   "don_vi": "điểm",
+   "nguon": "S&P Global",
+   "chuoi": [
+    {
+     "ky": "2026-08",
+     "gia_tri": 53.3,
+     "nguon": "S&P Global (ky truoc, theo bai 01/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://tapchikinhtetaichinh.vn/chi-so-pmi-dat-51-9-diem-nganh-san-xuat-viet-nam-tiep-tuc-duoc-cai-thien-168404.html"
+    },
+    {
+     "ky": "2026-09",
+     "gia_tri": 51.9,
+     "nguon": "S&P Global 01/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://tapchikinhtetaichinh.vn/chi-so-pmi-dat-51-9-diem-nganh-san-xuat-viet-nam-tiep-tuc-duoc-cai-thien-168404.html",
+     "ghi_chu": "Thang thu 15 lien tiep tren 50; don hang xuat khau moi giam thang thu 2."
+    }
+   ]
+  },
+  "tin_dung_ytd": {
+   "ten": "Tăng trưởng tín dụng từ đầu năm",
+   "don_vi": "%",
+   "nguon": "NHNN",
+   "chuoi": [
+    {
+     "ky": "2026-08-28",
+     "gia_tri": 10.24,
+     "nguon": "NHNN — theo Thong doc (bai 06/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thitruongtaichinhtiente.vn/tin-dung-ngan-hang-9-thang-nam-2026-dong-luc-quan-trong-thuc-day-tang-truong-kinh-te-hai-con-so-86122.html",
+     "ghi_chu": "DSC ghi 10,11% cuoi T8 — lech do khac ngay chot."
+    },
+    {
+     "ky": "2026-09-30",
+     "gia_tri": 11.59,
+     "nguon": "NHNN 06/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thitruongtaichinhtiente.vn/tin-dung-ngan-hang-9-thang-nam-2026-dong-luc-quan-trong-thuc-day-tang-truong-kinh-te-hai-con-so-86122.html",
+     "ghi_chu": "Du no 20,75 trieu ty dong."
+    }
+   ]
+  },
+  "lai_suat_tai_cap_von": {
+   "ten": "Lãi suất tái cấp vốn",
+   "don_vi": "%/năm",
+   "nguon": "NHNN",
+   "chuoi": [
+    {
+     "ky": "2023-06-19",
+     "gia_tri": 4.5,
+     "nguon": "NHNN — QD 1123/QD-NHNN ban hanh 16/06/2023",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://tapchikinhtetaichinh.vn/mat-bang-lai-suat-da-khac-gi-so-voi-dau-nam-159426.html",
+     "ghi_chu": "Hieu luc tu 19/06/2023, giu nguyen den 10/2026 (kiem lai 12/10/2026). Ky = ngay hieu luc, khong phai ngay cong bo so lieu."
+    }
+   ]
+  },
+  "lai_suat_qua_dem": {
+   "ten": "Lãi suất liên ngân hàng qua đêm",
+   "don_vi": "%/năm",
+   "nguon": "NHNN",
+   "chuoi": [
+    {
+     "ky": "2026-10-02",
+     "gia_tri": 2.73,
+     "nguon": "SUY RA tu muc giam 1,74 dpt (bai 09/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thoibaotaichinhvietnam.vn/thi-truong-tien-te-tuan-5-9-10-lai-suat-qua-dem-xuong-duoi-1-vnd-thuoc-nhom-hiem-hoi-tang-gia-truoc-usd-205168.html",
+     "ghi_chu": "Khong phai so cong bo truc tiep."
+    },
+    {
+     "ky": "2026-10-05",
+     "gia_tri": 2.05,
+     "nguon": "NHNN (theo bai 09/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thoibaotaichinhvietnam.vn/thi-truong-tien-te-tuan-5-9-10-lai-suat-qua-dem-xuong-duoi-1-vnd-thuoc-nhom-hiem-hoi-tang-gia-truoc-usd-205168.html"
+    },
+    {
+     "ky": "2026-10-07",
+     "gia_tri": 0.72,
+     "nguon": "NHNN (theo bai 09/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thoibaotaichinhvietnam.vn/thi-truong-tien-te-tuan-5-9-10-lai-suat-qua-dem-xuong-duoi-1-vnd-thuoc-nhom-hiem-hoi-tang-gia-truoc-usd-205168.html"
+    },
+    {
+     "ky": "2026-10-08",
+     "gia_tri": 0.99,
+     "nguon": "NHNN (theo bai 09/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thoibaotaichinhvietnam.vn/thi-truong-tien-te-tuan-5-9-10-lai-suat-qua-dem-xuong-duoi-1-vnd-thuoc-nhom-hiem-hoi-tang-gia-truoc-usd-205168.html",
+     "ghi_chu": "Bien dong manh theo ngay."
+    }
+   ]
+  },
+  "ty_gia_trung_tam": {
+   "ten": "Tỷ giá trung tâm USD/VND",
+   "don_vi": "đồng",
+   "nguon": "NHNN",
+   "chuoi": [
+    {
+     "ky": "2026-10-02",
+     "gia_tri": 25636,
+     "nguon": "SUY RA = 25.629 + 7 (bai 09/10/2026)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thoibaotaichinhvietnam.vn/thi-truong-tien-te-tuan-5-9-10-lai-suat-qua-dem-xuong-duoi-1-vnd-thuoc-nhom-hiem-hoi-tang-gia-truoc-usd-205168.html",
+     "ghi_chu": "Khong phai so cong bo truc tiep."
+    },
+    {
+     "ky": "2026-10-09",
+     "gia_tri": 25629,
+     "nguon": "NHNN 09/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thoibaotaichinhvietnam.vn/thi-truong-tien-te-tuan-5-9-10-lai-suat-qua-dem-xuong-duoi-1-vnd-thuoc-nhom-hiem-hoi-tang-gia-truoc-usd-205168.html",
+     "ghi_chu": "Chua co so 12/10 luc nhap."
+    }
+   ]
+  },
+  "fdi_giai_ngan": {
+   "ten": "FDI giải ngân lũy kế năm",
+   "don_vi": "tỷ USD",
+   "nguon": "Bộ Tài chính",
+   "chuoi": [
+    {
+     "ky": "2026-08",
+     "gia_tri": 17.25,
+     "nguon": "Cuc Thong ke — Bo Tai chinh (ky truoc, luy ke 8T)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://baodauthau.vn/von-fdi-thuc-hien-9-thang-dat-hon-21-ty-usd-cao-nhat-5-nam-post208924.html"
+    },
+    {
+     "ky": "2026-09",
+     "gia_tri": 21.07,
+     "nguon": "Cuc Thong ke — Bo Tai chinh 03/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://baodauthau.vn/von-fdi-thuc-hien-9-thang-dat-hon-21-ty-usd-cao-nhat-5-nam-post208924.html",
+     "ghi_chu": "Luy ke 9T, +12,1% svck, cao nhat 5 nam. FDI dang ky 9T: 50,36 ty USD."
+    }
+   ]
+  },
+  "xuat_khau_yoy": {
+   "ten": "Xuất khẩu so với cùng kỳ",
+   "don_vi": "%",
+   "nguon": "Cục Thống kê (GSO)",
+   "chuoi": [
+    {
+     "ky": "2026-08",
+     "gia_tri": 22.4,
+     "nguon": "GSO (ky truoc, luy ke 8T)",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thuehaiquan.tapchikinhtetaichinh.vn/xuat-khau-vuot-moc-434-ty-usd-168586.html",
+     "ghi_chu": "Luy ke 8T 374,84 ty USD."
+    },
+    {
+     "ky": "2026-09",
+     "gia_tri": 24.5,
+     "nguon": "GSO 03/10/2026",
+     "ngay_nhap": "2026-10-12",
+     "nhap_tu": "data/Vi_mo_Viet_Nam_12-10-2026.xlsx",
+     "link": "https://thuehaiquan.tapchikinhtetaichinh.vn/xuat-khau-vuot-moc-434-ty-usd-168586.html",
+     "ghi_chu": "Luy ke 9T 434,30 ty USD. Nhap khau 9T +36,7%; T9 xuat sieu 1,27 ty USD."
+    }
+   ]
+  }
  }
 }

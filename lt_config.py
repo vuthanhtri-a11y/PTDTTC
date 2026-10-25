@@ -25,7 +25,7 @@ cong bo o Muc 9 bao cao giai doan 1 (tr.69-73):
   * TRU 1 — CHE_DO thi truong (lt_che_do.py): VNINDEX so voi MA50/MA200 + phien
     phan phoi -> TANG / DIEU_CHINH / GIAM; dat TRAN ty trong co phieu. GIAM =
     ban toan bo, khoa mua moi.
-  * TRU 2 — nam cong V1-V5 + ba truc (phieu Dat) + bien an toan kep: mua khi
+  * TRU 2 — nam cong V1-V5 + ba truc (phieu Dat/Cho, 18/10) + bien an toan kep: mua khi
     gia <= (1 - BIEN_AN_TOAN_MIN) x than_trong; ban khi gia cham co_so.
   * Xac nhan xu huong o dau vao: gia > MA200, MA50 > MA200 (RS va ATR da bo).
   * Quy tac 5 (ban theo cam quan) BO tu 05/10; moi lenh can PHIEU_LENH ghi truoc.
@@ -211,7 +211,24 @@ HOLDINGS = {
 #              60.398.573 + 1.472.345 (ban 100 MSB @14.750) = 61.870.918
 #   100% tien mat, NAV 61.870.918 (+3,12% von goc). Phi TTLK ban tu 22/09 (~315d)
 #   + luu ky 09 (~387d) chua tru.
-TIEN_MAT = {"DM1": 0, "DM2": 61_870_918}
+# 20/10/2026 — DOI CHIEU SAO KE TIEN 20/09-20/10 (Sao_ke_tien_dot2.xlsx): 7/7 lenh
+#   ban khop; sao ke cuoi 07/10 = 59.636.399. Sua so:
+#     -190.000  go co tuc DHC (user bao 05/10, KHONG co dong nao tren sao ke)
+#     +14.768   khoan ngoai so: chenh dau ky 20/09 vs cuoi ky 18/09 (+13.277, chua
+#               truy duoc), lai 09 (+2.133), luu ky 09 (-323), TTLK (-315), lam tron (-4)
+#   59.636.399 + 586.942 + 1.472.345 (ban 140 MSB 16/10, cho T+2 ve 20/10) = 61.695.686
+#   NAV 61.695.686 (+2,83% von goc). Chua tru: TTLK 140 CP 16/10 (~42d).
+#   CHO XAC NHAN: co tuc DHC 190.000d da ve TK chua? Neu ve, cong lai 190.000.
+#   Sao luu truoc khi sua: data/lt_config_backup_20261020.py
+# 25/10/2026 — DOI CHIEU SAO KE CUOI KY 21/09-21/10 (Sao_ke_tien_cuoi_ky.xlsx +
+#   Sao_ke_chung_khoan_cuoi_ky.xlsx): 2 lenh ban 140 MSB 16/10 thanh toan T+2 ngay 20/10:
+#     -1        lam tron phi ban 100 MSB @14.750 (738 + 443 = 1.181 vs 1.180)
+#     -42       phi chuyen khoan TTLK 140 CP x 0,3d
+#     -70.000   thue TNCN co tuc/CP thuong khi ban 140 MSB (40 + 100 CP x 10.000d x 5%)
+#   61.695.686 - 70.043 = 61.625.643 (khop 100% so du cuoi ky sao ke tien 21/10; CK cuoi ky = 0 CP).
+#   NAV 61.625.643 (+2,71% von goc). Co tuc DHC van chua co tren sao ke den 21/10.
+#   Sao luu truoc khi sua: data/lt_config_backup_20261025.py
+TIEN_MAT = {"DM1": 0, "DM2": 61_625_643}
 
 # ------------------------------------------------- Lenh ngoai luat (co y thuc)
 # Quy dinh: nhung quyet dinh KHONG sinh ra tu bon quy tac thoat / bang xep hang

@@ -174,7 +174,7 @@ def mo(ma, ctx):
                 st.markdown(f"{'✅' if ok else '❌'} {TEN_CHECK.get(k, k)}")
             st.markdown(f"{'✅' if cand.get('trong_ro_co_ban') is True else '❌'} Trong rổ cơ bản"
                         + (f" — {cand.get('ly_do_ro')}" if cand.get("ly_do_ro") else ""))
-            st.markdown(f"{'✅' if cand.get('phieu_ok') else '❌'} Phiếu Đạt còn hạn"
+            st.markdown(f"{'✅' if cand.get('phieu_ok') else '❌'} Phiếu qua (Đạt/Chờ) còn hạn"
                         + (f" — {cand.get('ly_do_phieu')}" if cand.get("ly_do_phieu") else ""))
             st.markdown(f"{'✅' if cand.get('bien_an_toan_ok') else '❌'} Biên an toàn ≥ "
                         f"{lt_config.BIEN_AN_TOAN_MIN:.0%}"

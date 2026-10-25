@@ -54,7 +54,10 @@
   "data/scan_20260817.json",
   "lt_config.py",
   "bay ban sao luu lt_config (20260825 -> 20260915)",
-  "NAV sao ke 60.444.027 do user cung cap 15/09/2026"
+  "NAV sao ke 60.444.027 do user cung cap 15/09/2026",
+  "data/Sao_ke_tien.xlsx + data/Sao_ke_chung_khoan.xlsx (TK T676311, den 18/09/2026)",
+  "data/Sao_ke_tien_dot2.xlsx + data/Sao_ke_chung_khoan (1).xlsx (TK T676311, 20/09-20/10/2026)",
+  "data/Sao_ke_tien_cuoi_ky.xlsx + data/Sao_ke_chung_khoan_cuoi_ky.xlsx (TK T676311, 21/09-21/10/2026)"
  ],
  "giao_dich": [
   {
@@ -542,6 +545,41 @@
    "dong_tien": 190000,
    "ghi_chu": "190.000 = 950d/CP thuc nhan. Kha nang la 1.000d/CP (200.000) tru 5% thue TNCN khau tru tai nguon — SUY LUAN, chua doi chieu sao ke/ngay GDKHQ. Ngay tien ve TK chua ro; tam ghi 05/10.",
    "du_tien_mat_sau": 59811631
+  },
+  {
+   "ngay": "2026-10-20",
+   "ma": "DHC",
+   "viec": "DIEU CHINH: go co tuc tien DHC 190.000d ghi 05/10 — KHONG co dong nao tren sao ke tien 20/09-20/10",
+   "dong_tien": -190000,
+   "ghi_chu": "Khoan 190.000d ghi 05/10 theo loi user bao, chua tung doi chieu sao ke (xem su kien 05/10). Sao ke tien T676311 den 20/10 khong co dong 'co tuc' nao nen khong the tinh vao tien mat. Go ra khoi NAV cho toi khi sao ke cho thay tien ve; khi ve, ghi lai +190.000d (hoac so thuc nhan) voi ngay thuc nhan. Ban ghi 05/10 giu nguyen de truy vet."
+  },
+  {
+   "ngay": "2026-10-20",
+   "ma": "DM2_DOI_CHIEU",
+   "viec": "DOI CHIEU SAO KE TIEN 20/09-20/10: cac khoan ngoai so cong lai",
+   "dong_tien": 14768,
+   "chi_tiet": {
+    "chenh_so_du_dau_ky_20_09_so_voi_cuoi_ky_18_09": 13277,
+    "lai_tien_gui_thang_09 (25/09)": 2133,
+    "phi_luu_ky_thang_09 (01/10)": -323,
+    "phi_chuyen_khoan_TTLK (24/09, 05/10, 07/10)": -315,
+    "lam_tron_phi_tung_lenh (4 lenh ban lech 1d)": -4
+   },
+   "ghi_chu": "CHENH 13.277d GIUA SO DU CUOI KY 18/09 (35.924.363) VA SO DU DAU KY 20/09 (35.937.640) KHONG TRUY DUOC: hai sao ke khong chung dong nao 19-20/09 (cuoi tuan). Nhieu kha nang la khoan MBS ghi vao 18/09 sau khi xuat sao ke truoc — chua xac nhan. Cac khoan con lai khop tung dong."
+  },
+  {
+   "ngay": "2026-10-21",
+   "ma": "DM2_SAO_KE_CUOI_KY",
+   "viec": "DOI CHIEU SAO KE CUOI KY 21/09-21/10: T+2 lenh ban 140 MSB (16/10) thanh toan 20/10",
+   "dong_tien": -70043,
+   "chi_tiet": {
+    "thue_tncn_co_tuc_cp_msb_40_cp (20/10, 40 x 10.000 x 5%)": -20000,
+    "thue_tncn_co_tuc_cp_msb_100_cp (20/10, 100 x 10.000 x 5%)": -50000,
+    "phi_chuyen_khoan_TTLK_140_cp (20/10, 140 x 0,3d)": -42,
+    "lam_tron_phi_ban_100_msb_16_10 (20/10, 738+443=1.181 vs 1.180)": -1
+   },
+   "du_tien_mat_sau": 61625643,
+   "ghi_chu": "Sao ke tien cuoi ky (data/Sao_ke_tien_cuoi_ky.xlsx, 21/09-21/10/2026) va sao ke CK cuoi ky (data/Sao_ke_chung_khoan_cuoi_ky.xlsx): 2 lenh ban 140 MSB ngay 16/10 (40@14.700 + 100@14.750) thanh toan T+2 ngay 20/10. Tien ban ve TK: 588.000 - 588 - 294 - 176 = 586.942d (khop so) va 1.475.000 - 1.475 - 738 - 443 = 1.472.344d (lech -1d so voi 1.472.345d trong so do tach phi 0,05%+0,03%). MBS khau tru them: phi chuyen khoan TTLK 140 CP x 0,3d = 42d, va thue TNCN dau tu von 5% tren menh gia 10.000d/CP khi ban 140 CP thuong/co tuc MSB (40 CP -> 20.000d, 100 CP -> 50.000d, tong 70.000d). So du tien cuoi ky 21/10 = 61.625.643d; so du CK cuoi ky = 0 CP."
   }
  ],
  "lenh_khong_khop": [
@@ -565,11 +603,13 @@
    {
     "thang": "09/2026",
     "so_cp": 1290,
-    "phi": 387.0
+    "phi": 387.0,
+    "thuc_thu": 323,
+    "ngay_thu": "2026-10-01"
    }
   ],
   "cong": 819.0,
-  "ghi_chu": "CHUA tru khoi so du tien mat trong so nay. Bang chung: neu da tru, NAV dung lai se thap hon sao ke 1.090 d thay vi 271 d. Khi cong ty chung khoan thuc su thu, ghi mot dong chi rieng vao day."
+  "ghi_chu": "CHUA tru khoi so du tien mat trong so nay. Bang chung: neu da tru, NAV dung lai se thap hon sao ke 1.090 d thay vi 271 d. Khi cong ty chung khoan thuc su thu, ghi mot dong chi rieng vao day. | 20/10: thang 09/2026 thuc thu 323d (du tinh 387d), da nam trong su kien doi chieu 20/10."
  },
  "vi_the_dang_giu": [],
  "tong_ket": {
@@ -619,6 +659,24 @@
    "co_tuc_tien_da_nhan": 190000,
    "gia": "Khong con co phieu — NAV = tien mat. MSB 140 CP ban het 16/10 @14.700 (40) va @14.750 (100).",
    "chua_tru": "Phi TTLK ban tu 22/09 (1.050 CP x 0,3 ~ 315d, gom 140 CP 16/10 ~ 42d) va phi luu ky 09/2026 (387d du tinh) chua tru; phi luu ky 10/2026 = 0 neu cuoi thang khong con CP. Can sao ke de chot."
+  },
+  "chot_20_10": {
+   "tien_mat_so": 61695686,
+   "co_phieu": 0,
+   "nav": 61695686,
+   "nav_pct_von_goc": 2.826,
+   "co_tuc_tien_da_nhan": 0,
+   "gia": "Khong con co phieu — NAV = tien mat doi chieu sao ke 20/10 (gom 2.059.287 tien ban 16/10 dang cho ve T+2).",
+   "chua_tru": "Phi TTLK 140 CP ban 16/10 (~42d). Co tuc DHC 190.000d da go ra cho den khi sao ke xac nhan."
+  },
+  "chot_21_10": {
+   "tien_mat_so": 61625643,
+   "co_phieu": 0,
+   "nav": 61625643,
+   "nav_pct_von_goc": 2.709,
+   "co_tuc_tien_da_nhan": 0,
+   "gia": "Khong con co phieu — NAV = tien mat khop 100% so du cuoi ky sao ke 21/10/2026 (61.625.643d, 0 CP).",
+   "chua_tru": "Khong con khoan nao chua tru. T+2 cua 2 lenh ban 140 MSB (16/10) da thanh toan 20/10 (phi TTLK -42d, lam tron phi -1d, thue TNCN co tuc CP 5% menh gia -70.000d)."
   }
  },
  "doi_chieu_sao_ke_18_09": {
@@ -642,5 +700,68 @@
    "TK T676318 co lenh POW 1 CP mua 17/08 ban 19/08 - tai khoan khac, khong thuoc DM2."
   ]
  },
- "_ghi_chu_vi_the": "16/10/2026: ban het 140 MSB (che do GIAM) -> khong con vi the. Lich su: 05/10 con 140 MSB (CP thuong chua ve TK)."
+ "_ghi_chu_vi_the": "16/10/2026: ban het 140 MSB (che do GIAM) -> khong con vi the. Lich su: 05/10 con 140 MSB (CP thuong chua ve TK). | 20/10: sao ke chung khoan T676311 cuoi ky 140 MSB = 2 lenh ban 16/10 chua thanh toan T+2, khop so (0 CP sau T+2). | 21/10 (sao ke cuoi ky): 2 lenh ban 140 MSB 16/10 da xuat ban va thanh toan T+2 ngay 20/10 -> so du CK cuoi ky = 0 CP, tien mat cuoi ky = 61.625.643d.",
+ "doi_chieu_sao_ke_20_10": {
+  "nguon": "data/Sao_ke_tien_dot2.xlsx + data/Sao_ke_chung_khoan (1).xlsx (TK T676311, 20/09-20/10/2026)",
+  "tien_mat_sao_ke_07_10": 59636399,
+  "so_du_dau_ky": 35937640,
+  "tong_tang": 23742133,
+  "tong_giam": 43374,
+  "lenh_ban_dung_sao_ke": "7/7 lenh ban (MSB 50, MSB 300, VHM 50 ngay 22/09; MSB 50 ngay 01/10; BSR 100, DHC 200, MSB 300 ngay 05/10): gia, KL khop; tien ve sai so so voi so <= 1d moi lenh (lam tron phi 0,05%+0,03%)",
+  "chung_khoan_sao_ke_cuoi_ky": 140,
+  "giai_thich_140_cp": "140 MSB thuong: ve TK 06/10 (trang thai 07), chuyen sang 'Thuong' 15/10, CHUA xuat ban vi 2 lenh 16/10 (40@14.700 + 100@14.750) thanh toan T+2 = 20/10, sao ke xuat som 20/10. Dung nhu so.",
+  "tien_ban_16_10_chua_ve": 2059287,
+  "tien_mat_so_20_10": 61695686,
+  "cong_thuc": "59.636.399 (sao ke 07/10) + 586.942 + 1.472.345 (ban 140 MSB 16/10, cho T+2) = 61.695.686",
+  "lech_so_cu_61_870_918": -175232,
+  "giai_thich_lech": "-190.000 (go co tuc DHC khong co tren sao ke) + 14.768 (cac khoan ngoai so, xem su kien 20/10)",
+  "chua_tru": "Phi TTLK 140 CP ban 16/10 (~42d) va lam tron (~1d) se hien khi 16/10 thanh toan. Phi luu ky thang 10 = 0 neu cuoi thang khong con CP.",
+  "cho_xac_nhan": [
+   "Co tuc DHC 190.000d: khong co tren sao ke tien den 20/10. User bao 05/10. Can xac nhan da nhan chua, vao tai khoan nao.",
+   "Chenh +13.277d giua cuoi ky 18/09 va dau ky 20/09.",
+   "Dong tien ban 16/10 phai hien tren sao ke ke tiep (ky vong 586.942 + 1.472.344 hoac 1.472.345, tru TTLK ~42d)."
+  ]
+ },
+ "doi_chieu_sao_ke_cuoi_ky": {
+  "nguon": "data/Sao_ke_tien_cuoi_ky.xlsx + data/Sao_ke_chung_khoan_cuoi_ky.xlsx (TK T676311, 21/09-21/10/2026)",
+  "so_du_dau_ky_tien": 35937640,
+  "tong_tang_tien": 25805133,
+  "tong_giam_tien": 117130,
+  "tien_mat_sao_ke_21_10": 61625643,
+  "so_du_dau_ky_ck": 1050,
+  "tong_tang_ck": 280,
+  "tong_giam_ck": 1330,
+  "chung_khoan_sao_ke_cuoi_ky": 0,
+  "thanh_toan_t2_20_10": {
+   "ban_40_msb_14700_16_10": {
+    "gia_tri": 588000,
+    "thue_chuyen_nhuong_0_1pct": -588,
+    "phi_dich_vu_0_05pct": -294,
+    "phi_ban_0_03pct": -176,
+    "thuc_nhan_lenh": 586942,
+    "lech_so": 0
+   },
+   "ban_100_msb_14750_16_10": {
+    "gia_tri": 1475000,
+    "thue_chuyen_nhuong_0_1pct": -1475,
+    "phi_dich_vu_0_05pct": -738,
+    "phi_ban_0_03pct": -443,
+    "thuc_nhan_lenh": 1472344,
+    "lech_so": -1
+   },
+   "phi_chuyen_khoan_TTLK_140_cp": -42,
+   "thue_co_tuc_cp_msb_40_cp": -20000,
+   "thue_co_tuc_cp_msb_100_cp": -50000
+  },
+  "tien_mat_so_21_10": 61625643,
+  "cong_thuc": "61.695.686 (so 20/10 truoc T+2) - 1 (lam tron phi 100 MSB) - 42 (phi TTLK 140 CP) - 70.000 (thue TNCN 5% menh gia 10.000d khi ban 140 CP co tuc MSB) = 61.625.643",
+  "lech_so_20_10_61_695_686": -70043,
+  "lech_sao_ke": 0,
+  "ghi_chu": [
+   "Sao ke tien cuoi ky (45 dong, STT 1-45) va sao ke CK cuoi ky (12 dong, STT 1-12) khop 100% voi so giao dich: so du tien cuoi ky 61.625.643d (lech 0d), so du CK cuoi ky 0 CP.",
+   "2 lenh ban 140 MSB ngay 16/10 (40@14.700 + 100@14.750) da xuat ban CK va thanh toan tien T+2 ngay 20/10.",
+   "Khoan -70.000d (20.000d + 50.000d) la thue TNCN dau tu von 5% tren menh gia 10.000d/CP khau tru khi ban 140 CP thuong/co tuc MSB (GDKHQ 28/08, ty le 100:20).",
+   "Den het 21/10/2026 van khong co dong co tuc tien DHC (190.000d) tren sao ke — xac nhan viec go ra ngay 20/10 la dung."
+  ]
+ }
 }

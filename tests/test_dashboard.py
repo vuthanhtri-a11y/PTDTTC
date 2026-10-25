@@ -135,6 +135,30 @@ class DanhMucTests(unittest.TestCase):
         self.assertEqual(tien, self.so["tong_ket"]["chot_16_10"]["nav"])
         self.assertEqual(danh_muc.nav_tai("2026-10-16", {}, self.so), 61_870_918)
 
+    def test_nav_20_10_khop_sao_ke(self):
+        """Tien mat so = sao ke 07/10 + tien ban 16/10 dang cho T+2; lech so cu = -190.000 + 14.768."""
+        dc = self.so["doi_chieu_sao_ke_20_10"]
+        vt, tien = danh_muc.trang_thai("2026-10-20", self.so)
+        self.assertEqual(vt, {})
+        self.assertEqual(tien, dc["tien_mat_so_20_10"])
+        self.assertEqual(tien, dc["tien_mat_sao_ke_07_10"] + dc["tien_ban_16_10_chua_ve"])
+        self.assertEqual(tien - 61_870_918, dc["lech_so_cu_61_870_918"])
+        self.assertEqual(tien, self.so["tong_ket"]["chot_20_10"]["nav"])
+        ngoai_so = next(e for e in self.so["su_kien_phi_tien_mat"] if e.get("ma") == "DM2_DOI_CHIEU")
+        self.assertEqual(sum(ngoai_so["chi_tiet"].values()), ngoai_so["dong_tien"])
+
+    def test_nav_21_10_khop_sao_ke_cuoi_ky(self):
+        """Sao ke cuoi ky 21/09-21/10: sau T+2 ngay 20/10 (tru TTLK 42d, lam tron 1d, thue co tuc CP 70.000d) -> 61.625.643."""
+        dc = self.so["doi_chieu_sao_ke_cuoi_ky"]
+        vt, tien = danh_muc.trang_thai("2026-10-21", self.so)
+        self.assertEqual(vt, {})
+        self.assertEqual(tien, dc["tien_mat_sao_ke_21_10"])
+        self.assertEqual(tien, dc["so_du_dau_ky_tien"] + dc["tong_tang_tien"] - dc["tong_giam_tien"])
+        self.assertEqual(tien - 61_695_686, dc["lech_so_20_10_61_695_686"])
+        self.assertEqual(tien, self.so["tong_ket"]["chot_21_10"]["nav"])
+        sk = next(e for e in self.so["su_kien_phi_tien_mat"] if e.get("ma") == "DM2_SAO_KE_CUOI_KY")
+        self.assertEqual(sum(sk["chi_tiet"].values()), sk["dong_tien"])
+
     def test_lai_lo_da_thuc_hien_gan_so(self):
         ll = danh_muc.lai_lo_da_thuc_hien(self.so)
         self.assertEqual(len(ll), self.so["tong_ket"]["so_lenh_ban"])
@@ -166,6 +190,41 @@ class DanhMucTests(unittest.TestCase):
         self.assertTrue(all(l["DM"] == "DM2" and l["Phiếu"].startswith("phieu so") for l in L["lenh"]))
         self.assertEqual(len(L["cham_tay"]), 3)
         self.assertIn("che do GIAM", L["khong_mua"][0]["Lý do"])
+
+    def test_lenh_chua_thuc_hien_sau_ban_het_16_10(self):
+        from unittest import mock
+        import lt_config
+        kh_1510 = {"lenh": danh_muc.doc_bang_lenh(nguon.DATA / "ke_hoach_20261015.txt")}
+        chua = danh_muc.lenh_chua_thuc_hien(kh_1510, "2026-10-15")
+        self.assertEqual(chua, {"lenh": [], "cham_tay": []})
+        with mock.patch.dict(lt_config.HOLDINGS, {"DM1": [], "DM2": [("MSB", 140, 13_333)]}), \
+             mock.patch.object(lt_config, "PHIEU_LENH", []):
+            chua_truoc = danh_muc.lenh_chua_thuc_hien(kh_1510, "2026-10-15")
+            self.assertEqual(len(chua_truoc["lenh"]), 1)
+            self.assertEqual(len(chua_truoc["cham_tay"]), 1)
+
+
+class MediciRegimeTests(unittest.TestCase):
+    def test_nhan_ms_va_mo_phong_student_t(self):
+        import numpy as np
+        import medici_regime as mr
+        self.assertEqual(mr.nhan_ms([34.0, -61.0], [11.7, 29.5], 2),
+                         ["Tăng / Biến động thấp", "Giảm / Biến động cao"])
+        self.assertEqual(mr.nhan_ms([35.6, 25.0, -110.0], [15.0, 9.4, 33.7], 3),
+                         ["Tăng – sôi động", "Tăng – êm (biến động thấp)", "Giảm/Hoảng loạn"])
+        P = np.array([[0.95, 0.05], [0.10, 0.90]])
+        scen, gt = mr.mo_phong_kich_ban(1700.0, [0.9, 0.1], np.array([0.1, -0.2]),
+                                        np.array([0.5, 3.0]), P, [7, 21], n_sim=5000, nu=5.1)
+        self.assertLess(scen[7]["p5"], scen[7]["p50"])
+        self.assertLess(scen[7]["p50"], scen[7]["p95"])
+        self.assertAlmostEqual(sum(gt[21]), 1.0, places=6)
+
+    def test_chi_so_hieu_qua_vol_bang_0_khong_loi(self):
+        import numpy as np
+        import medici_regime as mr
+        r_const = pd.Series([0.0002] * 250)
+        m = mr.chi_so_hieu_qua(r_const, 0.05)
+        self.assertTrue(np.isnan(m["Sharpe"]))
 
 
 class DayGithubTests(unittest.TestCase):

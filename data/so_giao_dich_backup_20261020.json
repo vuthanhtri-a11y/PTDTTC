@@ -1,0 +1,646 @@
+{
+ "_huong_dan": [
+  "SO GIAO DICH DM2 — ban 2, dung lai 15/09/2026 theo BIEU PHI DUNG.",
+  "So goc cho bao cao cuoi ky. Moi lenh moi phai vao day NGAY khi khop,",
+  "truoc khi sua HOLDINGS/TIEN_MAT trong lt_config.py.",
+  "",
+  "BIEU PHI (sua 15/09/2026, thay cho 0,15%/0,25% dung tu dau):",
+  "  phi dich vu  0,08% gia tri giao dich — ap CA hai chieu mua va ban",
+  "  thue TNCN    0,10% gia tri ban — chi khi BAN",
+  "  phi luu ky   0,3 d/CP/thang (VSD) — theo THOI GIAN NAM GIU, khong theo lenh",
+  "",
+  "VI SAO BAN 1 SAI: 0,15%/0,25% la gia dinh go vao tu dau, chua bao gio doi",
+  "chieu voi sao ke. Tren 15 lenh (gia tri 106.755.000 d) no tinh thua 74.729 d",
+  "chi phi, tuc bao thieu dung so do o tien mat. Sau diem doi chieu trong cac",
+  "ban sao luu cu (315.607 / 15.826.732 / 8.495.752 / 21.178.965 / 25.054.252 /",
+  "32.725.027) KHOP VOI NHAU vi tat ca cung sai mot kieu — chung xac nhan tinh",
+  "nhat quan cua so, KHONG xac nhan tinh dung.",
+  "",
+  "BANG CHUNG CHO BIEU PHI MOI la mot so lieu BEN NGOAI: NAV sao ke 60.444.027",
+  "do user bao ngay 15/09. Chay lai 15 lenh voi 0,08%/0,10% ra NAV 60.443.756",
+  "— lech 271 d, tuc 0,00045%. Voi bieu phi cu, lech la 75.000 d.",
+  "Giai nguoc muc thue an trong NAV sao ke duoc 0,0993% => xac nhan thue 0,10%.",
+  "",
+  "CON 271 D CHUA TRUY DUOC. Khong the do gia co phieu: gia tri 4 vi the luon",
+  "la boi so cua 1.000 d nen khong tao duoc du 271. Vay no nam o TIEN MAT.",
+  "Hai kha nang: lai tien gui tren so du, hoac lam tron cua cong ty chung khoan.",
+  "Can mot dong sao ke de dong lai.",
+  "",
+  "GIA VON VNM 62.500 va BAF 32.150 VAN DUNG sau khi doi bieu phi: chung duoc",
+  "xac dinh bang bang lenh 17/08 (dinh gia ma da roi bo loc bang GIA VON), mot",
+  "duong KHONG phu thuoc vao muc phi. Duong thu hai — giai nguoc tu con so 'lo'",
+  "trong ke_hoach_20260819.txt — nay HET HIEU LUC vi con so lo do chinh no da",
+  "duoc tinh bang bieu phi cu.",
+  "",
+  "QUY UOC LAI/LO (mot chuan duy nhat):",
+  "  gop  = (gia ban - gia von binh quan) x KL, chua tru phi",
+  "  rong = gop - phi mua phan bo - phi ban - thue   <- con so that su vao NAV"
+ ],
+ "von_goc": 60000000,
+ "ngay_dung_so": "2026-09-15",
+ "bieu_phi": {
+  "phi_dich_vu": 0.0008,
+  "thue_tncn_ban": 0.001,
+  "phi_luu_ky_d_cp_thang": 0.3,
+  "hieu_luc": "ap dung hoi to cho toan bo lich su tu von goc",
+  "bieu_phi_cu_da_bo": {
+   "mua": 0.0015,
+   "ban": 0.0025
+  }
+ },
+ "nguon": [
+  "data/ke_hoach_20260817.txt",
+  "data/ke_hoach_20260819.txt",
+  "data/scan_20260817.json",
+  "lt_config.py",
+  "bay ban sao luu lt_config (20260825 -> 20260915)",
+  "NAV sao ke 60.444.027 do user cung cap 15/09/2026"
+ ],
+ "giao_dich": [
+  {
+   "ngay": "truoc 17/08",
+   "loai": "MUA",
+   "ma": "MSB",
+   "kl": 700,
+   "gia": 16000,
+   "gia_tri": 11200000,
+   "phi_dich_vu": 8960,
+   "thue": 0,
+   "dong_tien": -11208960,
+   "du_tien_mat_sau": 48791040,
+   "can_cu": "khung cu",
+   "ghi_chu": "ke thua tu khung cu"
+  },
+  {
+   "ngay": "truoc 17/08",
+   "loai": "MUA",
+   "ma": "VNM",
+   "kl": 200,
+   "gia": 62500,
+   "gia_tri": 12500000,
+   "phi_dich_vu": 10000,
+   "thue": 0,
+   "dong_tien": -12510000,
+   "du_tien_mat_sau": 36281040,
+   "can_cu": "khung cu",
+   "ghi_chu": "ke thua, gia von suy ra"
+  },
+  {
+   "ngay": "truoc 17/08",
+   "loai": "MUA",
+   "ma": "BAF",
+   "kl": 100,
+   "gia": 32150,
+   "gia_tri": 3215000,
+   "phi_dich_vu": 2572,
+   "thue": 0,
+   "dong_tien": -3217572,
+   "du_tien_mat_sau": 33063468,
+   "can_cu": "khung cu",
+   "ghi_chu": "ke thua, gia von suy ra"
+  },
+  {
+   "ngay": "17-19/08",
+   "loai": "MUA",
+   "ma": "BSR",
+   "kl": 200,
+   "gia": 27000,
+   "gia_tri": 5400000,
+   "phi_dich_vu": 4320,
+   "thue": 0,
+   "dong_tien": -5404320,
+   "du_tien_mat_sau": 27659148,
+   "can_cu": "bang lenh 17/08",
+   "ghi_chu": "ke hoach 26.000, khop cao hon 1.000"
+  },
+  {
+   "ngay": "17-19/08",
+   "loai": "MUA",
+   "ma": "GMD",
+   "kl": 100,
+   "gia": 78800,
+   "gia_tri": 7880000,
+   "phi_dich_vu": 6304,
+   "thue": 0,
+   "dong_tien": -7886304,
+   "du_tien_mat_sau": 19772844,
+   "can_cu": "bang lenh 17/08",
+   "ghi_chu": "khop dung ke hoach"
+  },
+  {
+   "ngay": "17-19/08",
+   "loai": "MUA",
+   "ma": "LPB",
+   "kl": 100,
+   "gia": 50800,
+   "gia_tri": 5080000,
+   "phi_dich_vu": 4064,
+   "thue": 0,
+   "dong_tien": -5084064,
+   "du_tien_mat_sau": 14688780,
+   "can_cu": "bang lenh 17/08",
+   "ghi_chu": "ke hoach 50.900"
+  },
+  {
+   "ngay": "17-19/08",
+   "loai": "MUA",
+   "ma": "STB",
+   "kl": 100,
+   "gia": 74200,
+   "gia_tri": 7420000,
+   "phi_dich_vu": 5936,
+   "thue": 0,
+   "dong_tien": -7425936,
+   "du_tien_mat_sau": 7262844,
+   "can_cu": "bang lenh 17/08",
+   "ghi_chu": "khop dung ke hoach"
+  },
+  {
+   "ngay": "17-19/08",
+   "loai": "MUA",
+   "ma": "VHM",
+   "kl": 100,
+   "gia": 69000,
+   "gia_tri": 6900000,
+   "phi_dich_vu": 5520,
+   "thue": 0,
+   "dong_tien": -6905520,
+   "du_tien_mat_sau": 357324,
+   "can_cu": "bang lenh 17/08",
+   "ghi_chu": "ke hoach 68.200, khop cao hon 800"
+  },
+  {
+   "ngay": "2026-08-19",
+   "loai": "BAN",
+   "ma": "VNM",
+   "kl": 200,
+   "gia": 62000,
+   "gia_tri": 12400000,
+   "phi_dich_vu": 9920,
+   "thue": 12400,
+   "dong_tien": 12377680,
+   "du_tien_mat_sau": 12735004,
+   "can_cu": "quy tac thoat 1",
+   "ghi_chu": "MA50 < MA200",
+   "lai_lo": {
+    "gop": -100000,
+    "phi_mua_phan_bo": 10000,
+    "phi_ban_va_thue": 22320,
+    "rong": -132320
+   }
+  },
+  {
+   "ngay": "2026-08-19",
+   "loai": "BAN",
+   "ma": "BAF",
+   "kl": 100,
+   "gia": 31500,
+   "gia_tri": 3150000,
+   "phi_dich_vu": 2520,
+   "thue": 3150,
+   "dong_tien": 3144330,
+   "du_tien_mat_sau": 15879334,
+   "can_cu": "quy tac thoat 2",
+   "ghi_chu": "RS 12T thua VNINDEX",
+   "lai_lo": {
+    "gop": -65000,
+    "phi_mua_phan_bo": 2572,
+    "phi_ban_va_thue": 5670,
+    "rong": -73242
+   }
+  },
+  {
+   "ngay": "2026-09-03",
+   "loai": "MUA",
+   "ma": "DHC",
+   "kl": 200,
+   "gia": 36600,
+   "gia_tri": 7320000,
+   "phi_dich_vu": 5856,
+   "thue": 0,
+   "dong_tien": -7325856,
+   "du_tien_mat_sau": 8553478,
+   "can_cu": "ky soat 09",
+   "ghi_chu": "ke hoach 36.900, khop thap hon 300"
+  },
+  {
+   "ngay": "2026-09-03",
+   "loai": "BAN",
+   "ma": "GMD",
+   "kl": 100,
+   "gia": 78100,
+   "gia_tri": 7810000,
+   "phi_dich_vu": 6248,
+   "thue": 7810,
+   "dong_tien": 7795942,
+   "du_tien_mat_sau": 16349420,
+   "can_cu": "quy tac thoat 3",
+   "ghi_chu": "rot khoi top 40%",
+   "lai_lo": {
+    "gop": -70000,
+    "phi_mua_phan_bo": 6304,
+    "phi_ban_va_thue": 14058,
+    "rong": -90362
+   }
+  },
+  {
+   "ngay": "2026-09-03",
+   "loai": "BAN",
+   "ma": "LPB",
+   "kl": 100,
+   "gia": 49050,
+   "gia_tri": 4905000,
+   "phi_dich_vu": 3924,
+   "thue": 4905,
+   "dong_tien": 4896171,
+   "du_tien_mat_sau": 21245591,
+   "can_cu": "quy tac thoat 3",
+   "ghi_chu": "rot khoi top 40%",
+   "lai_lo": {
+    "gop": -175000,
+    "phi_mua_phan_bo": 4064,
+    "phi_ban_va_thue": 8829,
+    "rong": -187893
+   }
+  },
+  {
+   "ngay": "2026-09-07",
+   "loai": "BAN",
+   "ma": "VHM",
+   "kl": 50,
+   "gia": 77700,
+   "gia_tri": 3885000,
+   "phi_dich_vu": 3108,
+   "thue": 3885,
+   "dong_tien": 3878007,
+   "du_tien_mat_sau": 25123598,
+   "can_cu": "LENH NGOAI LUAT #1",
+   "ghi_chu": "chot lai mot phan",
+   "lai_lo": {
+    "gop": 435000,
+    "phi_mua_phan_bo": 2760,
+    "phi_ban_va_thue": 6993,
+    "rong": 425247
+   }
+  },
+  {
+   "ngay": "2026-09-14",
+   "loai": "BAN",
+   "ma": "STB",
+   "kl": 100,
+   "gia": 76900,
+   "gia_tri": 7690000,
+   "phi_dich_vu": 6152,
+   "thue": 7690,
+   "dong_tien": 7676158,
+   "du_tien_mat_sau": 32799756,
+   "can_cu": "quy tac thoat 4",
+   "ghi_chu": "luan diem gay, phieu 1/6",
+   "lai_lo": {
+    "gop": 270000,
+    "phi_mua_phan_bo": 5936,
+    "phi_ban_va_thue": 13842,
+    "rong": 250222
+   }
+  },
+  {
+   "ngay": "2026-09-16",
+   "loai": "BAN",
+   "ma": "BSR",
+   "kl": 100,
+   "gia": 31300,
+   "gia_tri": 3130000,
+   "phi_dich_vu": 2504,
+   "thue": 3130,
+   "dong_tien": 3124366,
+   "du_tien_mat_sau": 35924122,
+   "can_cu": "QUY_TAC_5 (ban theo cam quan thi truong cua quy)",
+   "ghi_chu": "Ban 50% vi the (100/200 CP) - dung tran 50%. GHI SAU KHI DA KHOP, khong dung thu tu QUY_TAC_5 doi hoi (ghi TRUOC lenh) - le sai quy trinh, ghi lai trung thuc. cam_quan: lo ngai chung ve thi truong/nhom nganh dau khi, khong rieng ve ban than BSR. Chi tiet: LENH_QUY_TAC_5 so 1 trong lt_config.py.",
+   "lai_lo": {
+    "gop": 430000,
+    "phi_mua_phan_bo": 2160,
+    "phi_ban_va_thue": 5634,
+    "rong": 422206
+   }
+  },
+  {
+   "ngay": "2026-09-22",
+   "loai": "BAN",
+   "ma": "VHM",
+   "kl": 50,
+   "gia": 69000,
+   "gia_tri": 3450000,
+   "phi_dich_vu": 2760,
+   "thue": 3450,
+   "dong_tien": 3443790,
+   "du_tien_mat_sau": 39368153,
+   "can_cu": "PHU_QUYET Buoc 3 (13/09/2026, truc A=0 va C=0) -> quy tac thoat 4 (luan diem gay)",
+   "ghi_chu": "Ban TOAN BO 50/50 CP (het vi the). Tin hieu phat sinh 13/09 (TRUOC moc 16/09 cua BAO_LUU_TIN_HIEU), le ra hieu luc thuc thi 01/10 nhung khop SOM hon tai 22/09 theo trinh tu ky soat bo sung 21/09 (LICH_SOAT: 'lenh BAN van dat 22/09'). Ghi nhan lech so voi ke hoach da chot, trung thuc. Gia ban 69.000 = dung gia von -> lai gop = 0.",
+   "lai_lo": {
+    "gop": 0,
+    "phi_mua_phan_bo": 2760,
+    "phi_ban_va_thue": 6210,
+    "rong": -8970
+   }
+  },
+  {
+   "ngay": "2026-09-22",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 300,
+   "gia": 13450,
+   "gia_tri": 4035000,
+   "phi_dich_vu": 3228,
+   "thue": 4035,
+   "dong_tien": 4027737,
+   "du_tien_mat_sau": 43395890,
+   "can_cu": "QUY_TAC_5 (ban theo cam quan thi truong cua quy)",
+   "ghi_chu": "Ban 300/840 CP (35,7% vi the, duoi tran 50%). Ghi vao LENH_QUY_TAC_5 so 2 trong lt_config.py. cam_quan: lo ngai chung ve nganh ngan hang/thi truong, khong rieng ve ban than MSB. GHI SAU KHI DA KHOP (le sai quy trinh nhu BSR 16/09), ghi lai trung thuc.",
+   "lai_lo": {
+    "gop": 35100,
+    "phi_mua_phan_bo": 3200,
+    "phi_ban_va_thue": 7263,
+    "rong": 24637
+   }
+  },
+  {
+   "ngay": "2026-09-22",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 50,
+   "gia": 13500,
+   "gia_tri": 675000,
+   "phi_dich_vu": 540,
+   "thue": 675,
+   "dong_tien": 673785,
+   "du_tien_mat_sau": 44069675,
+   "can_cu": "QUY_TAC_5 (ban theo cam quan thi truong cua quy)",
+   "ghi_chu": "Ban them 50/540 CP con lai (tong 350/840 = 41,7% vi the goc, van duoi tran 50% tinh tren moi lan). Ghi vao LENH_QUY_TAC_5 so 3 trong lt_config.py. cam_quan: lo ngai chung ve nganh ngan hang/thi truong, khong rieng ve ban than MSB. GHI SAU KHI DA KHOP, ghi lai trung thuc.",
+   "lai_lo": {
+    "gop": 8350,
+    "phi_mua_phan_bo": 533,
+    "phi_ban_va_thue": 1215,
+    "rong": 6602
+   }
+  },
+  {
+   "ngay": "2026-10-01",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 50,
+   "gia": 14200,
+   "gia_tri": 710000,
+   "phi_dich_vu": 568,
+   "thue": 710,
+   "dong_tien": 708722,
+   "du_tien_mat_sau": 44778397,
+   "can_cu": "QUY_TAC_5 (ban theo cam quan thi truong cua quy)",
+   "ghi_chu": "Ban 50/490 CP (10,2% vi the, duoi tran 50%). LENH_QUY_TAC_5 so 4 trong lt_config.py. cam_quan (loi user, 04/10): 'co cau danh muc an toan truoc bien dong cua thi truong, can lai so co phieu dang nam thanh lo chan'. Lenh khop ngay 01/10 (ngay ky soat), GHI SO NGAY 04/10 - sau khi khop, le sai quy trinh nhu so 1-3. Phien 01/10 MSB: O 14.300 H 14.500 L 14.150 C 14.200 (Vietcap). Phi TTLK 0,3d/CP (15d) chua ghi, nhu cac lenh ban 22/09.",
+   "lai_lo": {
+    "gop": 43350,
+    "phi_mua_phan_bo": 533,
+    "phi_ban_va_thue": 1278,
+    "rong": 41539
+   }
+  },
+  {
+   "ngay": "2026-10-05",
+   "loai": "BAN",
+   "ma": "BSR",
+   "kl": 100,
+   "gia": 30350,
+   "gia_tri": 3035000,
+   "phi_dich_vu": 2428,
+   "thue": 3035,
+   "dong_tien": 3029537,
+   "du_tien_mat_sau": 47807934,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 2 ghi 2026-10-04 18:57, truoc gio dat",
+   "ghi_chu": "Ban TOAN BO 100/100 CP (het vi the). Gia khop do user bao 05/10. Phi TTLK 0,3d/CP (30d) chua ghi, nhu cac lenh ban tu 22/09.",
+   "lai_lo": {
+    "gop": 335000,
+    "phi_mua_phan_bo": 2160,
+    "phi_ban_va_thue": 5463,
+    "rong": 327377
+   }
+  },
+  {
+   "ngay": "2026-10-05",
+   "loai": "BAN",
+   "ma": "DHC",
+   "kl": 200,
+   "gia": 38100,
+   "gia_tri": 7620000,
+   "phi_dich_vu": 6096,
+   "thue": 7620,
+   "dong_tien": 7606284,
+   "du_tien_mat_sau": 55414218,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 3 ghi 2026-10-04 18:57, truoc gio dat",
+   "ghi_chu": "Ban TOAN BO 200/200 CP (het vi the). Gia khop do user bao 05/10. Co tuc tien 190.000d ghi rieng o su_kien_phi_tien_mat. Phi TTLK (60d) chua ghi.",
+   "lai_lo": {
+    "gop": 300000,
+    "phi_mua_phan_bo": 5856,
+    "phi_ban_va_thue": 13716,
+    "rong": 280428
+   }
+  },
+  {
+   "ngay": "2026-10-05",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 300,
+   "gia": 14050,
+   "gia_tri": 4215000,
+   "phi_dich_vu": 3372,
+   "thue": 4215,
+   "dong_tien": 4207413,
+   "du_tien_mat_sau": 59621631,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 1 ghi 2026-10-04 18:57, truoc gio dat",
+   "ghi_chu": "KHOP MOT PHAN: ban 300/440 CP. 140 CP con lai = CP thuong (GDKHQ 28/08) — suy ra CHUA VE TK vi chi ban duoc 300 (dung nhanh 'chua ve' trong phieu so 1); user CHUA xac nhan truc tiep. Ban 140 CP ngay khi ve (lo le). Phi mua phan bo 300/840 x 8.960 = 3.200. Phi TTLK (90d) chua ghi.",
+   "lai_lo": {
+    "gop": 215100,
+    "phi_mua_phan_bo": 3200,
+    "phi_ban_va_thue": 7587,
+    "rong": 204313
+   }
+  },
+  {
+   "ngay": "2026-10-16",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 40,
+   "gia": 14700,
+   "gia_tri": 588000,
+   "phi_dich_vu": 470,
+   "thue": 588,
+   "dong_tien": 586942,
+   "du_tien_mat_sau": 60208573,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 4 (ghi SAU khi khop); bang lenh data/ke_hoach_20261015.txt: VNINDEX 1.698,35 < 1.743,66",
+   "ghi_chu": "Ban 40/140 CP (user bao 16/10). Cung ly do che do GIAM voi lenh 100 CP khop gia 14.750 cung phien. 140 CP thuong GDKHQ 28/08 DA VE TK (ban duoc du 140) — het nhanh 'chua ve' trong ghi chu 05/10. Phi mua phan bo 40/840 x 8.960. Phi TTLK (40 CP) chua ghi.",
+   "lai_lo": {
+    "gop": 54680,
+    "phi_mua_phan_bo": 427,
+    "phi_ban_va_thue": 1058,
+    "rong": 53195
+   }
+  },
+  {
+   "ngay": "2026-10-16",
+   "loai": "BAN",
+   "ma": "MSB",
+   "kl": 100,
+   "gia": 14750,
+   "gia_tri": 1475000,
+   "phi_dich_vu": 1180,
+   "thue": 1475,
+   "dong_tien": 1472345,
+   "du_tien_mat_sau": 61680918,
+   "can_cu": "CHE DO GIAM (muc 14) — PHIEU_LENH so 4 (ghi SAU khi khop); bang lenh data/ke_hoach_20261015.txt: VNINDEX 1.698,35 < 1.743,66",
+   "ghi_chu": "Ban 100/140 CP, het vi the MSB. Khop rieng gia trong cung phien 16/10 (user bao). Phi mua phan bo 100/840 x 8.960. Phi TTLK (100 CP) chua ghi. Ngay khop 16/10 la gia dinh tu ngay hom nay — user chua noi ro ngay.",
+   "lai_lo": {
+    "gop": 141700,
+    "phi_mua_phan_bo": 1067,
+    "phi_ban_va_thue": 2655,
+    "rong": 137978
+   }
+  }
+ ],
+ "su_kien_phi_tien_mat": [
+  {
+   "ngay": "2026-08-28",
+   "ma": "MSB",
+   "viec": "Chia co tuc bang CO PHIEU 100:20, GDKHQ 28/08/2026",
+   "truoc": {
+    "kl": 700,
+    "gia_von": 16000
+   },
+   "sau": {
+    "kl": 840,
+    "gia_von": 13333
+   },
+   "dong_tien": 0,
+   "canh_bao": "140 CP thuong ve TK sau ~4-6 tuan. Tinh den 15/09 CHUA XAC NHAN da ve — neu chua, lenh ban MSB chi khop duoc 700 CP."
+  },
+  {
+   "ngay": "2026-08-25",
+   "viec": "MBS tra lai tien gui thang 08/2026",
+   "dong_tien": 638
+  },
+  {
+   "ngay": "2026-09-03",
+   "viec": "Thu phi luu ky CK thang 08/2026",
+   "dong_tien": -169
+  },
+  {
+   "ngay": "19/08,03/09,07/09,14/09,16/09",
+   "viec": "Phi chuyen khoan ban CK TTLK 0,3d/CP (90+60+15+30+30)",
+   "dong_tien": -225
+  },
+  {
+   "ngay": "2026-10-05",
+   "ma": "DHC",
+   "viec": "Co tuc bang TIEN cho 200 CP DHC (user bao 05/10)",
+   "dong_tien": 190000,
+   "ghi_chu": "190.000 = 950d/CP thuc nhan. Kha nang la 1.000d/CP (200.000) tru 5% thue TNCN khau tru tai nguon — SUY LUAN, chua doi chieu sao ke/ngay GDKHQ. Ngay tien ve TK chua ro; tam ghi 05/10.",
+   "du_tien_mat_sau": 59811631
+  }
+ ],
+ "lenh_khong_khop": [
+  {
+   "ngay": "2026-08-20",
+   "ma": "VPI",
+   "viec": "MUA 100 VPI gia toi da 63.000",
+   "ket_qua": "KHONG KHOP",
+   "ghi_chu": "Ke hoach 19/08 co nhanh bat buoc 'qua 21/08 chua khop -> mua gia thi truong'. Nhanh do DA KHONG duoc thuc hien. Lech so voi ke hoach da chot, khong phai lenh cho. User xac nhan 25/08/2026."
+  }
+ ],
+ "phi_luu_ky": {
+  "muc": "0,3 d/CP/thang",
+  "co_so_tinh": "so du chung khoan cuoi thang",
+  "ky": [
+   {
+    "thang": "08/2026",
+    "so_cp": 1440,
+    "phi": 432.0
+   },
+   {
+    "thang": "09/2026",
+    "so_cp": 1290,
+    "phi": 387.0
+   }
+  ],
+  "cong": 819.0,
+  "ghi_chu": "CHUA tru khoi so du tien mat trong so nay. Bang chung: neu da tru, NAV dung lai se thap hon sao ke 1.090 d thay vi 271 d. Khi cong ty chung khoan thuc su thu, ghi mot dong chi rieng vao day."
+ },
+ "vi_the_dang_giu": [],
+ "tong_ket": {
+  "so_luot_lenh": 25,
+  "so_lenh_mua": 9,
+  "so_lenh_ban": 16,
+  "tong_gia_tri_giao_dich": 135688000,
+  "tong_phi_dich_vu": 108550,
+  "tong_phi_mua": 53532,
+  "tong_phi_ban": 55018,
+  "tong_thue_tncn": 68773,
+  "tong_chi_phi_giao_dich": 177323,
+  "chi_phi_tren_von_goc_pct": 0.2955,
+  "chi_phi_theo_bieu_cu": 199973,
+  "tiet_kiem_so_voi_bieu_cu": 74728,
+  "_ghi_chu_bieu_cu": "chi_phi_theo_bieu_cu/tiet_kiem_so_voi_bieu_cu CHUA cap nhat lenh BSR 16/09 - chi la so lieu doi chieu cho 15 lenh dau (den 15/09), giu nguyen de khong lam nhoe bang chung 74.729d da chot.",
+  "lai_lo_da_thuc_hien_gop": 1858280,
+  "lai_lo_da_thuc_hien_rong": 1680957,
+  "lai_lo_chua_thuc_hien_rong": 26264,
+  "co_phieu": 24716000,
+  "tien_mat": 35924363,
+  "nav_dung_lai": 60640363,
+  "nav_sao_ke_user_bao": null,
+  "con_lech": null,
+  "con_lech_pct": null,
+  "_ghi_chu_nav": "CHOT GIUA KY 18/09/2026: gia dong cua 18/09 dong bo ca 4 ma (TradingView HOSE_DLY, bar ngay 18/09): MSB 12.900 / BSR 30.200 / VHM 71.000 / DHC 36.550. Tien mat 35.924.363 = so du sao ke 18/09. NAV = CP + TM. Kiem tra: NAV-von goc 640.363 = da thuc hien rong 613.858 + chua thuc hien rong 26.264 + 241 (lai tien gui/phi luu ky/TTLK). Chua tru phi ban/thue gia dinh cua 4 vi the con giu. MSB 840 CP tinh ca 140 CP thuong chua ve TK.",
+  "gia_dung_de_danh_gia_lai": "TradingView HOSE_DLY dong cua 18/09/2026: MSB 12.900 / BSR 30.200 / VHM 71.000 / DHC 36.550; VNINDEX 1.815,66",
+  "tien_mat_theo_so_cu": 35924122,
+  "lai_lo_chua_thuc_hien_gop": 46000,
+  "nav_ngay": "2026-09-18",
+  "nav_pct_von_goc": 1.067,
+  "_ghi_chu_dem": "Cac truong dem/tong phi/lai lo da thuc hien CAP NHAT 16/10 tinh lai tu toan bo giao_dich (truoc do dung o 16 lenh 18/09; 05/10: 23 lenh; 16/10: them 2 lenh ban MSB). Cac truong NAV/co_phieu/tien_mat ben duoi van la CHOT GIUA KY 18/09 — chot moi o chot_05_10.",
+  "chot_05_10": {
+   "tien_mat_so": 59811631,
+   "co_phieu": 1967000,
+   "nav": 61778631,
+   "nav_pct_von_goc": 2.964,
+   "co_tuc_tien_da_nhan": 190000,
+   "gia": "MSB 140 CP danh gia o gia khop 14.050 ngay 05/10",
+   "chua_tru": "Phi TTLK ban tu 22/09 (400+50+600 CP x 0,3 = 315d) va phi luu ky 09/2026 (387d du tinh) chua tru — tong ~700d. Can sao ke de chot."
+  },
+  "chot_16_10": {
+   "tien_mat_so": 61870918,
+   "co_phieu": 0,
+   "nav": 61870918,
+   "nav_pct_von_goc": 3.118,
+   "co_tuc_tien_da_nhan": 190000,
+   "gia": "Khong con co phieu — NAV = tien mat. MSB 140 CP ban het 16/10 @14.700 (40) va @14.750 (100).",
+   "chua_tru": "Phi TTLK ban tu 22/09 (1.050 CP x 0,3 ~ 315d, gom 140 CP 16/10 ~ 42d) va phi luu ky 09/2026 (387d du tinh) chua tru; phi luu ky 10/2026 = 0 neu cuoi thang khong con CP. Can sao ke de chot."
+  }
+ },
+ "doi_chieu_sao_ke_18_09": {
+  "nguon": "data/Sao_ke_tien.xlsx + data/Sao_ke_chung_khoan.xlsx (TK T676311, den 18/09/2026)",
+  "tien_mat_sao_ke": 35924363,
+  "tien_mat_so_truoc": 35924122,
+  "lech": 241,
+  "giai_thich": {
+   "lai_tien_gui_25_08": 638,
+   "phi_luu_ky_08_2026_thuc_thu_03_09": -169,
+   "phi_chuyen_khoan_TTLK_khi_ban_0,3d_CP": -225,
+   "lam_tron_phi_tung_lenh": -3,
+   "cong": 241
+  },
+  "ghi_chu": [
+   "Sao ke tien tu khop tung dong (34+38 dong), so du chay dung, cuoi ky 35.924.363.",
+   "271d 'chua truy duoc' ngay 15/09 GIAI XONG: lai 638 - luu ky 169 - TTLK 195 den 15/09 = +274 (con 3d lam tron).",
+   "Phi TTLK 0,3d/CP la khoan THU RIENG khi BAN (khong phai phi luu ky thang), chua co trong bieu phi truoc do.",
+   "Phi luu ky 08/2026 thuc thu 169d (so du bay gio du tinh 432d) - du tinh thang 09 (387d) chua co dong thu, can theo doi.",
+   "Chung khoan sao ke cuoi ky 1.050 CP = MSB 700 + BSR 100 + VHM 50 + DHC 200. MSB 140 CP thuong CHUA VE TK (sao ke van 700). So sach giu 840 vi da co quyen tu GDKHQ 28/08.",
+   "TK T676318 co lenh POW 1 CP mua 17/08 ban 19/08 - tai khoan khac, khong thuoc DM2."
+  ]
+ },
+ "_ghi_chu_vi_the": "16/10/2026: ban het 140 MSB (che do GIAM) -> khong con vi the. Lich su: 05/10 con 140 MSB (CP thuong chua ve TK)."
+}

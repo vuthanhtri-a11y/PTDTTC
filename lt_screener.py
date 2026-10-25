@@ -17,8 +17,8 @@ Cau truc (CHIEN_LUOC_DAI_HAN.md muc 13):
 
 Tu 05/10/2026 — KHUNG GIAI DOAN 2 (muc 14):
   * Tang 1 chi con: thanh khoan, gia > MA200, MA50 > MA200 (RS va ATR da bo).
-  * Duoc mua = giao diem + Buoc 4 + PHIEU DAT con han (ket_qua "DAT") + BIEN AN
-    TOAN: gia <= (1 - BIEN_AN_TOAN_MIN) x than_trong.
+  * Duoc mua = giao diem + Buoc 4 + PHIEU QUA con han (ket_qua "DAT" hoac "CHO";
+    tu 18/10/2026, muc 15.8) + BIEN AN TOAN: gia <= (1 - BIEN_AN_TOAN_MIN) x than_trong.
   * Luat ban: gia < 0,97 x MA200 (ky soat), ngoai ro (quy tac 4), gia >= co_so.
     Che do GIAM va chan cung -25% xu ly o lt_allocator.py.
   * Che do thi truong tinh tu khoi _vnindex cua ban quet (lt_che_do.py), ghi ra
@@ -100,19 +100,24 @@ def hom_nay():
     return os.environ.get("NGAY_CHAY") or datetime.now().strftime("%Y-%m-%d")
 
 
-def trang_thai_phieu(v, ngay):
-    """(True/False, ly do): ma co phieu V1-V5 + ba truc ket luan DAT, con han?
+PHIEU_QUA = ("DAT", "CHO")   # 18/10/2026 (muc 15.8): khong bi phu quyet la qua
 
-    "Chi ma Dat duoc mua" (tr.72 bao cao giai doan 1). Nhan buoc3 = "dat" ma
-    khong co phieu (vd ban dich tu khuyen_nghi 01/09) KHONG du: phieu Cho (MSB)
-    duoc dich thanh buoc3 "dat" + buoc4 "cho". Phieu qua han = chua tham dinh
-    (quyet dinh 9). Chi chan MUA; vi the dang giu khong bi ban vi ly do nay.
+
+def trang_thai_phieu(v, ngay):
+    """(True/False, ly do): ma co phieu V1-V5 + ba truc KHONG phu quyet, con han?
+
+    Tu 18/10/2026 (muc 15.8, sua quyet dinh 9): phieu Dat HOAC Cho deu qua —
+    qua phieu = doanh nghiep co tiem nang dau tu; cua chan mua con lai la dinh
+    gia + bien an toan. Truoc do: "Chi ma Dat duoc mua" (tr.72 bao cao giai
+    doan 1) — sai lech nay phai cong bo (14.6). Nhan buoc3 = "dat" ma khong co
+    phieu (vd ban dich tu khuyen_nghi 01/09) KHONG du. Phieu Phu quyet hoac qua
+    han = khong qua. Chi chan MUA; vi the dang giu khong bi ban vi ly do nay.
     """
     kq, han = v.get("phieu_ket_qua"), v.get("phieu_het_han")
     if not kq:
         return False, "chua co phieu V1-V5 + ba truc"
-    if str(kq).upper() != "DAT":
-        return False, f"phieu ket luan {kq} (chi DAT duoc mua)"
+    if str(kq).upper() not in PHIEU_QUA:
+        return False, f"phieu ket luan {kq} (chi DAT/CHO duoc mua)"
     if not han or han < ngay:
         return False, f"phieu het han {han or '?'}"
     return True, ""
@@ -317,7 +322,7 @@ def cua_ro(r, td, ro):
     r["bi_phu_quyet"] = r["buoc3_tham_dinh"] == "loai"
     r["trong_danh_sach_cho"] = (r["trong_ro_co_ban"] is True
                                 and r["buoc4_dinh_gia"] == "cho")
-    # Giai doan 2 (04/10/2026): phieu Dat con han + bien an toan kep. Gia tri
+    # Giai doan 2 (04/10/2026): phieu qua (Dat/Cho) con han + bien an toan kep. Gia tri
     # dinh gia doi ra DONG/CP de so thang voi gia.
     r["phieu_ok"], r["ly_do_phieu"] = trang_thai_phieu(v, hom_nay())
     r["co_so"] = None if v.get("co_so") is None else v["co_so"] * 1000
@@ -327,7 +332,7 @@ def cua_ro(r, td, ro):
 
 
 def buy_checklist(r):
-    """Tang 1 + giao diem ro co ban + Buoc 4 + phieu Dat + bien an toan kep.
+    """Tang 1 + giao diem ro co ban + Buoc 4 + phieu qua + bien an toan kep.
 
     Che do thi truong (Tru 1) la rang buoc CAP DANH MUC — lt_allocator.py ap.
     """

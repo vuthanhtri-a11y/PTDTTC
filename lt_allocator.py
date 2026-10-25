@@ -503,7 +503,7 @@ def main():
     top = top_picks(cands, limit=5)
     giao = [c for c in cands if c.get("giao_diem")]
     chua_b4 = [c for c in giao if c.get("buoc4_dinh_gia") != "dat"]
-    print("MA DUOC PHEP GIAI NGAN (giao diem + Buoc 4 + phieu Dat + bien an toan), "
+    print("MA DUOC PHEP GIAI NGAN (giao diem + Buoc 4 + phieu Dat/Cho + bien an toan), "
           "theo uu tien ro roi ATR thap\n")
     print(f"{'Ma':<5} {'UT':>4} {'San':<6} {'Bien':>7} {'ATR%':>6} "
           f"{'Ty/ph':>8} {'B4':>5} {'Nganh':<12}")

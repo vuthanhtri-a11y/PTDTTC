@@ -225,8 +225,9 @@ def canh_bao_dau_trang(ctx):
                     "checkout git mốc này có thể không phản ánh lần sửa thật)</span>")
     if not ctx.ro.get("ngay_chot"):
         ui.canh_bao("Rổ cơ bản <b>chưa chốt</b> → không mã nào mua được; quy tắc 4 chưa xét được.")
-    if ctx.ke_hoach and ctx.ke_hoach["lenh"]["cham_tay"]:
-        ui.canh_bao(f"<b>PHẢI CHẤM TAY</b> {len(ctx.ke_hoach['lenh']['cham_tay'])} vị thế — xem tab Danh mục & lệnh.")
+    chua = danh_muc.lenh_chua_thuc_hien(ctx.ke_hoach, ctx.phien.ngay)
+    if chua["cham_tay"]:
+        ui.canh_bao(f"<b>PHẢI CHẤM TAY</b> {len(chua['cham_tay'])} vị thế — xem tab Danh mục & lệnh.")
     het = [ma for ma, v in ctx.tham_dinh.items() if not ma.startswith("_")
            and (v.get("buoc3_chi_tiet") or {}).get("het_han", "9999") < ctx.phien.ngay]
     if het:
