@@ -8,7 +8,7 @@ trong _ro_co_ban.nganh (quyet dinh 8, muc 13) — hien canh nhau, khong tron.
 import numpy as np
 import pandas as pd
 
-from dashboard.thi_truong import gia_tri_giao_dich, ma_tran
+from dashboard.thi_truong import bo_mang_sang, gia_tri_giao_dich, ma_tran
 
 TEN_ICB = {
     "0500": "Dầu khí", "1300": "Hóa chất", "1700": "Tài nguyên cơ bản",
@@ -32,7 +32,7 @@ def bang_nganh(df, qua_loc=frozenset(), tov_min=1.0):
     toan UPCoM khong thanh khoan se keo trung vi ve 0. So ma qua loc cung dem tren
     toan bo (loc cung da doi >= 10 ty).
     """
-    d = df[df["tov_ty"] >= tov_min].copy()
+    d = bo_mang_sang(df[df["tov_ty"] >= tov_min]).copy()
     d["nganh"] = d["icb"].map(ten_nganh)
     gd = d[~d["lech_ngay"]]
     co_ma = d[d["ma200"].notna() & d["ma50"].notna()]

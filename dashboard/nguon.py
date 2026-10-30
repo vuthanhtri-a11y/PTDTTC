@@ -131,9 +131,13 @@ def doc_ban_quet(phien):
     df["san"] = pd.Series(phu.get("_san", {}))
     df["icb"] = pd.Series(phu.get("_icb", {}))
     lech = set(phu.get("_meta", {}).get("bar_cuoi_lech_ngay", []))
-    # Ma khong khop lenh o phien cuoi: chuoi 60 phien cua no ket thuc o ngay khac
-    # VN-Index -> loai khoi moi phep tinh theo chuoi thoi gian va dem tang/giam.
-    df["lech_ngay"] = df.index.isin(lech)
+    # Quet hai tang (tu 31/10/2026): ma it thanh khoan chua toi luot lam moi thi mang nguyen
+    # dong cua ban quet truoc; ngay du lieu cua dong do nam o _mang_sang.
+    ms = phu.get("_mang_sang", {}) or {}
+    df["mang_sang"] = pd.Series(ms).reindex(df.index)
+    # Ma khong khop lenh o phien cuoi (hoac dong mang sang): chuoi 60 phien cua no ket thuc o
+    # ngay khac VN-Index -> loai khoi moi phep tinh theo chuoi thoi gian va dem tang/giam.
+    df["lech_ngay"] = df.index.isin(lech) | df.index.isin(list(ms))
     df["tov_ty"] = df["tov_ty"].astype(float)
     return BanQuet(phien, df.sort_index(), vni, phu)
 

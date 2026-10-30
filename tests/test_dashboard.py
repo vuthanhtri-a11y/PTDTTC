@@ -101,6 +101,17 @@ class CheDoVaPheuTests(unittest.TestCase):
         self.assertEqual(dr["Không khớp"], int(self.bq.df["lech_ngay"].sum()))
         self.assertLessEqual(dr["Tăng"] + dr["Giảm"] + dr["Đứng"], dr["Số mã"] - dr["Không khớp"])
 
+    def test_dong_mang_sang_khong_vao_do_rong(self):
+        """Quet hai tang: dong mang sang tu phien cu bi loai khoi do rong va bang nganh."""
+        df = self.bq.df.copy()
+        cu = list(df.index[:50])
+        df.loc[cu, "mang_sang"] = "2026-09-25"
+        dr = thi_truong.do_rong(df, 0.0).loc["Toàn thị trường"]
+        self.assertEqual(dr["Số mã"], len(df) - 50)
+        b = nganh.bang_nganh(df, frozenset(), 0.0)
+        self.assertEqual(int(b["Số mã"].sum()), len(df) - 50)
+        self.assertTrue(self.bq.df["mang_sang"].isna().all())   # ban quet cu: khong co dong nao
+
 
 class DanhMucTests(unittest.TestCase):
     def setUp(self):

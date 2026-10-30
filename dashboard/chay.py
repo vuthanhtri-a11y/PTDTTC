@@ -65,6 +65,7 @@ def _chay(cmd, env=None, ra=None):
     for x in p.stdout:
         dong.append(x)
         print(x, end="", flush=True)
+        _lam_moi_khoa()
     p.wait()
     txt = "".join(dong)
     if ra is not None:
@@ -193,20 +194,42 @@ def hom_nay():
 
 
 def bu(cac_ngay):
-    loi = 0
-    for ngay in cac_ngay:
-        print(f"\n===== Quet bu phien {ngay} =====", flush=True)
+    """Quet bu: MOT lan tai cho moi phien thieu (lt_scan_vietcap.py --cac-ngay), ghi ra thu muc
+    tam roi moi dat vao data/, sau do screener tung phien theo thu tu thoi gian.
+
+    Truoc 31/10/2026 moi phien mot lan quet --den: 6 phien = 6 lan tai ca thi truong, dung
+    kieu Vietcap chan IP. Mot lan tai den phien cuoi roi cat chuoi cho ra cung so lieu.
+    """
+    loi, lam = 0, []
+    for ngay in sorted(set(cac_ngay)):
         chiem = ten_bi_chiem(ngay)
         if chiem:
             print(f"!! {file_quet(ngay).name} dang chua phien {chiem} (quy uoc ten cu theo ngay chay)"
                   " — khong ghi de, bo qua phien nay.", flush=True)
             loi = loi or 4
             continue
-        scan = file_quet(ngay)
-        rc, _ = _chay([sys.executable, "lt_scan_vietcap.py", "--den", ngay, "--ra", str(scan)])
-        if rc or not scan.exists():
-            loi = rc or 1
+        lam.append(ngay)
+    if not lam:
+        return loi
+    tam = CACHE / "quet_bu"
+    tam.mkdir(parents=True, exist_ok=True)
+    for f in tam.glob("scan_*.json"):
+        f.unlink()
+    print(f"\n===== Quet bu {len(lam)} phien: {', '.join(lam)} =====", flush=True)
+    rc, _ = _chay([sys.executable, "lt_scan_vietcap.py", "--cac-ngay", ",".join(lam),
+                   "--ra-thu-muc", str(tam)])
+    if rc:
+        return rc
+    for ngay in lam:
+        f = tam / file_quet(ngay).name
+        that = (doc_meta(f) or {}).get("ngay_du_lieu") if f.exists() else None
+        if that != ngay:
+            print(f"!! khong co ban quet cho phien {ngay} (ra: {that}) — bo qua.", flush=True)
+            loi = loi or 1
             continue
+        scan = file_quet(ngay)
+        f.replace(scan)
+        print(f"\n----- Screener phien {ngay} -----", flush=True)
         rc, _ = chay_screener(scan, ngay)
         loi = loi or rc
     return loi
@@ -290,6 +313,16 @@ def _git_ra(args):
     r = subprocess.run(["git", *args], cwd=ROOT, capture_output=True, text=True, encoding="utf-8",
                        timeout=30)
     return r.stdout.strip() if r.returncode == 0 else ""
+
+
+def _lam_moi_khoa():
+    """Con in ra la con song: day mtime khoa len de dang_chay() khong coi lan quet dai
+    (Vietcap chan -> co the quet hon 1 gio) la tien trinh chet sau KHOA_HET_HAN."""
+    try:
+        if KHOA.exists():
+            os.utime(KHOA)
+    except OSError:
+        pass
 
 
 def dang_chay():

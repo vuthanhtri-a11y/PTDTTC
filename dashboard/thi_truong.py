@@ -51,9 +51,14 @@ def doan_che_do(vn):
     return [d for d in out if d[2] is not None]
 
 
+def bo_mang_sang(df):
+    """Bo dong mang sang tu ban quet truoc (quet hai tang): so lieu cua chung la cua phien cu."""
+    return df[df["mang_sang"].isna()] if "mang_sang" in df else df
+
+
 def do_rong(df, tov_min=0.0):
-    """Do rong theo san + toan thi truong. Ty le tinh tren ma du 200 phien."""
-    d = df[df["tov_ty"] >= tov_min]
+    """Do rong theo san + toan thi truong. Ty le tinh tren ma du 200 phien, bo dong mang sang."""
+    d = bo_mang_sang(df[df["tov_ty"] >= tov_min])
     rows = []
     for ten, g in [("Toàn thị trường", d)] + [(SAN_TEN[s], d[d["san"] == s])
                                                for s in ("HSX", "HNX", "UPCOM")]:

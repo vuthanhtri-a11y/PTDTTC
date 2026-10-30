@@ -56,8 +56,13 @@ def ve(ctx):
         "5 phiên": d["r5"], "21 phiên": d["r21"], "63 phiên": d["r63"], "252 phiên": d["r252"],
         "So MA50": d["c"] / d["ma50"] - 1, "So MA200": d["c"] / d["ma200"] - 1,
         "ATR": d["atr"], "GTGD TB20 (tỷ)": d["tov_ty"],
+        "Dữ liệu cũ từ": d["mang_sang"].map(lambda x: ui.ngay_vn(x) if isinstance(x, str) else "")
+        if "mang_sang" in d else "",
     }).sort_values("GTGD TB20 (tỷ)", ascending=False)
+    n_cu = int((out["Dữ liệu cũ từ"] != "").sum())
     st.caption(f"**{len(out)}** / {len(df)} mã khớp bộ lọc · dữ liệu phiên {ui.ngay_vn(ctx.phien.ngay)}"
+               + (f" · {n_cu} mã ít thanh khoản mang số liệu phiên cũ (quét hai tầng, cột "
+                  "'Dữ liệu cũ từ')" if n_cu else "")
                + ("" if ten else " · chưa có tên công ty (sẽ tải ở lần quét tới)"))
     cot_pt = ["1 phiên", "5 phiên", "21 phiên", "63 phiên", "252 phiên", "So MA50", "So MA200"]
     sty = ui.them_mau_delta(ui.bang(out, so_cot={"Giá": 0, "GTGD TB20 (tỷ)": 1},
